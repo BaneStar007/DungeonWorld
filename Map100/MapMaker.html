@@ -1,0 +1,816 @@
+<html>
+
+<head>
+   <meta charset="utf-8" />
+   <title> Make 100 map test</title>
+   <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+   <script type="text/javascript" src="./js/setup.js"></script>
+   <script type="text/javascript" src="./js/lib.js"></script>
+   <link href="css/index.css" rel="stylesheet" type="text/css" />
+
+</head>
+<script>
+   /** How Does it all Work?
+    * Create Map, creates a blank array of a given Height and Width
+    * 
+    * DrawMap, takes the given Map (theMap) and builds the HTML structure for it. 
+    * 
+    * When opening, this is pre-run.
+    * 
+    * ProcessData loads the two files and creates an array in mapLocations. There is a chunk of sensitive data that MUST be deleted before being made public. 
+    * 
+    * When the Button is Clicked:
+    * 
+    * makeMap runs: 
+    * 
+    * It should check mapLocations that have existing locations and set them to taken? <<<-------
+    * 
+    * Existing Locations is an Array of locations that need to exist on the map in pre X&Y locations, as a way to force terrains that may not be IN the system yet. They are Transferred to the respective X/Y Array in theMap
+    * 
+    *
+    * 
+    * reMakeMap, then takes mappedLocations, which is a set of data re-writes, so I don't have to adjust the files over and over, and overwrites each backers data with extra data or changed data to ensure its all correct (since the survey was borked)
+    * 
+    * I recheck the Easter Egg counts with an independant counter, and Print to console any accounts which do not match, or have outstanding data, so I can contact the user, and add their new data to mappedLocations.
+    * 
+    * Now that the data has been sanitised, the stat counter should set the number of given terrain types and randomly dole out the minimum, plus some extras, and build a map!
+    * 
+    * Map Locations is origianally the holder, but as a means, a non-existing data can be inserted here. If an X and Y co-ordinate is given, it should match, and be fine, passing the relevant details, IF NOT, it needs to create a placeholder for this location.
+    * 
+    * Once all Placeholders are created
+
+
+*/
+   // empty array for map
+
+
+   // Overwrite missing or Incorrect Data for Specific Places
+
+
+   // Create a blank map based on dimansions
+
+
+
+   /*$$               
+                      | $$               
+ /$$$$$$/$$$$  /$$$$$$| $$   /$$ /$$$$$$ 
+| $$_  $$_  $$|____  $| $$  /$$//$$__  $$
+| $$ \ $$ \ $$ /$$$$$$| $$$$$$/| $$$$$$$$
+| $$ | $$ | $$/$$__  $| $$_  $$| $$_____/
+| $$ | $$ | $|  $$$$$$| $$ \  $|  $$$$$$$
+|__/ |__/ |__/\_______|__/  \__/\_______/
+ /$$      /$$ /$$$$$$ /$$$$$$$           
+| $$$    /$$$/$$__  $| $$__  $$          
+| $$$$  /$$$| $$  \ $| $$  \ $$          
+| $$ $$/$$ $| $$$$$$$| $$$$$$$/          
+| $$  $$$| $| $$__  $| $$____/           
+| $$\  $ | $| $$  | $| $$                
+| $$ \/  | $| $$  | $| $$                
+|__/     |__|__/  |__|__*/
+
+   // Populate the Existing Map with all new items
+   function makeMap() {
+
+      // create an array of unused positions, each spot might have multiple types
+      $('#mapbutton').remove();
+
+      for (i = 0; i < existingLocations.length; i++) {
+
+
+
+
+         theMap[existingLocations[i].x][existingLocations[i].y].terra = existingLocations[i].terra;
+         theMap[existingLocations[i].x][existingLocations[i].y].title = existingLocations[i].title;
+         theMap[existingLocations[i].x][existingLocations[i].y].locID = existingLocations[i].locID;
+         // Easter is outdated
+         theMap[existingLocations[i].x][existingLocations[i].y].easter = existingLocations[i].easter;
+
+         console.log(theMap[existingLocations[i].x][existingLocations[i].y].id, "Taken");
+
+         // take out this location from the terrain Locations
+
+         terraLocs = removeFromArray(terraLocs, existingLocations[i].x, existingLocations[i].y, true);
+
+         /* terraLocs = terraLocs.filter(function (obj) {
+             return obj.x != existingLocations[i].x || obj.y != existingLocations[i].y;
+          });*/
+      }
+
+      checkMapForErrors();
+
+      console.log(mapLocations[0]);
+      //$('#dataCheck').text(JSON.stringify(mapLocations[0]));
+
+      // Redo the map checks
+
+      // Add in factors from larger pledges
+      rewriteMap();
+      // check that the Easter Eggs all work
+      reCheckEasterEggs();
+      // Print to screen anyone who has leftover bits
+      checkOverspend();
+
+      redrawMap(theMap);
+   }
+
+   var mapDirection = 0;
+
+
+   // Loop through remaining locations and check if moutains exist nearby
+   /*
+ /$$   /$$/$$/$$/$$         
+| $$  | $|__| $| $$         
+| $$  | $$/$| $| $$ /$$$$$$$
+| $$$$$$$| $| $| $$/$$_____/
+| $$__  $| $| $| $|  $$$$$$ 
+| $$  | $| $| $| $$\____  $$
+| $$  | $| $| $| $$/$$$$$$$/
+|__/  |__|__|__|__|_______*/
+
+   // Need to change some things, % chance vs 
+
+   function processHills() {
+
+      for (empty = 0; empty < terraLocs.length; empty++) {
+
+         if (processCell(empty, terraLocs, "terra", "mountains", "any", "hills")) {
+            //         console.log("updated", empty);
+         } else {
+
+         }
+
+
+      }
+      checkMapForErrors();
+      console.log("====>>> End of Hill Fill <<==");
+      terraLocs = removeFilled(terraLocs, "terra", "After Hills");
+
+      redrawMap(theMap);
+
+   }
+
+
+
+
+   function makeBiomes() {
+      // Question, should I process the Biomes with a varied system? allow for a shift or change?
+      cycle++;
+
+      biomes = {};
+
+      biomeTitles = ["pole", "arctic",
+         "cold",
+         "cool",
+         "mid",
+         "warm",
+
+
+         "tropic",
+         "biomes",
+         "any"
+      ];
+
+      // make a copy of the stats to the biomes
+      for (id = 0; id < biomeTitles.length; id++) {
+
+         biomes[biomeTitles[id]] = stats[biomeTitles[id]];
+
+      }
+
+      // So the Biomes have an effect on the world more?
+
+      // for testing
+      biomes.pole = 1;
+      biomes.biomes = 186;
+      biomes.cold = 0;
+      biomes.cool = 29;
+      biomes.mid = 52;
+      biomes.warm = 38;
+      biomes.arctic = 8;
+      biomes.any = 43;
+      biomes.tropic = 16;
+
+
+
+
+      for (id = 0; id < biomeTitles.length; id++) {
+
+         //     console.log(biomeTitles[id], biomes[biomeTitles[id]]);
+      }
+
+      // sift through the 'any' set and randomly assign them 
+      length = biomes.any;
+      for (id = 0; id < length; id++) {
+
+         switch (Math.floor(Math.random() * 10)) {
+            case 0:
+               biomes.arctic++;
+               //        console.log("artic");
+               break;
+            case 1:
+            case 2:
+               biomes.cold++;
+               //        console.log("cold");
+               break;
+            case 3:
+            case 4:
+               biomes.cool++;
+               //console.log("cool");
+               break;
+            case 5:
+            case 6:
+            case 7:
+               biomes.mid++;
+               //console.log("mid");
+               break;
+            case 8:
+            case 9:
+               biomes.warm++;
+               //console.log("warm");
+               break;
+            case 10:
+               biomes.tropic++;
+               //console.log("tropic");
+               break;
+            default:
+               biomes.mid++;
+               //console.log("default");
+               break;
+
+         }
+         biomes.any--
+      }
+
+      //delete biomes.any ;
+
+      for (id = 0; id < biomeTitles.length; id++) {
+
+         //console.log(biomeTitles[id], biomes[biomeTitles[id]]);
+      }
+
+      for (id = 0; id < biomeTitles.length; id++) {
+
+         biomes[biomeTitles[id] + "per"] = Math.floor((biomes[biomeTitles[id]] / biomes.biomes) * 10000) / 10000;
+
+         //console.log(biomeTitles[id] + "per", biomes[biomeTitles[id] + "per"]);
+
+         biomes[biomeTitles[id] + "p"] = 0;
+
+         biomes[biomeTitles[id] + "p"] = Math.floor(Math.floor(mapWidth + (mapHeight / 2) - 7) * biomes[biomeTitles[id] +
+            "per"]);
+
+         //console.log(biomeTitles[id], biomes[biomeTitles[id] + "f"]);
+      }
+
+      // console.log("totalLocs", biomeLocs.length);
+
+      for (id = 0; id < biomeTitles.length; id++) {
+
+         console.log(biomeTitles[id], biomes[biomeTitles[id] + "p"]);
+      }
+
+
+
+      // set pole centre
+      biomeLocs[(mapWidth * 6)].biome = "pole";
+      theMap[biomeLocs[(mapWidth * 6)].x][biomeLocs[(mapWidth * 6)].y].biome = "pole";
+      biomeLocs[(mapWidth * 8)].biome = "pole";
+      theMap[biomeLocs[(mapWidth * 8)].x][biomeLocs[(mapWidth * 8)].y].biome = "pole";
+      biomeLocs[(mapWidth * 10)].biome = "pole";
+      theMap[biomeLocs[(mapWidth * 10)].x][biomeLocs[(mapWidth * 10)].y].biome = "pole";
+
+
+      var drawn = false;
+
+
+      var biomLength = biomeTitles.length - 2;
+      //  console.log("biomeLength",biomLength);
+
+
+      //  var loopCounter =0;
+      //  console.log("-=-=-=-=-=> CYCLE:",cycle);
+
+      for (id = 1; id < biomLength; id++) {
+         //    console.log("id", id);
+
+         //    console.log(biomeTitles[id] + " max:", biomes[biomeTitles[id] + "p"])
+
+         // Minimum of 1 to wrap the outer edge
+         for (bloc = 0; bloc < biomeLocs.length; bloc++) {
+            //          console.log("bloc", bloc);
+            //          console.log(biomeLocs[bloc],"biome",  biomeTitles[id-1], biomeTitles[id]);
+            if (biomeLocs[bloc].biome == undefined) {
+
+               processCell(bloc, biomeLocs, "biome", biomeTitles[id - 1], "any", biomeTitles[id])
+            }
+            //    loopCounter++;
+            //    console.log(loopCounter);
+            //       if (loopCounter > cycle) { bloc = biomeLocs.length; biom= 500; id=biomLength; redrawMap(theMap);}
+         }
+
+         // now for each, check if it needs extra loops
+
+         for (biom = 1; biom < biomes[biomeTitles[id] + "p"]; biom++) {
+            //  console.log("biom", biom);
+            //   console.log(biomeTitles[id]+"max:", biomes[biomeTitles[id] + "p"])
+
+
+
+            for (bloc = 0; bloc < biomeLocs.length; bloc++) {
+               //      console.log("bloc", bloc);
+
+               if (biomeLocs[bloc].biome == undefined) {
+
+                  if (processCell(bloc, biomeLocs, "biome", biomeTitles[id], "any", "temp")) {
+                     //           console.log(biomeLocs[bloc],"biome",  biomeTitles[id], "temp");
+
+
+                  }
+               }
+               // kill the cycle
+               //     loopCounter++;
+               //      console.log(loopCounter);
+               //     if (loopCounter > cycle) { bloc = biomeLocs.length; biom= 500; id=biomLength; redrawMap(theMap);}
+
+            }
+
+
+            for (bloc = 0; bloc < biomeLocs.length; bloc++) {
+               //   console.log(biomeLocs[bloc]);
+               //   console.log(theMap[biomeLocs[bloc].x][biomeLocs[bloc].y]);
+               if (theMap[biomeLocs[bloc].x][biomeLocs[bloc].y].biome == "temp") {
+                  //     console.log(theMap[biomeLocs[bloc].x][biomeLocs[bloc].y].biome);
+                  //     console.log(biomeLocs[bloc]);
+                  //     console.log(biomeTitles[id]);
+                  theMap[biomeLocs[bloc].x][biomeLocs[bloc].y].biome = biomeTitles[id];
+                  biomeLocs[bloc].biome = biomeTitles[id];
+               }
+            }
+
+
+         }
+
+
+      }
+
+
+
+
+      mapDirection++;
+
+      // transfer existing data from biomeLoc to theMap
+
+
+      //console.log("drawing", biomeLocs.length, "Locations");
+      for (id = 0; id < biomeLocs.length; id++) {
+
+
+         theMap[biomeLocs[id].x][biomeLocs[id].y].biome = biomeLocs[id].biome;
+         theMap[biomeLocs[id].x][biomeLocs[id].y].temp = biomeLocs[id].temp;
+
+      }
+
+      //   console.log(theMap[2][3]);
+
+      //   console.log("Biomes redraw");
+      redrawMap(theMap);
+
+   }
+
+   function placetheRest() {
+
+      // clean up terra Layer
+      terraLocs = removeFilled(terraLocs, "terra");
+
+      // process Hills
+      for (locID = 0; locID < terraLocs.length; locID++) {
+         processCell(locID, terraLocs, "terra", "hills", "mid", "plains");
+
+      }
+      terraLocs = removeFilled(terraLocs, "terra");
+
+
+
+
+      var arrayOf = ["plains", "borreal", "jungle", "desert", "lake", "taiga", "swamp",
+         "terraType", "terraTypeother", "coastal", "sea"
+      ];
+      var needMore = 0;
+
+
+      for (ofLoop = 0; ofLoop < arrayOf.length; ofLoop++) {
+
+
+
+         // Create the Terrain Types
+         for (i = 0; i < stats[arrayOf[ofLoop]]; i++) {
+
+            //     console.log("Terrain left to Process", terraLocs.length);
+            if (terraLocs.length > 0) {
+               val = Math.floor((Math.random() * terraLocs.length));
+
+               thisX = terraLocs[val].x;
+               thisY = terraLocs[val].y;
+
+               theMap[thisX][thisY].terra = arrayOf[ofLoop];
+               theMap[thisX][thisY].locID = i + existingLocations.length;
+               theMap[thisX][thisY].title = "O";
+
+               terraLocs = terraLocs.filter(function (obj) {
+                  return obj.x != thisX || obj.y != thisY;
+               });
+               //console.log(i);
+               //console.log(terraLocs.length);
+            } else {
+               needMore++;
+            }
+
+         }
+
+      }
+
+      var arrayOf = ["borreal", "jungle", "desert", "lake", "taiga", "swamp"];
+
+      for (ofLoop = 0; ofLoop < arrayOf.length; ofLoop++) {
+
+         console.log("process", arrayOf[ofLoop]);
+         for (locID = 0; locID < terraLocs.length; locID++) {
+            processCell(locID, terraLocs, "terra", arrayOf[ofLoop], "any", "plains");
+
+         }
+         terraLocs = removeFilled(terraLocs, "terra");
+
+      }
+
+
+      for (locID = 0; locID < terraLocs.length; locID++) {
+         processCell(locID, terraLocs, "terra", "plains", "any", "coastal");
+
+      }
+
+
+      terraLocs = removeFilled(terraLocs, "terra");
+
+      for (terr = 0; terr < terraLocs.length; terr++) {
+
+         thisX = terraLocs[terr].x;
+         thisY = terraLocs[terr].y;
+         theMap[thisX][thisY].terra = "sea";
+         theMap[thisX][thisY].locID = terr + existingLocations.length;
+         theMap[thisX][thisY].title = "S";
+
+      }
+
+      terraLocs = null;
+      console.log("needMore", needMore);
+      /*
+                     castle: 0,
+                     dungeon: 0,
+                     natural: 0,
+                     hole: 0,
+                     terrain: 0,
+                     other: 0,
+
+         
+
+                     biomes: 0,
+                     cold: 0,
+                     cool: 0,
+                     mid: 0,
+                     warm: 0,
+                     arctic: 0,
+                     any: 0,
+                     tropic: 0,
+
+                     arab: 0,
+                     asia: 0,
+                     aztec: 0,
+                     euro: 0,
+                     tents: 0,
+                     nomad: 0,
+                     styleother: 0,
+
+                     mvil: 0,
+                     svil: 0,
+                     dungeon: 0,
+                     ruin: 0,
+                     label: 0,
+                     sign: 0,
+                     ruins: 0,
+                     statue: 0,
+                     hole: 0,
+                     temple: 0,
+                     trees: 0,
+                     animals: 0,
+                     surround: 0,
+                     farm: 0,
+                     fields: 0,
+                     tower: 0,
+                     waterfall: 0,
+                     abandoned: 0,
+                     smith: 0,
+                     nada: 0,*/
+
+
+
+      /*/ Transfer the mapLocation data thats relevant to the map engine
+         for (i = 0; i < mapLocations.length; i++) {
+
+            // find a random position
+
+            x = randNum(mapHeight);
+            y = randNum(mapWidth);
+
+            //check if that position exists, 
+            //    console.log("map[" + x + "][" + y + "]");
+
+
+            // once found, put the relevant data from 
+            theMap[x][y].title = mapLocations[i].title;
+            theMap[x][y].loc = mapLocations[i].loc;
+            theMap[x][y].easter = mapLocations[i].easterEggs;
+            //     console.log(mapLocations[i].easter);
+         }
+      */
+
+
+      redrawMap(theMap);
+      // console.log("Final Stats", stats);
+      // console.log("Final Stats mountains", stats.mountains);
+      // console.log("Final Stats hills", stats.hills);
+      // console.log("Final Stats borreal", stats.borreal);
+      // console.log("Final Stats jungle", stats.jungle);
+      // console.log("Final Stats coastal", stats.coastal);
+      // console.log("Final Stats desert", stats.desert);
+      // console.log("Final Stats lake", stats.lake);
+      // console.log("Final Stats plains", stats.plains);
+      // console.log("Final Stats taiga", stats.taiga);
+      // console.log("Final Stats swamp", stats.swamp);
+      // console.log("Final Stats sea", stats.sea);
+      // console.log("Final Stats terraType", stats.terraType);
+      // console.log("Final Stats terraTypeother", stats.terraTypeother);
+   }
+
+   function drawRange(type, distance) {
+      // given the type, draw a start, end and line between
+
+   }
+
+   var stylesOne = false;
+
+   function makeStyles() {
+
+      structureSet = Array("euro",
+         "euro_arab", "euro_asia", "euro_aztec",
+         "euro_tents", "euro_nomad", "euro_ruins",
+         "aztec", "aztec_arab", "aztec_asia", "aztec_tents", "aztec_nomad", "aztec_ruins",
+         "arab", "arab_asia", "arab_tents", "arab_nomad", "arab_ruins",
+         "asia", "asia_tents", "asia_nomad", "asia_ruins",
+         "tents", "tents_nomad", "tents_ruins",
+         "nomad", "nomad_ruins",
+         "ruins");
+      positionSet = Array(527.5, 252.5,
+         45, 270, 135,
+         315, 270, 225,
+         135, 90, 15, 180, 225, // aztec
+         90, 180, //asia
+         45, 180, 0, 180, // arab
+         315, 270,
+         225, 270, 180, 135, // tents to ruins
+         250, 250, // dummy data
+
+         300, 300, 310, 310, 320, 320, 330, 330, 400, 400, 410, 410, 420, 420, 430, 430,
+         600, 600, 610, 610, 620, 620, 33, 44, 55, 66, 77, 88, 99, 101)
+      stylecircles = "";
+
+      stylesOne = !stylesOne;
+      if (stylesOne) {
+         $('#mapbox').html("HEY!");
+         for (let i = 0; i < structureSet.length; i++) {
+
+            stylecircles += '<div id="id' + structureSet[i] + '" class="mapCircles ' + structureSet[i] +
+               '" style="width: 5px; height: 5px;">' + structureSet[i] + ' </div>';
+
+            setTimeout(function () {
+               size = (stats[structureSet[i]] * 50);
+               fontsize = 20;
+               size = Math.ceil(dimReturns(stats[structureSet[i]], 500, 0.01, 1.1));
+               fontsize = Math.ceil(dimReturns(stats[structureSet[i]], 50, 0.05, 1.1));
+
+
+
+
+               $('#id' + structureSet[i]).width(size);
+               $('#id' + structureSet[i]).height(size);
+
+               console.log("go", '#id' + structureSet[i], size);
+
+               leftpos = positionSet[i * 2] - (size / 2);
+               toppos = positionSet[(i * 2) + 1] - (size / 2)
+
+               console.log(leftpos + "= {" + positionSet[i * 2] + "} - (" + (size / 2) + ")", size);
+               console.log(toppos + "= {" + positionSet[(i * 2) + 1] + "} - (" + (size / 2) + ")", size);
+
+
+               $('#id' + structureSet[i]).css('border-radius', '50%');
+               $('#id' + structureSet[i]).css('left', leftpos + 'px');
+               $('#id' + structureSet[i]).css('top', toppos + 'px');
+               $('#id' + structureSet[i]).css('font-size', fontsize + 'px');
+
+
+            }, 300);
+
+
+            setTimeout(function () {
+               d = Math.ceil(Math.random() * 2) - 1
+               r = Math.ceil(Math.random() * 6);
+               rePosition("euro", structureSet[i], positionSet[i + r], d);
+            }, 1000);
+
+
+
+         }
+
+         $('#mapbox').html(stylecircles);
+
+         // Set Mixes
+         setTimeout(function () {
+            rePosition("euro", "euro_arab", 315, 1);
+            rePosition("euro", "euro_asia", 0, 1);
+            rePosition("euro", "euro_aztec", 45, 1);
+            rePosition("euro", "euro_tents", 135, -0.5);
+            rePosition("euro", "euro_nomad", 180, -0.5);
+            rePosition("euro", "euro_ruins", 225, 0.5);
+         }, 2000);
+         setTimeout(function () {
+            rePosition("euro", "euro_arab", 315, 1);
+            rePosition("euro", "euro_asia", 0, 1);
+            rePosition("euro", "euro_aztec", 45, 1);
+            rePosition("euro", "euro_tents", 135, -0.5);
+            rePosition("euro", "euro_nomad", 180, -0.5);
+            rePosition("euro", "euro_ruins", 225, 0.5);
+         }, 4100);
+         setTimeout(function () {
+            rePosition("euro_arab", "arab", 0, 1);
+            rePosition("euro_asia", "asia", 0, 1);
+            rePosition("euro_aztec", "aztec", 0, 1);
+            rePosition("euro_tents", "tents", 180, 1.1);
+            rePosition("euro_nomad", "nomad", 180, 1.25);
+            rePosition("euro_ruins", "ruins", 180, 1.25);
+
+         }, 6200);
+         setTimeout(function () {
+            rePosition("aztec", "aztec_arab", 315, 1);
+            rePosition("aztec", "aztec_asia", 0, 1);
+            rePosition("aztec", "aztec_tents", 45, 1);
+            rePosition("aztec", "aztec_nomad", 315, 1);
+            rePosition("aztec", "aztec_ruins", 0, 1);
+            rePosition("arab", "arab_asia", 45, 1);
+            rePosition("arab", "arab_tents", 315, 1);
+            rePosition("arab", "arab_nomad", 0, 1);
+            rePosition("arab", "arab_ruins", 45, 1);
+            rePosition("asia", "asia_tents", 45, 1);
+            rePosition("asia", "asia_nomad", 315, 1);
+            rePosition("asia", "asia_ruins", 0, 1);
+            rePosition("tents", "tents_nomad", 45, 1);
+            rePosition("tents", "tents_ruins", 0, 1);
+            rePosition("nomad", "nomad_ruins", 45, 1);
+
+         }, 8300);
+
+
+      } else {
+         drawMap(theMap);
+      }
+   }
+
+   function rePosition(fixed, move, angle, inside = 1) {
+
+      console.log(fixed, move);
+
+      if (fixed !== move) {
+         console.log("sizes", $('#id' + fixed).width(), $('#id' + move).width(), angle);
+
+         var fixedradius = $('#id' + fixed).width() / 2;
+         var moveradius = $('#id' + move).width() / 2;
+         var xpos = $('#id' + fixed).position().left + fixedradius;
+         var ypos = $('#id' + fixed).position().top + fixedradius;
+
+
+
+         moveradius *= inside;
+
+         console.log(fixedradius, moveradius, $('#id' + fixed).position());
+
+
+         var radius = fixedradius + moveradius || 10;
+
+         var radians = angle * Math.PI / 180 || 0;
+         x = radius * Math.cos(radians);
+         y = radius * Math.sin(radians);
+
+         console.log("radius", radius, "radians", radians);
+
+         console.log(x, "x +", xpos, y, "y +", ypos);
+
+         $('#id' + move).css('left', (xpos + x - moveradius) + 'px');
+         $('#id' + move).css('top', (ypos + y -
+            moveradius) + 'px');
+
+      }
+   }
+
+   function dimReturns(val, max, rate, percent) {
+
+      reduction = val * (val * rate);
+      high = max - reduction;
+      negate = high / (reduction + percent);
+      total = max - negate;
+
+      if (total < 10) {
+         total = 10;
+      }
+
+      return total;
+   }
+</script>
+
+
+<body>
+   <div id="instructions">
+      <p> Form Builder Data Test</p>
+      <!--<p>Greetings, This is the Make 100 Mapper, Each time you click the Make Map Button, the Engine will take the
+         existing data, render a map, and hide this box, so you can print a clean map.</p>
+      <p>IF you want the grid and map icons on, press the small # button in the top left corner</p>-->
+
+   </div>
+
+   <button id="drawbutton" onclick="drawMap(theMap)">Draw</button>
+
+   <button id="gridbutton" onclick="toggleGrid()">#</button>
+   <button id="mapbutton" onclick="makeMap()">Test Form Builder</button>
+
+   <button id="biobutton" onclick="makeBiomes()">The Biomes</button>
+
+   <button id="stylebutton" onclick="makeStyles()">Check out Styles</button>
+
+   <button id="mbutton" onclick="makeMountains()">Mountains</button>
+   <button id="hbutton" onclick="makeHills()">Hills</button>
+   <button id="h2button" onclick="processHills()">Hills Ranges</button>
+
+   <button id="button" onclick="placetheRest()">The Rest</button>
+   <div id="mapbox">
+      <!--<div class="  grid">
+         <div class="terrain hills"></div>
+      </div>
+      <div class="alternate   grid">
+         <div class="terrain hills"></div>
+      </div>
+      <div class="  grid">
+         <div class="terrain hills"></div>
+      </div>-->
+   </div>
+   <script>
+      createMap();
+
+      $(document).ready(function () {
+         $.ajax({
+            type: "GET",
+            url: "./data/large.csv",
+            dataType: "text",
+            success: function (data1) {
+               console.log("loaded");
+
+               processData(data1, true);
+            },
+            error: function (error) {
+               //      console.log(error);
+            }
+         });
+
+         $.ajax({
+            type: "GET",
+            url: "./data/small.csv",
+            dataType: "text",
+            success: function (data2) {
+               processData(data2, false);
+            },
+            error: function (error) {
+               //        console.log(error);
+            }
+         });
+      });
+
+
+
+
+
+      //drawMap(theMap);
+      //makeBiomes();
+
+      //  console.log(theMap);
+   </script>
+
+   <div id="dataCheck"></div>
+
+</html>

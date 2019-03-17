@@ -1,0 +1,124 @@
+<!--
+    Class Definitons for borders, styles, fonts, etc
+    Title
+    Border between or not
+    Is a view only / takes ajax update / is an input and takes ajax update / just an input / has validators?
+    Border after? (end of Row)
+-->
+
+<div class="formRow {{widthClass}} {{borderClass}}"   ng-class="{'noRightPadding' : config.type=='tick' }" ng-switch on="::config.type">
+    <label  title="{{config.instructions}}" class="fieldlabel {{::titleClass}} col-{{::labelRow}}"
+            for="{{'input_'+input.id}}">
+            {{title}}
+    </label>
+    
+    
+    <span ng-switch-when="tick" 
+        class="field {{::fieldClass}} col-{{::rows}} col-no-pad" 
+        ng-repeat="boxes in input.data" >
+        <!-- If the Row is a Tick Box-->
+               
+        <input class="col-3 col-no-pad checkbox" ng-model="data['config.id']"
+            type="checkbox" ng-disabled="config.disabled" ng-checked="boxes.checked"
+            name="{{'chk_'+boxes.id}}" id="{{'chk'+boxes.id}}" >
+        </input>
+        <label class="col-9 col-no-pad checkboxlabel" for="{{'chk'+boxes.id}}">
+            {{boxes.title}}
+        </label>
+    </span>
+
+    
+    <span ng-switch-when="date" class="col-{{::rows}} col-no-pad">
+        <!-- If the row is a Date Field-->
+        <input  class="col-12 col-no-pad dateMin" ng-model="data['config.id']" type="date" ng-disabled="config.disabled"
+            name="{{idName}}" id="{{idName}}">
+        </input>
+    </span>
+    
+    <span ng-switch-when="input" class="col-{{::rows}} col-no-pad">
+        <!-- If the row is a Non-animated Input field-->
+        <input class="col-12 col-no-pad" ng-model="data['config.id']" type="input" ng-disabled="config.disabled" 
+            name="{{'input_'+input.id}}" id="{{'input_'+input.id}}">
+        </input>
+    </span>
+
+    
+   
+    <span ng-switch-when="text" class="col-{{::rows}} col-no-pad">
+         <!-- If the Row is a Non Editable Input View-->
+            <input class="col-12 col-no-pad" ng-model="data['config.id']" type="input" ng-disabled="config.disabled" 
+                    name="{{'text_'+input.id}}" id="{{'text_'+input.id}}"></input>
+    </span>
+
+    
+    <span   ng-switch-when="inputfieldlookup" 
+            class="col-{{::rows}} col-no-pad field">
+    <!-- If the Row is an Input Field which Triggers a Call back -->
+    <!--Text Field Post Fill, MUST link their IDs to the API calls, How to do this Dynamically?-->
+        <span class="col-{{::rows}} col-no-pad">
+            <div class="col-1">
+                <i class="fa fa-spinner fa-pulse" ng-show="config.loading"></i>
+            </div>
+                            
+            <input  class="col-11 col-no-pad" ng-blur="inputBlur()"
+                    ng-model-options="config.options" ng-model="data[config.id]" 
+                    type="input" ng-disabled="config.disabled" 
+                    name="{{'lookup_'+config.id}}"   id="{{'lookup_'+config.id}}" 
+                    ng-click="localFunction()" ng-change="localFunction()">
+            </input>
+                       
+            <div    class="autocompletewrapper" ng-show="config.inputFocused"
+                    ng-blur="inputBlur()">
+                <div    class="autoCompletePosition" 
+                        ng-show="config.autoCompleteList.length >= 0">
+                    <div    class="autoCompleteRow" 
+                            ng-show="config.autoCompleteList.length == 0">
+                            No Employees Available
+                    </div>
+                    <div    class="autoCompleteRow" ng-click="populate(lines)" 
+                            ng-repeat="lines in config.autoCompleteList">
+                        <span ng-bind-html="lines.employeeName | highlight:config.searchText">
+
+                        </span>
+                    </div>
+                </div>
+            </div>
+                    
+            <div class="hidden" ng-show="false">
+                <input ng-model="hidden['config.id']" val="{{hidden['config.id']}}">
+                </index>
+            </div>
+        </span>
+    </span>
+
+
+    <span   ng-switch-when="inputfieldpostfil" 
+            class="col-{{::rows}} col-no-pad field">
+        <input  class="col-12 col-no-pad" ng-model="data['config.id']" type="input"
+                ng-disabled="config.disabled" name="{{'textfill_'+config.id}}"
+                id="{{'textfill_'+config.id}}">
+            {{data['config.id']}}
+        </input>
+    </span>
+    <span ng-switch-when="textfieldpostfil" class="col-{{::rows}} col-no-pad field">
+        <span class="col-12 col-no-pad" ng-model="data['config.id']"  
+                name="{{'textfill_'+config.id}}" id="{{'textfill_'+config.id}}">
+            {{data}}
+        </span>
+               
+    </span>
+    <span ng-switch-when="comment" class="col-{{::rows}} col-no-pad field">
+        <textarea class="col-12 col-no-pad" ng-model="data"  
+                name="{{'textfill_'+config.id}}" id="{{'textfill_'+config.id}}">
+            {{data}}
+        </textarea>
+    </span>  
+    <span ng-switch-when="commentarea" class="col-{{::rows}} col-no-pad field">
+        <textarea class="col-12 col-no-pad" ng-model="data" 
+                rows="{{inputrows}}" name="{{'textfill_'+config.id}}" 
+                id="{{'textfill_'+config.id}}">{{data}}
+        </textarea>
+    </span>    
+        
+    
+</div>

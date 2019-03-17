@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>
+        Site Visit Forms Wrapper for Testing
+    </title>
+
+    <script type="text/javascript" src="./js/angularJS.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+    <script type="text/javascript" src="./js/sitevisit.wrapper.js"></script>
+    <script type="text/javascript" src="./js/sitevisit.router.js"></script>
+    <link href="./css/index.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body ng-app="siteVisitWrapper" ng-controller="siteVisitWrapper" id="indexFormID">
+    <!-- Header Images -->
+    <header>
+        <h2> Welcome to the Site Visit Forms Testing Grounds..123</h2>
+    </header>
+    <menu class="col-3">
+
+        <ul>
+            <li ng-repeat="link in forms">
+                <button ng-click="changeRoute(link.url, link.popout)">{{link.name}}</button>
+            </li>
+        </ul>
+
+
+    </menu>
+    <section class="col-9">
+        <ng-view></ng-view>
+    </section>
+
+    <!-- Form Body, Page #1 -->
+
+
+
+
+
+
+</body>

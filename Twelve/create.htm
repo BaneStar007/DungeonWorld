@@ -1,0 +1,38 @@
+<h2>Creation of a new WIC form</h2>
+<h3>Inner Workings</h3>
+<p>WIC Forms rely on data being passed, on creation, from the parent window which opened it. </p>
+<ul>
+    <li> The JWT of the session, to have DB access</li>
+    <li> The Client (our client) ID to access the forms</li>
+    <li> The Form ID for which form we are loading</li>
+
+</ul>
+<p>If the Form loads with the Following data, we can save the user some time</p>
+<ul>
+    <li> The Consultants ID, Who is filling in the form, (this is typically included)</li>
+    <li> The Employee ID, When coming from the Employees link, otherwise will need async, autocomplete</li>
+    <li>Other? At this stage unknown</li>
+    <li>Modules? the Angular7 project uses some modules for permissions, we'll need to see how this affects forms</li>
+
+</ul>
+
+<p>Once you are sure The above are being set by the Button, The siteVisitForm.html page will build itself in the browser</p>
+
+<h3>The Form Config</h3>
+<p>In the Forms Folder, save a config file with the name matching the FormID, This way the FormBuilder will load the correct
+    config.json</p>
+<p>open a json Builder, i.e.
+    <a href="https://jsoneditoronline.org/">https://jsoneditoronline.org/</a> to ensure your json is clean </p>
+
+
+<p>Follow the Instructions on how to build a new json, Ensure that you have the correct settings for INPUT fields vs TEXT fields.
+    </p>
+
+<h3>Form Building Overview</h3>
+<p>All forms have Page Headers, </p>
+
+<h3>Page Headers</h3>
+<p>Page Headers include titles, logos and if the header is to repeat on each page or not</p>
+
+<h3>1st Page Section</h3>
+<p>Usually the 1st Page will have the Import Fields</p>

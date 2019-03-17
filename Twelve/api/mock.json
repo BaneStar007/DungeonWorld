@@ -1,0 +1,76 @@
+[
+    {
+        "pageNo": 1,
+        "titleParts": [
+            {
+                "type": "text",
+                "title": "Apprentice / Trainee Field Visit Form",
+                "width": 7
+            },
+            {
+                "type": "logo",
+                "logoURL": "chouse_logo_c.png",
+                "width": 4
+            }
+        ],
+        "sections": [
+            {
+                "title": "Section #1",
+                "rows": [
+                    {
+                        "type": "radio",
+                        "title": "Visit Type",
+                        "width": 4,
+                        "radioTitles": [
+                            {
+                                "name": "Pastoral"
+                            },
+                            {
+                                "name": "Completion"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "radio",
+                        "title": "Visit Type",
+                        "width": 4,
+                        "radioTitles": [
+                            {
+                                "name": "Pastoral"
+                            },
+                            {
+                                "name": "Completion"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "date",
+                        "title": "Date:"
+                    },
+                    {
+                        "type": "textfieldprefil",
+                        "title": "Consultant",
+                        "id": "EdtConsultant",
+                        "width": 12
+                    }
+                ]
+            },
+            {
+                "title": "Section #2",
+                "rows": [
+                    {
+                        "type": "textfieldprefil",
+                        "title": "Consultant",
+                        "id": "EdtConsultant",
+                        "width": 12
+                    },
+                    {
+                        "type": "textfield",
+                        "title": "Title of Row #4",
+                        "width": 12
+                    }
+                ]
+            }
+        ]
+    }
+]

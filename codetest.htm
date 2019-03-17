@@ -1,0 +1,213 @@
+<html>
+
+<head>
+   <meta charset="utf-8" />
+   <title> Code Test</title>
+   <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+   <style>
+      .ball {
+         border-radius: 50%;
+         border: 1px solid black;
+         background: grey;
+         position: absolute;
+         width: 25px;
+         height: 25px;
+      }
+
+      #testBox {
+         background: lightgrey;
+         border: 1px solid black;
+         width: 500px;
+         height: 500px;
+         position: relative;
+      }
+   </style>
+
+   <script>
+      var ballTotal = 5;
+      var ballz = [];
+      var maxTimer = 10000;
+
+
+
+      function createBallz() {
+
+         for (i = 0; i < ballTotal; i++) {
+
+            ball = {
+               "id": "ball" + i,
+               "color": {
+                  "red": (Math.round(Math.random() * 254) + 1),
+                  "green": (Math.round(Math.random() * 254) + 1),
+                  "blue": (Math.round(Math.random() * 254) + 1),
+                  "alpha": (Math.round(Math.random() * 0.5) + 0.5)
+               },
+               "speed": {
+                  "posX": (Math.random() * 3) + 1,
+                  "posY": (Math.random() * 3) + 1
+               },
+               "height": 25,
+               "width": 25,
+               "health": 100,
+               "info": "none",
+               "pos": {
+                  "posX": (10 * i),
+                  "posY": (10 * i)
+               }
+            }
+
+
+            console.log("createBall");
+            $('#testBox').append('<div class="ball" id="' + ball.id + '"></div>');
+            $('#' + ball.id).css('top', ball.pos.posX + 'px');
+            $('#' + ball.id).css('left', ball.pos.posY + 'px');
+
+            $('#' + ball.id).css('background', 'rgba(' + ball.color.red +
+               ',' + ball.color.green + ',' + ball.color.blue + ',' + ball.color.alpha + ')');
+
+            //$('#' + ball.id).css('background', 'rgba( 100, 200, 150, 1)');
+            ballz.push(ball);
+
+         }
+      }
+
+      function annimate() {
+
+         // console.log($('#textBox').innerHeight());
+
+         for (i = 0; i < ballTotal; i++) {
+
+            // Grab the id for ease of use
+            thus = "#" + ballz[i].id;
+            // Grab the current position
+            p = $(thus).position();
+
+            // Run a change on the position of the ball
+
+            if (ballz[i].speed.posX > -0.9) {
+               // if moving down, gain speed
+               if (ballz[i].speed.posX < 2.6) {
+
+                  ballz[i].speed.posX += 0.12;
+               }
+               ballz[i].speed.posX *= 1.01;
+               ballz[i].pos.posX = p.top + ballz[i].speed.posX;
+
+
+            } else {
+               // if moving up, lose speed 
+               ballz[i].speed.posX *= 0.98;
+               ballz[i].pos.posX = p.top + ballz[i].speed.posX;
+            }
+
+            newLeft = p.left + ballz[i].speed.posY;
+            // if the ball is moving down
+
+            // adjust the stats of the ball so we can compare 
+
+            ballz[i].pos.posY = newLeft;
+
+
+
+            // if the balls speed is higher, stretch the ball 
+            switch (Math.abs(ballz[i].speed.posX)) {
+               case 5:
+                  ballz[i].width = 22;
+                  ballz[i].height = 28;
+                  break;
+               case 4:
+                  ballz[i].width = 23;
+                  ballz[i].height = 27;
+                  break;
+               case 3:
+                  ballz[i].width = 24;
+                  ballz[i].height = 26;
+                  break;
+               case 2:
+                  ballz[i].width = 25;
+                  ballz[i].height = 25;
+                  break;
+               default:
+                  ballz[i].width = 25;
+                  ballz[i].height = 25;
+                  break;
+            }
+
+            if ((ballz[i].pos.posX + ballz[i].height) >= 500) {
+
+               ballz[i].speed.posX = -ballz[i].speed.posX;
+            }
+            if (ballz[i].pos.posX <= 0 || Math.abs(ballz[i].speed.posX) < 0.01) {
+               ballz[i].speed.posX = -ballz[i].speed.posX;
+            }
+
+            if (Math.abs(ballz[i].speed.posX) < 0.01 && ballz[i].pos.posX > 473) {
+               ballz[i].speed.posX = 0;
+               ballz[i].speed.posY = 0;
+               ballz[i].pos.posX = 475;
+               console.log(ballz[i].id);
+               //console.log(p);
+            }
+
+            if ((newLeft + ballz[i].width) >= 500) {
+
+               ballz[i].speed.posY = -ballz[i].speed.posY;
+               ballz[i].speed.posX -= 0.02;
+            }
+            if (newLeft <= 0) {
+               ballz[i].speed.posY = -ballz[i].speed.posY;
+               ballz[i].speed.posX -= 0.02;
+            }
+
+
+
+            $(thus).css('top', ballz[i].pos.posX + 'px');
+            $(thus).css('left', newLeft + 'px');
+            $(thus).css('width', ballz[i].width + 'px');
+            $(thus).css('height', ballz[i].height + 'px');
+
+
+         }
+
+
+
+      }
+
+      function test() {
+
+
+         timeout(maxTimer);
+      }
+
+      function timeout(j) {
+         for (let i = 1; i < j; i++) {
+            setTimeout(() => {
+               annimate()
+
+            }, i * 7);
+         }
+      }
+   </script>
+</head>
+
+<body>
+   <div id="instructions">
+      <p> Test</p>
+
+
+   </div>
+   <button id="testbutton" onclick="test()">faster</button>
+
+   <div id="testBox">
+
+   </div>
+
+   <script>
+      createBallz();
+
+      console.log($('#textBox').html());
+   </script>
+
+
+</html>

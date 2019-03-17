@@ -1,0 +1,100 @@
+<html>
+
+<head>
+   <meta charset="utf-8" />
+   <title> Code Test</title>
+   <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+   <style>
+
+   </style>
+
+
+</head>
+
+<body>
+   <div id="instructions">
+      <p> Test</p>
+
+
+   </div>
+   <button id="testbutton" onclick="test()">faster</button>
+
+   <div id="testBox">
+
+   </div>
+
+   <script>
+      var myList = [{
+            "id": 0,
+            "x": 0,
+            "y": 0
+         },
+         {
+            "id": 1,
+            "x": 1,
+            "y": 1
+         },
+         {
+            "id": 2,
+            "x": 1,
+            "y": 2
+         },
+         {
+            "id": 3,
+            "x": 2,
+            "y": 1
+         },
+         {
+            "id": 4,
+            "x": 2,
+            "y": 2
+         },
+         {
+            "id": 5,
+            "x": 1,
+            "y": 3
+         },
+         {
+            "id": 6,
+            "x": 2,
+            "y": 3
+         },
+         {
+            "id": 7,
+            "x": 3,
+            "y": 3
+         }
+      ];
+
+      function test() {
+         var doma = "<div style='border: 1px solid black; width: 200px;'>";
+
+         val = Math.floor((Math.random() * myList.length - 0.01));
+         myX = myList[val].x;
+         myY = myList[val].y;
+         myId = myList[val].id;
+
+         myList = myList.filter(function (obj) {
+            return obj.x != myX || obj.y != myY;
+         });
+
+         for (i = 0; i < myList.length; i++) {
+
+            doma += "<div>" + myList[i].id + "</div>";
+
+            //    console.log(i);
+
+         }
+         doma += "</div>";
+         // console.log(doma);
+
+         $('#testBox').append(doma);
+
+
+         // console.log($('#testBox').html());
+      }
+   </script>
+
+
+</html>

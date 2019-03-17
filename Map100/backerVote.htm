@@ -1,0 +1,246 @@
+<html>
+
+<head>
+   <meta charset="utf-8" />
+   <title> Make 100 map test</title>
+   <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+
+</head>
+<style>
+   .table {
+      border-left: grey 1px solid;
+      border-bottom: grey 1px solid;
+      width: 95%;
+      height: 95%;
+   }
+
+   .rect {
+      position: absolute;
+      width: 10px;
+      height: 110px;
+   }
+
+   .rect1 {
+      background: purple;
+   }
+
+   .rect2 {
+      top: 100px;
+      background: blue;
+   }
+
+   .rect3 {
+      top: 200px;
+      background: turquoise;
+   }
+
+   .rect4 {
+      top: 300px;
+      background: green;
+   }
+
+   .rect5 {
+      top: 400px;
+      background: lightgreen;
+   }
+
+   .rect6 {
+      top: 500px;
+      background: yellow;
+   }
+
+   .rect7 {
+      top: 600px;
+      background: orange;
+   }
+
+   .rect8 {
+      top: 700px;
+      background: brown;
+   }
+</style>
+
+<body>
+   <div class="outer">
+      <div class="title">
+         This Info <div id="time">time</div>
+      </div>
+      <div class="table">
+         <div id="rect0" class="rect rect0"></div>
+         <div id="rect1" class="rect rect1">1. Archipeligo - many small islands</div>
+         <div id="rect2" class="rect rect2">2. Major Continents</div>
+         <div id="rect3" class="rect rect3">3. One Continental Island </div>
+         <div id="rect4" class="rect rect4">4. Continents & Islands</div>
+         <div id="rect5" class="rect rect5">5. Corner of Continent </div>
+         <div id="rect6" class="rect rect6">6. Between Two Land Masses</div>
+         <div id="rect7" class="rect rect7">7. Valleys on the sides of Mountains</div>
+         <div id="rect8" class="rect rect8">8. Inland Sea</div>
+      </div>
+   </div>
+   </div>
+</body>
+
+
+<script>
+   let stats = [0, 0];
+   var data = {};
+   var time = [];
+
+   let pos = 0;
+   let rect = [];
+
+   let width = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+   let curWidth = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+   const refreshRate = 1000 / 600;
+
+   let stop = 250;
+   addStope = stats.length;
+
+   $(document).ready(function () {
+      $.ajax({
+         type: "GET",
+         url: "./data/survey.csv",
+         dataType: "text",
+         success: function (data1) {
+            //    console.log("loaded");
+
+            data = processData(data1, true);
+            startAnimFrameAnimation();
+         },
+         error: function (error) {
+            //      console.log(error);
+         }
+      });
+
+
+   });
+
+   //let stats = [2, 3, 1, 3, 3, 5, 4, 1, 4, 7, 3, 3, 7, 3, 4, 3, 1, 2, 4, 8, 5, 7, 3, 1, 4, 5, 8, 1, 2, 5, 2, 5, 3, 6, 1, 8, 3, 3, 4, 5, 8, 7,  1, 4, 2, 8 ];
+
+
+
+   function deleteFromObject(keyPart, obj) {
+      for (var k in obj) { // Loop through the object
+         if (~k.indexOf(keyPart)) { // If the current key contains the string we're looking for
+            delete obj[k]; // Delete obj[key];
+         }
+      }
+   }
+
+   function processData(dataSet, discard) {
+
+      debug = false;
+
+      if (debug) {
+         console.log("=============process=");
+      }
+      data = JSON.parse(dataSet);
+      var temp = null;
+
+
+
+      for (i = 0; i < data.length; i++) {
+         // some variables for use later:
+         data[i].map = {};
+
+         if (debug) {
+            console.log("each--------------------->>");
+         }
+
+         // not needed for this process
+         deleteFromObject("Email address", data[i]);
+         deleteFromObject("Any Thoughts to add?", data[i]);
+
+         //      console.log(data[i]["What Map Type should we create"].charAt(0));
+         stats.push(parseInt(data[i]["What Map Type should we create"].charAt(0)));
+
+         deleteFromObject("What Map Type should we create", data[i]);
+         time.push(data[i]["Timestamp"]);
+
+         //    console.log(data[i]);
+      }
+
+      // console.log(stats);
+      addStope = stats.length;
+      return data;
+   }
+
+
+   //   console.log(stats);
+   //   console.log(data);
+
+
+   //   console.log("length", addStope);
+
+   rect[0] = document.getElementById('rect0');
+   rect[1] = document.getElementById('rect1');
+   rect[2] = document.getElementById('rect2');
+   rect[3] = document.getElementById('rect3');
+   rect[4] = document.getElementById('rect4');
+   rect[5] = document.getElementById('rect5');
+   rect[6] = document.getElementById('rect6');
+   rect[7] = document.getElementById('rect7');
+   rect[8] = document.getElementById('rect8');
+
+   let max = 5;
+   let each = 5;
+
+   function startAnimFrameAnimation() {
+
+      function step() {
+
+         if (pos < addStope) {
+            width[stats[pos]] += 1;
+            pos += 1;
+         }
+
+         // console.log(width, stats, pos);
+         for (row = 0; row < width.length; row++) {
+
+            //         console.log(curWidth, " > ", max);
+            if (width[row] > max) {
+               // if this max is bigger, set max
+               //           console.log(width[row]);
+               max = parseInt(width[row]);
+               //          console.log(max);
+               each = Math.ceil(1200 / max);
+               //          console.log(each);
+               // if (each > 100) {
+               //    each = 100;
+               // }
+            }
+
+
+            //       console.log(stop, "row", width[row], max, each);
+
+
+            if (curWidth[row] < (width[row] * each)) {
+               distance = (width[row] * each) - curWidth[row];
+               curWidth[row] += Math.ceil(distance / 25);
+            }
+
+            if (curWidth[row] > (width[row] * each)) {
+               distance = (width[row] * each) - curWidth[row];
+               //            console.log(distance);
+               curWidth[row] += Math.ceil(distance / 25);
+            }
+
+            //        console.log(time[row]);
+            $('#time').text(time[row]);
+            rect[row].style.width = curWidth[row] + "px";
+            rect[row].style.fontSize = Math.floor(curWidth[row] / 12) + "px";
+         }
+         if (stop > 0) {
+            window.requestAnimationFrame(step);
+            stop--;
+         }
+      }
+      if (stop > 0) {
+         window.requestAnimationFrame(step);
+         stop--;
+      }
+   }
+</script>
+
+</html>

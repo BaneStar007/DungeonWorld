@@ -1,0 +1,353 @@
+body, html {
+    margin: 0px;
+    padding: 0px;
+
+}
+
+html { height: 100%; 
+    font-family: Calibri;
+font-size: 12px;}
+
+body {height: 100%; }
+#content {min-height: 100%; }
+
+.logo {
+    text-align: right;
+    float:right;
+    clear:right;
+}
+
+.row {margin: -10px;}
+
+.col-1 {width: 8.3%; }
+.col-2 {width: 16.7%;}
+.col-3 {width: 25%; max-width: 25%;}
+.col-4 {width: 33.3%;}
+.col-5 {width: 41.7%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.3%;}
+.col-8 {width: 66.7%;}
+.col-9 {width: 75%; max-width: 75%;}
+.col-10 {width: 83.3%;}
+.col-11 {width: 91.7%;}
+.col-12 {width: 100%;}
+
+[class*="col-"] {
+    float: left;
+    padding: 2px 10px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.col-no-pad {
+    padding: 0px !important;
+   
+}
+.col-no-v-pad {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+.col-no-h-pad {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+label.fieldlabel { 
+    padding: 0px;
+    padding-right: 8px;
+}
+
+h1 { line-height: 100%;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+
+
+.pageStructure {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #fcfcfe;
+    border: 2px solid #fafafd;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+header {
+    margin-left: 10px;
+}
+menu{
+    padding-left: 10px;
+    background-color: #f1f6f6;
+    height: 100%;
+}
+
+menu ul{
+    list-style-type: none;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 10px;
+    height: 100%;
+}
+menu li{
+    padding: 5px;
+    margin: 2px;
+    text-decoration: none;
+}
+menu button {
+    width: 100%;
+}
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+.code {
+    float: left;
+    width: 100%;
+    background-color: #eeeeee;
+    font-weight: 600;
+    line-height: 15px;
+}
+
+.code div {
+    padding-left: 10px;
+}
+.code part {
+    color: blue;
+}
+.code comment {
+    color: green;
+}
+.code logic {
+    color: purple;
+}
+.code attr {
+    color: rgb(71, 166, 197);
+}
+
+section {
+    width: 50%;
+    margin-left: 2px;
+    margin-right: 2px;
+    overflow: hidden;
+}
+
+section.seperate {
+    margin-top: 5px;
+
+}
+
+section.connected {
+    margin-top: 0px;
+}
+
+section .body {
+    border-bottom: 1px solid blue;
+    border-right: 1px solid blue;
+    border-top: 0px;
+    border-left: 2px solid blue;
+    overflow: hidden;
+}
+
+
+
+/*******************
+Titles and Labels
+********************/
+section .innerTitle {
+    border-bottom: 0px;
+    border-right: 2px solid blue;
+    border-top: 2px solid blue;
+    border-left: 2px solid blue;
+    overflow: hidden;
+}
+
+section.connected .innerTitle {
+    border-top: 0px;
+}
+
+
+section .outerTitle {
+    border-bottom: 2px solid blue;
+    overflow: hidden;
+}
+
+.fieldlabel {
+    font-weight: 600;
+    line-height: 25px;
+}
+input[type="date"], .field {
+    line-height: 25px;
+    height: 25px;
+    background-color: white;
+}
+.doubleRow {
+    line-height: 12px;
+    height: 25px;
+}
+label.large {
+    font-size: 20px;
+    line-height: 22px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+label.centre {
+    text-align: center;
+}
+
+
+/*******************
+ROWS
+********************/
+
+.dateMin {
+    min-width: 100px; 
+}
+
+.comment {
+    height: 50px;
+}
+.commentArea {
+    height: 100px;
+}
+/*******************
+BORDERS
+********************/
+.borderbottom {
+    border-bottom: 1px solid black;
+}
+.borderright {
+    border-right: 1px solid black;
+}
+
+
+
+
+.noRightPadding {
+    padding-right: 0px;
+}
+.field .checkbox {
+    margin: 5px 0px;
+}
+
+.autocompletewrapper {
+    position: relative;
+    left: 0px;
+    top: 21px;
+    width: 90%;
+    
+}
+
+.autoCompletePosition {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 90%;
+    min-height: 25px;
+    background-color: #eee;
+    border: grey 1px solid;
+}
+.autoCompleteRow:hover {
+    background-color: grey;
+    height: 25px;
+}
+.autoCompleteRow {
+    font-size: 14px;
+    line-height: 24px;
+    height: 24px;
+    padding-left: 5px;
+}
+
+/********************
+Form Grid
+*********************/
+table, th, td {
+    border: none;
+}
+table {
+    border-collapse: collapse;
+}
+.horizontal {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    outline-offset: 1px;
+}
+table.outerborder {
+    border: 1px solid black;
+}
+table.rowborder tr, table.rowborder th,  {
+    border: 1px solid black;
+}
+table.cellborder tr td, table.cellborder th {
+    border: 1px solid black;
+}
+
+.borderbottom {
+    border-bottom: 1px solid black;
+}
+.borderright {
+    border-right: 1px solid black;
+}
+.rowgridtitle {
+    -webkit-margin-before: 0.25em;
+    -webkit-margin-after: 0.15em;
+}
+
+form-grid section h2 {
+    text-align: center;
+}
+.gridlabel {
+    font-weight: 600;
+    
+}
+.grid25 {
+    
+    line-height: 25px;
+}
+.grid50 {
+    
+    line-height: 50px;
+}
+th.column-1, td.column-1 {
+    width: 25%;
+}
+th.column-2, td.column-2 {
+    width: 50%;
+}
+th.column-3, td.column-3 {
+    width: 75%;
+}
+th.column-4, td.column-4 {
+    width: 100%;
+}
+
+.formGrid {
+    width: 100%;
+}
+.smallInput {
+    width: 50%;
+}
+
+
+.degubButton {
+    background-color: orange;
+    border: red 1px solid;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+.highlighted {
+    color: #2200ff;
+    font-weight: 600;
+}

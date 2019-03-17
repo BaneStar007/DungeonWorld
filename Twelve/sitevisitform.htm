@@ -1,0 +1,414 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>
+        Dungeon Delvers Twelve Characters
+    </title>
+
+    <script type="text/javascript" src="js/angularJS.min.js"></script>
+    <script type="text/javascript" src="js/sitevisit.controller.js"></script>
+    
+    <script type="text/javascript" src="js/services/ajax.request.api.js"></script>
+    <script type="text/javascript" src="js/services/chipOnlineApi.request.js"></script>
+
+    <script type="text/javascript" src="js/directives/formrow.directive.js"></script>
+    <script type="text/javascript" src="js/directives/forminput.directive.js"></script>
+    <script type="text/javascript" src="js/directives/formgrid.directive.js"></script>
+
+    <link href="css/index.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <base href="sitevisitform">
+</head>
+
+<body ng-app="siteVisitForm" ng-controller="siteVisitForm" id="indexFormID">
+    <div class="pageStructure">
+    <form action="insert.php" method="POST" id="sitevisitinsert" name="sitevisitinsert" enctype="application/x-www-form-urlencoded">
+
+        <!-- Header Images -->
+
+        <!-- Form Body, Page #1 -->
+
+        <div ng-repeat="page in pageData track by $index">
+            <div class="row" ng-show="page.showPage">
+                <div ng-repeat="part in page.titleParts">
+                    <div ng-if="part.type=='text'" class="col-{{part.width}}">
+                        <h1>{{part.title}}</h1>
+                    </div>
+                    <div ng-if="part.type=='logo'" class="col-{{part.width}}">
+                        <img class="logo" ng-src="./img/logo/{{part.logoURL}}">
+                    </div>
+                </div>
+            </div>
+
+
+            <section ng-repeat="section in page.sections track by $index" 
+                    class="{{section.connection}} ">
+                    
+                <div class="{{section.border}}">
+                {{section.title}}
+                </div>
+                <div class="body">
+                <div ng-repeat="row in section.rows track by $index" class="formRows">
+                    <form-row ng-if="row.directive == 'row'" title="{{row.title}}" 
+                    data="row.data" config="row"
+                    call-function="dynamicFunction(row.function, row)"
+                    populate-function="dynamicFunction(row.popfunc,row)" >
+                    </form-row>
+                  
+                    <form-grid ng-if="row.directive == 'grid'" title="{{row.title}}" 
+                    data="row.data" config="row" 
+                    call-function="dynamicFunction(row.function, row)"
+                    populate-function="dynamicFunction(row.popfunc,row)"  >
+                    </form-grid>
+
+                    
+                </form-input>
+
+
+                </div>
+            </div>
+            </section><br />
+{{pageData | json}}<br /><br /><br /><br /><br />
+{{sitevisitinsert | json}}
+
+            <div class="div_pagebreak"></div>
+        </div>
+        <!-- Form Body, Page #1 -->
+
+        <div class="div_pagebreak"></div>
+        <!-- Form Body, Page #1 -->
+
+        <div class="div_pagebreak"></div>
+        <!-- Form Body, Page #1 -->
+
+
+    </form>
+</div>
+</body>
+
+
+<!-- ALL DATA RETURNS :  
+"fullData": {
+              "empAwardCategoryId": 0,
+              "empJobTypeId": 0,
+              "ecgCategoryKey": null,
+              "empMinorityGroups": null,
+              "empMonday": null,
+              "empTuesday": null,
+              "empWednesday": null,
+              "empThursday": null,
+              "empFriday": null,
+              "empSaturday": null,
+              "empSunday": null,
+              "empWeekdays": null,
+              "entNotes": null,
+              "empConsultantKeyValue": "Stevie Ray",
+              "empAwardKeyValue": "year 1",
+              "empNAcValue": null,
+              "empRToValue": null,
+              "empBankKeyValue": "ANZ",
+              "empPrimarySuperKeyValue": "BT SUPER",
+              "empInstrumentKeyValue": null,
+              "empClientKeyValue": "Client 1 [2]",
+              "empClassificationValue": "Plumbing",
+              "empSubClassificationValue": "Trainee",
+              "empHeardFromValue": null,
+              "empRecruitedByValue": null,
+              "empTrainingDAyValue": null,
+              "empWorkingDAyValue": null,
+              "empUnionKeyValue": null,
+              "empTraineeShipStateKeyValue": null,
+              "empTraineeShipAreaKeyValue": null,
+              "empTraineeShipOfficeKeyValue": null,
+              "empTraineeShipDisAbilityKeyValue": null,
+              "empTraineeShipFundingKeyValue": null,
+              "empTraineeShipChargeOutKeyValue": null,
+              "empTraineeShipStatusKeyValue": null,
+              "empJPOclassificationKeyValue": null,
+              "empJPOAgencyLocationValue": null,
+              "empUserStatusKeyValue": null,
+              "empUserStatusKeyColorValue": null,
+              "empAbn": null,
+              "empAccessPv": "F",
+              "empActive": "T",
+              "empAddressLine1": "1 Test Street",
+              "empAddressLine2": null,
+              "empAdult": "F",
+              "empALNextZeroDate": null,
+              "empAnnualLeaveNet": null,
+              "empApplicant": "T",
+              "empAPPReNTICEship": "F",
+              "empAvailable": "F",
+              "empAwardKey": 26,
+              "empAwardDate": "2018-06-13T00:00:00",
+              "empBankKey": 1,
+              "empBankAccountName": "Gav",
+              "empBankAccountNumber": "123456",
+              "empBankBsb": "123456",
+              "empBirthPLace": null,
+              "empBusinessName": null,
+              "empCar": "F",
+              "empCaseManaged": "F",
+              "empCasual": "F",
+              "empCDep": null,
+              "empCEsCaseManager": null,
+              "empCEsCMOrganisation": null,
+              "empCEsCMPhone": null,
+              "empCEsJobsEEKErId": null,
+              "empCEsOffice": null,
+              "empCEsOtherAgencies": null,
+              "empCEsRegistered": "F",
+              "empCITBNumber": null,
+              "empClassification": 13,
+              "empClientKey": 2,
+              "empClientLeaveAccrual": "F",
+              "empClientRate": null,
+              "empConsultantKey": 1,
+              "empContactNotes": null,
+              "empContract": "F",
+              "empConvicted": "F",
+              "empCreatedby": "Code House",
+              "empCreationDate": "2018-05-25T00:00:00",
+              "empDeclarationDate": null,
+              "empDisabilities": "F",
+              "empDisAbilityDetails": null,
+              "empDisAbled": "F",
+              "empDisAdvantaged": "F",
+              "empDob": "1990-01-01T00:00:00",
+              "empDonotSendSms": "F",
+              "empDriveRSLicenceType": null,
+              "empDrivingCheck": "F",
+              "empDrugCheck": "F",
+              "empEmail": "gavin@codehouse.com.au",
+              "empEmailPayAdvice": "F",
+              "empEmergencyContact": null,
+              "empEmergencyPhone": null,
+              "empEmployerNotes": null,
+              "empEndDate": null,
+              "empExpectedEndDate": null,
+              "empExtendedEndDate": null,
+              "empFax": null,
+              "empFTARebate": null,
+              "empFullTime": "F",
+              "empGender": null,
+              "empGivenNames": "Gavin",
+              "empGrade": 0,
+              "empHearDFrom": null,
+              "empHECs": "F",
+              "empHEight": null,
+              "empHolidayMaker": null,
+              "empHoursPErWeek": 1,
+              "empId": 9,
+              "empInDENTUReNumber": null,
+              "empInDUCTed": "F",
+              "empInSTRUMEntKey": null,
+              "empIntErViewed": "F",
+              "empJobKey": null,
+              "empJPOAgencyLocation": null,
+              "empJPOclassificationKey": null,
+              "empLabourHire": "F",
+              "empLanguage": null,
+              "empLastChanged": "2018-06-16T03:28:50.727",
+              "empLeaveLoading": null,
+              "empLevel": null,
+              "empLicenceNumber": null,
+              "empLongUNEmployed": "F",
+              "empLSLNumber": null,
+              "empLumpSuma": null,
+              "empLumpSumaType": null,
+              "empLumpSumb": null,
+              "empLumpSumc": null,
+              "empLumpSumd": null,
+              "empLumpSume": null,
+              "empMaritalStatus": null,
+              "empMedical": "F",
+              "empMedICareExemption": "None",
+              "empMobile": "044 444 4444",
+              "empNAc": null,
+              "empNationality": null,
+              "empNEsb": "F",
+              "empNextReviewDate": "2018-06-27T00:00:00",
+              "empNominalEndDate": null,
+              "empNotes": null,
+              "empNotTaxed": "F",
+              "empOther": "F",
+              "empOtherLeaveNet": null,
+              "empOtherNextZeroDate": null,
+              "empOtsRegistered": "T",
+              "empOutoFTrade": "F",
+              "empPartTime": "F",
+              "empPartTimeHours": 0,
+              "empPassword": null,
+              "empPayg": "T",
+              "empPayMethod": "EFT",
+              "empPermanentPt": "F",
+              "empPhone": "044 444 4444",
+              "empPhoto": null,
+              "empPhotoClass": null,
+              "empPhotoType": null,
+              "empPHSYICallimitsDetails": null,
+              "empPhysicalLimits": "F",
+              "empPoliceCheck": "F",
+              "empPoliceCheckDetails": null,
+              "empPostalAddressLine1": null,
+              "empPostalAddressLine2": null,
+              "empPostalPostCode": null,
+              "empPostalState": null,
+              "empPostalSuburb": null,
+              "empPostCode": "5067",
+              "empPPs": "F",
+              "empPReFAnnualRate": 0,
+              "empPReFHourLYRate": 0,
+              "empPrevOcATIOnAl": "F",
+              "empPrimarySuperKey": 7,
+              "empPrimarySuperNumber": "N/A",
+              "empPROBATIOnDate": null,
+              "empRDoLeaveNet": null,
+              "empRDonextZeroDate": null,
+              "empRebateClaimed": "F",
+              "empReCRUITedByConsultantKey": null,
+              "empReferenceChecked": "F",
+              "empRemoteRemote": "F",
+              "empRemoteRural": "F",
+              "empReSideNt": "F",
+              "empReviewNotes": null,
+              "empRTo": null,
+              "empSalutation": "Gav",
+              "empSchool": null,
+              "empSchoolBased": "F",
+              "empSchoolLeaver": "F",
+              "empSEPARatioNDate": null,
+              "empSEPARatioNPackage": "F",
+              "empSEPARatioNType": null,
+              "empSFSs": "F",
+              "empShiftKey": null,
+              "empSickLeaveNet": null,
+              "empSITENotes": null,
+              "empSkillshortAge": "F",
+              "empSLNextZeroDate": null,
+              "empSMOKing": "F",
+              "empStartDate": "2018-05-25T00:00:00",
+              "empState": "SA",
+              "empStateGOVDept": null,
+              "empStateGovernment": "F",
+              "empStatus": "Full Time",
+              "empStudentNumber": null,
+              "empSubClassification": 4,
+              "empSuburb": "KENT TOWN",
+              "empSuperChoice": "F",
+              "empSURName": "Andrew",
+              "empSuspEnded": "F",
+              "empSuspensionEndDate": null,
+              "empSuspensionNotes": null,
+              "empSuspensionPrevious": "F",
+              "empSuspensionReason": null,
+              "empSuspensionStartDate": null,
+              "empTaxFileNumber": "111111111",
+              "empTaxFReETHReSHold": "T",
+              "empTaxRate": null,
+              "empTaxScale": 2,
+              "empTermInATed": "F",
+              "empTerminationDetails": "Completed",
+              "empTerminationReason": null,
+              "empTFNSuperAnnuation": "F",
+              "empTicketNumber": null,
+              "empTitle": "Mr",
+              "empToRReSStraight": "F",
+              "empTRained": "F",
+              "empTrainee": "F",
+              "empTraineeShipAreaKey": null,
+              "empTraineeShipChargeOutKey": null,
+              "empTraineeShipDENECKey": null,
+              "empTraineeShipDisAbilityKey": null,
+              "empTraineeShipFundingKey": null,
+              "empTraineeShipNumber": null,
+              "empTraineeShipOfficeKey": null,
+              "empTraineeShipOhsAssessCMPDate": null,
+              "empTraineeShipOhsAssessDuedate": null,
+              "empTraineeShipOhsInductionDate": null,
+              "empTraineeShipPlan": "F",
+              "empTraineeShipStateKey": null,
+              "empTraineeShipStatusKey": null,
+              "empTraineeShipStatusDate": null,
+              "empTraineeShipWageLevelKey": null,
+              "empTrainingDAy": null,
+              "empTrainingStartDate": "2018-06-27T00:00:00",
+              "empUnionKey": null,
+              "empUnionNumber": null,
+              "empUpdatedBy": null,
+              "empUSEPostalAddress": "F",
+              "empUserReference": null,
+              "empUserStatusKey": null,
+              "empWarning1": "T",
+              "empWarning1Date": "2018-06-22T00:00:00",
+              "empWarning2": "T",
+              "empWarning2Date": "2018-06-12T00:00:00",
+              "empWarning3": "T",
+              "empWarning3Date": "2018-06-27T00:00:00",
+              "empWeight": null,
+              "empWomanNotraditional": "F",
+              "empWorkChildren": "F",
+              "empWorkErSComp": "F",
+              "empWorkErSCompDetails": null,
+              "empWorkingDAy": null,
+              "empYoungRisk": "F",
+              "hirings": [],
+              "workCoverEmployeeIncidents": [],
+              "employeeTerminations": [],
+              "employeesuspensions": [],
+              "employeeTrainingUnits": [],
+              "workCoverInjuries": [],
+              "employeeTrainingTypes": [],
+              "timeSheets": [],
+              "employeeskills": [],
+              "employeeCategories": [
+                {
+                  "ecgCategoryKey": 1,
+                  "ecgCreatedby": null,
+                  "ecgCreationDate": null,
+                  "ecgLastChanged": "2018-06-08T07:27:47.49",
+                  "ecgUpdatedBy": null,
+                  "ecgEmployeeKey": 9
+                }
+              ],
+              "employeeAwardRollover": [],
+              "employeeReportCards": [],
+              "employeeEquipment": [],
+              "employeeCorrspout": [],
+              "employeeCorrspin": [],
+              "employeeMedicalExams": [],
+              "employeeLogBook": [],
+              "employeeInductions": [],
+              "employeePayglumpsum": [],
+              "employeeToolAllowances": [],
+              "employeeNotes": [],
+              "employeesFChoice": [],
+              "employeePayItems": [],
+              "employeeTrainingLevels": [],
+              "employeeContacts": [],
+              "employeesuperEntitlements": [],
+              "employeesupportHours": [],
+              "employeesuperAccounts": [],
+              "employeeEftAccounts": [],
+              "employeePayments": [],
+              "employeeVisits": [],
+              "employeeCustomFields": [],
+              "jobOrderCandidatesShortList": [],
+              "employeeKeywords": [],
+              "employeeTrainingPackages": [],
+              "jobOrderCandidates": [],
+              "employeeTests": [],
+              "employeeTrainingSchedule": [],
+              "employeeLeaveSchedules": [],
+              "employeeFbt": [],
+              "timeSheetHistory": [],
+              "employeescheduler": [],
+              "employeeLeave": [],
+              "employeeLeaveSummary": [],
+              "employeeContactNotes": [],
+              "employeeOhsForms": [],
+              "employeeHistory": []
+            }
+-->

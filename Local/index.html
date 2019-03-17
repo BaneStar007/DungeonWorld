@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>WIC: Local</title>
+    <head>
+        <link href="css/index.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="./js/angular.1.7.2.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+      
+        <script type="text/javascript" src="./js/charController.js"></script>
+        <script type="text/javascript" src="./js/sitevisit.router.js"></script>
+        <script type="text/javascript" src="./js/directives/dwarfTime.directive.js"></script>
+    </head>
+
+    
+
+    <body ng-app="charCreate" ng-controller="charCreate">
+            {{ datObj | date : 'EEEE, MMMM d, y, h:mm:ss a zzzz' }} <br />
+
+            {{ datObj | date:'fullDate'}}
+
+            <dwarf-time></dwarf-time>
+
+            <dwarf-time format="fullDate" config="capital"></dwarf-time>
+    </body>
+
+</html>

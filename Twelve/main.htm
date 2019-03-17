@@ -1,0 +1,70 @@
+<section>
+    <h2>Welcome to the Instructions</h2>
+<p>The Following Pages contain "easy to create" PC & NPCs for Dungeon Delvers Twelve</p>
+
+<p>The Links on the Left have pre-build characters for the Main twelve Archtypes, with a drop down for characters of 1st, 4th, 8th and 12th ranks. Lastly, a Work in Progress system for making your own characters from scratch.</p>
+<span class="code">Each Section of Character Creation is able to be swapped out with Dungeonworld Character Creation, if desired.</span>
+<p>The Default Structure is:</p>
+
+<span class="code"><code> 
+    <div>&lt;<part>header</part>> <br />
+        First Page Header Text<br/>
+        &lt;<part>/header</part>>
+    </div> 
+    <br />
+    <div> &lt;<part>section</part>> <comment>// Sections are repeated</comment>
+            <div> &lt;<part>subsection</part>> <comment>// Sections are repeated, but define if the next part is a row, grid or box</comment>
+
+                    <div><logic>IF (subsection is a row) {</logic><br />
+                        <div>&lt;<part>form-row</part>>&lt;<part>/form-row</part>></div><br />
+                        <logic>}
+                    </div>
+                    <div><logic>IF (subsection is a grid) {</logic><br />
+                        <div>&lt;<part>form-grid</part>>&lt;<part>/form-grid</part>></div><br />
+                    }
+                    </div>
+                    <div><logic>IF (subsection is a component) {</logic><br />
+                        <div>&lt;<part>form-component</part>>&lt;<part>/form-component</part>></div><br />
+                        <logic>}</logic>
+                    </div>
+
+                   
+
+                &lt;<part>/subsection</part>>
+            </div>
+        &lt;<part>/section</part>>
+        </div>
+
+    
+</code></span>
+
+<p>So, This: </p>
+
+
+<span class="code"><code> <div>{ sections: 
+                            <div>[{ 
+                                <div>sectionTitle: "Section #1",</div>
+                                <div>subsections: 
+                                    <div>[{ 
+                                        <div>type: row,</div> 
+                                        <div>title: "welcome"</div> 
+                                    },</div>
+                                    <div> {
+                                        <div>type: row,</div> 
+                                        <div>title: "To the Jungle"</div> 
+                                    }]</div>
+                                </div>
+                            }]</div>
+                        }</div>
+</code>
+</span><br/>
+
+<p>Becomes This:</p>
+<div class="pageStructure">
+<section class="page"><div class="title">Section #1</div>
+        <div class="fieldtitle">Welcome</div><div class="field"></div>
+        <div class="fieldtitle">To the Jungle</div><div class="field"></div>
+</section>
+</div>
+</section>
+

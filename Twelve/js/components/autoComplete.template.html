@@ -1,0 +1,20 @@
+<input  name="AC.nameandid"
+        autocomplete="off" 
+        id="AC.nameandid" 
+        list="{{AC.nameandid + '0'}}" 
+        placeholder="{{AC.placeholder}}" 
+        class="{{AC.localclass}}" 
+        ng-model-options="{ debounce: 100 }" 
+        ng-model="AC.datam" >
+        
+<datalist   class="autoCompleteDiv" 
+            id="{{AC.nameandid + '0'}}" 
+            ng-if="AC.listitems">
+            
+    <option class="autoCompleteItem" 
+            ng-repeat="item in AC.listitems" 
+            
+            value="{{item.name}}" 
+            ng-model="item.id" >{{item.type}} </option>
+    <!--<select class="autoCompleteItem" ng-model="selected" ng-options="item as item.name for item in AC.listitems | limitTo : 5 | orderBy ">{{item}}</option> <!-- item as item.label for item in items-->
+</datalist>

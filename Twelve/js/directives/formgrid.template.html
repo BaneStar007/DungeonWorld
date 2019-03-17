@@ -1,0 +1,73 @@
+<!--
+    Class Definitons for borders, styles, fonts, etc
+    Title?
+    Row Titles (array)
+    Column titles (array)
+    Boxes in grid - radio / buttons / Views or Inputs
+    Border between or not
+    Is a view only / takes ajax update / is an input and takes ajax update / just an input / has validators?
+    Border after? (end of Row)
+-->
+<section class="col-{{config.width}} {{sectionClass}} ">
+        <h2 class="rowgridtitle">{{title}}</h2>
+<div n0g-if="config.legend" >
+    <span class="col-{{12/config.legend.length}}" ng-repeat="spans in config.legend">
+    <b>{{spans.val}}</b>. {{spans.rating}}
+    </span>
+</div>
+<div n0g-if="config.legend2" >
+    <span class="col-{{12/config.legend2.length}}" ng-repeat="spans in config.legend2">
+    <b>{{spans.val}}</b>. {{spans.rating}}
+    </span>
+</div>
+
+
+<table class="formGrid {{config.tableborder}} {{borderClass}} {{gridClass}}" border=1 >
+   
+    <thead ng-if="dataColumnsExist">
+    <th ng-repeat="titles in dataColumns track by $index" class="column-{{titles.colspan}} gridLabel grid{{config.gridSize}}">{{titles.title}}</th>
+    </thead>
+    
+    
+    <tr ng-repeat="rows in dataRows track by $index">
+        
+        <td ng-if="config.dataSet != 'vertical'">
+          
+                <div class="checkbox ">
+                    <input type="checkbox" ng-model="rows.data['chk'+$index]" name="{{config.id + $index}}_chk"></input>
+                    <label for="{{config.id + $index}}_chk">{{::rows.label}}</label>
+                </div>
+        </td>
+
+        <td ng-if="config.dataSet == 'vertical'" ng-repeat="columns in rows track by $index" class="">
+           
+            <div ng-if="::columns.type=='data'" class="checkbox ">
+                {{::columns.value}}
+            </div> 
+            <div ng-if="::columns.type=='titles'" class="gridLabel grid{{config.gridSize}} ">
+                    {{::columns.value}}
+                </div>    
+            <div ng-if="::columns.type=='twinput'" class="">
+                <input class="col-6 smallInput" name="{{::columns.id}}_1" ng-model="::columns.data[0]">
+                </input>
+                <input class="col-6 smallInput" name="{{::columns.id}}_2" ng-model="::columns.data[1]">
+                </input>
+                
+            </div>
+            
+
+            <div ng-if="::columns.type=='textfill'" class="">
+                    <input class="col-12 {{style}}" name="{{::columns.id}}_3" ng-model="::columns.data[0]">
+                    </input>
+                    
+                </div>    
+            <div ng-if="columns.type==''" class="">
+                    {{columns.value}}
+                </div>    
+                        
+            
+            </td>
+    </tr>
+</table>       
+
+</section>

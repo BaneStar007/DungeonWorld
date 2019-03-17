@@ -1,0 +1,242 @@
+#instructions {
+   color: #2b2;
+}
+
+#gridbutton {
+   position: fixed;
+   left: 0px;
+   top: 0px;
+}
+
+#mapbutton {
+   position: fixed;
+   left: 25px;
+   top: 0px;
+}
+
+#mapbox {
+   position: absolute;
+   top: 100px;
+}
+
+.grid {
+   width: 100px;
+   height: 100px;
+   float: left;
+   margin-left: -36px;
+   position: absolute;
+   z-index: 1;
+}
+
+.gridImg {
+   background: url('../img/hex3.png');
+   background-size: 100px 100px;
+
+   position: absolute;
+   z-index: 3;
+}
+
+.alternate {
+   margin-top: -38px;
+}
+
+.terrain {
+   width: 60px;
+   height: 60px;
+   background-color: #ccc;
+   margin: 20px;
+   z-index: 5;
+}
+
+.easter {
+   position: absolute;
+   z-index: 2;
+   width: 20px;
+   height: 20px;
+   right: 20px;
+   bottom: 20px
+}
+
+.mapedge, .tents {
+   background-color: rgba(122,122,122,0.75);
+}
+.pole ,
+.arctic, .ruins {
+   background-color: MediumTurquoise;
+   background-color: rgba(72, 209, 204, 0.5);
+
+}
+
+.mapCircles {
+   position: absolute;
+   width: 5px;
+   height: 5px;
+   border-radius: 25%;
+   transition: all 3s;
+   text-align: center;
+   padding: 50%;
+}
+
+.euro, .euro_arab, .euro_asia ,.euro_aztec, .euro_nomad , .euro_ruins,
+.aztec, .aztec_arab, .aztec_asia, .aztec_ruins, .aztec_tents, 
+.asia, .asia_ruins, .arab, .arab_asia, .arab_ruins, .arab_tents, .nomad, .nomad_ruins,
+.tents, .tents_nomad, .tents_ruins, .ruins {
+   left: 500px;
+   top: 300px;
+}
+
+
+.euro, .euro_arab, .euro_asia ,.euro_aztec, .euro_nomad    {
+   background-color: rgba(0, 250, 154, 0.5);
+   
+}
+.aztec, .aztec_arab, .aztec_asia   {
+   background-color: rgba(165, 121, 1, 0.596);
+}
+
+.asia  {
+   background-color: rgba(155, 1, 40, 0.5);
+   
+}
+.arab, .arab_asia {
+   background-color: rgba(150, 0, 137, 0.5);
+   
+}
+.nomad {
+   background-color: rgba(84, 204, 54, 0.5);
+}
+
+.tents, .tents_nomad, .euro_tents, .aztec_tents, .asia_tents, .arab_tents  {
+   background-color: rgba(58, 42, 17, 0.5);
+
+}
+
+.ruins, .euro_ruins, .aztec_ruins,.asia_ruins, .arab_ruins, .nomad_ruins, .tents_ruins {
+   background-color: rgba(122, 117, 109, 0.5);
+
+}
+.cold {
+
+   background-color: DarkCyan;
+   background-color: rgba(0, 139, 139, 0.5);
+}
+
+.cool, .asia {
+   background-color: MediumSpringGreen;
+   background-color: rgba(0, 250, 154, 0.5);
+
+}
+
+.mid, .nomad {
+   background-color: lightgreen;
+   background-color: rgba(144, 238, 144, 0.5);
+
+}
+
+.warm, .arab {
+   background-color: ForestGreen;
+   background-color: rgba(34, 139, 34, 0.5);
+}
+
+.tropic, .aztec {
+   background-color: olive;
+   background-color: rgba(128, 128, 0, 0.5);
+}
+
+.mountains,
+.peaks {
+   background-color: brown;
+   background-image: url('../img/Icons.png');
+   background-size: 400px 500px;
+   background-position: 225px 450px;
+   /* X and Y */
+}
+
+.peaks {
+   background-position: 225px 400px;
+}
+
+.hills {
+   background-color: tan;
+   background-image: url('../img/Icons.png');
+   background-size: 400px 400px;
+   background-position: 115px 372px;
+   /* X and Y */
+}
+
+.plains {
+   background-color: lightgreen;
+   background-image: url('../img/Icons.png');
+   background-size: 390px 400px;
+   background-position: 320px 280px;
+}
+
+.sea {
+   background-color: MediumTurquoise;
+}
+
+
+.borreal {
+   background-color: ForestGreen;
+   background-image: url('../img/Icons.png');
+   background-size: 420px 350px;
+   background-position: 183px 264px;
+
+}
+
+.jungle {
+   background-color: MediumSeaGreen;
+   background-image: url('../img/Icons.png');
+   background-size: 420px 350px;
+   background-position: 125px 264px;
+
+}
+
+.coastal {
+   background-color: Aquamarine;
+}
+
+.desert {
+   background-color: PaleGoldenrod;
+   background-image: url('../img/Icons.png');
+   background-size: 400px 350px;
+   background-position: 320px 280px;
+
+}
+
+.lake {
+   background-color: LightSkyBlue;
+}
+
+
+.taiga {
+   background-color: DarkSlateGray;
+   background-image: url('../img/Icons.png');
+   background-size: 400px 350px;
+   background-position: 294px 252px;
+
+}
+
+.swamp {
+   background-color: Olive;
+   background-image: url('../img/Icons.png');
+   background-size: 400px 350px;
+   background-position: 275px 161px;
+
+}
+
+.terraType {
+   background-color: Red;
+   background-image: url('../img/Icons.png');
+   background-size: 500px 350px;
+   background-position: 246px 175px;
+
+}
+
+.terraTypeother {
+   background-color: purple;
+   background-image: url('../img/Icons.png');
+   background-size: 500px 350px;
+   background-position: 196px 175px;
+
+}

@@ -1,0 +1,35 @@
+<!--
+    Definitons for Borders, Labels, Titles, Input Input types, Drop down Populated etc.
+-->
+
+NOTE... NOT BEING USED THIS PROJECT
+    
+<!-- Input Field with Assciated Lookup, MUST link to the IDs of the API-->
+<span class="col-{{::rows}} col-no-pad">
+    <div class="col-1">
+            <i class="fa fa-spinner fa-pulse" ng-show="config.loading"></i>
+    </div>
+        
+    <input  class="col-11 col-no-pad" ng-blur="inputBlur()"
+            ng-model-options="config.options" ng-model="data[config.id]" 
+            type="input" ng-disabled="config.disabled" 
+            name="{{'lookup_'+config.id}}"   id="{{'lookup_'+config.id}}" 
+            ng-click="localFunction()" ng-change="localFunction()">
+    </input>
+
+    IS THIS ANYWHERE IN THE CODE???
+   
+    <div class="autocompletewrapper" ng-show="config.inputFocused" ng-blur="inputBlur()">
+        <div class="autoCompletePosition" ng-show="config.autoCompleteList.length >= 0">
+            <div class="autoCompleteRow" ng-show="config.autoCompleteList.length == 0">No Employees Available</div>
+            <div class="autoCompleteRow" ng-click="populate(lines)" 
+                ng-repeat="lines in config.autoCompleteList">
+                <span ng-bind-html="lines.employeeName | highlight:config.searchText"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="hidden" ng-show="false">
+        <input ng-model="hidden['config.id']" val="{{hidden['config.id']}}"></index>
+    </div>
+</span>

@@ -1,0 +1,801 @@
+<html>
+
+<head>
+   <meta charset="utf-8" />
+   <title> Make 100 map test</title>
+   <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+   <style>
+      #instructions {
+         color: #2b2;
+      }
+
+      #gridbutton {
+         position: fixed;
+         left: 0px;
+         top: 0px;
+      }
+
+      #mapbutton {
+         position: fixed;
+         left: 25px;
+         top: 0px;
+      }
+
+      .grid {
+         width: 100px;
+         height: 100px;
+         background: url('./hex3.png');
+         background-size: 100px 100px;
+         float: left;
+         margin-left: -36px;
+         position: absolute;
+      }
+
+      .alternate {
+         margin-top: -38px;
+      }
+
+      .terrain {
+         width: 60px;
+         height: 60px;
+         background-color: #ccc;
+         margin: 20px;
+      }
+
+      .easter {
+         position: absolute;
+         z-index: 2;
+         width: 20px;
+         height: 20px;
+         right: 20px;
+         bottom: 20px
+      }
+
+      .mountain {
+         background-color: brown;
+      }
+
+      .plains {
+         background-color: lightgreen;
+      }
+
+      .sea {
+         background-color: paleturquoise;
+      }
+
+      .hills {
+         background-color: tan;
+      }
+   </style>
+</head>
+<script>
+   gridOn = false;
+   var debug = false;
+   var stats = {
+      mapOriginal: 0,
+      mapReskin: 0,
+      mapKDM: 0,
+      future: 0,
+
+      castle: 0,
+      dungeon: 0,
+      natural: 0,
+      hole: 0,
+      terrain: 0,
+      other: 0,
+
+      borreal: 0,
+      coastal: 0,
+      desert: 0,
+      hills: 0,
+      lake: 0,
+      mountains: 0,
+      plains: 0,
+      taiga: 0,
+      swamp: 0,
+
+      biomes: 0,
+      cold: 0,
+      cool: 0,
+      mid: 0,
+      warm: 0,
+      arctic: 0,
+      any: 0,
+      tropic: 0,
+
+   }
+
+
+
+   // empty array for map
+   var existingMap = [];
+   // map max dimensions
+   var mapWidth = 10;
+   var mapHeight = 8;
+
+   // any locations that must be pre-positioned / determined
+   var existingLocations = [{
+      "loc": 1,
+      "title": "plains",
+      "x": 3,
+      "y": 3
+   }, {
+      "loc": 2,
+      "title": "plains",
+      "x": 3,
+      "y": 4
+   }, {
+      "loc": 3,
+      "title": "sea",
+      "x": 4,
+      "y": 3
+   }];
+
+   // The Full List of all locations to be added
+   var mapLocations = [{
+      "loc": 5,
+      "title": "mountain",
+      "easter": {
+         "loc": 22,
+         "title": "plains"
+      }
+
+   }, {
+      "loc": 6,
+      "title": "hills"
+
+   }, {
+      "loc": 7,
+      "title": "mountain"
+
+   }];
+
+   // Create a blank map based on dimansions
+   function createMap() {
+
+      console.log("creating map");
+
+      for (i = 0; i < mapHeight; i++) {
+
+         existingMap.push(
+            [{
+               "loc": 1
+            }]
+         );
+         for (j = 0; j < mapWidth; j++) {
+
+            existingMap[i][j] = {
+               "loc": 0
+            };
+         }
+      }
+   }
+
+   // Draw the Map to screen
+   function drawMap(map) {
+      document.getElementById("mapbox").innerHTML = "";
+      console.log("draw Map");
+
+      for (i = 0; i < mapHeight; i++) {
+         for (j = 0; j < mapWidth; j++) {
+
+            if (j % 2 != 0) {
+               alternate = "";
+            } else {
+               alternate = 'alternate';
+            }
+
+            hex = '<div style= " top:' + ((i * 75) + 50) + 'px ; left:' + ((j * 65) + 40) + 'px"  class = "' +
+               alternate +
+               ' grid" >';
+
+            // Check to Add Terrain Type
+
+            if (map[i] != undefined) {
+               hex += '<div class = "terrain ' + map[i][j].title + '" >' + map[i][j].loc;
+               console.log(map[i]);
+               if (map[i][j].easter != undefined) {
+                  easterEgg = map[i][j].easter;
+
+                  hex += '<div class = "easter ' + easterEgg.title + '" >' + easterEgg.loc + ' </div>';
+               }
+
+               hex += '</div>';
+
+
+            } else {
+               hex += '<div class = "terrain" > </div>';
+            }
+
+
+
+            hex += '</div>';
+
+            document.getElementById("mapbox").innerHTML += hex;
+         }
+      }
+   }
+
+   function toggleGrid() {
+      if (gridOn) {
+
+         changeStyle('#instructions', 'color', 'red');
+         gridOn = false;
+      } else {
+         changeStyle('#instructions', 'color', 'blue');
+         gridOn = true;
+      }
+   }
+
+   function changeStyle(selectorText, styleText, styleSet) {
+      var theRules = new Array();
+      if (document.styleSheets[0].cssRules) {
+         theRules = document.styleSheets[0].cssRules;
+      } else if (document.styleSheets[0].rules) {
+         theRules = document.styleSheets[0].rules;
+      }
+      for (n in theRules) {
+         if (theRules[n].selectorText == selectorText) {
+            theRules[n].style[styleText] = styleSet;
+         }
+      }
+   }
+
+   // Populate the Existing Map with all new items
+   function makeMap() {
+
+      // create an array of unused positions, each spot might have multiple types
+
+      for (i = 0; i < existingLocations.length; i++) {
+
+
+         existingMap[existingLocations[i].x][existingLocations[i].y].title = existingLocations[i].title;
+         existingMap[existingLocations[i].x][existingLocations[i].y].loc = existingLocations[i].loc;
+         existingMap[existingLocations[i].x][existingLocations[i].y].easter = existingLocations[i].easter;
+      }
+
+
+      for (i = 0; i < mapLocations.length; i++) {
+
+         // find a random position
+
+         x = randNum(mapHeight);
+         y = randNum(mapWidth);
+
+         //check if that position exists, 
+         console.log("map[" + x + "][" + y + "]");
+
+         existingMap[x][y].title = mapLocations[i].title;
+         existingMap[x][y].loc = mapLocations[i].loc;
+         existingMap[x][y].easter = mapLocations[i].easter;
+         console.log(mapLocations[i].easter);
+      }
+
+      drawMap(existingMap);
+   }
+
+   function randNum(max) {
+
+      return Math.floor((Math.random() * max) + 0);
+
+   }
+
+   $(document).ready(function () {
+      $.ajax({
+         type: "GET",
+         url: "large.csv",
+         dataType: "text",
+         success: function (data1) {
+            processData(data1, true);
+         }
+      });
+
+      $.ajax({
+         type: "GET",
+         url: "small.csv",
+         dataType: "text",
+         success: function (data2) {
+            processData(data2, false);
+         }
+      });
+   });
+
+   function processData(allText, FullData) {
+      debug = false;
+
+      if (debug) {
+         console.log("=============process=");
+      }
+      var data = JSON.parse(allText);
+      var temp = null;
+
+
+
+      for (i = 0; i < data.length; i++) {
+         // some variables for use later:
+         data[i].map = {};
+         if (debug) {
+            console.log("each--------------------->>");
+         }
+
+         // not needed for this process
+         deleteFromObject("Survey Response", data[i]);
+         deleteFromObject("Rewards Sent?", data[i]);
+         deleteFromObject("Reward ID", data[i]);
+         deleteFromObject("Pledged At", data[i]);
+         deleteFromObject("Billing State/Province", data[i]);
+         deleteFromObject("Billing Country", data[i]);
+         deleteFromObject("Backer UID", data[i]);
+
+         //deleteFromObject("Backer Name", data[i]);
+
+
+         deleteFromObject("Pledged Status", data[i]);
+         //deleteFromObject("Backer Name", data[i]);
+         //deleteFromObject("Backer Name", data[i]);
+         //deleteFromObject("Backer Name", data[i]);
+
+         if (data[i]["Anything To Add?"] == "No response") {
+            deleteFromObject("Anything To Add?", data[i]);
+         }
+
+         // Easter Egg Locations
+
+         // Pledge
+         temp = data[i]["Pledge Amount"].split("$ ");
+         data[i].pledge = parseInt(temp[1]);
+         deleteFromObject("Pledge Amount", data[i]);
+
+
+         // Extras
+         temp = data[i]["Reward Minimum"].split("$ ");
+         data[i].easterEggs = data[i].pledge - parseInt(temp[1]);
+         deleteFromObject("Reward Minimum", data[i]);
+
+         // Backer Order (to be sorted?)
+
+         data[i].locID = parseInt(data[i]["Backer Number"]);
+         deleteFromObject("Backer Number", data[i]);
+
+         // Title of Location
+
+
+         //4. Describe Your Location
+
+
+         // Is the data filled in:
+         if (FullData) {
+            // Check if the form has been filled in - large maps
+            if (data[i]["1. Email For Your Map To Be Sent. *Required!!"] == "") {
+               //console.log("empty");
+               data[i].isUnDefined = true;
+               //console.log(data[i]);
+            }
+         } else {
+            // same for small maps
+            if (data[i]["Email For Your Map To Be Sent. *Required!!"] == "") {
+               //console.log("empty");
+               data[i].isUnDefined = true;
+               //console.log(data[i]);
+            }
+         }
+
+
+         if (!data[i].isUnDefined) {
+
+
+            data[i].title = data[i]["2. What Is Your Location Called?"];
+            deleteFromObject("2. What Is Your Location Called?", data[i]);
+
+            if (debug) {
+               console.log(data[i]["Backer Name"], data[i].title, data[i].pledge, data[i].easterEggs);
+            }
+
+            // Process Which Map
+            temp = data[i]["11. Which Map Do You Want This To Appear On?"];
+
+            tempSet = temp.split(" | ");
+
+
+            for (loop = 0; loop < tempSet.length; loop++) {
+
+               done = false;
+               if (tempSet[loop] == "The Original Map, Sepia and Coloured") {
+                  done = true;
+
+                  data[i].map.original = true;
+                  stats.mapOriginal++;
+               }
+               if (tempSet[loop] == "The Re-Skinned Map") {
+                  done = true;
+                  data[i].map.reskin = true;
+                  stats.mapReskin++;
+               }
+               if (tempSet[loop] == "The Kingdom Death Monster / Cataclyzm Map") {
+                  done = true;
+                  data[i].map.kdm = true;
+                  stats.mapKDM++;
+               }
+               if (tempSet[loop] == "Future Maps (If you have increased your pledge)") {
+                  done = true;
+                  data[i].map.future = true;
+                  stats.future++;
+
+               }
+
+
+
+               if (!done) {
+                  console.log(tempSet[loop]);
+                  console.log(tempSet);
+                  throw new Error("my error message");
+               }
+
+            }
+
+            if (!data[i].map.original) {
+               data[i].easterEggs++;
+            }
+            if (!data[i].map.reskin) {
+               data[i].easterEggs++;
+            }
+            if (!data[i].map.kdm) {
+               data[i].easterEggs++;
+            }
+            if (data[i].map.future) {
+               data[i].easterEggs--;
+            }
+            if (data[i].easterEggs < 0) {
+               console.log("Easter Eggs", data[i].map, data[i].easterEggs);
+            }
+
+            //
+            data[i].description = data[i]["4. Describe Your Location"];
+            deleteFromObject("4. Describe Your Location", data[i]);
+
+
+            //5. What Terrain Do You Want Your Location To Appear In
+            /*min1 = false;
+            temp = data[i]["5. What Terrain Do You Want Your Location To Appear In"];
+            tempSet = temp.split(" | ");
+            data[i].terraType = {};
+            for (loop = 0; loop < tempSet.length; loop++) {
+               if (tempSet[loop] == "Plains / Grassland") {
+                  data[i].terraType.plains = true;
+                  stats.plains++;
+                  min1 = true;
+               }
+               if (tempSet[loop] == "Coastal") {
+                  data[i].terraType.coastal = true;
+                  stats.coastal++;
+                  min1 = true;
+               }
+               if (tempSet[loop] == "Mountains") {
+                  data[i].terraType.mountains = true;
+                  stats.mountains++;
+                  min1 = true;
+               }
+               if (tempSet[loop] == "Forest - Boreal or Temperate") {
+                  data[i].terraType.borreal = true;
+                  stats.borreal++;
+                  min1 = true;
+               }
+               if (tempSet[loop] == "Desert") {
+                  data[i].terraType.desert = true;
+                  stats.desert++;
+                  min1 = true;
+               }
+               if (tempSet[loop] == "Lake / Sea") {
+                  data[i].terraType.lake = true;
+                  stats.lake++;
+                  min1 = true;
+               }
+               if (tempSet[loop] == "Taiga / Steppe") {
+                  data[i].terraType.taiga = true;
+                  stats.taiga++;
+                  min1 = true;
+               }
+               if (tempSet[loop] == "Hills/Cliffs") {
+                  data[i].terraType.hills = true;
+                  stats.hills++;
+                  min1 = true;
+               }
+               if (tempSet[loop] == "Forest - Jungle or Rainforest") {
+                  data[i].terraType.hills = true;
+                  stats.hills++;
+                  min1 = true;
+               }
+               if (tempSet[loop] == "Swamp / Mangroves") {
+                  data[i].terraType.swamp = true;
+                  stats.swamp++;
+                  min1 = true;
+               }
+
+
+
+               if (tempSet[loop] == "Other (Only choose if you have increased pledge)") {
+
+                  if (data[i].easterEggs > 0) {
+
+                     data[i].terraType.other = true;
+                     stats.other++;
+                     data[i].easterEggs--;
+                     data[i].terraType.details = data[i]["5.B. If Other, Add Details"];
+                     deleteFromObject("5.B. If Other, Add Details", data[i]);
+
+                  } else {
+                     // catch out users who entered details in excess
+                     console.log(data[i].title, data[i].easterEggs);
+                     console.log(data[i]["5.B. If Other, Add Details"], data[i]["Backer Name"]);
+                     console.log(data[i]);
+                  }
+
+                  min1 = true;
+               }
+
+
+               //
+
+               // Catch if didn't before.
+               if (!min1) {
+                  console.log("Catch", tempSet[loop]);
+                  console.log("------>>>", data[i]["Backer Name"], data[i].title, data[i].pledge, data[i].easterEggs);
+
+               } else {
+                  deleteFromObject("5. What Terrain Do You Want Your Location To Appear In", data[i]);
+               }*/
+
+
+
+
+
+            //} // end of tempSet for Terrains
+
+
+            // 5.B. If Other, Add Details
+            if (data[i]["3.B. If Other.. Add Details"] == "No response" ||
+               data[i]["5.B. If Other, Add Details"] == undefined) {
+               deleteFromObject("5.B. If Other, Add Details", data[i]);
+            } else {
+               data[i].other5data = data[i]["5.B. If Other, Add Details"];
+
+               //-------->>>>   console.log(data[i]["5.B. If Other, Add Details"], data[i]["Backer Name"]);
+            }
+
+            // Structure Data Function
+            // 5. What Terrain Do You Want Your Location To Appear In
+            dataStructureSet = Array("Coastal");
+
+            structureSet = Array("terraType", "coastal");
+
+            data[i] = sortdata(dataStructureSet, structureSet, data[i],
+               "5. What Terrain Do You Want Your Location To Appear In")
+
+
+            // 5.B. If Other, Add Details
+            if (data[i]["5.B. If Other, Add Details"] == "No response" ||
+               data[i]["5.B. If Other, Add Details"] == undefined) {
+               deleteFromObject("5.B. If Other, Add Details", data[i]);
+            } else {
+               data[i].other5data = data[i]["5.B. If Other, Add Details"];
+
+               //-------->>>>   console.log(data[i]["5.B. If Other, Add Details"], data[i]["Backer Name"]);
+            }
+
+            data[i].terraType.borders = data[i]["6. What Terrain Borders Your Location"];
+            deleteFromObject("6. What Terrain Borders Your Location", data[i]);
+
+            // Structure Data Function
+            //7. Which Biomes Would Suit Your Location
+            dataStructureSet = Array("Mid Range (o.c winters, 30.c summers)",
+               "Warmer climates (10.c winters, 40.c summers)", "Any of the Above",
+               "Cooler Temperate Zone (minus winters, 20.c summers",
+               "Arctic or Arctic Fringes ( minus winters, 0-5.c summers)", "Tropical (20.c winters, 45.c summers)",
+               "Arctic or Arctic Fringes ( minus winters, 0-5.c summers", "No response");
+
+            structureSet = Array("biomes", "mid", "warm", "any", "cool", "arctic", "tropic", "arctic", "any");
+
+            data[i] = sortdata(dataStructureSet, structureSet, data[i], "7. Which Biomes Would Suit Your Location")
+
+
+
+
+
+            if (FullData) {
+               // Form is filled in, lets Process it
+
+               deleteFromObject("Email For Your Map To Be Sent. *Required!!", data[i]);
+
+               // Locations
+               min1 = false;
+               temp = data[i]["3. What Kind Of Location Do You Want"];
+               tempSet = temp.split(" | ");
+               data[i].locType = {};
+               for (loop = 0; loop < tempSet.length; loop++) {
+                  if (tempSet[loop] == "Castle/Fortress/City/Tower") {
+                     data[i].locType.castle = true;
+                     stats.castle++;
+                     min1 = true;
+                  }
+                  if (tempSet[loop] == "Dungeon/Crypt/Tomb") {
+                     data[i].locType.dungeon = true;
+                     stats.dungeon++;
+                     min1 = true;
+                  }
+                  if (tempSet[loop] == "Exotic Natural Object (tree/rock/other)") {
+                     data[i].locType.natural = true;
+                     stats.natural++;
+                     min1 = true;
+                  }
+                  if (tempSet[loop] == "Mine/Hole/Crack in Ground") {
+                     data[i].locType.hole = true;
+                     stats.hole++;
+                     min1 = true;
+                  }
+                  if (tempSet[loop] == "Exotic/Abnormal Terrain") {
+                     data[i].locType.terrain = true;
+                     stats.terrain++;
+                     min1 = true;
+                  }
+
+
+
+                  if (tempSet[loop] == "Other (Only choose if you have increased pledge)") {
+
+                     if (data[i].easterEggs > 0) {
+
+                        data[i].locType.other = true;
+                        stats.other++;
+                        data[i].easterEggs--;
+                        data[i].locType.details = data[i]["3.B. If Other.. Add Details"];
+                        deleteFromObject("3.B. If Other.. Add Details", data[i]);
+
+                     } else {
+                        // catch out users who entered details in excess
+                        console.log(data[i].title, data[i].easterEggs);
+                        console.log(data[i]["3.B. If Other.. Add Details"], data[i]["Backer Name"]);
+                        console.log(data[i]);
+                     }
+
+                     min1 = true;
+                  }
+
+                  // Catch if didn't before.
+                  if (!min1) {
+                     console.log("Catch", tempSet[loop]);
+                     console.log("------>>>", data[i]["Backer Name"], data[i].title, data[i].pledge, data[i].easterEggs);
+
+                  }
+
+               } // end of tempSet for Locations
+               deleteFromObject("3. What Kind Of Location Do You Want", data[i]);
+
+
+
+
+
+
+
+
+
+
+            } else {
+               // Process Specifically Small Map Items
+
+
+            }
+
+         }
+
+
+         // Main Locations
+
+      } // loop of data
+
+      // compare final:
+      console.log(data[0]);
+      console.log("Final Stats", stats);
+   }
+
+   function deleteFromObject(keyPart, obj) {
+      for (var k in obj) { // Loop through the object
+         if (~k.indexOf(keyPart)) { // If the current key contains the string we're looking for
+            delete obj[k]; // Delete obj[key];
+         }
+      }
+   }
+
+   function sortdata(dataStructure, structureSet, dataSet, dataTitle) {
+
+      console.log(dataSet);
+      //5. What Terrain Do You Want Your Location To Appear In
+      notMissing = false;
+      temp = dataSet[dataTitle];
+      tempSet = temp.split(" | ");
+      dataSet[structureSet[0]] = {};
+
+      for (loop = 0; loop < tempSet.length; loop++) {
+
+         for (iloop = 0; iloop < dataStructure.length; iloop++) {
+            if (tempSet[loop] == dataStructure[iloop]) {
+               dataSet[structureSet[0]][structureSet[iloop]] = true;
+               stats[structureSet[iloop]]++;
+               notMissing = true;
+            }
+
+         }
+
+
+         if (tempSet[loop] == "Other (Only choose if you have increased pledge)") {
+
+            if (dataSet.easterEggs > 0) {
+
+               dataSet[structureSet[0]].other = true;
+               stats[structureSet[0] + "other"]++;
+               dataSet.easterEggs--;
+               dataSet[structureSet[0]].details = dataSet[dataTitle];
+               // deleteFromObject(dataTitle, dataSet);
+
+            } else {
+               // catch out users who entered details in excess
+               console.log(dataSet.title, data[i].easterEggs);
+               console.log(dataSet[dataTitle], dataSet["Backer Name"]);
+               console.log(dataSet);
+            }
+
+            notMissing = true;
+         }
+
+
+         // dataSet[structureSet[0] + "otherdata"] = dataSet[dataTitle];
+
+
+         //
+
+         // Catch if didn't before.
+         if (!notMissing) {
+            console.log("Catch", tempSet[loop]);
+            console.log("------>>>", dataSet["Backer Name"], dataSet.title, dataSet.pledge, dataSet.easterEggs);
+
+         } else {
+            //deleteFromObject(dataTitle, dataSet);
+         }
+
+         return dataSet
+      } // end of tempSet for Terrains
+
+
+
+   }
+</script>
+
+
+<body>
+   <div id="instructions">
+      <p> Form Builder Data Test</p>
+      <!--<p>Greetings, This is the Make 100 Mapper, Each time you click the Make Map Button, the Engine will take the
+         existing data, render a map, and hide this box, so you can print a clean map.</p>
+      <p>IF you want the grid and map icons on, press the small # button in the top left corner</p>-->
+
+   </div>
+   <button id="gridbutton" onclick="toggleGrid()">#</button>
+   <button id="mapbutton" onclick="makeMap()">Test Form Builder</button>
+   <div id="mapbox">
+      <!--<div class="  grid">
+         <div class="terrain hills"></div>
+      </div>
+      <div class="alternate   grid">
+         <div class="terrain hills"></div>
+      </div>
+      <div class="  grid">
+         <div class="terrain hills"></div>
+      </div>-->
+   </div>
+   <script>
+      //createMap();
+      //drawMap(existingMap)
+   </script>
+
+
+</html>

@@ -1,0 +1,31 @@
+<div class="modal removeComponent">
+                
+        <div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front ui-dialog-buttons ui-resizable {{MC.error ? 'ui-error' : ''}}" tabindex="-1" role="dialog" aria-describedby="sigDialog" aria-labelledby="ui-id-1" style="position: absolute; height: auto; width: 100%; top: 25px; left: 0px; display: block; z-index: 101;">
+            <div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix ">
+                <span id="ui-id-1" class="ui-dialog-title">{{::MC.title}}</span>
+                <button type="button" ng-click="MC.visible = false" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close" role="button" title="Close">
+                    <span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span>
+                    <span class="ui-button-text">Close</span>
+                </button>
+            </div>
+            <div id="formDialog" class="ui-dialog-content ui-widget-content" style="width: auto; min-height: 47px; max-height: none; height: auto;">
+                <ng-transclude>
+
+                </ng-transclude>
+            
+        </div>
+        <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+            <div class="ui-dialog-buttonset">
+                <button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" ng-click="MC.savefunction()"  id="ses-save" ng-if="MC.savetitle">
+                    <span class="ui-button-text">{{MC.savetitle}}</span>
+                </button>
+                <button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" ng-click="MC.clearForm()"  id="ses-clear" ng-if="MC.isForm">
+                    <span class="ui-button-text">Clear</span>
+                </button>
+                <button type="button" ng-click="MC.visible = false" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button">
+                    <span class="ui-button-text">{{MC.idForm ? 'Cancel' : 'Close'}}</span>
+                </button>
+                
+            </div>
+        </div>
+    </div>
