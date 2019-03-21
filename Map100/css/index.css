@@ -57,11 +57,14 @@
    bottom: 20px
 }
 
-.mapedge, .tents {
-   background-color: rgba(122,122,122,0.75);
+.mapedge,
+.tents {
+   background-color: rgba(122, 122, 122, 0.75);
 }
-.pole ,
-.arctic, .ruins {
+
+.pole,
+.arctic,
+.ruins {
    background-color: MediumTurquoise;
    background-color: rgba(72, 209, 204, 0.5);
 
@@ -77,68 +80,205 @@
    padding: 50%;
 }
 
-.euro, .euro_arab, .euro_asia ,.euro_aztec, .euro_nomad , .euro_ruins,
-.aztec, .aztec_arab, .aztec_asia, .aztec_ruins, .aztec_tents, 
-.asia, .asia_ruins, .arab, .arab_asia, .arab_ruins, .arab_tents, .nomad, .nomad_ruins,
-.tents, .tents_nomad, .tents_ruins, .ruins {
+.euro,
+.euro_arab,
+.euro_asia,
+.euro_aztec,
+.euro_nomad,
+.euro_ruins,
+.aztec,
+.aztec_arab,
+.aztec_asia,
+.aztec_ruins,
+.aztec_tents,
+.asia,
+.asia_ruins,
+.arab,
+.arab_asia,
+.arab_ruins,
+.arab_tents,
+.nomad,
+.nomad_ruins,
+.tents,
+.tents_nomad,
+.tents_ruins,
+.ruins {
    left: 500px;
    top: 300px;
 }
 
 
-.euro, .euro_arab, .euro_asia ,.euro_aztec, .euro_nomad    {
-   background-color: rgba(0, 250, 154, 0.5);
-   
-}
-.aztec, .aztec_arab, .aztec_asia   {
-   background-color: rgba(165, 121, 1, 0.596);
+.euro {
+   background-color: rgba(153, 50, 204, 0.5);
+
 }
 
-.asia  {
-   background-color: rgba(155, 1, 40, 0.5);
-   
+.euro_arab {
+
+   /* Arab
+   background-color: rgba(128, 128, 0, 0.5);*/
+   /*euro
+   background-color: rgba(153, 50, 204, 0.5);*/
+   /* DONE */
+   background-color: rgba(140, 89, 102, 0.5);
+
 }
-.arab, .arab_asia {
-   background-color: rgba(150, 0, 137, 0.5);
-   
+
+.euro_asia {
+   /*euro
+   background-color: rgba(153, 50, 204, 0.5);*/
+   /* Asia 
+   background-color: rgba(255, 215, 0, 0.5);*/
+   /* DONE */
+   background-color: rgba(204, 132, 102, 0.5);
+
 }
+
+.euro_aztec {
+   /*euro
+   background-color: rgba(153, 50, 204, 0.5);*/
+   /* Aztec 
+   background-color: rgba(220, 21, 61, 0.5); DONE*/
+   background-color: rgba(185, 35, 132, 0.5);
+
+}
+
+.euro_nomad {
+   /*euro
+   background-color: rgba(153, 50, 204, 0.5);*/
+   background-color: rgba(0, 250, 154, 0.5);
+
+}
+
+.aztec {
+   /* Aztec 
+   background-color: rgba(220, 21, 61, 0.5);*/
+   background-color: rgba(220, 21, 61, 0.5);
+}
+
+.aztec_arab {
+   /* Aztec 
+   background-color: rgba(220, 21, 61, 0.5);*/
+   /* Arab
+   background-color: rgba(128, 128, 0, 0.5); DONE*/
+   background-color: rgba(174, 74, 31, 0.5);
+}
+
+.aztec_asia {
+   /* Aztec 
+   background-color: rgba(220, 21, 61, 0.5);*/
+   /* Asia 
+   background-color: rgba(255, 215, 0, 0.5); DONE*/
+   background-color: rgba(237, 118, 31, 0.5);
+}
+
+.asia {
+   /* Asia 
+   background-color: rgba(255, 215, 0, 0.5);*/
+   background-color: rgba(255, 215, 0, 0.5);
+
+}
+
+.arab {
+   /* Arab
+   background-color: rgba(128, 128, 0, 0.5);*/
+   background-color: rgba(128, 128, 0, 0.5);
+
+}
+
+.arab_asia {
+   /* Arab
+   background-color: rgba(128, 128, 0, 0.5);*/
+   /* Asia 
+   background-color: rgba(255, 215, 0, 0.5);*/
+   /* DONE */
+   background-color: rgba(191, 171, 0, 0.5);
+
+}
+
 .nomad {
    background-color: rgba(84, 204, 54, 0.5);
 }
 
-.tents, .tents_nomad, .euro_tents, .aztec_tents, .asia_tents, .arab_tents  {
-   background-color: rgba(58, 42, 17, 0.5);
+.tents {
+   /* TENTS
+   background-color: rgba(218, 165,  32, 0.6);*/
+   background-color: rgba(218, 165, 32, 0.6);
 
 }
 
-.ruins, .euro_ruins, .aztec_ruins,.asia_ruins, .arab_ruins, .nomad_ruins, .tents_ruins {
+
+.tents_nomad,
+/* TENTS
+   background-color: rgba(218, 165,  32, 0.6);*/
+.euro_tents,
+/* TENTS
+   background-color: rgba(218, 165,  32, 0.6);*/
+.aztec_tents,
+/* Aztec 
+   background-color: rgba(220, 21, 61, 0.5);*/
+/* TENTS
+   background-color: rgba(218, 165,  32, 0.6);*/
+.asia_tents,
+/* Asia 
+   background-color: rgba(255, 215, 0, 0.5);*/
+/* TENTS
+   background-color: rgba(218, 165,  32, 0.6);*/
+.arab_tents {
+   /* Arab
+   background-color: rgba(128, 128, 0, 0.5);*/
+   /* TENTS
+   background-color: rgba(218, 165,  32, 0.6); DONE*/
+   background-color: rgba(173, 146, 16, 0.55);
+
+}
+
+.ruins {
+   background-color: rgba(122, 117, 109, 0.25);
+}
+
+.euro_ruins,
+.aztec_ruins,
+/* Aztec 
+   background-color: rgba(220, 21, 61, 0.5);*/
+.asia_ruins,
+/* Asia 
+   background-color: rgba(255, 215, 0, 0.5);*/
+.arab_ruins,
+/* Arab
+   background-color: rgba(128, 128, 0, 0.5);*/
+.nomad_ruins,
+.tents_ruins {
+   /* TENTS
+   background-color: rgba(218, 165,  32, 0.6);*/
    background-color: rgba(122, 117, 109, 0.5);
 
 }
+
 .cold {
 
    background-color: DarkCyan;
    background-color: rgba(0, 139, 139, 0.5);
 }
 
-.cool, .asia {
+.cool {
    background-color: MediumSpringGreen;
    background-color: rgba(0, 250, 154, 0.5);
 
 }
 
-.mid, .nomad {
+.mid {
    background-color: lightgreen;
    background-color: rgba(144, 238, 144, 0.5);
 
 }
 
-.warm, .arab {
+.warm {
    background-color: ForestGreen;
    background-color: rgba(34, 139, 34, 0.5);
 }
 
-.tropic, .aztec {
+.tropic {
    background-color: olive;
    background-color: rgba(128, 128, 0, 0.5);
 }
