@@ -635,89 +635,90 @@
 
          // Set Mixes
          setTimeout(function () {
-            rePosition("euro", "euro_arab", 315, 1);
-            rePosition("euro", "euro_asia", 0, 1);
-            rePosition("euro", "euro_aztec", 45, 1);
+            rePosition("euro", "euro_arab", 315, 0.9);
+            rePosition("euro", "euro_asia", 0, 0.9);
+            rePosition("euro", "euro_aztec", 45, 0.9);
             rePosition("euro", "euro_tents", 135, -0.5);
-            rePosition("euro", "euro_nomad", 180, -0.5);
-            rePosition("euro", "euro_ruins", 225, 0.5);
+            rePosition("euro", "euro_nomad", 110, -0.15);
+            rePosition("euro", "euro_ruins", 225, 0.75);
          }, 2100);
          setTimeout(function () {
-            rePosition("euro", "euro_arab", 315, 1);
-            rePosition("euro", "euro_asia", 0, 1);
-            rePosition("euro", "euro_aztec", 45, 1);
-            rePosition("euro", "euro_tents", 135, -0.5);
-            rePosition("euro", "euro_nomad", 180, -0.5);
+            rePosition("euro", "euro_arab", 315, 0.9);
+            rePosition("euro", "euro_asia", 0, 1.1);
+            rePosition("euro", "euro_aztec", 45, 0.9);
+            rePosition("euro", "euro_tents", 180, 0.5);
+            rePosition("euro", "euro_nomad", 135, -0.5);
             rePosition("euro", "euro_ruins", 225, 0.5);
          }, 4200);
          setTimeout(function () {
-            rePosition("euro_arab", "arab", 0, 1);
-            rePosition("euro_asia", "asia", 0, 1);
-            rePosition("euro_aztec", "aztec", 0, 1);
-            rePosition("euro_tents", "tents", 180, 1.1);
-            rePosition("euro_nomad", "nomad", 180, 1.25);
-            rePosition("euro_ruins", "ruins", 180, 1.25);
+            rePosition("euro_arab", "arab", 0, 0.9);
+            rePosition("euro_asia", "asia", 0, 1.1);
+            rePosition("euro_aztec", "aztec", 0, 0.9);
+            rePosition("euro_tents", "tents", 160, -0.1);
+            rePosition("tents_nomad", "nomad", 90, 1.1);
+            rePosition("euro_ruins", "ruins", 180, -0.25);
 
          }, 6400);
          setTimeout(function () {
-            rePosition("aztec", "aztec_arab", 315, 1);
-            rePosition("aztec", "aztec_asia", 0, 1);
-            rePosition("aztec", "aztec_tents", 45, 1);
-            rePosition("aztec", "aztec_nomad", 315, 1);
-            rePosition("aztec", "aztec_ruins", 0, 1);
+            rePosition("aztec", "aztec_arab", 315, 0.9);
+            rePosition("aztec", "aztec_asia", 0, 0.9);
+            rePosition("aztec", "aztec_tents", 45, 0.9);
+            rePosition("aztec", "aztec_nomad", 315, 0.9);
+            rePosition("aztec", "aztec_ruins", 0, 0.9);
             // for giggles
-            rePosition("arab", "arab_asia", 85, 1);
+            rePosition("arab", "arab_asia", 85, 1.1);
             rePosition("arab", "arab_tents", 45, 1);
             rePosition("arab", "arab_nomad", 180, 1);
-            rePosition("arab", "arab_ruins", 90, 1);
-            rePosition("asia", "asia_tents", 225, 1);
-            rePosition("asia", "asia_nomad", 335, 1);
-            rePosition("asia", "asia_ruins", 12, 1);
-            rePosition("tents", "tents_nomad", 87, 1);
-            rePosition("tents", "tents_ruins", 110, 1);
-            rePosition("nomad", "nomad_ruins", 145, 1);
+            rePosition("arab", "arab_ruins", 90, 1.25);
+            
+            rePosition("tents", "tents_nomad", 45, 1);
 
-         }, 7500);
+         }, 8600);
          setTimeout(function () {
             rePosition("aztec", "aztec_arab", 315, 1);
             rePosition("aztec", "aztec_asia", 0, 1);
-            rePosition("aztec", "aztec_tents", 45, 1);
+            rePosition("aztec", "aztec_tents", 0, 1.25);
             rePosition("aztec", "aztec_nomad", 315, 1);
-            rePosition("aztec", "aztec_ruins", 0, 1);
+            rePosition("aztec", "aztec_ruins", 90, 1.25);
             rePosition("arab", "arab_asia", 45, 1);
             rePosition("arab", "arab_tents", 315, 1);
             rePosition("arab", "arab_nomad", 0, 1);
             rePosition("arab", "arab_ruins", 270, 1);
-            rePosition("asia", "asia_tents", 45, 1);
-            rePosition("asia", "asia_nomad", 315, 1);
-            rePosition("asia", "asia_ruins", 0, 1);
+            rePosition("asia", "asia_tents", 45, 1.1);
+            rePosition("asia", "asia_nomad", 315, 1.1);
+            rePosition("asia", "asia_ruins", 0, 1.1);
             rePosition("tents", "tents_nomad", 45, 1);
-            rePosition("tents", "tents_ruins", 0, 1);
-            rePosition("nomad", "nomad_ruins", 45, 1);
-
-         }, 8600);
+            rePosition("tents", "tents_ruins", 270, 1);
+            rePosition("euro", "euro_ruins", 215, 0.45);
+            rePosition("tents_nomad", "nomad", 90, 1.1);
+            rePosition("euro_ruins", "ruins", 180, 0.25);
+            rePosition("euro_tents", "tents", 160, 0.1);
+         }, 10800);
 
          setTimeout(function () {
-            rePosition("euro", "aztec_arab", 0, 1.5);
+             rePosition("euro", "aztec_arab", 0, 25);
+             rePosition("euro", "euro_tents", 140, 0.25);
+             rePosition("asia", "aztec_asia", 90, 1);
+             rePosition("nomad", "nomad_ruins", 45, 1);
 
-            rePosition("asia", "aztec_asia", 90, 1);
+            // rePosition("nomad", "nomad_ruins", 180, 1);
+            // rePosition("aztec", "aztec_nomad", 315, 1);
+             rePosition("aztec", "aztec_ruins", 90, 1);
+             rePosition("tents", "tents_nomad", 45, 1);
+            rePosition("tents", "tents_ruins", 270, 1);
+            rePosition("tents_nomad", "nomad", 90, 1.1);
+             rePosition("asia", "arab_asia", 270, 1);
+            // rePosition("arab", "arab_tents", 315, 1);
+            // rePosition("arab", "arab_nomad", 0, 1);
+            // rePosition("arab", "arab_ruins", 270, 1);
+            // rePosition("asia", "asia_tents", 45, 1);
+            // rePosition("asia", "asia_nomad", 315, 1);
+            // rePosition("asia", "asia_ruins", 0, 1);
+            // rePosition("tents", "tents_nomad", 45, 1);
+            // rePosition("tents", "tents_ruins", 0, 1);
+            // rePosition("nomad", "nomad_ruins", 45, 1);
 
-            rePosition("nomad", "nomad_ruins", 180, 1);
-            rePosition("aztec", "aztec_nomad", 315, 1);
-            rePosition("aztec", "aztec_ruins", 0, 1);
-
-            rePosition("asia", "arab_asia", 270, 1);
-            rePosition("arab", "arab_tents", 315, 1);
-            rePosition("arab", "arab_nomad", 0, 1);
-            rePosition("arab", "arab_ruins", 270, 1);
-            rePosition("asia", "asia_tents", 45, 1);
-            rePosition("asia", "asia_nomad", 315, 1);
-            rePosition("asia", "asia_ruins", 0, 1);
-            rePosition("tents", "tents_nomad", 45, 1);
-            rePosition("tents", "tents_ruins", 0, 1);
-            rePosition("nomad", "nomad_ruins", 45, 1);
-
-         }, 10800);
+         }, 13000);
 
 
       } else {
