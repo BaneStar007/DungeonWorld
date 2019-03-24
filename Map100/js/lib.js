@@ -315,29 +315,32 @@ function deleteFromObject(keyPart, obj) {
 }
 
 
-
-function sortdata(dataStructure, structureSet, dataSet, dataTitle) {
+function sortdata(dataStructure, style, structureSet, dataSet, dataTitle, show = false) {
 
    //5. What Terrain Do You Want Your Location To Appear In
-   //console.log(dataTitle);
+   
+   if (show) console.log("meh:"+dataTitle );
+   
+   if (show) console.log("defined:"+style );
+
    notMissing = false;
    if (dataSet[dataTitle] != undefined) {
       temp = dataSet[dataTitle];
       tempSet = temp.split(" | ");
+      if (show) console.log(tempSet);
 
 
       for (loop = 0; loop < tempSet.length; loop++) {
 
          for (iloop = 0; iloop < dataStructure.length; iloop++) {
 
-            //console.log(tempSet[loop], " vs", dataStructure[iloop], structureSet[iloop + 1]);
+            if (show) console.log(tempSet[loop]+ " vs" + dataStructure[iloop] + " & " + structureSet[iloop]);
             if (tempSet[loop] == dataStructure[iloop]) {
 
-               dataSet[structureSet[0]][structureSet[iloop + 1]] = true;
+               dataSet[style][structureSet[iloop]] = true;
 
-               stats[structureSet[iloop + 1]]++;
-               //   console.log(dataSet[structureSet[0]]);
-               //   console.log("------->");
+               stats[structureSet[iloop]]++;
+               
                notMissing = true;
             }
 
@@ -350,17 +353,17 @@ function sortdata(dataStructure, structureSet, dataSet, dataTitle) {
 
             if (dataSet.easterEggs > 0) {
 
-               dataSet[structureSet[0]].other = true;
-               stats[structureSet[0] + "other"]++;
+               dataSet[style].other = true;
+               stats[style + "other"]++;
                dataSet.easterEggs--;
-               dataSet[structureSet[0]].details = dataSet[dataTitle];
+               dataSet[style].details = dataSet[dataTitle];
                deleteFromObject(dataTitle, dataSet);
 
             } else {
                // catch out users who entered details in excess
 
                dataSet.overspend++;
-               dataSet.overspent.push("Other" + structureSet[0]);
+               dataSet.overspent.push("Other" + style);
                //console.log(dataSet.title, dataSet.easterEggs);
                //console.log(tempSet[loop] == dataSet[dataTitle], dataSet["Backer Name"]);
                //console.log(dataSet);
@@ -368,6 +371,9 @@ function sortdata(dataStructure, structureSet, dataSet, dataTitle) {
 
             notMissing = true;
          }
+
+         if (show) console.log(dataSet[style]);
+               if (show) console.log("------->");
 
          // Catch if didn't before.
          if (!notMissing) {

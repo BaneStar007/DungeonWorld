@@ -560,16 +560,16 @@
 
    function makeStyles() {
 
-      structureSet = Array("euro",
+      structureSet = Array("euro", "euro_", "asia_", "aztec_", "arab_", "tents_", "nomad_", "ruins_",
          "euro_arab", "euro_asia", "euro_aztec",
          "euro_tents", "euro_nomad", "euro_ruins",
-         "aztec", "aztec_arab", "aztec_asia", "aztec_tents", "aztec_nomad", "aztec_ruins",
-         "arab", "arab_asia", "arab_tents", "arab_nomad", "arab_ruins",
-         "asia", "asia_tents", "asia_nomad", "asia_ruins",
-         "tents", "tents_nomad", "tents_ruins",
-         "nomad", "nomad_ruins",
-         "ruins");
-      positionSet = Array(527.5, 252.5,
+         "aztec", "aztec_arab", "aztec_asia", "aztec_tents", "aztec_nomad", "aztec_ruins", "aztec_euro",
+         "arab", "arab_asia", "arab_tents", "arab_nomad", "arab_ruins",   "arab_euro",
+         "asia", "asia_tents", "asia_nomad", "asia_ruins",   "asia_euro",
+         "tents", "tents_nomad", "tents_ruins",   "tents_euro",
+         "nomad", "nomad_ruins",   "nomad_euro",
+         "ruins",  "ruins_euro");
+      positionSet = Array(427.5, 252.5,
          45, 270, 135,
          315, 270, 225,
          135, 90, 15, 180, 225, // aztec
@@ -594,6 +594,7 @@
             setTimeout(function () {
                size = (stats[structureSet[i]] * 50);
                fontsize = 20;
+               console.log(stats[structureSet[i]]);
                size = Math.ceil(dimReturns(stats[structureSet[i]], 500, 0.01, 1.1));
                fontsize = Math.ceil(dimReturns(stats[structureSet[i]], 50, 0.05, 1.1));
 
@@ -618,14 +619,14 @@
                $('#id' + structureSet[i]).css('font-size', fontsize + 'px');
 
 
-            }, 300);
+            }, 250);
 
 
             setTimeout(function () {
                d = Math.ceil(Math.random() * 2) - 1
                r = Math.ceil(Math.random() * 6);
                rePosition("euro", structureSet[i], positionSet[i + r], d);
-            }, 1000);
+            }, 500);
 
 
 
@@ -635,21 +636,39 @@
 
          // Set Mixes
          setTimeout(function () {
-            rePosition("euro", "euro_arab", 315, 0.9);
+            rePosition("euro", "euro_arab", 333, 0.9);
             rePosition("euro", "euro_asia", 0, 0.9);
-            rePosition("euro", "euro_aztec", 45, 0.9);
+            rePosition("euro", "euro_aztec", 30, 0.9);
             rePosition("euro", "euro_tents", 135, -0.5);
             rePosition("euro", "euro_nomad", 110, -0.15);
             rePosition("euro", "euro_ruins", 225, 0.75);
-         }, 2100);
+
+            rePosition("euro", "arab_euro", 333, 0.25);
+            rePosition("euro", "asia_euro", 10, 0.25);
+            rePosition("euro", "aztec_euro", 45, 0.25);
+            rePosition("euro", "tents_euro", 135, -0.5);
+            rePosition("euro", "nomad_euro", 110, -0.15);
+            rePosition("euro", "ruins_euro", 225, 0.75);
+
+            rePosition("euro", "euro_", 1, -.05);
+            
+
+         }, 3000);
          setTimeout(function () {
-            rePosition("euro", "euro_arab", 315, 0.9);
-            rePosition("euro", "euro_asia", 0, 1.1);
-            rePosition("euro", "euro_aztec", 45, 0.9);
+            rePosition("euro", "euro_", 1, -.5);
+            rePosition("euro", "euro_arab", 333, 0.9);
+            rePosition("euro", "euro_asia", 1, 1.1);
+            rePosition("euro", "euro_aztec", 25, 0.9);
             rePosition("euro", "euro_tents", 180, 0.5);
-            rePosition("euro", "euro_nomad", 135, -0.5);
+            rePosition("euro", "euro_nomad", 135, 1);
             rePosition("euro", "euro_ruins", 225, 0.5);
-         }, 4200);
+            rePosition("euro_arab", "arab", 0, 0.9);
+            rePosition("euro_asia", "asia", 0, 1.1);
+            rePosition("euro_aztec", "aztec", 0, 0.9);
+            rePosition("euro_tents", "tents", 160, -0.1);
+            rePosition("tents_nomad", "nomad", 90, 1.1);
+            rePosition("euro_ruins", "ruins", 180, -0.25);
+         }, 5000);
          setTimeout(function () {
             rePosition("euro_arab", "arab", 0, 0.9);
             rePosition("euro_asia", "asia", 0, 1.1);
@@ -658,7 +677,7 @@
             rePosition("tents_nomad", "nomad", 90, 1.1);
             rePosition("euro_ruins", "ruins", 180, -0.25);
 
-         }, 6400);
+         }, 7000);
          setTimeout(function () {
             rePosition("aztec", "aztec_arab", 315, 0.9);
             rePosition("aztec", "aztec_asia", 0, 0.9);
@@ -671,9 +690,14 @@
             rePosition("arab", "arab_nomad", 180, 1);
             rePosition("arab", "arab_ruins", 90, 1.25);
             
-            rePosition("tents", "tents_nomad", 45, 1);
+            rePosition("tents", "tents_nomad", 90, 1);
 
-         }, 8600);
+            rePosition("arab", "arab_", 180, -0.05);
+            rePosition("asia", "asia_", 1, -0.05);
+            rePosition("aztec", "aztec_", 45, -0.05);
+            
+
+         }, 9250);
          setTimeout(function () {
             rePosition("aztec", "aztec_arab", 315, 1);
             rePosition("aztec", "aztec_asia", 0, 1);
@@ -687,13 +711,16 @@
             rePosition("asia", "asia_tents", 45, 1.1);
             rePosition("asia", "asia_nomad", 315, 1.1);
             rePosition("asia", "asia_ruins", 0, 1.1);
-            rePosition("tents", "tents_nomad", 45, 1);
+            rePosition("tents", "tents_nomad", 90, 1);
             rePosition("tents", "tents_ruins", 270, 1);
             rePosition("euro", "euro_ruins", 215, 0.45);
             rePosition("tents_nomad", "nomad", 90, 1.1);
             rePosition("euro_ruins", "ruins", 180, 0.25);
             rePosition("euro_tents", "tents", 160, 0.1);
-         }, 10800);
+            rePosition("arab", "arab_", 180, -0.05);
+            rePosition("asia", "asia_", 1, -0.05);
+            rePosition("aztec", "aztec_", 25, -0.05);
+         }, 11500);
 
          setTimeout(function () {
              rePosition("euro", "aztec_arab", 0, 25);
@@ -704,10 +731,15 @@
             // rePosition("nomad", "nomad_ruins", 180, 1);
             // rePosition("aztec", "aztec_nomad", 315, 1);
              rePosition("aztec", "aztec_ruins", 90, 1);
-             rePosition("tents", "tents_nomad", 45, 1);
+             rePosition("tents", "tents_nomad", 80, 1);
             rePosition("tents", "tents_ruins", 270, 1);
-            rePosition("tents_nomad", "nomad", 90, 1.1);
+            
              rePosition("asia", "arab_asia", 270, 1);
+
+
+             rePosition("tents", "tents_", 160, -.05);
+            rePosition("nomad", "nomad_", 90, -.05);
+            rePosition("ruins", "ruins_", 180, -0.05);
             // rePosition("arab", "arab_tents", 315, 1);
             // rePosition("arab", "arab_nomad", 0, 1);
             // rePosition("arab", "arab_ruins", 270, 1);
@@ -718,7 +750,7 @@
             // rePosition("tents", "tents_ruins", 0, 1);
             // rePosition("nomad", "nomad_ruins", 45, 1);
 
-         }, 13000);
+         }, 13750);
 
 
       } else {
@@ -726,12 +758,12 @@
       }
    }
 
-   function rePosition(fixed, move, angle, inside = 1) {
+   function rePosition(fixed, move, angle, distance = 1) {
 
-      console.log(fixed, move);
+     // console.log(fixed, move);
 
       if (fixed !== move) {
-         console.log("sizes", $('#id' + fixed).width(), $('#id' + move).width(), angle);
+      //   console.log("sizes", $('#id' + fixed).width(), $('#id' + move).width(), angle);
 
          var fixedradius = $('#id' + fixed).width() / 2;
          var moveradius = $('#id' + move).width() / 2;
@@ -740,24 +772,22 @@
 
 
 
-         moveradius *= inside;
+        
+      //   console.log(fixedradius, moveradius, $('#id' + fixed).position());
 
-         console.log(fixedradius, moveradius, $('#id' + fixed).position());
 
-
-         var radius = fixedradius + moveradius || 10;
+         var radius = fixedradius + ( moveradius * distance)|| 10;
 
          var radians = angle * Math.PI / 180 || 0;
          x = radius * Math.cos(radians);
          y = radius * Math.sin(radians);
 
-         console.log("radius", radius, "radians", radians);
+        // console.log("radius", radius, "radians", radians);
 
-         console.log(x, "x +", xpos, y, "y +", ypos);
+        // console.log(x, "x +", xpos, y, "y +", ypos);
 
          $('#id' + move).css('left', (xpos + x - moveradius) + 'px');
-         $('#id' + move).css('top', (ypos + y -
-            moveradius) + 'px');
+         $('#id' + move).css('top', (ypos + y - moveradius) + 'px');
 
       }
    }

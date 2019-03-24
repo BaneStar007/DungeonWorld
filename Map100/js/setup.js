@@ -42,8 +42,15 @@ var stats = {
    euro: 0,
    tents: 0,
    nomad: 0,
+   exotic: 0,
+   arab_: 0,
+   asia_: 0,
+   aztec_: 0,
+   euro_: 0,
+   tents_: 0,
+   nomad_: 0,
    styleother: 0,
-   euro_aztec: 0,
+   
 
    mvil: 0,
    svil: 0,
@@ -465,12 +472,12 @@ function processData(allText, FullData) {
          );
 
          data[i].terraType = {};
-         structureSet = Array("terraType", "sea", "coastal", "swamp", "desert", "taiga", "plains",
+         structureSet = Array( "sea", "coastal", "swamp", "desert", "taiga", "plains",
             "borreal",
             "jungle",
             "hills", "mountains");
 
-         data[i] = sortdata(dataStructureSet, structureSet, data[i],
+         data[i] = sortdata(dataStructureSet, "terraType", structureSet, data[i],
             "5. What Terrain Do You Want Your Location To Appear In")
 
 
@@ -506,10 +513,10 @@ function processData(allText, FullData) {
             "Arctic or Arctic Fringes ( minus winters, 0-5.c summers", "No response");
 
          data[i].biomes = {};
-         structureSet = Array("biomes", "mid", "warm", "any", "cool", "arctic", "tropic", "arctic",
+         structureSet = Array( "mid", "warm", "any", "cool", "arctic", "tropic", "arctic",
             "any");
 
-         data[i] = sortdata(dataStructureSet, structureSet, data[i],
+         data[i] = sortdata(dataStructureSet, "biomes", structureSet, data[i],
             "7. Which Biomes Would Suit Your Location")
 
          //8. Terrain Descriotion
@@ -517,16 +524,23 @@ function processData(allText, FullData) {
          deleteFromObject("8. Describe Your Terrain, Border Terrain And Biome.", data[i]);
 
          //9. Style Of Your Location (If Applicable, Choose Up To 2)
-         dataStructureSet = Array("European (Grey stone)",
-            "Aztec (Orange Stone)", "Arabian (Yellow Stone)",
-            "Asian (White Stone)",
-            "Native (tents)", "Nomadic (horses or wheeled)",
-            "Abandoned/Ruins", "No response");
+         dataStructureSet = Array( 
+            
+            "European (Grey stone)", 
+            "Arabian (Yellow Stone)", 
+            "Asian (White Stone)", 
+            "Aztec (Orange Stone)",
+            "Native (tents)", 
+            "Nomadic (horses or wheeled)",  
+            "Abandoned/Ruins", 
+             "No response");
+
 
          data[i].style = {};
-         structureSet = Array("style", "euro", "aztec", "arab", "asia", "tents", "nomad", "ruins", "any");
+         structureSet = Array( "euro",  "arab",   "asia",  "aztec","tents", "nomad",  "ruins",   "any");
+         
 
-         data[i] = sortdata(dataStructureSet, structureSet, data[i],
+         data[i] = sortdata(dataStructureSet, "style", structureSet, data[i],
             "9. Style Of Your Location (If Applicable, Choose Up To 2)");
 
          // spread out the anys?
@@ -553,8 +567,8 @@ function processData(allText, FullData) {
 
          }
          // Need to determine groups. 
-         for (stylz = 1; stylz < (structureSet.length - 1); stylz++) {
-            for (styls = 1; styls < (structureSet.length - 1); styls++) {
+         for (stylz = 0; stylz < (structureSet.length - 1); stylz++) {
+            for (styls = 0; styls < (structureSet.length - 1); styls++) {
 
                if (structureSet[stylz] == structureSet[styls]) {
                   // do nothing 
@@ -570,7 +584,9 @@ function processData(allText, FullData) {
                      //            console.log(stats[structureSet[stylz] + "_" + structureSet[styls]]);
                      stats[structureSet[stylz] + "_" + structureSet[styls]]++;
                      stats[structureSet[stylz]]--;
+                     stats[structureSet[stylz]+"_"]++;
                      stats[structureSet[styls]]--;
+                     stats[structureSet[styls]+'_']++;
                      data[i].style[structureSet[stylz] + "_" + structureSet[styls]] = true;
                      //          console.log(data[i].style);
                      data[i].style[structureSet[stylz]] = false;
@@ -579,7 +595,7 @@ function processData(allText, FullData) {
                   }
                }
             }
-         }
+         } /*/
 
          //9. Terrain Descriotion
          data[i].style.description = data[i][
@@ -757,7 +773,7 @@ function processData(allText, FullData) {
             //First Add On
             dataStructureSet = Array("Village size+2",
                "Village size+1", "Dungeon Entrance/Exit",
-               "Ruins",
+               
                "Label: Add name in text below", "Sign / road marker",
                "Abandoned/Ruins", "Monolith/statue/totem", "Hole in the ground", "Temple",
                "surround with trees",
@@ -767,8 +783,8 @@ function processData(allText, FullData) {
                "Abandonded... <insert here>", "No response");
 
             data[i].smallLocA = {};
-            structureSet = Array("smallLocA", "mvil", "svil", "dungeon", "ruin", "label", "sign",
-               "ruins",
+            structureSet = Array( "mvil", "svil", "dungeon", "ruin", "label", "sign",
+               
                "statue",
                "hole",
                "temple", "trees", "animals", "surround", "farm", "waterfall", "tents", "tower",
@@ -779,7 +795,7 @@ function processData(allText, FullData) {
 
 
 
-            data[i] = sortdata(dataStructureSet, structureSet, data[i],
+            data[i] = sortdata(dataStructureSet, "smallLocA", structureSet, data[i],
                "13a. Your First Add On / Small Location A, You Can Combine By Clicking 3 Elements, (Or More For Higher Pledges)"
             );
 
@@ -819,7 +835,7 @@ function processData(allText, FullData) {
 
             data[i].smallLocB = {};
 
-            data[i] = sortdata(dataStructureSet, structureSet, data[i],
+            data[i] = sortdata(dataStructureSet, "smallLocB", structureSet, data[i],
                "14a. Location B? You Can Combine By Clicking 3 Elements, (Or More For Higher Pledges)"
             )
 
@@ -933,7 +949,7 @@ function processData(allText, FullData) {
 
             dataStructureSet = Array("Village size+2",
                "Village size+1", "Dungeon Entrance/Exit",
-               "Ruins",
+               
                "Label: Add name in text below", "Sign / road marker",
                "Abandoned/Ruins", "Monolith/statue/totem", "Hole in the ground", "Temple",
                "surround with trees",
@@ -943,8 +959,7 @@ function processData(allText, FullData) {
                "Abandonded... <insert here>", "No response");
 
             data[i].smallLocA = {};
-            structureSet = Array("smallLocA", "mvil", "svil", "dungeon", "ruin", "label", "sign",
-               "ruins",
+            structureSet = Array( "mvil", "svil", "dungeon", "ruin", "label", "sign",
                "statue",
                "hole",
                "temple", "trees", "animals", "surround", "farm", "waterfall", "tents", "tower",
@@ -953,7 +968,7 @@ function processData(allText, FullData) {
                "surround", "abandoned",
                "nada");
 
-            data[i] = sortdata(dataStructureSet, structureSet, data[i],
+            data[i] = sortdata(dataStructureSet, "smallLocA", structureSet, data[i],
                "3. What Kind Of Location Do You Want ? You Can Combine By Clicking 3 Elements, (Or More For Higher Pledges)"
             )
 
