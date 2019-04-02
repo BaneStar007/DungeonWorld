@@ -327,6 +327,14 @@
    background-color: olive;
    background-color: rgba(128, 128, 0, 0.5);
 }
+.heat {
+   background-color: orange;
+   background-color: rgba(144, 96, 0, 0.5);
+}
+.death {
+   background-color: olive;
+   background-color: rgba(96, 48, 0, 0.5);
+}
 
 .mountains,
 .peaks {

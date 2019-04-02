@@ -105,18 +105,31 @@ function createMap() {
    // console.log(theMap);
 }
 
+var drawLimit = mapWidth;
+var drawNum = 0; 
+
 // Draw the Map to screen
 function drawMap(map) {
 
    var mapBox = document.getElementById("mapbox");
-   mapBox.innerHTML = "";
-   console.log("draw Map");
+   var counter = 0;
+
+   //console.log("draw Map", mapHeight, mapWidth);
+
+   if ((mapHeight * mapWidth) > 1800 ) { return;}
+   drawTo = drawLimit+drawNum;
+
+   if (drawNum < 500) { drawTo = 500; }
+
+   if (drawNum < 350) { drawTo = 350; }
 
    for (i = 0; i < mapHeight; i++) {
       for (j = 0; j < mapWidth; j++) {
 
-
-         //console.log(map[i][j].id);
+         
+        // console.log(drawNum+" < "+drawTo,  drawLimit);
+         if (drawNum < drawTo && counter >= drawNum) {
+        // console.log(map[i][j].id);
 
          if (j % 2 != 0) {
             alternate = "";
@@ -152,10 +165,12 @@ function drawMap(map) {
          hex += '</div>';
 
          hex += '</div>';
+      
 
-
+         drawNum++;
          mapBox.innerHTML += hex;
-
+   }
+         counter++;
       }
    }
 }
@@ -394,9 +409,11 @@ function sortdata(dataStructure, style, structureSet, dataSet, dataTitle, show =
 }
 
 
+var startLoc = undefined;
+var endLoc = undefined;
+var MountainsLeft = undefined;
 
-
-function makeMountains() {
+function makeMountains(minX =2, maxX= null, minY =2, maxY =null, total =10) {
    /*
     /$$      /$$                             /$$    
    | $$$    /$$$                            | $$    
@@ -408,20 +425,31 @@ function makeMountains() {
    |__/     |__/\______/ \______/|__/  |__/  \___*/
 
    // Mountain Ranges: 
-   var startLoc = undefined;
-   var endLoc = undefined;
+   if (MountainsLeft == undefined) { MountainsLeft = stats.mountains; }
+   console.log(stats, MountainsLeft);
+
+   if (MountainsLeft > 0) {
+      MountainsLeft--;
+   
+   
    var needMore = 0;
    thisX = 0;
    thisY = 0;
+   if (maxX == null) { maxX = mapHeight -3; }
+   mapWidth
    unset = true;
    counter = 0;
    console.log("Start Mountains");
 
+   mountCount = stats.mountains;
+   //mountCount = total;
+   
+   countMax = 10;
 
-   for (i = 0; i < stats.mountains; i++) {
+   for (i = 0; i < 1; i++) {
 
 
-      console.log("Terrain left to Process", stats.mountains);
+      console.log("Terrain left to Process", mountCount);
       if (terraLocs.length > 7) {
          // Create a start location
          console.log("enoughTerrain?", terraLocs.length)
@@ -432,8 +460,8 @@ function makeMountains() {
 
 
 
-
-            while (thisX < 2 || thisX > (mapHeight - 3) && thisY < 2 || thisY > (mapWidth - 3)) {
+            while (counter < countMax) {
+            if (thisX < minX || thisX > maxX && thisY < minY || thisY > maxY) {
                console.log("success", thisX, mapHeight, thisY, mapWidth);
 
 
@@ -443,12 +471,9 @@ function makeMountains() {
                thisX = terraLocs[val].x;
                thisY = terraLocs[val].y;
                console.log(thisX, thisY);
-               counter++;
-               if (counter > 100) {
-                  thisX = 3;
-                  thisY = 3;
-               }
-
+            
+            }
+            counter++;
             }
             startLoc = {
                "startX": thisX,
@@ -464,7 +489,8 @@ function makeMountains() {
                console.log("endLoc");
                counter = 0;
                //for (i = 0; i < 500; i++) {
-               while (thisX < 2 || thisX > (mapHeight - 3) && thisY < 2 || thisY > (mapWidth - 3)) {
+               while (counter < countMax) {
+               if (thisX < minX || thisX > maxX && thisY < minY || thisY > maxY) {
 
                   dice1 = Math.floor(Math.random() * 6);
                   dice2 = Math.floor(Math.random() * 6);
@@ -473,19 +499,17 @@ function makeMountains() {
 
 
                   thisX = startLoc.startX + dice1 - dice2;
-                  if (thisX >= mapHeight) thisX = mapHeight + 1;
-                  if (thisX < 0) thisX = 0;
+                  if (thisX >= maxX) thisX = maxX - 1;
+                  if (thisX < minX) thisX = minX+1;
 
                   thisY = startLoc.startY + dice3 - dice4;
-                  if (thisY >= mapWidth) thisY = mapWidth + 1;
-                  if (thisY < 0) thisY = 0;
+                  if (thisY >= maxY) thisY = maxY - 1;
+                  if (thisY < minY) thisY = minY+1;
                   console.log(thisX, thisY);
+                  }
 
                   counter++;
-                  if (counter > 100) {
-                     thisX = 3;
-                     thisY = 3;
-                  }
+                  
                }
 
                endLoc = {
@@ -591,9 +615,10 @@ function makeMountains() {
    console.log("====>>> End of Mountain Ranges <<==");
 
    redrawMap(theMap);
+} // limited to Mountains Left
 }
 
-function makeHills() {
+function makeHills(minX =2, maxX= null, minY =2, maxY =null, total =10) {
    /*
     /$$   /$$/$$/$$/$$         
    | $$  | $|__| $| $$         
@@ -607,6 +632,8 @@ function makeHills() {
    var startLoc = undefined;
    var endLoc = undefined;
    var needMore = 0;
+   var counter = 0;
+   var countMax = 10; 
 
    for (i = 0; i < stats.hills; i++) {
 
@@ -615,7 +642,9 @@ function makeHills() {
          // Create a start location
          if (startLoc == undefined) {
 
-            while (thisX <= 2 || thisX > (mapHeight - 3) || thisY <= 2 || thisY > (mapWidth - 3)) {
+            while (counter < countMax) {
+               if (thisX < minX || thisX > maxX && thisY < minY || thisY > maxY) {
+            
 
                val = Math.floor((Math.random() * terraLocs.length));
 
@@ -624,6 +653,8 @@ function makeHills() {
                thisY = terraLocs[val].y;
                console.log(thisX, thisY);
             }
+            counter++;
+         }
             startLoc = {
                "startX": thisX,
                "startY": thisY
@@ -633,7 +664,8 @@ function makeHills() {
 
             if (endLoc == undefined) {
                // backup
-               while (thisX <= 2 || thisX > (mapHeight - 3) || thisY <= 2 || thisY > (mapWidth - 3)) {
+               while (counter < countMax) {
+                  if (thisX < minX || thisX > maxX && thisY < minY || thisY > maxY) {
 
                   dice1 = Math.floor(Math.random() * 6);
                   dice2 = Math.floor(Math.random() * 6);
@@ -642,14 +674,16 @@ function makeHills() {
 
 
                   thisX = startLoc.startX + dice1 - dice2;
-                  if (thisX >= mapHeight) thisX = mapHeight - 1;
-                  if (thisX < 0) thisX = 0;
+                  if (thisX >= maxX) thisX = maxX - 1;
+                  if (thisX < minX) minX = minX+1;
 
                   thisY = startLoc.startY + dice3 - dice4;
-                  if (thisY >= mapWidth) thisY = mapWidth - 1;
-                  if (thisY < 0) thisY = 0;
+                  if (thisY >= maxY) thisY = maxY - 1;
+                  if (thisY < minY) thisY = minY+1;
                   console.log(thisX, thisY);
                }
+               counter++;
+            }
                endLoc = {
                   "endX": thisX,
                   "endY": thisY
