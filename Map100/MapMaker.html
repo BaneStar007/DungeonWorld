@@ -158,79 +158,89 @@
 
       biomes = {};
 
-      biomeTitles = ["pole", "arctic",
-         "cold",
-         "cool",
-         "mid",
-         "warm",
+      biomeTitles = ["pole", "arctic", "cold", "cool", "mid", "warm","tropic", "heat", "death","any"];
 
-
-         "tropic",
-         "biomes",
-         "any"
-      ];
+      finalBiomes = ["arctic",         "cold",         "cool",         "mid",         "warm",         "tropic", "heat", "death"];
 
       // make a copy of the stats to the biomes
       for (id = 0; id < biomeTitles.length; id++) {
 
          biomes[biomeTitles[id]] = stats[biomeTitles[id]];
+       
 
       }
 
       // So the Biomes have an effect on the world more?
 
       // for testing
-      biomes.pole = 1;
-      biomes.biomes = 186;
-      biomes.cold = 0;
-      biomes.cool = 29;
-      biomes.mid = 52;
-      biomes.warm = 38;
-      biomes.arctic = 8;
-      biomes.any = 43;
-      biomes.tropic = 16;
+      // biomes.pole = 1;
+      // biomes.biomes = 186;
+      // biomes.cold = 0;
+      // biomes.cool = 29;
+      // biomes.mid = 52;
+      // biomes.warm = 38;
+      // biomes.arctic = 8;
+      // biomes.any = 43;
+       biomes.heat = 1;
+       biomes.death =1;
 
 
 
 
       for (id = 0; id < biomeTitles.length; id++) {
 
-         //     console.log(biomeTitles[id], biomes[biomeTitles[id]]);
+              console.log(biomeTitles[id], biomes[biomeTitles[id]]);
       }
 
       // sift through the 'any' set and randomly assign them 
       length = biomes.any;
       for (id = 0; id < length; id++) {
 
-         switch (Math.floor(Math.random() * 10)) {
+         switch (Math.floor(Math.random() * 20)) {
             case 0:
                biomes.arctic++;
                //        console.log("artic");
                break;
             case 1:
             case 2:
+            case 3:
                biomes.cold++;
                //        console.log("cold");
                break;
-            case 3:
             case 4:
+            case 5:
+            case 6:
                biomes.cool++;
                //console.log("cool");
                break;
-            case 5:
-            case 6:
             case 7:
+            case 8:
+            case 9:
+            case 10:
+            case 11:
+            case 12:
                biomes.mid++;
                //console.log("mid");
                break;
-            case 8:
-            case 9:
+            case 13:
+            case 14:
+            case 15:
                biomes.warm++;
                //console.log("warm");
                break;
-            case 10:
+            case 16:
+            case 17:
+            case 18:
                biomes.tropic++;
                //console.log("tropic");
+               break;
+            case 19:
+               biomes.heat++;
+               //console.log("heat");
+               break;
+            case 20:
+               biomes.heat++;
+               //console.log("heat");
                break;
             default:
                biomes.mid++;
@@ -242,31 +252,48 @@
       }
 
       //delete biomes.any ;
+      totalBiomes =0;
+      leftToDo = mapWidth-1;
 
-      for (id = 0; id < biomeTitles.length; id++) {
 
-         //console.log(biomeTitles[id], biomes[biomeTitles[id]]);
+      for (id = 0; id < finalBiomes.length; id++) {
+
+         console.log(finalBiomes[id], biomes[finalBiomes[id]]);
+         totalBiomes += biomes[finalBiomes[id]]; 
       }
 
-      for (id = 0; id < biomeTitles.length; id++) {
+      for (id = 0; id < finalBiomes.length; id++) {
 
-         biomes[biomeTitles[id] + "per"] = Math.floor((biomes[biomeTitles[id]] / biomes.biomes) * 10000) / 10000;
 
-         //console.log(biomeTitles[id] + "per", biomes[biomeTitles[id] + "per"]);
+         console.log("whats up? ", biomes[finalBiomes[id]] ,totalBiomes);
+         console.log("Leftover=", leftToDo);
+         value = Math.floor((biomes[finalBiomes[id]] / (totalBiomes)) * 10000) / 10000;
+         console.log("value", value);
 
-         biomes[biomeTitles[id] + "p"] = 0;
+         if (value > (theMap.length/3)) { value = Math.floor(theMap.length/3)}
 
-         biomes[biomeTitles[id] + "p"] = Math.floor(Math.floor(mapWidth + (mapHeight / 2) - 7) * biomes[biomeTitles[id] +
-            "per"]);
+         biomes[finalBiomes[id] + "per"] = value;
 
-         //console.log(biomeTitles[id], biomes[biomeTitles[id] + "f"]);
+         
+
+         console.log(finalBiomes[id] + "per", value);
+
+         biomes[finalBiomes[id] + "p"] = 0;
+
+         biomes[finalBiomes[id] + "p"] = Math.floor((mapWidth-3) * (biomes[finalBiomes[id] +
+            "per"]));
+
+         console.log(finalBiomes[id], biomes[finalBiomes[id] + "p"]);
+         
+         leftToDo -= biomes[finalBiomes[id] + "p"];
+         console.log("Leftover=", leftToDo);
       }
 
       // console.log("totalLocs", biomeLocs.length);
 
-      for (id = 0; id < biomeTitles.length; id++) {
+      for (id = 0; id < finalBiomes.length; id++) {
 
-         console.log(biomeTitles[id], biomes[biomeTitles[id] + "p"]);
+         console.log(finalBiomes[id], biomes[finalBiomes[id] + "p"]);
       }
 
 
@@ -279,17 +306,10 @@
       biomeLocs[(mapWidth * 10)].biome = "pole";
       theMap[biomeLocs[(mapWidth * 10)].x][biomeLocs[(mapWidth * 10)].y].biome = "pole";
 
-
       var drawn = false;
 
-
-      var biomLength = biomeTitles.length - 2;
-      //  console.log("biomeLength",biomLength);
-
-
-      //  var loopCounter =0;
-      //  console.log("-=-=-=-=-=> CYCLE:",cycle);
-
+      var biomLength = finalBiomes.length;
+      
       for (id = 1; id < biomLength; id++) {
          //    console.log("id", id);
 
@@ -566,7 +586,7 @@
          "aztec", "aztec_arab", "aztec_asia", "aztec_tents", "aztec_nomad", "aztec_ruins", "aztec_euro",
          "arab", "arab_asia", "arab_tents", "arab_nomad", "arab_ruins",   "arab_euro",
          "asia", "asia_tents", "asia_nomad", "asia_ruins",   "asia_euro",
-         "tents", "tents_nomad", "tents_ruins",   "tents_euro",
+         "tents", "tents_euro", "tents_aztec",   "tents_arab", "tents_asia", "tents_nomad",   "tents_ruins",
          "nomad", "nomad_ruins",   "nomad_euro",
          "ruins",  "ruins_euro");
       positionSet = Array(427.5, 252.5,
@@ -594,7 +614,7 @@
             setTimeout(function () {
                size = (stats[structureSet[i]] * 50);
                fontsize = 20;
-               console.log(stats[structureSet[i]]);
+               //console.log(stats[structureSet[i]]);
                size = Math.ceil(dimReturns(stats[structureSet[i]], 500, 0.01, 1.1));
                fontsize = Math.ceil(dimReturns(stats[structureSet[i]], 50, 0.05, 1.1));
 
@@ -604,13 +624,13 @@
                $('#id' + structureSet[i]).width(size);
                $('#id' + structureSet[i]).height(size);
 
-               console.log("go", '#id' + structureSet[i], size);
+               //console.log("go", '#id' + structureSet[i], size);
 
                leftpos = positionSet[i * 2] - (size / 2);
                toppos = positionSet[(i * 2) + 1] - (size / 2)
 
-               console.log(leftpos + "= {" + positionSet[i * 2] + "} - (" + (size / 2) + ")", size);
-               console.log(toppos + "= {" + positionSet[(i * 2) + 1] + "} - (" + (size / 2) + ")", size);
+               //console.log(leftpos + "= {" + positionSet[i * 2] + "} - (" + (size / 2) + ")", size);
+              // console.log(toppos + "= {" + positionSet[(i * 2) + 1] + "} - (" + (size / 2) + ")", size);
 
 
                $('#id' + structureSet[i]).css('border-radius', '50%');
@@ -619,26 +639,18 @@
                $('#id' + structureSet[i]).css('font-size', fontsize + 'px');
 
 
-            }, 250);
+            }, 50);
 
 
-            setTimeout(function () {
-               d = Math.ceil(Math.random() * 2) - 1
-               r = Math.ceil(Math.random() * 6);
-               rePosition("euro", structureSet[i], positionSet[i + r], d);
-            }, 500);
-
-
-
-         }
+                     }
 
          $('#mapbox').html(stylecircles);
 
          // Set Mixes
          setTimeout(function () {
-            rePosition("euro", "euro_arab", 333, 0.9);
+            rePosition("euro", "euro_arab", 330, 0.9);
             rePosition("euro", "euro_asia", 0, 0.9);
-            rePosition("euro", "euro_aztec", 30, 0.9);
+            rePosition("euro", "euro_aztec", 40, 0.9);
             rePosition("euro", "euro_tents", 135, -0.5);
             rePosition("euro", "euro_nomad", 110, -0.15);
             rePosition("euro", "euro_ruins", 225, 0.75);
@@ -650,15 +662,15 @@
             rePosition("euro", "nomad_euro", 110, -0.15);
             rePosition("euro", "ruins_euro", 225, 0.75);
 
-            rePosition("euro", "euro_", 1, -.05);
+            rePosition("euro", "euro_", 1, -.03);
             
 
          }, 3000);
          setTimeout(function () {
             rePosition("euro", "euro_", 1, -.5);
-            rePosition("euro", "euro_arab", 333, 0.9);
-            rePosition("euro", "euro_asia", 1, 1.1);
-            rePosition("euro", "euro_aztec", 25, 0.9);
+            rePosition("euro", "euro_arab", 333, 0.75);
+            rePosition("euro", "euro_asia", 1, 0.75);
+            rePosition("euro", "euro_aztec", 25, 0.75);
             rePosition("euro", "euro_tents", 180, 0.5);
             rePosition("euro", "euro_nomad", 135, 1);
             rePosition("euro", "euro_ruins", 225, 0.5);
@@ -751,16 +763,18 @@
             // rePosition("nomad", "nomad_ruins", 45, 1);
 
          }, 13750);
-
+       
 
       } else {
          drawMap(theMap);
       }
    }
 
+  
+
    function rePosition(fixed, move, angle, distance = 1) {
 
-     // console.log(fixed, move);
+      //console.log(fixed, move);
 
       if (fixed !== move) {
       //   console.log("sizes", $('#id' + fixed).width(), $('#id' + move).width(), angle);
@@ -826,7 +840,7 @@
 
    <button id="stylebutton" onclick="makeStyles()">Check out Styles</button>
 
-   <button id="mbutton" onclick="makeMountains()">Mountains</button>
+   <button id="mbutton" onclick="makeMountains(2, 30, 10, 30, 10)">Mountains</button>
    <button id="hbutton" onclick="makeHills()">Hills</button>
    <button id="h2button" onclick="processHills()">Hills Ranges</button>
 

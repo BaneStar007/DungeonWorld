@@ -35,6 +35,8 @@ var stats = {
    arctic: 0,
    any: 0,
    tropic: 0,
+   heat:0,
+   death:0,
 
    arab: 0,
    asia: 0,
@@ -104,8 +106,8 @@ var easterALocs = [];
 var easterBLocs = [];
 var biomeLocs = [];
 // map max dimensions
-var mapWidth = 30; // 48
-var mapHeight = 12; // 30
+var mapWidth = 52; // 52
+var mapHeight = 32; // 32
 var gridOn = true;
 var mapDirection = 1;
 var cycle = 0;
