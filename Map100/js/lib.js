@@ -221,6 +221,15 @@ function redrawMap(map) {
    }
 }
 
+function isInt(value) {
+   var x;
+   if (isNaN(value)) {
+     return false;
+   }
+   x = parseFloat(value);
+   return (x | 0) === x;
+ }
+
 function toggleGrid() {
    console.log(gridOn);
    if (!gridOn) {
@@ -392,7 +401,7 @@ function sortdata(dataStructure, style, structureSet, dataSet, dataTitle, show =
 
          // Catch if didn't before.
          if (!notMissing) {
-            console.log("Catch", tempSet[loop]);
+            console.log("Catch", dataTitle, tempSet[loop]);
             console.log("------>>>", dataSet["Backer Name"], dataSet.title, dataSet.pledge, dataSet.easterEggs);
 
          } else {

@@ -85,6 +85,17 @@ var stats = {
 
 }
 
+var EasterSet = Array( "mvil", "svil", "dungeon", "ruin", "label", "sign", "statue", "hole",
+               "temple", "trees", "animals", "surround", "farm", "waterfall", "tents", "ruins", "tower",
+               "smith", "fields", "surround", "abandoned", "nada");
+
+var terraSet = Array( "sea", "coastal", "swamp", "desert", "taiga", "plains",
+            "borreal", "jungle", "hills", "mountains");
+
+var styleSet = Array("euro", "aztec", "arab", "asia", "tents","nomad", "ruins");  
+
+var mapSet = Array("original","reskin","kdm","future");
+
 // stats.mountains = 35;
 // stats.hills = 34;
 // stats.borreal = 31;
@@ -391,8 +402,11 @@ function processData(allText, FullData) {
                done = true;
                data[i].map.future = true;
                stats.future++;
-
-
+            }
+            if (tempSet[loop] == "No response") {
+               done = true;
+               data[i].map.future = true;
+               stats.future++;
             }
 
 
@@ -474,12 +488,12 @@ function processData(allText, FullData) {
          );
 
          data[i].terraType = {};
-         structureSet = Array( "sea", "coastal", "swamp", "desert", "taiga", "plains",
-            "borreal",
-            "jungle",
-            "hills", "mountains");
+         // structureSet = Array( "sea", "coastal", "swamp", "desert", "taiga", "plains",
+         //    "borreal",
+         //    "jungle",
+         //    "hills", "mountains");
 
-         data[i] = sortdata(dataStructureSet, "terraType", structureSet, data[i],
+         data[i] = sortdata(dataStructureSet, "terraType", terraSet, data[i],
             "5. What Terrain Do You Want Your Location To Appear In")
 
 
@@ -553,6 +567,7 @@ function processData(allText, FullData) {
          }
 
          counter = 0;
+         // count the number of choices the user has chosen 2 allowed. if Three, chalk an easter egg
          if (Object.keys(data[i].style).length > 2) {
 
             if (data[i].easterEggs > (Object.keys(data[i].style).length - 2)) {
@@ -562,6 +577,7 @@ function processData(allText, FullData) {
                data[i].overspend++;
                data[i].overspent.push("styles " + (Object.keys(data[i].style).length - 2));
                console.log("User:", data[i]["Backer Name"], "styles", data[i].style);
+               console.log(data[i]);
                //rando = Math.ceil((Math.random()*6)+1);
                //deleteFromObject(structureSet[rando], data[i].style);
             }
@@ -780,27 +796,26 @@ function processData(allText, FullData) {
                "Abandoned/Ruins", "Monolith/statue/totem", "Hole in the ground", "Temple",
                "surround with trees",
                "Animals", "surrounding Main Location", "Farms", "Lake/waterfall (if possible)",
-               "Tents",
+               "Tents", "Ruins",
                "tower/guard post", "Blacksmith", "Fields", "surrounding Someone Elses Location",
-               "Abandonded... <insert here>", "No response");
+               "Abandonded... <insert here>", "Abandonded...", "No response");
 
             data[i].smallLocA = {};
-            structureSet = Array( "mvil", "svil", "dungeon", "ruin", "label", "sign",
+            // structureSet = Array( "mvil", "svil", "dungeon", "ruin", "label", "sign",
                
-               "statue",
-               "hole",
-               "temple", "trees", "animals", "surround", "farm", "waterfall", "tents", "tower",
-               "smith",
-               "fields",
-               "surround", "abandoned",
-               "nada");
+            //    "statue",
+            //    "hole",
+            //    "temple", "trees", "animals", "surround", "farm", "waterfall", "tents", "ruins", "tower",
+            //    "smith",
+            //    "fields",
+            //    "surround", "abandoned", "abandoned",
+            //    "nada"); EasterSet
 
 
 
-            data[i] = sortdata(dataStructureSet, "smallLocA", structureSet, data[i],
+            data[i] = sortdata(dataStructureSet, "smallLocA", EasterSet, data[i],
                "13a. Your First Add On / Small Location A, You Can Combine By Clicking 3 Elements, (Or More For Higher Pledges)"
             );
-
 
 
             data[i].smallLocA.description = data[i]['13b. Describe Location A'];
@@ -956,7 +971,7 @@ function processData(allText, FullData) {
                "Abandoned/Ruins", "Monolith/statue/totem", "Hole in the ground", "Temple",
                "surround with trees",
                "Animals", "surrounding Main Location", "Farms", "Lake/waterfall (if possible)",
-               "Tents",
+               "Tents", "Ruins",
                "tower/guard post", "Blacksmith", "Fields", "surrounding Someone Elses Location",
                "Abandonded... <insert here>", "No response");
 
@@ -964,7 +979,7 @@ function processData(allText, FullData) {
             structureSet = Array( "mvil", "svil", "dungeon", "ruin", "label", "sign",
                "statue",
                "hole",
-               "temple", "trees", "animals", "surround", "farm", "waterfall", "tents", "tower",
+               "temple", "trees", "animals", "surround", "farm", "waterfall", "tents", "ruins", "tower",
                "smith",
                "fields",
                "surround", "abandoned",
