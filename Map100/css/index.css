@@ -300,6 +300,14 @@
 
 }
 
+.euroIcon {
+  
+   background-image: url('../img/styles.png');
+   background-size: 400px 350px;
+   background-position: 294px 252px;
+
+}
+
 .cold {
 
    background-color: DarkCyan;
@@ -392,8 +400,8 @@
 .desert {
    background-color: PaleGoldenrod;
    background-image: url('../img/Icons.png');
-   background-size: 400px 350px;
-   background-position: 320px 280px;
+   background-size: 450px 400px;
+   background-position: 365px 275px;
 
 }
 
@@ -432,4 +440,82 @@
    background-size: 500px 350px;
    background-position: 196px 175px;
 
+}
+
+.table {
+   background: url('../img/hex2.jpg');
+   background-size: 800px 800px;
+   width: 800px;
+   height: 800px;
+   position: absolute;
+   z-index: 3;
+}
+.table .title2 {
+   color: black;
+   font-size: 18pt;
+   position: relative;
+   left: 125px;
+   top: -4px;
+   z-index: 5;
+
+}
+.table .title {
+   color: white;
+   font-size: 18pt;
+   position: relative;
+   left: 126px;
+   top: -33px;
+   z-index: 6;
+}
+.table .text {margin-top: 400px; width: 80%; margin-left: 10%;}
+.table .desc {
+   top: 60px;
+   left: 180px;
+   border: 1px solid grey;
+   border-radius: 5px;
+   background: #eee;
+   position: absolute;
+   width: 55%;
+   
+}
+.innersea {
+   top: 350px;
+   right: -25px;
+}
+.innercoastal {
+   top: 350px;
+   right: -25px;
+}
+.innerswamp {
+   top: -30px;
+   left: 580px;
+}
+.innerdesert {
+   top: 350px;
+   right: -25px;
+}
+.innerplains {
+   top: 120px;
+   right: 75px;
+}
+.innertaiga{
+   top: 165px;
+   right: 35px;
+}
+.innerjungle {
+   top: -20px;
+   left: 500px;
+}
+
+.innerborreal {
+   top: -20px;
+   left: 500px;
+}
+.innerhills {
+   top: 45px;
+   left: 620px;
+}
+.innermountains {
+   top: -30px;
+   left: 580px;
 }
