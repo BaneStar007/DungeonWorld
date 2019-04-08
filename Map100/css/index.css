@@ -467,7 +467,7 @@
    top: -33px;
    z-index: 6;
 }
-.table .text {margin-top: 400px; width: 80%; margin-left: 10%;}
+.table .text {margin-top: 300px; width: 70%; margin-left: 15%; background: #eee; z-index: 8;}
 .table .desc {
    top: 60px;
    left: 180px;
@@ -476,46 +476,68 @@
    background: #eee;
    position: absolute;
    width: 55%;
-   
+   z-index: 7;
 }
 .innersea {
-   top: 350px;
-   right: -25px;
+   top: 234px;
+   right: -37px;
 }
 .innercoastal {
-   top: 350px;
-   right: -25px;
+   top: 158px;
+   right: -37px;
 }
 .innerswamp {
-   top: -30px;
-   left: 580px;
+   top: 158px;
+   left: 644px;
 }
 .innerdesert {
-   top: 350px;
-   right: -25px;
+   top: -30px;
+   right: 27px;
 }
 .innerplains {
-   top: 120px;
-   right: 75px;
+   top: 46px;
+   right: 27px;
 }
 .innertaiga{
-   top: 165px;
-   right: 35px;
+   top: 83px;
+   right: -37px;
 }
 .innerjungle {
-   top: -20px;
-   left: 500px;
+   top: 121px;
+   right: 27x;
 }
 
 .innerborreal {
-   top: -20px;
-   left: 500px;
+   top: 83px;
+   left: 644px;
 }
 .innerhills {
-   top: 45px;
-   left: 620px;
+   top: 8px;
+   left: 644px;
 }
 .innermountains {
    top: -30px;
    left: 580px;
+}
+.euroLoc {
+   top: 25px;
+   left: 25px;
+}
+
+.euroIcon {
+   background-color: purple;
+   background-image: url('../img/styles.png');
+   background-size: 500px 350px;
+   background-position: 196px 175px;
+}
+
+.ruinsLoc {
+   top: 35px;
+   left: 35px;
+}
+.ruinsIcon {
+   background-color: purple;
+   background-image: url('../img/styles.png');
+   background-size: 500px 350px;
+   background-position: 196px 175px;
 }
