@@ -549,8 +549,16 @@
          }
          let styles= styleSet.length;
          for (let t=0;  t< styles; t++) {
+            console.log(mapLocations[thisOne].style, styleSet[t]);
             if (mapLocations[thisOne].style[styleSet[t]]) {
-               _html +="<div class='grid "+styleSet[t]+"Loc'><div class='gridimg'><div class='terrain "+styleSet[t]+"Icon'></div></div></div>";  
+               _html +="<div class='grid "+styleSet[t]+"Loc'><div class='terrain "+styleSet[t]+"Icon'></div></div>";  
+            } 
+         }
+
+         
+         for (let t=0;  t< styles; t++) {
+            if (mapLocations[thisOne].style[styleSet[t]]) {
+               _html +="<div class='grid smallA "+styleSet[t]+"Loc'><div class='terrain "+styleSet[t]+"Icon'></div></div>";  
             } 
          }
         if (mapLocations[thisOne].map.original) {

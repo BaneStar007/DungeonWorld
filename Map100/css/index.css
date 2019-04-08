@@ -300,13 +300,6 @@
 
 }
 
-.euroIcon {
-  
-   background-image: url('../img/styles.png');
-   background-size: 400px 350px;
-   background-position: 294px 252px;
-
-}
 
 .cold {
 
@@ -504,7 +497,7 @@
 }
 .innerjungle {
    top: 121px;
-   right: 27x;
+   right: 27px;
 }
 
 .innerborreal {
@@ -522,13 +515,37 @@
 .euroLoc {
    top: 25px;
    left: 25px;
+   width: 120px;
+   height: 120px
 }
 
-.euroIcon {
+.euroIcon, .aztecIcon, .asiaIcon, .nomadIcon, .tentsIcon, .ruinsIcon {
    background-color: purple;
    background-image: url('../img/styles.png');
-   background-size: 500px 350px;
-   background-position: 196px 175px;
+   background-size: 450px 450px;
+   width: 120px;
+   height: 120px
+}
+.euroIcon {
+   background-position: 440px 465px; 
+}
+ .aztecIcon{
+   background-position: 440px 282px; 
+}
+.arabIcon{
+   background-position: 440px 373px; 
+}
+.asiaIcon{
+   background-position: 440px 119px; 
+}
+.nomadIcon{
+   background-position: 440px 465px; 
+}
+.tentsIcon{
+   background-position: 440px 206px; 
+} 
+.ruinsIcon{
+   background-position: 119px 440px; 
 }
 
 .ruinsLoc {
@@ -537,7 +554,7 @@
 }
 .ruinsIcon {
    background-color: purple;
-   background-image: url('../img/styles.png');
+   background-image: url('../img/icons.png');
    background-size: 500px 350px;
    background-position: 196px 175px;
 }
