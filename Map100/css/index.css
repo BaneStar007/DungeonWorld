@@ -432,14 +432,13 @@
    background-image: url('../img/Icons.png');
    background-size: 500px 350px;
    background-position: 196px 175px;
-
 }
 
 .table {
    background: url('../img/hex2.jpg');
-   background-size: 800px 800px;
-   width: 800px;
-   height: 800px;
+   background-size: 900px 900px;
+   width: 900px;
+   height: 900px;
    position: absolute;
    z-index: 3;
 }
@@ -453,14 +452,16 @@
 
 }
 .table .title {
-   color: white;
+   color: rgba(240, 245, 245, 0.9);
    font-size: 18pt;
    position: relative;
    left: 126px;
    top: -33px;
    z-index: 6;
 }
-.table .text {margin-top: 300px; width: 70%; margin-left: 15%; background: #eee; z-index: 8;}
+.table .text {margin-top: 200px; width: 70%; margin-left: 15%; background: #eee; z-index: 8;  font-size: 20pt;}
+.table .mainText {margin-top: 600px; width: 80%; margin-left: 10%; background: #eee; z-index: 8;  font-size: 20pt;}
+
 .table .desc {
    top: 60px;
    left: 180px;
@@ -470,6 +471,7 @@
    position: absolute;
    width: 55%;
    z-index: 7;
+   font-size: 20pt;
 }
 .innersea {
    top: 234px;

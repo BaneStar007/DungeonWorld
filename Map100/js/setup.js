@@ -613,7 +613,7 @@ function processData(allText, FullData) {
                   }
                }
             }
-         } /*/
+         } /** */
 
          //9. Terrain Descriotion
          data[i].style.description = data[i][
