@@ -10,8 +10,30 @@
 
 #mapbutton {
    position: fixed;
-   left: 25px;
+   left: 45px;
    top: 0px;
+}
+#drawbutton {
+   position: fixed;
+   left: 235px;
+   top: 0px;
+}
+#stylebutton {
+   position: fixed;
+   left: 315px;
+   top: 0px;
+}
+
+#locationbutton {
+   position: fixed;
+   left: 500px;
+   top: 0px;
+}
+#location {
+   position: fixed;
+   left: 900px;
+   top: 0px;
+   font-size: 24pt;
 }
 
 #mapbox {
@@ -436,9 +458,9 @@
 
 .table {
    background: url('../img/hex2.jpg');
-   background-size: 900px 900px;
-   width: 900px;
-   height: 900px;
+   background-size: 1000px 1000px;
+   width: 1000px;
+   height: 1000px;
    position: absolute;
    z-index: 3;
 }
@@ -459,8 +481,8 @@
    top: -33px;
    z-index: 6;
 }
-.table .text {margin-top: 200px; width: 70%; margin-left: 15%; background: #eee; z-index: 8;  font-size: 20pt;}
-.table .mainText {margin-top: 600px; width: 80%; margin-left: 10%; background: #eee; z-index: 8;  font-size: 20pt;}
+.table .text {margin-top: 200px; width: 70%; margin-left: 15%; background: #eee; z-index: 8;  font-size: 28pt;}
+.table .mainText {margin-top: 600px; width: 80%; margin-left: 10%; background: #eee; z-index: 8;  font-size: 28pt;}
 
 .table .desc {
    top: 60px;
@@ -483,7 +505,7 @@
 }
 .innerswamp {
    top: 158px;
-   left: 644px;
+   right: 91px;
 }
 .innerdesert {
    top: -30px;
@@ -504,59 +526,98 @@
 
 .innerborreal {
    top: 83px;
-   left: 644px;
+   right: 91px;
 }
 .innerhills {
    top: 8px;
-   left: 644px;
+   right: 91px;
 }
 .innermountains {
    top: -30px;
    left: 580px;
 }
-.euroLoc {
-   top: 25px;
-   left: 25px;
-   width: 120px;
-   height: 120px
+
+button {
+
+   font-size: 16pt;
 }
 
 .euroIcon, .aztecIcon, .asiaIcon, .nomadIcon, .tentsIcon, .ruinsIcon {
    background-color: purple;
    background-image: url('../img/styles.png');
-   background-size: 450px 450px;
-   width: 120px;
+   background-size: 750px 750px;
+ 
+}
+.euroIcon, .aztecIcon, .asiaIcon, .nomadIcon, .tentsIcon, .ruinsIcon,
+.euroLoc, .aztecLoc, .asiaLoc, .nomadLoc, .tentsLoc, .ruinsLoc {
+   width: 180px;
    height: 120px
 }
+.euroLoc, .aztecLoc, .asiaLoc, .nomadLoc, .tentsLoc, .ruinsLoc {
+   top: 25px;
+   left: 25px;
+}
+
 .euroIcon {
-   background-position: 440px 465px; 
+   background-position: 735px 0px; 
 }
  .aztecIcon{
-   background-position: 440px 282px; 
+   background-position: 735px 446px; 
 }
 .arabIcon{
-   background-position: 440px 373px; 
+   background-position: 735px 605px;
+   width: 185px;
+   height: 140px; 
 }
 .asiaIcon{
-   background-position: 440px 119px; 
+   background-position: 735px 184px; 
 }
 .nomadIcon{
-   background-position: 440px 465px; 
+   background-position: 735px 465px; 
 }
 .tentsIcon{
-   background-position: 440px 206px; 
+   background-position: 735px 315px; 
 } 
 .ruinsIcon{
    background-position: 119px 440px; 
 }
 
-.ruinsLoc {
-   top: 35px;
-   left: 35px;
-}
 .ruinsIcon {
    background-color: purple;
    background-image: url('../img/icons.png');
    background-size: 500px 350px;
    background-position: 196px 175px;
 }
+/* JSON Pretty Stringify */
+pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
+.string { color: green; }
+.number { color: darkorange; }
+.boolean { color: blue; }
+.null { color: magenta; }
+.key { color: red; }
+
+.coldlevel,
+.coollevel,
+.midlevel,
+.warmlevel,
+.arcticlevel,
+.anylevel,
+.tropiclevel,
+.heatlevel,
+.deathlevel {
+   width: 100px;
+   height: 25px;
+   position: absolute;
+   left: 35px;
+}
+
+.arcticlevel{ top: 175px;}
+.coldlevel { top: 200px;}
+.coollevel{ top: 225px;}
+.midlevel{ top: 250px;}
+.warmlevel{ top: 275px;}
+
+.tropiclevel{ top: 300px;}
+.heatlevel{ top: 325px;}
+.deathlevel{ top: 350px;}
+.anylevel{ top: 375px;}

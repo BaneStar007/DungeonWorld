@@ -96,6 +96,8 @@ var styleSet = Array("euro", "aztec", "arab", "asia", "tents","nomad", "ruins");
 
 var mapSet = Array("original","reskin","kdm","future");
 
+var biomeSet = Array("cold","cool","mid","warm","arctic","any","tropic","heat","death")
+
 // stats.mountains = 35;
 // stats.hills = 34;
 // stats.borreal = 31;
@@ -607,8 +609,8 @@ function processData(allText, FullData) {
                      stats[structureSet[styls]+'_']++;
                      data[i].style[structureSet[stylz] + "_" + structureSet[styls]] = true;
                      //          console.log(data[i].style);
-                     data[i].style[structureSet[stylz]] = false;
-                     data[i].style[structureSet[styls]] = false;
+                     //data[i].style[structureSet[stylz]] = false;
+                     //data[i].style[structureSet[styls]] = false;
                      //        console.log(data[i].style);
                   }
                }
