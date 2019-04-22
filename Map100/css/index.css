@@ -10,8 +10,30 @@
 
 #mapbutton {
    position: fixed;
-   left: 25px;
+   left: 45px;
    top: 0px;
+}
+#drawbutton {
+   position: fixed;
+   left: 235px;
+   top: 0px;
+}
+#stylebutton {
+   position: fixed;
+   left: 315px;
+   top: 0px;
+}
+
+#locationbutton {
+   position: fixed;
+   left: 500px;
+   top: 0px;
+}
+#location {
+   position: fixed;
+   left: 900px;
+   top: 0px;
+   font-size: 24pt;
 }
 
 #mapbox {
@@ -300,13 +322,6 @@
 
 }
 
-.euroIcon {
-  
-   background-image: url('../img/styles.png');
-   background-size: 400px 350px;
-   background-position: 294px 252px;
-
-}
 
 .cold {
 
@@ -439,14 +454,13 @@
    background-image: url('../img/Icons.png');
    background-size: 500px 350px;
    background-position: 196px 175px;
-
 }
 
 .table {
    background: url('../img/hex2.jpg');
-   background-size: 800px 800px;
-   width: 800px;
-   height: 800px;
+   background-size: 1000px 1000px;
+   width: 1000px;
+   height: 1000px;
    position: absolute;
    z-index: 3;
 }
@@ -460,14 +474,16 @@
 
 }
 .table .title {
-   color: white;
+   color: rgba(240, 245, 245, 0.9);
    font-size: 18pt;
    position: relative;
    left: 126px;
    top: -33px;
    z-index: 6;
 }
-.table .text {margin-top: 400px; width: 80%; margin-left: 10%;}
+.table .text {margin-top: 200px; width: 70%; margin-left: 15%; background: #eee; z-index: 8;  font-size: 28pt;}
+.table .mainText {margin-top: 600px; width: 80%; margin-left: 10%; background: #eee; z-index: 8;  font-size: 28pt;}
+
 .table .desc {
    top: 60px;
    left: 180px;
@@ -475,47 +491,148 @@
    border-radius: 5px;
    background: #eee;
    position: absolute;
-   width: 55%;
-   
+   width: 62%;
+   z-index: 7;
+   font-size: 20pt;
 }
 .innersea {
-   top: 350px;
-   right: -25px;
+   top: 234px;
+   right: -37px;
 }
 .innercoastal {
-   top: 350px;
-   right: -25px;
+   top: 158px;
+   right: -37px;
 }
 .innerswamp {
-   top: -30px;
-   left: 580px;
+   top: 158px;
+   right: 91px;
 }
 .innerdesert {
-   top: 350px;
-   right: -25px;
+   top: -30px;
+   right: 27px;
 }
 .innerplains {
-   top: 120px;
-   right: 75px;
+   top: 46px;
+   right: 27px;
 }
 .innertaiga{
-   top: 165px;
-   right: 35px;
+   top: 83px;
+   right: -37px;
 }
 .innerjungle {
-   top: -20px;
-   left: 500px;
+   top: 121px;
+   right: 27px;
 }
 
 .innerborreal {
-   top: -20px;
-   left: 500px;
+   top: 83px;
+   right: 91px;
 }
 .innerhills {
-   top: 45px;
-   left: 620px;
+   top: 8px;
+   right: 91px;
 }
 .innermountains {
    top: -30px;
    left: 580px;
 }
+
+button {
+   z-index: 12;
+   font-size: 16pt;
+}
+
+.euroIcon, .aztecIcon, .asiaIcon, .nomadIcon, .tentsIcon, .ruinsIcon {
+   background-color: purple;
+   background-image: url('../img/styles.png');
+   background-size: 750px 750px;
+ 
+}
+.euroIcon, .aztecIcon, .asiaIcon, .nomadIcon, .tentsIcon, .ruinsIcon,
+.euroLoc, .aztecLoc, .asiaLoc, .nomadLoc, .tentsLoc, .ruinsLoc {
+   width: 180px;
+   height: 120px
+}
+.euroLoc, .aztecLoc, .asiaLoc, .nomadLoc, .tentsLoc, .ruinsLoc {
+   top: 25px;
+   left: 25px;
+}
+
+.euroIcon {
+   background-position: 735px 0px; 
+}
+ .aztecIcon{
+   background-position: 735px 446px; 
+}
+.arabIcon{
+   background-position: 735px 605px;
+   width: 185px;
+   height: 140px; 
+}
+.asiaIcon{
+   background-position: 735px 184px; 
+}
+.nomadIcon{
+   background-position: 735px 465px; 
+}
+.tentsIcon{
+   background-position: 735px 315px; 
+} 
+.ruinsIcon{
+   background-position: 119px 440px; 
+}
+
+.ruinsIcon {
+   background-color: purple;
+   background-image: url('../img/icons.png');
+   background-size: 500px 350px;
+   background-position: 196px 175px;
+}
+/* JSON Pretty Stringify */
+pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
+.string { color: green; }
+.number { color: darkorange; }
+.boolean { color: blue; }
+.null { color: magenta; }
+.key { color: red; }
+
+.coldlevel,
+.coollevel,
+.midlevel,
+.warmlevel,
+.arcticlevel,
+.anylevel,
+.tropiclevel,
+.heatlevel,
+.deathlevel {
+   width: 100px;
+   height: 25px;
+   position: absolute;
+   left: 35px;
+}
+
+.arcticlevel{ top: 175px;}
+.coldlevel { top: 200px;}
+.coollevel{ top: 225px;}
+.midlevel{ top: 250px;}
+.warmlevel{ top: 275px;}
+
+.tropiclevel{ top: 300px;}
+.heatlevel{ top: 325px;}
+.deathlevel{ top: 350px;}
+.anylevel{ top: 375px;}
+
+
+.mapOne, .mapTwo, .mapThree, .mapFour {
+   position: absolute;
+  
+   left: 35px;
+   width: 50px;
+   height: 50px;
+   background: url('../img/mapIcon.jpg');
+   background-size: 50px;
+}
+.mapOne {top: 750px; }
+.mapTwo {top: 800px; filter: sepia(100%);}
+.mapThree {top: 850px; filter: hue-rotate(180deg);}
+.mapFour {top: 900px; background: url('../img/coin.png'); background-size: 50px;}
