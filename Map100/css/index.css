@@ -491,7 +491,7 @@
    border-radius: 5px;
    background: #eee;
    position: absolute;
-   width: 55%;
+   width: 62%;
    z-index: 7;
    font-size: 20pt;
 }
@@ -538,7 +538,7 @@
 }
 
 button {
-
+   z-index: 12;
    font-size: 16pt;
 }
 
@@ -621,3 +621,18 @@ pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
 .heatlevel{ top: 325px;}
 .deathlevel{ top: 350px;}
 .anylevel{ top: 375px;}
+
+
+.mapOne, .mapTwo, .mapThree, .mapFour {
+   position: absolute;
+  
+   left: 35px;
+   width: 50px;
+   height: 50px;
+   background: url('../img/mapIcon.jpg');
+   background-size: 50px;
+}
+.mapOne {top: 750px; }
+.mapTwo {top: 800px; filter: sepia(100%);}
+.mapThree {top: 850px; filter: hue-rotate(180deg);}
+.mapFour {top: 900px; background: url('../img/coin.png'); background-size: 50px;}

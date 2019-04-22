@@ -562,13 +562,22 @@
          }
 
          for (let t=0;  t< biomeSet.length; t++) {
-            if (mapLocations[thisOne].biomes[biomeSet[t]]) {
+            if (mapLocations[thisOne].biomes[biomeSet[t]] || mapLocations[thisOne].biomes['any']) {
                _html +="<div class='temp "+biomeSet[t]+"level "+biomeSet[t]+"'>"+biomeSet[t]+"</div>";  
             } 
          }
 
          if (mapLocations[thisOne].map.original) {
-            _html +="<div class='mapOne'><img scr='./img/mapIcon.jpg'></div>";
+            _html +="<div class='mapOne'></div>";
+         }
+         if (mapLocations[thisOne].map.reskin) {
+            _html +="<div class='mapTwo'></div>";
+         }
+         if (mapLocations[thisOne].map.kdm) {
+            _html +="<div class='mapThree'></div>";
+         }
+         if (mapLocations[thisOne].map.future) {
+            _html +="<div class='mapFour'></div>";
          }
             
          _html +="</div>";
