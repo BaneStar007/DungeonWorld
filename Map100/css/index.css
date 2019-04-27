@@ -36,10 +36,11 @@
    font-size: 24pt;
 }
 
-#mapbox {
+#mapbox, #locbox {
    position: absolute;
    top: 100px;
 }
+
 
 .grid {
    width: 100px;
@@ -456,7 +457,7 @@
    background-position: 196px 175px;
 }
 
-.table {
+#mapbox .table {
    background: url('../img/hex2.jpg');
    background-size: 1000px 1000px;
    width: 1000px;
@@ -464,7 +465,19 @@
    position: absolute;
    z-index: 3;
 }
-.table .title2 {
+
+#locbox .table {
+   background: url('../img/hex2.jpg');
+   background-size: 700px 700px;
+   width: 700px;
+   height: 700px;
+   position: absolute;
+   z-index: 3;
+
+}
+
+
+#mapbox .table .title2, .table .title2 {
    color: black;
    font-size: 18pt;
    position: relative;
@@ -473,7 +486,7 @@
    z-index: 5;
 
 }
-.table .title {
+#mapbox .table, .title {
    color: rgba(240, 245, 245, 0.9);
    font-size: 18pt;
    position: relative;
