@@ -158,15 +158,15 @@
 
       biomes = {};
 
-      biomeTitles = ["pole", "arctic", "cold", "cool", "mid", "warm", "tropic", "heat", "death", "any"];
+      biomeTitles = ["pole", "arctic", "cold", "cool", "mid", "warm","tropic", "heat", "death","any"];
 
-      finalBiomes = ["arctic", "cold", "cool", "mid", "warm", "tropic", "heat", "death"];
+      finalBiomes = ["arctic",         "cold",         "cool",         "mid",         "warm",         "tropic", "heat", "death"];
 
       // make a copy of the stats to the biomes
       for (id = 0; id < biomeTitles.length; id++) {
 
          biomes[biomeTitles[id]] = stats[biomeTitles[id]];
-
+       
 
       }
 
@@ -189,7 +189,7 @@
 
       for (id = 0; id < biomeTitles.length; id++) {
 
-         console.log(biomeTitles[id], biomes[biomeTitles[id]]);
+              console.log(biomeTitles[id], biomes[biomeTitles[id]]);
       }
 
       // sift through the 'any' set and randomly assign them 
@@ -252,41 +252,39 @@
       }
 
       //delete biomes.any ;
-      totalBiomes = 0;
-      leftToDo = mapWidth - 1;
+      totalBiomes =0;
+      leftToDo = mapWidth-1;
 
 
       for (id = 0; id < finalBiomes.length; id++) {
 
          console.log(finalBiomes[id], biomes[finalBiomes[id]]);
-         totalBiomes += biomes[finalBiomes[id]];
+         totalBiomes += biomes[finalBiomes[id]]; 
       }
 
       for (id = 0; id < finalBiomes.length; id++) {
 
 
-         console.log("whats up? ", biomes[finalBiomes[id]], totalBiomes);
+         console.log("whats up? ", biomes[finalBiomes[id]] ,totalBiomes);
          console.log("Leftover=", leftToDo);
          value = Math.floor((biomes[finalBiomes[id]] / (totalBiomes)) * 10000) / 10000;
          console.log("value", value);
 
-         if (value > (theMap.length / 3)) {
-            value = Math.floor(theMap.length / 3)
-         }
+         if (value > (theMap.length/3)) { value = Math.floor(theMap.length/3)}
 
          biomes[finalBiomes[id] + "per"] = value;
 
-
+         
 
          console.log(finalBiomes[id] + "per", value);
 
          biomes[finalBiomes[id] + "p"] = 0;
 
-         biomes[finalBiomes[id] + "p"] = Math.floor((mapWidth - 3) * (biomes[finalBiomes[id] +
+         biomes[finalBiomes[id] + "p"] = Math.floor((mapWidth-3) * (biomes[finalBiomes[id] +
             "per"]));
 
          console.log(finalBiomes[id], biomes[finalBiomes[id] + "p"]);
-
+         
          leftToDo -= biomes[finalBiomes[id] + "p"];
          console.log("Leftover=", leftToDo);
       }
@@ -311,7 +309,7 @@
       var drawn = false;
 
       var biomLength = finalBiomes.length;
-
+      
       for (id = 1; id < biomLength; id++) {
          //    console.log("id", id);
 
@@ -511,19 +509,19 @@
 
 
       if ($('#location').val()) {
-         locFind = $('#location').val();
+         locFind =  $('#location').val();
 
-         if (isInt(locFind) && !gridOn) {
+         if (isInt(locFind) && !gridOn) { 
             if (trigger) {
                locFind++;
                $('#location').val(locFind);
             }
             thisOne = locFind;
-
+            
          } else {
-
-            for (id = 0; id < mapLocations.length; id++) {
-
+            
+            for (id=0; id< mapLocations.length; id++) {
+               
                if (mapLocations[id].Email == locFind) {
                   thisOne = id;
                   stylesOne = true;
@@ -532,61 +530,57 @@
 
          }
       }
-
+      
       if (stylesOne) {
          $('#mapbox').html("HEY!");
 
          _html = "<div class='table'>";
-         _html += "<div class='title2'>" + mapLocations[thisOne].title + "</div>";
-         _html += "<div class='title'>" + mapLocations[thisOne].title + " - " + mapLocations[thisOne]['Backer Name'] +
-            " - </div>";
-         _html += "<div class='desc'>" + mapLocations[thisOne].description + "</div>";
-         _html += "<div class='mainText'>" + mapLocations[thisOne].fullDescription + "</div>";
-         _html += "<div class='mainImg'><img src='./img/sketches/" + mapLocations[thisOne].locID + ".png'></div>";
-         _html += "<div class='text'>" + syntaxHighlight(mapLocations[thisOne]) + "</div>";
-         let terra = terraSet.length;
-         for (let t = 0; t < terra; t++) {
+         _html +="<div class='title2'>"+mapLocations[thisOne].title+"</div>";
+         _html +="<div class='title'>"+mapLocations[thisOne].title+" - "+mapLocations[thisOne]['Backer Name']+" - </div>"; 
+         _html +="<div class='desc'>"+mapLocations[thisOne].description+"</div>";  
+         _html +="<div class='mainText'>"+mapLocations[thisOne].fullDescription+"</div>";  
+         _html +="<div class='mainImg'><img src='./img/sketches/"+mapLocations[thisOne].locID+".png'></div>";  
+         _html +="<div class='text'>"+syntaxHighlight(mapLocations[thisOne])+"</div>";
+         let terra= terraSet.length;
+         for (let t=0;  t< terra; t++) {
             if (mapLocations[thisOne].terraType[terraSet[t]]) {
-               _html += "<div class='grid inner" + terraSet[t] + "'><div class='gridimg'><div class='terrain " +
-                  terraSet[t] + "'></div></div></div>";
-            }
+               _html +="<div class='grid inner"+terraSet[t]+"'><div class='gridimg'><div class='terrain "+terraSet[t]+"'></div></div></div>";  
+            } 
          }
-         let styles = styleSet.length;
-         for (let t = 0; t < styles; t++) {
+         let styles= styleSet.length;
+         for (let t=0;  t< styles; t++) {
             console.log(mapLocations[thisOne].style, styleSet[t]);
             if (mapLocations[thisOne].style[styleSet[t]]) {
-               _html += "<div class='grid " + styleSet[t] + "Loc'><div class='terrain " + styleSet[t] +
-                  "Icon'></div></div>";
-            }
+               _html +="<div class='grid "+styleSet[t]+"Loc'><div class='terrain "+styleSet[t]+"Icon'></div></div>";  
+            } 
          }
-
-         for (let t = 0; t < styles; t++) {
+         
+         for (let t=0;  t< styles; t++) {
             if (mapLocations[thisOne].style[styleSet[t]]) {
-               _html += "<div class='grid smallA " + styleSet[t] + "Loc'><div class='terrain " + styleSet[t] +
-                  "Icon'></div></div>";
-            }
+               _html +="<div class='grid smallA "+styleSet[t]+"Loc'><div class='terrain "+styleSet[t]+"Icon'></div></div>";  
+            } 
          }
 
-         for (let t = 0; t < biomeSet.length; t++) {
+         for (let t=0;  t< biomeSet.length; t++) {
             if (mapLocations[thisOne].biomes[biomeSet[t]] || mapLocations[thisOne].biomes['any']) {
-               _html += "<div class='temp " + biomeSet[t] + "level " + biomeSet[t] + "'>" + biomeSet[t] + "</div>";
-            }
+               _html +="<div class='temp "+biomeSet[t]+"level "+biomeSet[t]+"'>"+biomeSet[t]+"</div>";  
+            } 
          }
 
          if (mapLocations[thisOne].map.original) {
-            _html += "<div class='mapOne'></div>";
+            _html +="<div class='mapOne'></div>";
          }
          if (mapLocations[thisOne].map.reskin) {
-            _html += "<div class='mapTwo'></div>";
+            _html +="<div class='mapTwo'></div>";
          }
          if (mapLocations[thisOne].map.kdm) {
-            _html += "<div class='mapThree'></div>";
+            _html +="<div class='mapThree'></div>";
          }
          if (mapLocations[thisOne].map.future) {
-            _html += "<div class='mapFour'></div>";
+            _html +="<div class='mapFour'></div>";
          }
-
-         _html += "</div>";
+            
+         _html +="</div>";
 
 
 
@@ -604,12 +598,12 @@
 
       styleSubSet = [];
 
-      for (let set = 0; set < styleSet.length; set++) {
+      for (let set=0; set< styleSet.length; set++) {
 
-         for (let set2 = 0; set2 < styleSet.length; set2++) {
+         for (let set2=0; set2< styleSet.length; set2++) {
 
             if (styleSet[set] != styleSet[set2]) {
-               styleSubSet.push(styleSet[set] + "_" + styleSet[set2]);
+            styleSubSet.push(styleSet[set]+"_"+styleSet[set2]);
             } else {
                styleSubSet.push(styleSet[set]);
             }
@@ -668,7 +662,7 @@
                toppos = positionSet[(i * 2) + 1] - (size / 2)
 
                //console.log(leftpos + "= {" + positionSet[i * 2] + "} - (" + (size / 2) + ")", size);
-               // console.log(toppos + "= {" + positionSet[(i * 2) + 1] + "} - (" + (size / 2) + ")", size);
+              // console.log(toppos + "= {" + positionSet[(i * 2) + 1] + "} - (" + (size / 2) + ")", size);
 
 
                $('#id' + styleSubSet[i]).css('border-radius', '50%');
@@ -680,7 +674,7 @@
             }, 50);
 
 
-         }
+                     }
 
          $('#mapbox').html(stylecircles);
 
@@ -701,7 +695,7 @@
             rePosition("euro", "ruins_euro", 225, 0.75);
 
             rePosition("euro", "euro_", 1, -.03);
-
+            
 
          }, 3000);
          setTimeout(function () {
@@ -739,13 +733,13 @@
             rePosition("arab", "arab_tents", 45, 1);
             rePosition("arab", "arab_nomad", 180, 1);
             rePosition("arab", "arab_ruins", 90, 1.25);
-
+            
             rePosition("tents", "tents_nomad", 90, 1);
 
             rePosition("arab", "arab_", 180, -0.05);
             rePosition("asia", "asia_", 1, -0.05);
             rePosition("aztec", "aztec_", 45, -0.05);
-
+            
 
          }, 9250);
          setTimeout(function () {
@@ -773,21 +767,21 @@
          }, 11500);
 
          setTimeout(function () {
-            rePosition("euro", "aztec_arab", 0, 25);
-            rePosition("euro", "euro_tents", 140, 0.25);
-            rePosition("asia", "aztec_asia", 90, 1);
-            rePosition("nomad", "nomad_ruins", 45, 1);
+             rePosition("euro", "aztec_arab", 0, 25);
+             rePosition("euro", "euro_tents", 140, 0.25);
+             rePosition("asia", "aztec_asia", 90, 1);
+             rePosition("nomad", "nomad_ruins", 45, 1);
 
             // rePosition("nomad", "nomad_ruins", 180, 1);
             // rePosition("aztec", "aztec_nomad", 315, 1);
-            rePosition("aztec", "aztec_ruins", 90, 1);
-            rePosition("tents", "tents_nomad", 80, 1);
+             rePosition("aztec", "aztec_ruins", 90, 1);
+             rePosition("tents", "tents_nomad", 80, 1);
             rePosition("tents", "tents_ruins", 270, 1);
+            
+             rePosition("asia", "arab_asia", 270, 1);
 
-            rePosition("asia", "arab_asia", 270, 1);
 
-
-            rePosition("tents", "tents_", 160, -.05);
+             rePosition("tents", "tents_", 160, -.05);
             rePosition("nomad", "nomad_", 90, -.05);
             rePosition("ruins", "ruins_", 180, -0.05);
             // rePosition("arab", "arab_tents", 315, 1);
@@ -801,52 +795,50 @@
             // rePosition("nomad", "nomad_ruins", 45, 1);
 
          }, 13750);
-
+       
 
       } else {
          drawMap(theMap);
       }
    }
 
-
+  
 
    function rePosition(fixed, move, angle, distance = 1) {
 
       //console.log(fixed, move);
 
       if (fixed !== move) {
-         //   console.log("sizes", $('#id' + fixed).width(), $('#id' + move).width(), angle);
+      //   console.log("sizes", $('#id' + fixed).width(), $('#id' + move).width(), angle);
 
-         if ($('#id' + fixed).position == undefined) {
-            console.log("not defined: " + fixed);
-         } else {
-            console.log(fixed);
-            var fixedradius = $('#id' + fixed).width() / 2;
-            var moveradius = $('#id' + move).width() / 2;
-
-            console.log($('#id' + fixed));
-            console.log($('#id' + fixed).position);
-
+      if ($('#id' + fixed).position == undefined) { console.log("not defined: "+fixed);} else {
+         console.log(fixed);
+         var fixedradius = $('#id' + fixed).width() / 2;
+         var moveradius = $('#id' + move).width() / 2;
+         
+        console.log($('#id' + fixed));
+        console.log($('#id' + fixed).position);
+        
             var xpos = $('#id' + fixed).position().left + fixedradius;
             var ypos = $('#id' + fixed).position().top + fixedradius;
-
-         }
-
-
+         
+      }
 
 
-         //   console.log(fixedradius, moveradius, $('#id' + fixed).position());
+
+        
+      //   console.log(fixedradius, moveradius, $('#id' + fixed).position());
 
 
-         var radius = fixedradius + (moveradius * distance) || 10;
+         var radius = fixedradius + ( moveradius * distance)|| 10;
 
          var radians = angle * Math.PI / 180 || 0;
          x = radius * Math.cos(radians);
          y = radius * Math.sin(radians);
 
-         // console.log("radius", radius, "radians", radians);
+        // console.log("radius", radius, "radians", radians);
 
-         // console.log(x, "x +", xpos, y, "y +", ypos);
+        // console.log(x, "x +", xpos, y, "y +", ypos);
 
          $('#id' + move).css('left', (xpos + x - moveradius) + 'px');
          $('#id' + move).css('top', (ypos + y - moveradius) + 'px');
@@ -909,9 +901,6 @@
    <script>
       createMap();
 
-      // var jsonUri = "data:text/plain;base64," + window.btoa('./data/large.csv');
-
-
       $(document).ready(function () {
          $.ajax({
             type: "GET",
@@ -923,8 +912,7 @@
                processData(data1, true);
             },
             error: function (error) {
-               console.log(error);
-               // console.log(jsonUri);
+               //      console.log(error);
             }
          });
 
