@@ -10,34 +10,10 @@
 
 </head>
 <script>
-   /** How Does it all Work?
-    * Create Map, creates a blank array of a given Height and Width
+   /** This is just a viewer of Not Yet Created Locations?
     * 
-    * DrawMap, takes the given Map (theMap) and builds the HTML structure for it. 
-    * 
-    * When opening, this is pre-run.
-    * 
-    * ProcessData loads the two files and creates an array in mapLocations. There is a chunk of sensitive data that MUST be deleted before being made public. 
-    * 
-    * When the Button is Clicked:
-    * 
-    * makeMap runs: 
-    * 
-    * It should check mapLocations that have existing locations and set them to taken? <<<-------
-    * 
-    * Existing Locations is an Array of locations that need to exist on the map in pre X&Y locations, as a way to force terrains that may not be IN the system yet. They are Transferred to the respective X/Y Array in theMap
-    * 
-    *
-    * 
-    * reMakeMap, then takes mappedLocations, which is a set of data re-writes, so I don't have to adjust the files over and over, and overwrites each backers data with extra data or changed data to ensure its all correct (since the survey was borked)
-    * 
-    * I recheck the Easter Egg counts with an independant counter, and Print to console any accounts which do not match, or have outstanding data, so I can contact the user, and add their new data to mappedLocations.
-    * 
-    * Now that the data has been sanitised, the stat counter should set the number of given terrain types and randomly dole out the minimum, plus some extras, and build a map!
-    * 
-    * Map Locations is origianally the holder, but as a means, a non-existing data can be inserted here. If an X and Y co-ordinate is given, it should match, and be fine, passing the relevant details, IF NOT, it needs to create a placeholder for this location.
-    * 
-    * Once all Placeholders are created
+    * Sorts all Unmade locations, based on how many 'spots' are left, 
+    * This is the only place where the array of 'completed' exists
 
 
 */
@@ -91,10 +67,10 @@
          $('#locbox').html("HEY!");
 
          _html = "<div class='table'>";
-         _html +="<div class='title2'>"+mapLocations[thisOne].title+"</div>";
-         _html +="<div class='title'>"+mapLocations[thisOne].title+" - "+mapLocations[thisOne]['Backer Name']+" - </div>"; 
-           
-         
+         _html +="<div class='title2'>"+mapLocations[thisOne].locID+" : " +mapLocations[thisOne].title+"</div>";
+         _html +="<div class='title'>"+mapLocations[thisOne].locID+" : " +mapLocations[thisOne].title+" - "+mapLocations[thisOne]['Backer Name']+" - </div>"; 
+         _html +="<div class='title2 pledge'>$"+mapLocations[thisOne].pledge+"</div>";
+         _html +="<div class='title pledge'>$"+mapLocations[thisOne].pledge+"</div>";
          _html +="<div class='mainImg'><img src='./img/sketches/"+mapLocations[thisOne].locID+".png'></div>";  
          _html +="<div class='text'>"+syntaxHighlight(mapLocations[thisOne])+"</div>";
          let terra= terraSet.length;
@@ -104,18 +80,22 @@
             } 
          }
          let styles= styleSet.length;
+         let locShown =0;
          for (let t=0;  t< styles; t++) {
-            console.log(mapLocations[thisOne].style, styleSet[t]);
+            
             if (mapLocations[thisOne].style[styleSet[t]]) {
-               _html +="<div class='grid "+styleSet[t]+"Loc'><div class='terrain "+styleSet[t]+"Icon'></div></div>";  
+               locShown++
+               console.log(mapLocations[thisOne].style, styleSet[t]);
+               _html +="<div class='locPos"+locShown+" "+styleSet[t]+"Loc'><div class=' "+styleSet[t]+"Icon'>"+styleSet[t]+"</div></div>";  
             } 
          }
          
-         for (let t=0;  t< styles; t++) {
-            if (mapLocations[thisOne].style[styleSet[t]]) {
-               _html +="<div class='grid smallA "+styleSet[t]+"Loc'><div class='terrain "+styleSet[t]+"Icon'></div></div>";  
-            } 
-         }
+         // for (let t=0;  t< styles; t++) {
+         //    if (mapLocations[thisOne].style[styleSet[t]]) {
+               
+         //       _html +="<div class=' grid smallA "+styleSet[t]+"Loc'><div class='terrain "+styleSet[t]+"Icon'>"+styleSet[t]+"</div></div>";  
+         //    } 
+         // }
 
          for (let t=0;  t< biomeSet.length; t++) {
             if (mapLocations[thisOne].biomes[biomeSet[t]] || mapLocations[thisOne].biomes['any']) {
