@@ -1,0 +1,191 @@
+<html>
+
+<head>
+   <meta charset="utf-8" />
+   <title> Dungeon World Map Locations</title>
+   <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+   <script type="text/javascript" src="./js/setup.js?v=1.1"></script>
+   <script type="text/javascript" src="./js/lib.js?v=1.1"></script>
+   <link href="css/index.css?v=1.1" rel="stylesheet" type="text/css" />
+
+</head>
+<script>
+   /** This is just a viewer of Not Yet Created Locations?
+    * 
+    * Sorts all Unmade locations, based on how many 'spots' are left, 
+    * This is the only place where the array of 'completed' exists
+
+
+*/
+   // empty array for map
+
+
+   // Overwrite missing or Incorrect Data for Specific Places
+
+
+   // Create a blank map based on dimansions
+
+
+
+
+   var stylesOne = false;
+   var current = 0;
+
+   function showOne(trigger = false) {
+
+      // if !gridon, accept a numerical variable OR allow the repeated clicking of the button to find the next in the list
+      thisOne = current;
+
+      // if someone has typed into the box, and it matches an email.. use that.
+      stylesOne = true;
+     
+
+      if ($('#location').val()) {
+         locFind =  $('#location').val();
+         console.log("HEY"+locFind);
+         if (isInt(locFind)) { 
+            if (trigger) {
+               locFind++;
+               $('#location').val(locFind);
+            }
+            thisOne = locFind;
+            
+         } else {
+             console.log("HEY");
+            for (id=0; id< mapLocations.length; id++) {
+               
+               if (mapLocations[id].Email == locFind) {
+                  thisOne = id;
+                  stylesOne = true;
+               }
+            }
+
+         }
+      }
+      
+      if (stylesOne) {
+         $('#locbox').html("HEY!");
+
+         _html = "<div class='table'>";
+         _html +="<div class='title2'>"+mapLocations[thisOne].locID+" : " +mapLocations[thisOne].title+"</div>";
+         _html +="<div class='title'>"+mapLocations[thisOne].locID+" : " +mapLocations[thisOne].title+" - "+mapLocations[thisOne]['Backer Name']+" - </div>"; 
+         _html +="<div class='title2 pledge'>$"+mapLocations[thisOne].pledge+"</div>";
+         _html +="<div class='title pledge'>$"+mapLocations[thisOne].pledge+"</div>";
+         _html +="<div class='mainImg'><img src='./img/sketches/"+mapLocations[thisOne].locID+".png'></div>";  
+         _html +="<div class='text'>"+syntaxHighlight(mapLocations[thisOne])+"</div>";
+         let terra= terraSet.length;
+         for (let t=0;  t< terra; t++) {
+            if (mapLocations[thisOne].terraType[terraSet[t]]) {
+               _html +="<div class='grid inner"+terraSet[t]+"'><div class='gridimg'><div class='terrain "+terraSet[t]+"'></div></div></div>";  
+            } 
+         }
+         let styles= styleSet.length;
+         let locShown =0;
+         for (let t=0;  t< styles; t++) {
+            
+            if (mapLocations[thisOne].style[styleSet[t]]) {
+               locShown++
+               console.log(mapLocations[thisOne].style, styleSet[t]);
+               _html +="<div class='locPos"+locShown+" "+styleSet[t]+"Loc'><div class=' "+styleSet[t]+"Icon'>"+styleSet[t]+"</div></div>";  
+            } 
+         }
+         
+         // for (let t=0;  t< styles; t++) {
+         //    if (mapLocations[thisOne].style[styleSet[t]]) {
+               
+         //       _html +="<div class=' grid smallA "+styleSet[t]+"Loc'><div class='terrain "+styleSet[t]+"Icon'>"+styleSet[t]+"</div></div>";  
+         //    } 
+         // }
+
+         for (let t=0;  t< biomeSet.length; t++) {
+            if (mapLocations[thisOne].biomes[biomeSet[t]] || mapLocations[thisOne].biomes['any']) {
+               _html +="<div class='temp "+biomeSet[t]+"level "+biomeSet[t]+"'>"+biomeSet[t]+"</div>";  
+            } 
+         }
+
+         if (mapLocations[thisOne].map.original) {
+            _html +="<div class='mapOne'></div>";
+         }
+         if (mapLocations[thisOne].map.reskin) {
+            _html +="<div class='mapTwo'></div>";
+         }
+         if (mapLocations[thisOne].map.kdm) {
+            _html +="<div class='mapThree'></div>";
+         }
+         if (mapLocations[thisOne].map.future) {
+            _html +="<div class='mapFour'></div>";
+         }
+            
+         _html +="</div>";
+
+         $('#locbox').html(_html);
+
+         if (!gridOn) {
+            current++;
+         }
+      }
+   }
+
+</script>
+
+
+<body>
+   <div id="instructions">
+      <p> Form Builder Data Test</p>
+      <!--<p>Greetings, This is the Make 100 Mapper, Each time you click the Make Map Button, the Engine will take the
+         existing data, render a map, and hide this box, so you can print a clean map.</p>
+      <p>IF you want the grid and map icons on, press the small # button in the top left corner</p>-->
+
+   </div>
+
+   <button id="gridbutton" onclick="toggleGrid()">#</button>
+   
+   <button id="locationbutton" onclick="showOne(true)" style="font-size: 32pt">Show the Locations</button>
+   <input onchange="showOne()" id="location">
+   <div id="locbox">
+     
+   </div>
+   <script>
+      createMap();
+
+      $(document).ready(function () {
+         $.ajax({
+            type: "GET",
+            url: "./data/large.csv",
+            dataType: "text",
+            success: function (data1) {
+               console.log("loaded");
+
+               processData(data1, true);
+            },
+            error: function (error) {
+               //      console.log(error);
+            }
+         });
+
+         $.ajax({
+            type: "GET",
+            url: "./data/small.csv",
+            dataType: "text",
+            success: function (data2) {
+               processData(data2, false);
+            },
+            error: function (error) {
+               //        console.log(error);
+            }
+         });
+      });
+
+      console.log(stats)
+
+
+
+      //drawMap(theMap);
+      //makeBiomes();
+
+      //  console.log(theMap);
+   </script>
+
+   <div id="dataCheck"></div>
+
+</html>

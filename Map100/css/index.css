@@ -36,10 +36,11 @@
    font-size: 24pt;
 }
 
-#mapbox {
+#mapbox, #locbox {
    position: absolute;
    top: 100px;
 }
+
 
 .grid {
    width: 100px;
@@ -456,7 +457,7 @@
    background-position: 196px 175px;
 }
 
-.table {
+#mapbox .table {
    background: url('../img/hex2.jpg');
    background-size: 1000px 1000px;
    width: 1000px;
@@ -464,7 +465,19 @@
    position: absolute;
    z-index: 3;
 }
-.table .title2 {
+
+#locbox .table {
+   background: url('../img/hex2.jpg');
+   background-size: 700px 700px;
+   width: 700px;
+   height: 700px;
+   position: absolute;
+   z-index: 3;
+
+}
+
+
+#mapbox .table .title2, .table .title2 {
    color: black;
    font-size: 18pt;
    position: relative;
@@ -473,8 +486,8 @@
    z-index: 5;
 
 }
-.table .title {
-   color: rgba(240, 245, 245, 0.9);
+#mapbox .table, .title {
+   color: rgba(209, 209, 209, 0.75);
    font-size: 18pt;
    position: relative;
    left: 126px;
@@ -534,7 +547,7 @@
 }
 .innermountains {
    top: -30px;
-   left: 580px;
+   right: 27px;
 }
 
 button {
@@ -542,51 +555,76 @@ button {
    font-size: 16pt;
 }
 
-.euroIcon, .aztecIcon, .asiaIcon, .nomadIcon, .tentsIcon, .ruinsIcon {
+.euroIcon, .aztecIcon, .asiaIcon, .nomadIcon, .tentsIcon, .ruinsIcon, .arabIcon {
    background-color: purple;
    background-image: url('../img/styles.png');
-   background-size: 750px 750px;
+   background-size: 500px 500px;
  
 }
 .euroIcon, .aztecIcon, .asiaIcon, .nomadIcon, .tentsIcon, .ruinsIcon,
 .euroLoc, .aztecLoc, .asiaLoc, .nomadLoc, .tentsLoc, .ruinsLoc {
-   width: 180px;
-   height: 120px
+   width: 120px;
+   height: 80px;
+   position: absolute;
 }
 .euroLoc, .aztecLoc, .asiaLoc, .nomadLoc, .tentsLoc, .ruinsLoc {
    top: 25px;
-   left: 25px;
+   left: 0px;
+}
+.locPos0 {
+   top: -120px;
+}
+.locPos1 {
+   top: -80px;
+}
+.locPos2 {
+   top: 0px;
+}
+.locPos3 {
+   top: 80px;
+}
+.locPos4 {
+   top: 160px;
+}
+.locPos5 {
+   top: 240px;
+}
+.locPos6 {
+   top: 320px;
+}
+.locPos7 {
+   top: 400px;
 }
 
 .euroIcon {
-   background-position: 735px 0px; 
+   background-position: -360px -20px; 
 }
  .aztecIcon{
-   background-position: 735px 446px; 
+   background-position: -10px 295px; 
 }
 .arabIcon{
-   background-position: 735px 605px;
+   background-position: -10px 125px;
    width: 185px;
    height: 140px; 
 }
 .asiaIcon{
-   background-position: 735px 184px; 
+   background-position: -10px 400px; 
 }
 .nomadIcon{
-   background-position: 735px 465px; 
+   background-position: -350px 360px; 
 }
 .tentsIcon{
-   background-position: 735px 315px; 
+   background-position: -10px 210px; 
 } 
 .ruinsIcon{
    background-position: 119px 440px; 
 }
 
 .ruinsIcon {
-   background-color: purple;
+   background-color: grey;
    background-image: url('../img/icons.png');
-   background-size: 500px 350px;
-   background-position: 196px 175px;
+   background-size: 475px 350px;
+   background-position: 325px 105px;
 }
 /* JSON Pretty Stringify */
 pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
@@ -608,31 +646,38 @@ pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
    width: 100px;
    height: 25px;
    position: absolute;
-   left: 35px;
+   left: 40px;
 }
 
-.arcticlevel{ top: 175px;}
-.coldlevel { top: 200px;}
-.coollevel{ top: 225px;}
-.midlevel{ top: 250px;}
-.warmlevel{ top: 275px;}
+.arcticlevel{ top: 25px;}
+.coldlevel { top: 50px;}
+.coollevel{ top: 75px;}
+.midlevel{ top: 100px;}
+.warmlevel{ top: 125px;}
 
-.tropiclevel{ top: 300px;}
-.heatlevel{ top: 325px;}
-.deathlevel{ top: 350px;}
-.anylevel{ top: 375px;}
+.tropiclevel{ top: 150px;}
+.heatlevel{ top: 175px;}
+.deathlevel{ top: 200px;}
+.anylevel{ top: 225px;}
 
-
+.mainImg {position: absolute;
+left: 65px;
+top: 10px;}
 .mapOne, .mapTwo, .mapThree, .mapFour {
    position: absolute;
   
-   left: 35px;
+   top: 500px;
    width: 50px;
    height: 50px;
    background: url('../img/mapIcon.jpg');
    background-size: 50px;
 }
-.mapOne {top: 750px; }
-.mapTwo {top: 800px; filter: sepia(100%);}
-.mapThree {top: 850px; filter: hue-rotate(180deg);}
-.mapFour {top: 900px; background: url('../img/coin.png'); background-size: 50px;}
+
+#mapbox .mapOne, #mapbox .mapTwo, #mapbox .mapThree, #mapbox .mapFour {
+   top: 700px;
+}
+ .mapOne {left: 25px; }
+ .mapTwo {left: 75px; filter: sepia(100%);}
+ .mapThree {left: 125px; filter: hue-rotate(180deg);}
+ .mapFour {left: 175px; background: url('../img/coin.png'); background-size: 50px;}
+
