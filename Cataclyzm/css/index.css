@@ -1,0 +1,98 @@
+@font-face {
+   font-family: "docs-Droid-Serif";
+   src: url("http://fonts.gstatic.com/s/droidserif/v9/tDbI2oqRg1oM3QBjjcaDkNr_.woff2") format("woff2");
+}
+
+@font-face {
+   font-family: "docs-Droid-Serif-Italic";
+   src: url("http://fonts.gstatic.com/s/droidserif/v9/tDbK2oqRg1oM3QBjjcaDkOr4rAU.woff2") format("woff2");
+}
+
+@font-face {
+   font-family: "docs-Droid-Serif-Bold";
+   src: url("http://fonts.gstatic.com/s/droidserif/v9/tDbV2oqRg1oM3QBjjcaDkOJGiSD5.woff2") format("woff2");
+}
+
+@font-face {
+   font-family: "docs-Droid-Serif-Bold-italic";
+   src: url("http://fonts.gstatic.com/s/droidserif/v9/tDbX2oqRg1oM3QBjjcaDkOr4lLz5OwE.woff2") format("woff2");
+}
+
+/* 
+  "weight":"700","style":"normal",                                        ,"Droid Serif-700-italic":{"fontFamily":"docs-Droid Serif","sourceString":"local(\u0027Droid Serif Bold Italic\u0027), local(\u0027DroidSerif-BoldItalic\u0027), url(filesystem:https://docs.google.com/persistent/docs/fonts/tDbX2oqRg1oM3QBjjcaDkOr4lLz5OwE.woff2), url(//fonts.gstatic.com/s/droidserif/v9/tDbX2oqRg1oM3QBjjcaDkOr4lLz5OwE.woff2)","weight":"700","style":"italic", 
+      
+      ,"Fredericka the Great-400-normal":{"fontFamily":"docs-Fredericka the Great","sourceString":"local(\u0027Fredericka the Great\u0027), local(\u0027FrederickatheGreat\u0027), url(filesystem:https://docs.google.com/persistent/docs/fonts/9Bt33CxNwt7aOctW2xjbCstzwVKsIBVV-9Sh.woff2), url(//fonts.gstatic.com/s/frederickathegreat/v7/9Bt33CxNwt7aOctW2xjbCstzwVKsIBVV-9Sh.woff2)","weight":"400","style":"normal", 
+         
+         ,"Architects Daughter-400-normal":{"fontFamily":"docs-Architects Daughter","sourceString":"local(\u0027Architects Daughter Regular\u0027), local(\u0027ArchitectsDaughter-Regular\u0027), url(filesystem:https://docs.google.com/persistent/docs/fonts/KtkxAKiDZI_td1Lkx62xHZHDtgO_Y-bvfYs.woff2), url(//fonts.gstatic.com/s/architectsdaughter/v9/KtkxAKiDZI_td1Lkx62xHZHDtgO_Y-bvfYs.woff2)","weight":"400","style":"normal",  
+            
+            ,"IM Fell English SC-400-normal":{"fontFamily":"docs-IM Fell English SC","sourceString":"local(\u0027IM FELL English SC\u0027), local(\u0027IM_FELL_English_SC\u0027), url(filesystem:https://docs.google.com/persistent/docs/fonts/a8IENpD3CDX-4zrWfr1VY879qFF05pZLPg.woff2), url(//fonts.gstatic.com/s/imfellenglishsc/v8/a8IENpD3CDX-4zrWfr1VY879qFF05pZLPg.woff2)","weight":"400","style":"normal",  
+               
+               ,"MedievalSharp-400-normal":{"fontFamily":"docs-MedievalSharp","sourceString":"local(\u0027MedievalSharp\u0027), url(filesystem:https://docs.google.com/persistent/docs/fonts/EvOJzAlL3oU5AQl2mP5KdgptAqo.woff2), url(//fonts.gstatic.com/s/medievalsharp/v11/EvOJzAlL3oU5AQl2mP5KdgptAqo.woff2)","weight":"400","style":"normal",  
+                  
+                  ,"Rock Salt-400-normal":{"fontFamily":"docs-Rock Salt","sourceString":"local(\u0027Rock Salt Regular\u0027), local(\u0027RockSalt-Regular\u0027), url(filesystem:https://docs.google.com/persistent/docs/fonts/MwQ0bhv11fWD6QsAVOZbtQ.woff2), url(//fonts.gstatic.com/s/rocksalt/v9/MwQ0bhv11fWD6QsAVOZbtQ.woff2)","weight":"400","style":"normal",  
+                     
+                     ,"Fanwood Text-400-normal":{"fontFamily":"docs-Fanwood Text","sourceString":"local(\u0027Fanwood Text\u0027), local(\u0027FanwoodText-Regular\u0027), url(filesystem:https://docs.google.com/persistent/docs/fonts/3XFtErwl05Ad_vSCF6Fq7xXGQA.woff2), url(//fonts.gstatic.com/s/fanwoodtext/v8/3XFtErwl05Ad_vSCF6Fq7xXGQA.woff2)","weight":"400","style":"normal",                                        ,"Fanwood Text-400-italic":{"fontFamily":"docs-Fanwood Text","sourceString":"local(\u0027Fanwood Text Italic\u0027), local(\u0027FanwoodText-Italic\u0027), url(filesystem:https://docs.google.com/persistent/docs/fonts/3XFzErwl05Ad_vSCF6Fq7xX2R9zZ.woff2), url(//fonts.gstatic.com/s/fanwoodtext/v8/3XFzErwl05Ad_vSCF6Fq7xX2R9zZ.woff2)","weight":"400","style":"italic",                                        ,"Uncial Antiqua-400-normal":{"fontFamily":"docs-Uncial Antiqua","sourceString":"local(\u0027Uncial Antiqua\u0027), local(\u0027UncialAntiqua-Regular\u0027), url(filesystem:https://docs.google.com/persistent/docs/fonts/N0bM2S5WOex4OUbESzoESK-i-PfU.woff2), url(//fonts.gstatic.com/s/uncialantiqua/v6/N0bM2S5WOex4OUbESzoESK-i-PfU.woff2)","weight":"400","style":"normal",                                        ,"Walter Turncoat-400-normal":{"fontFamily":"docs-Walter Turncoat","sourceString":"local(\u0027Walter Turncoat Regular\u0027), local(\u0027WalterTurncoat-Regular\u0027), url(filesystem:https://docs.google.com/persistent/docs/fonts/snfys0Gs98ln43n0d-14ULoToe67ZQ.woff2), url(//fonts.gstatic.com/s/walterturncoat/v9/snfys0Gs98ln43n0d-14ULoToe67ZQ.woff2)","weight":"400","style":"normal",                                        ,"Economica-400-normal":{"fontFamily":"docs-Economica","sourceString":"local(\u0027Economica\u0027), local(\u0027Economica-Regular\u0027), url(filesystem:https://docs.google.com/persistent/docs/fonts/Qw3fZQZaHCLgIWa29ZBrNA.woff2), url(//fonts.gstatic.com/s/economica/v6/Qw3fZQZaHCLgIWa29ZBrNA.woff2)","weight":"400","style":"normal",                                        ,"Economica-400-italic":{"fontFamily":"docs-Economica","sourceString":"local(\u0027Economica Italic\u0027), local(\u0027Economica-Italic\u0027), url(filesystem:https://docs.google.com/persistent/docs/fonts/Qw3ZZQZaHCLgIWa29ZBbM8IB.woff2), url(//fonts.gstatic.com/s/economica/v6/Qw3ZZQZaHCLgIWa29ZBbM8IB.woff2)","weight":"400","style":"italic",                                        ,"Economica-700-normal":{"fontFamily":"docs-Economica","sourceString":"local(\u0027Economica Bold\u0027), local(\u0027Economica-Bold\u0027), url(filesystem:https://docs.google.com/persistent/docs/fonts/Qw3aZQZaHCLgIWa29ZBTjeckDw.woff2), url(//fonts.gstatic.com/s/economica/v6/Qw3aZQZaHCLgIWa29ZBTjeckDw.woff2)","weight":"700","style":"normal",                                        ,"Economica-700-italic":{"fontFamily":"docs-Economica","sourceString":"local(\u0027Economica Bold Italic\u0027), local(\u0027Economica-BoldItalic\u0027), url(filesystem:https://docs.google.com/persistent/docs/fonts/Qw3EZQZaHCLgIWa29ZBbM_q4D3x4.woff2), url(//fonts.gstatic.com/s/economica/v6/Qw3EZQZaHCLgIWa29ZBbM_q4D3x4.woff2)","weight":"700","style":"italic",                                        ,"Open Sans-400-normal":{"fontFamily":"docs-Open Sans","sourceString":"local(\u0027Open Sans Regular\u0027), local(\u0027OpenSans-Regular\u0027), url(filesystem:https://docs.google.com/persistent/docs/fonts/mem8YaGs126MiZpBA-U1Vw.woff2), url(//fonts.gstatic.com/s/opensans/v16/mem8YaGs126MiZpBA-U1Vw.woff2)","weight":"400","style":"normal",                                        ,"Open Sans-400-italic":{"fontFamily":"docs-Open Sans","sourceString":"local(\u0027Open Sans Italic\u0027), local(\u0027OpenSans-Italic\u0027), url(filesystem:https://docs.google.com/persistent/docs/fonts/mem6YaGs126MiZpBA-UFUJ0b.woff2), url(//fonts.gstatic.com/s/opensans/v16/mem6YaGs126MiZpBA-UFUJ0b.woff2)","weight":"400","style":"italic",                                        ,"Open Sans-700-normal":{"fontFamily":"docs-Open Sans","sourceString":"local(\u0027Open Sans Bold\u0027), local(\u0027OpenSans-Bold\u0027), url(filesystem:https://docs.google.com/persistent/docs/fonts/mem5YaGs126MiZpBA-UN7rg-UA.woff2), url(//fonts.gstatic.com/s/opensans/v16/mem5YaGs126MiZpBA-UN7rg-UA.woff2)","weight":"700","style":"normal",                                        ,"Open Sans-700-italic":{"fontFamily":"docs-Open Sans","sourceString":"local(\u0027Open Sans Bold Italic\u0027), local(\u0027OpenSans-BoldItalic\u0027), url(filesystem:https://docs.google.com/persistent/docs/fonts/memnYaGs126MiZpBA-UFUKWiUOhp.woff2), url(//fonts.gstatic.com/s/opensans/v16/memnYaGs126MiZpBA-UFUKWiUOhp.woff2)","weight":"700","style":"italic",                                        }; for (var identifierString in docs_fontFaces_data) {var fontFace = new win.FontFace( docs_fontFaces_data[identifierString]['fontFamily'], docs_fontFaces_data[identifierString]['sourceString'],{'style': docs_fontFaces_data[identifierString]['style'], 'weight': docs_fontFaces_data[identifierString]['weight']}); fontFace.load().then(function(loadedFontFace) {doc.fonts.add(loadedFontFace);}); fontFaceObject[identifierString] = fontFace;}return fontFaceObject;}return null;}; _docs_webfonts_fontFaces = _docs_webfonts_createFontFaces(document);})();*/
+
+@font-face {
+   font-family: "docs-Fredericka the Great";
+
+
+   src: url("http://fonts.gstatic.com/s/frederickathegreat/v7/9Bt33CxNwt7aOctW2xjbCstzwVKsIBVV-9Sh.woff2") format("woff2");
+}
+
+h2 {
+   font-size: 24px;
+   font-family: 'docs-Uncial Antiqua';
+   color: #000000;
+   background-color: transparent;
+   font-weight: 400;
+   font-style: normal;
+   font-variant: normal;
+   text-decoration: none;
+   vertical-align: baseline;
+   white-space: pre;
+}
+
+h3 {
+
+   font-size: 13.333333333333332px;
+   font-family: 'docs-Uncial Antiqua';
+   color: #000000;
+   background-color: transparent;
+   font-weight: 400;
+   font-style: normal;
+   font-variant: normal;
+   text-decoration: none;
+   vertical-align: baseline;
+   white-space: pre;
+}
+
+h4 {
+
+   font-size: 80px;
+   font-family: 'docs-Fredericka the Great';
+   color: #4c1130;
+   background-color: transparent;
+   font-weight: 400;
+   font-style: normal;
+   font-variant: normal;
+   text-decoration: none;
+   vertical-align: baseline;
+   white-space: pre;
+}
+
+.t1 {
+   font-family: 'docs-Droid-Serif';
+}
+
+.t2 {
+   font-family: 'docs-Droid-Serif-Italic';
+}
+
+.t3 {
+   font-family: 'docs-Droid-Serif-Bold';
+}
+
+.t4 {
+   font-family: 'docs-Droid-Serif-Bold-italic';
+}

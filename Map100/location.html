@@ -1,60 +1,63 @@
 <html>
 
 <head>
+   <script type="text/javascript">
+      var timerStart = Date.now();
+   </script>
    <meta charset="utf-8" />
    <title> Make 100 map test</title>
    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
-
-</head>
+   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 <body>
-   <div>
-      <label>Name:</label>
-      <input type="text" ng-model="yourName" placeholder="Enter a name here">
-      <hr>
-      <h1>Hello {{yourName}}!</h1>
-   </div>
+   <form action="test.php" method="post">
+      <table>
+         <tr>
+            <td>
+               Hello
+            </td>
+         </tr>
+         <tr>
+            <td>
+
+               <div class="g-recaptcha" data-callback="checkMe" data-sitekey="6LeahaEUAAAAAMleZdvXZUIqu8uZhEwnyfuKJ9JV">
+               </div>
+               <br />
+            </td>
+            <td>
+               <input type="submit" value="Submit">
+            </td>
+         </tr>
+      </table>
+   </form>
+   <script>
+      function checkMe() {
+         alert("YUP");
+      }
+   </script>
 </body>
-<script>
-   // $(document).ready(function () {
-   //    $.ajax({
-   //       type: "GET",
-   //       url: "./data/large.csv",
-   //       dataType: "text",
-   //       success: function (data1) {
-   //          console.log("loaded");
+<html>
 
-   //          processData(data1, true);
-   //       },
-   //       error: function (error) {
-   //          //      console.log(error);
-   //       }
-   //    });
+<!-- < head>
+         < title> reCAPTCHA demo: Explicit render after an onload callback < /title> < script type="text/javascript">
+               var onloadCallback = function () {
+               grecaptcha.render('html_element', {
+               'sitekey': '6LeahaEUAAAAAMleZdvXZUIqu8uZhEwnyfuKJ9JV'
+               });
+               };
+               </script>
+               </head>
 
-   //    $.ajax({
-   //       type: "GET",
-   //       url: "./data/small.csv",
-   //       dataType: "text",
-   //       success: function (data2) {
-   //          processData(data2, false);
-   //       },
-   //       error: function (error) {
-   //          //        console.log(error);
-   //       }
-   //    });
-   // });
+               <body>
+                  <form action="?" method="POST">
+                     <div id="html_element"></div>
+                     <br>
+                     <input type="submit" value="Submit">
+                  </form>
+                  <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async
+                     defer>
+                  </script>
+               </body>
 
-
-
-
-
-   //drawMap(theMap);
-   //makeBiomes();
-
-   //  console.log(theMap);
-</script>
-
-<div id="dataCheck"></div>
-
-</html>
+</html> -->
