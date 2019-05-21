@@ -1,4 +1,4 @@
-[
+<? $small = [
   {
     "Backer Number": 117,
     "": "",
@@ -2758,4 +2758,5 @@
     "12. Will Your Location Be Hidden On The Player Maps?": "Yes, My place is public Knowledge, anyone can find it",
     "Anything To Add?": "No response"
   }
-]
+];
+?>

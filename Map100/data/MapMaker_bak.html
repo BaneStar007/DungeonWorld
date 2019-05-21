@@ -4,9 +4,9 @@
    <meta charset="utf-8" />
    <title> Make 100 map test</title>
    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-   <script type="text/javascript" src="./js/setup.js?v=1.1"></script>
-   <script type="text/javascript" src="./js/lib.js?v=1.1"></script>
-   <link href="css/index.css?v=1.1" rel="stylesheet" type="text/css" />
+   <script type="text/javascript" src="./js/setup.js"></script>
+   <script type="text/javascript" src="./js/lib.js"></script>
+   <link href="css/index.css" rel="stylesheet" type="text/css" />
 
 </head>
 <script>
@@ -409,12 +409,18 @@
       }
       terraLocs = removeFilled(terraLocs, "terra");
 
+
+
+
       var arrayOf = ["plains", "borreal", "jungle", "desert", "lake", "taiga", "swamp",
          "terraType", "terraTypeother", "coastal", "sea"
       ];
       var needMore = 0;
 
+
       for (ofLoop = 0; ofLoop < arrayOf.length; ofLoop++) {
+
+
 
          // Create the Terrain Types
          for (i = 0; i < stats[arrayOf[ofLoop]]; i++) {
@@ -456,10 +462,12 @@
 
       }
 
+
       for (locID = 0; locID < terraLocs.length; locID++) {
          processCell(locID, terraLocs, "terra", "plains", "any", "coastal");
 
       }
+
 
       terraLocs = removeFilled(terraLocs, "terra");
 
@@ -475,6 +483,76 @@
 
       terraLocs = null;
       console.log("needMore", needMore);
+      /*
+                     castle: 0,
+                     dungeon: 0,
+                     natural: 0,
+                     hole: 0,
+                     terrain: 0,
+                     other: 0,
+
+         
+
+                     biomes: 0,
+                     cold: 0,
+                     cool: 0,
+                     mid: 0,
+                     warm: 0,
+                     arctic: 0,
+                     any: 0,
+                     tropic: 0,
+
+                     arab: 0,
+                     asia: 0,
+                     aztec: 0,
+                     euro: 0,
+                     tents: 0,
+                     nomad: 0,
+                     styleother: 0,
+
+                     mvil: 0,
+                     svil: 0,
+                     dungeon: 0,
+                     ruin: 0,
+                     label: 0,
+                     sign: 0,
+                     ruins: 0,
+                     statue: 0,
+                     hole: 0,
+                     temple: 0,
+                     trees: 0,
+                     animals: 0,
+                     surround: 0,
+                     farm: 0,
+                     fields: 0,
+                     tower: 0,
+                     waterfall: 0,
+                     abandoned: 0,
+                     smith: 0,
+                     nada: 0,*/
+
+
+
+      /*/ Transfer the mapLocation data thats relevant to the map engine
+         for (i = 0; i < mapLocations.length; i++) {
+
+            // find a random position
+
+            x = randNum(mapHeight);
+            y = randNum(mapWidth);
+
+            //check if that position exists, 
+            //    console.log("map[" + x + "][" + y + "]");
+
+
+            // once found, put the relevant data from 
+            theMap[x][y].title = mapLocations[i].title;
+            theMap[x][y].loc = mapLocations[i].loc;
+            theMap[x][y].easter = mapLocations[i].easterEggs;
+            //     console.log(mapLocations[i].easter);
+         }
+      */
+
 
       redrawMap(theMap);
       // console.log("Final Stats", stats);
@@ -495,6 +573,7 @@
 
    function drawRange(type, distance) {
       // given the type, draw a start, end and line between
+
    }
 
    var stylesOne = false;
@@ -519,9 +598,9 @@
             thisOne = locFind;
             
          } else {
-            
+            console.log("checking...");
             for (id=0; id< mapLocations.length; id++) {
-               
+               console.log("checking if", mapLocations[id].Email, "==", locFind, (mapLocations[id].Email == locFind));
                if (mapLocations[id].Email == locFind) {
                   thisOne = id;
                   stylesOne = true;
@@ -529,6 +608,9 @@
             }
 
          }
+
+
+
       }
       
       if (stylesOne) {
@@ -538,9 +620,9 @@
          _html +="<div class='title2'>"+mapLocations[thisOne].title+"</div>";
          _html +="<div class='title'>"+mapLocations[thisOne].title+" - "+mapLocations[thisOne]['Backer Name']+" - </div>"; 
          _html +="<div class='desc'>"+mapLocations[thisOne].description+"</div>";  
-         _html +="<div class='mainText'>"+mapLocations[thisOne].fullDescription+"</div>";  
-         _html +="<div class='mainImg'><img src='./img/sketches/"+mapLocations[thisOne].locID+".png'></div>";  
-         _html +="<div class='text'>"+syntaxHighlight(mapLocations[thisOne])+"</div>";
+         _html +="<div class='mainText'>"+mapLocations[thisOne].description+"</div>";  
+         _html +="<div class='mainImg'><img src='./img/sketches/"+mapLocations[thisOne].locID+".png></div>";  
+         _html +="<div class='text'>"+JSON.stringify(mapLocations[thisOne])+"</div>";
          let terra= terraSet.length;
          for (let t=0;  t< terra; t++) {
             if (mapLocations[thisOne].terraType[terraSet[t]]) {
@@ -549,27 +631,11 @@
          }
          let styles= styleSet.length;
          for (let t=0;  t< styles; t++) {
-            console.log(mapLocations[thisOne].style, styleSet[t]);
             if (mapLocations[thisOne].style[styleSet[t]]) {
-               _html +="<div class='grid "+styleSet[t]+"Loc'><div class='terrain "+styleSet[t]+"Icon'></div></div>";  
+               _html +="<div class='grid "+styleSet[t]+"Loc'><div class='gridimg'><div class='terrain "+styleSet[t]+"Icon'></div></div></div>";  
             } 
          }
-         
-         for (let t=0;  t< styles; t++) {
-            if (mapLocations[thisOne].style[styleSet[t]]) {
-               _html +="<div class='grid smallA "+styleSet[t]+"Loc'><div class='terrain "+styleSet[t]+"Icon'></div></div>";  
-            } 
-         }
-
-         for (let t=0;  t< biomeSet.length; t++) {
-            if (mapLocations[thisOne].biomes[biomeSet[t]]) {
-               _html +="<div class='temp "+biomeSet[t]+"level "+biomeSet[t]+"'>"+biomeSet[t]+"</div>";  
-            } 
-         }
-
-         if (mapLocations[thisOne].map.original) {
-            _html +="<div class='mapOne'><img scr='./img/mapIcon.jpg'></div>";
-         }
+        
             
          _html +="</div>";
 
@@ -593,11 +659,7 @@
 
          for (let set2=0; set2< styleSet.length; set2++) {
 
-            if (styleSet[set] != styleSet[set2]) {
             styleSubSet.push(styleSet[set]+"_"+styleSet[set2]);
-            } else {
-               styleSubSet.push(styleSet[set]);
-            }
 
          }
 
@@ -630,7 +692,6 @@
          $('#mapbox').html("HEY!");
          for (let i = 0; i < styleSubSet.length; i++) {
 
-            console.log(styleSubSet[i])
             stylecircles += '<div id="id' + styleSubSet[i] + '" class="mapCircles ' + styleSubSet[i] +
                '" style="width: 5px; height: 5px;">' + styleSubSet[i] + ' </div>';
 
@@ -802,18 +863,10 @@
       if (fixed !== move) {
       //   console.log("sizes", $('#id' + fixed).width(), $('#id' + move).width(), angle);
 
-      if ($('#id' + fixed).position == undefined) { console.log("not defined: "+fixed);} else {
-         console.log(fixed);
          var fixedradius = $('#id' + fixed).width() / 2;
          var moveradius = $('#id' + move).width() / 2;
-         
-        console.log($('#id' + fixed));
-        console.log($('#id' + fixed).position);
-        
-            var xpos = $('#id' + fixed).position().left + fixedradius;
-            var ypos = $('#id' + fixed).position().top + fixedradius;
-         
-      }
+         var xpos = $('#id' + fixed).position().left + fixedradius;
+         var ypos = $('#id' + fixed).position().top + fixedradius;
 
 
 
@@ -876,7 +929,7 @@
    <button id="h2button" onclick="processHills()">Hills Ranges</button>
 
    <button id="button" onclick="placetheRest()">The Rest</button>
-   <button id="locationbutton" onclick="showOne(true)" style="font-size: 32pt">Show the Locations</button>
+   <button id="button" onclick="showOne(true)">Show the Locations</button>
    <input onchange="showOne()" id="location">
    <div id="mapbox">
       <!--<div class="  grid">

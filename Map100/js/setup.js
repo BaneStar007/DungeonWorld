@@ -87,10 +87,10 @@ var stats = {
 
 var EasterSet = Array( "mvil", "svil", "dungeon", "ruin", "label", "sign", "statue", "hole",
                "temple", "trees", "animals", "surround", "farm", "waterfall", "tents", "ruins", "tower",
-               "smith", "fields", "surround", "abandoned", "nada");
+               "smith", "fields", "surround", "abandoned", "nada", "other");
 
 var terraSet = Array( "sea", "coastal", "swamp", "desert", "taiga", "plains",
-            "borreal", "jungle", "hills", "mountains");
+            "borreal", "jungle", "hills", "mountains", "other");
 
 var styleSet = Array("euro", "aztec", "arab", "asia", "tents","nomad", "ruins");  
 
@@ -148,7 +148,7 @@ var existingLocations = [{
 
 // The Full List of all locations to be added, Placeholder for Error Checking
 var mapLocations = [{
-   "locID": 5,
+   "locID": 500,
    "locType": {
       castle: true,
       details: "The Spire",
@@ -178,7 +178,7 @@ var mappedLocations = [{
    },
    description: "A coastal city/castle based near mountains so it has access to metals",
    fullDescription: "Selario is the capital city of the Illianese Empire",
-   locID: 1,
+   locID: 1000,
    locType: {
       castle: true,
       details: "CIty/castle",
@@ -486,7 +486,7 @@ function processData(allText, FullData) {
             "Taiga / Steppe",
             "Plains / Grassland",
             "Forest - Boreal or Temperate", "Forest - Jungle or Rainforest", "Hills/Cliffs",
-            "Mountains"
+            "Mountains", "Other (Only choose if you have increased pledge)"
          );
 
          data[i].terraType = {};

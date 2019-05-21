@@ -36,11 +36,10 @@
    font-size: 24pt;
 }
 
-#mapbox, #locbox {
+#mapbox {
    position: absolute;
    top: 100px;
 }
-
 
 .grid {
    width: 100px;
@@ -48,7 +47,7 @@
    float: left;
    margin-left: -36px;
    position: absolute;
-   z-index: 1;
+   z-index: 3;
 }
 
 .gridImg {
@@ -56,8 +55,10 @@
    background-size: 100px 100px;
 
    position: absolute;
-   z-index: 3;
+   z-index: 5;
 }
+
+
 
 .alternate {
    margin-top: -38px;
@@ -420,6 +421,13 @@
    background-position: 365px 275px;
 
 }
+.other {
+   background-color: rgb(236, 137, 240);
+   background-image: url('../img/Icons.png');
+   background-size: 450px 400px;
+   background-position: 365px 275px;
+
+}
 
 .lake {
    background-color: LightSkyBlue;
@@ -457,7 +465,63 @@
    background-position: 196px 175px;
 }
 
-#mapbox .table {
+
+.trapezoidUL, .trapezoidU, .trapezoidUR, .trapezoidLL, .trapezoidL, .trapezoidLR {
+   border-left: 25px solid transparent;
+   border-right: 25px solid transparent;
+   height: 0;
+   width: 500px;
+   position: absolute;
+   z-index: 1;
+
+}
+
+.trapezoidUL {
+   border-bottom: 80px solid red;
+   top: 226px;
+   left: -113px;
+   transform: rotate(116.5deg);
+   }
+
+ .trapezoidU {
+   border-bottom: 80px solid orange;
+   top: 3px;
+    left: 225px;
+    transform: rotate(180deg);
+   z-index: 1;
+}
+
+.trapezoidUR {
+   border-bottom: 80px solid yellow;
+   top: 224px;
+   left: 562px;
+   transform: rotate(243.5deg);
+   }
+
+ .trapezoidLL {
+   border-bottom: 80px solid purple;
+   top: 692px;
+    left: -115px;
+    transform: rotate(63.5deg);
+   z-index: 1;
+}
+
+.trapezoidL {
+   border-bottom: 80px solid blue;
+   top: 916px;
+    left: 227px;
+    transform: rotate(0deg);
+   }
+
+ .trapezoidLR {
+   border-bottom: 80px solid green;
+   top: 696px;
+    left: 577px;
+    transform: rotate(296.5deg);
+   z-index: 1;
+}
+
+.table {
    background: url('../img/hex2.jpg');
    background-size: 1000px 1000px;
    width: 1000px;
@@ -466,34 +530,42 @@
    z-index: 3;
 }
 
-#locbox .table {
-   background: url('../img/hex2.jpg');
-   background-size: 700px 700px;
-   width: 700px;
-   height: 700px;
+.table .title {
+   color: rgba(240, 245, 245, 0.9);
+   font-size: 18pt;
    position: absolute;
-   z-index: 3;
-
+   left: 126px;
+   top: -33px;
+   z-index: 6;
 }
-
-
-#mapbox .table .title2, .table .title2 {
+.table .title2 {
    color: black;
    font-size: 18pt;
-   position: relative;
+   position: absolute;
    left: 125px;
    top: -4px;
    z-index: 5;
 
 }
-#mapbox .table, .title {
-   color: rgba(209, 209, 209, 0.75);
-   font-size: 18pt;
-   position: relative;
-   left: 126px;
-   top: -33px;
-   z-index: 6;
+.table .title3, .pledge, .locID  {
+   color: black;
+   font-size: 30pt;
+   position: absolute;
+   left: 300px;
+   top: 150px;
+   z-index: 5;
+
 }
+
+.pledge {
+   left: 310px;
+    top: 95px;
+}
+.locID {
+   left: 645px; 
+   top: 95px;
+}
+
 .table .text {margin-top: 200px; width: 70%; margin-left: 15%; background: #eee; z-index: 8;  font-size: 28pt;}
 .table .mainText {margin-top: 600px; width: 80%; margin-left: 10%; background: #eee; z-index: 8;  font-size: 28pt;}
 
@@ -504,7 +576,7 @@
    border-radius: 5px;
    background: #eee;
    position: absolute;
-   width: 62%;
+   width: 55%;
    z-index: 7;
    font-size: 20pt;
 }
@@ -536,6 +608,10 @@
    top: 121px;
    right: 27px;
 }
+.innerother {
+   top: 121px;
+   right: 91px;
+}
 
 .innerborreal {
    top: 83px;
@@ -547,84 +623,73 @@
 }
 .innermountains {
    top: -30px;
-   right: 27px;
+   left: 580px;
+}
+
+.gridChosen {
+   width: 130px;
+   height: 130px;
+   margin-left: -45px;
+}
+
+.gridChosen > .gridImg {
+   background-size: 130px 130px;
+}
+.gridChosen > .gridImg > .terrain {
+   width: 90px;
+   height: 90px;
 }
 
 button {
-   z-index: 12;
+
    font-size: 16pt;
 }
 
-.euroIcon, .aztecIcon, .asiaIcon, .nomadIcon, .tentsIcon, .ruinsIcon, .arabIcon {
+.euroIcon, .aztecIcon, .asiaIcon, .nomadIcon, .tentsIcon, .ruinsIcon {
    background-color: purple;
    background-image: url('../img/styles.png');
-   background-size: 500px 500px;
+   background-size: 750px 750px;
  
 }
 .euroIcon, .aztecIcon, .asiaIcon, .nomadIcon, .tentsIcon, .ruinsIcon,
 .euroLoc, .aztecLoc, .asiaLoc, .nomadLoc, .tentsLoc, .ruinsLoc {
-   width: 120px;
-   height: 80px;
-   position: absolute;
+   width: 180px;
+   height: 120px
 }
 .euroLoc, .aztecLoc, .asiaLoc, .nomadLoc, .tentsLoc, .ruinsLoc {
    top: 25px;
-   left: 0px;
-}
-.locPos0 {
-   top: -120px;
-}
-.locPos1 {
-   top: -80px;
-}
-.locPos2 {
-   top: 0px;
-}
-.locPos3 {
-   top: 80px;
-}
-.locPos4 {
-   top: 160px;
-}
-.locPos5 {
-   top: 240px;
-}
-.locPos6 {
-   top: 320px;
-}
-.locPos7 {
-   top: 400px;
+   left: 25px;
 }
 
 .euroIcon {
-   background-position: -360px -20px; 
+   background-position: 735px 0px; 
 }
  .aztecIcon{
-   background-position: -10px 295px; 
+   background-position: 735px 446px; 
 }
 .arabIcon{
-   background-position: -10px 125px;
+   background-position: 735px 605px;
    width: 185px;
    height: 140px; 
 }
 .asiaIcon{
-   background-position: -10px 400px; 
+   background-position: 735px 184px; 
 }
 .nomadIcon{
-   background-position: -350px 360px; 
+   background-position: 735px 465px; 
 }
 .tentsIcon{
-   background-position: -10px 210px; 
+   background-position: 735px 315px; 
 } 
 .ruinsIcon{
    background-position: 119px 440px; 
 }
 
 .ruinsIcon {
-   background-color: grey;
+   background-color: purple;
    background-image: url('../img/icons.png');
-   background-size: 475px 350px;
-   background-position: 325px 105px;
+   background-size: 500px 350px;
+   background-position: 196px 175px;
 }
 /* JSON Pretty Stringify */
 pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
@@ -646,38 +711,16 @@ pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
    width: 100px;
    height: 25px;
    position: absolute;
-   left: 40px;
+   left: 35px;
 }
 
-.arcticlevel{ top: 25px;}
-.coldlevel { top: 50px;}
-.coollevel{ top: 75px;}
-.midlevel{ top: 100px;}
-.warmlevel{ top: 125px;}
+.arcticlevel{ top: 175px;}
+.coldlevel { top: 200px;}
+.coollevel{ top: 225px;}
+.midlevel{ top: 250px;}
+.warmlevel{ top: 275px;}
 
-.tropiclevel{ top: 150px;}
-.heatlevel{ top: 175px;}
-.deathlevel{ top: 200px;}
-.anylevel{ top: 225px;}
-
-.mainImg {position: absolute;
-left: 65px;
-top: 10px;}
-.mapOne, .mapTwo, .mapThree, .mapFour {
-   position: absolute;
-  
-   top: 500px;
-   width: 50px;
-   height: 50px;
-   background: url('../img/mapIcon.jpg');
-   background-size: 50px;
-}
-
-#mapbox .mapOne, #mapbox .mapTwo, #mapbox .mapThree, #mapbox .mapFour {
-   top: 700px;
-}
- .mapOne {left: 25px; }
- .mapTwo {left: 75px; filter: sepia(100%);}
- .mapThree {left: 125px; filter: hue-rotate(180deg);}
- .mapFour {left: 175px; background: url('../img/coin.png'); background-size: 50px;}
-
+.tropiclevel{ top: 300px;}
+.heatlevel{ top: 325px;}
+.deathlevel{ top: 350px;}
+.anylevel{ top: 375px;}

@@ -1,0 +1,388 @@
+<html>
+
+<head>
+   <meta charset="utf-8" />
+   <title> Make 100 map test</title>
+   <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+   <script type="text/javascript" src="./js/setup.js?v=1.1"></script>
+   <script type="text/javascript" src="./js/lib.js?v=1.1"></script>
+   <link href="css/index.css?v=1.1" rel="stylesheet" type="text/css" />
+
+</head>
+<script>
+   /*$$               
+                      | $$               
+ /$$$$$$/$$$$  /$$$$$$| $$   /$$ /$$$$$$ 
+| $$_  $$_  $$|____  $| $$  /$$//$$__  $$
+| $$ \ $$ \ $$ /$$$$$$| $$$$$$/| $$$$$$$$
+| $$ | $$ | $$/$$__  $| $$_  $$| $$_____/
+| $$ | $$ | $|  $$$$$$| $$ \  $|  $$$$$$$
+|__/ |__/ |__/\_______|__/  \__/\_______/
+ /$$      /$$ /$$$$$$ /$$$$$$$           
+| $$$    /$$$/$$__  $| $$__  $$          
+| $$$$  /$$$| $$  \ $| $$  \ $$          
+| $$ $$/$$ $| $$$$$$$| $$$$$$$/          
+| $$  $$$| $| $$__  $| $$____/           
+| $$\  $ | $| $$  | $| $$                
+| $$ \/  | $| $$  | $| $$                
+|__/     |__|__/  |__|__*/
+
+   // Populate the Existing Map with all new items
+   function makeMap() {
+
+      // create an array of unused positions, each spot might have multiple types
+      $('#mapbutton').remove();
+
+      for (i = 0; i < existingLocations.length; i++) {
+
+
+
+
+         theMap[existingLocations[i].x][existingLocations[i].y].terra = existingLocations[i].terra;
+         theMap[existingLocations[i].x][existingLocations[i].y].title = existingLocations[i].title;
+         theMap[existingLocations[i].x][existingLocations[i].y].locID = existingLocations[i].locID;
+         // Easter is outdated
+         theMap[existingLocations[i].x][existingLocations[i].y].easter = existingLocations[i].easter;
+
+         console.log(theMap[existingLocations[i].x][existingLocations[i].y].id, "Taken");
+
+         // take out this location from the terrain Locations
+
+         terraLocs = removeFromArray(terraLocs, existingLocations[i].x, existingLocations[i].y, true);
+
+         /* terraLocs = terraLocs.filter(function (obj) {
+             return obj.x != existingLocations[i].x || obj.y != existingLocations[i].y;
+          });*/
+      }
+
+      checkMapForErrors();
+
+      console.log(mapLocations[0]);
+      //$('#dataCheck').text(JSON.stringify(mapLocations[0]));
+
+      // Redo the map checks
+
+      // Add in factors from larger pledges
+      rewriteMap();
+      // check that the Easter Eggs all work
+      reCheckEasterEggs();
+      // Print to screen anyone who has leftover bits
+      checkOverspend();
+
+
+
+
+
+      redrawMap(theMap);
+   }
+
+   var mapDirection = 0;
+
+   var current = 0;
+   var locFind =0;
+
+   function filter() {
+
+      
+      
+      mapped = Array(10, 11, 117, 119, 12, 121, 123, 124, 136, 140, 144, 145, 168, 171, 179, 184, 295, 303, 315, 321, 324, 324, 325, 327, 331, 4, 47, 51, 59, 6, 7, 126, 116, 34,77,49,33,3,22,18,311,302,287,262,248,193,103)
+      mapped.sort();
+     // console.log(mapped);
+
+      for(mappedID=0; mappedID < mapped.length; mappedID++) {
+         
+      for (mapID=0; mapID < mapLocations.length; mapID++) {
+         
+       
+         if ((mapped[mappedID] == mapLocations[mapID].locID) ) {
+            console.log("----->>Matched", mapped[mappedID], mapLocations[mapID].locID );
+            
+            //console.log(mapID, mapLocations[mapID]);
+            mapLocations.splice(mapID,1);
+            // Last, skip the rest
+            mapID = 10000;
+         }
+
+         // if ( mapLocations[mapID].isUnDefined) {
+         //    console.log("----->>UNDEFINED", mapped[mappedID], mapLocations[mapID].locID );
+         //    mapLocations.splice(mapID,1);
+         // }
+
+         }
+      }
+
+   }
+
+   function showOne(trigger = false) {
+
+      filter();
+
+      // if !gridon, accept a numerical variable OR allow the repeated clicking of the button to find the next in the list
+      thisOne = current;
+
+      // if someone has typed into the box, and it matches an email.. use that.
+
+      locFind =  $('#location').val();
+         console.log(locFind == "");
+         if (locFind == "") {
+            rando = Math.round(Math.random()*(mapLocations.length));
+                  console.log(rando);
+                  
+                  locFind=parseInt(rando);
+                  $('#location').val(locFind);
+         }
+
+      if ($('#location').val()) {
+         
+         
+
+         if (isInt(locFind)) { 
+            if (trigger) {
+               
+               rando = Math.round(Math.random()*5)+1;
+                  console.log(rando);
+                  locFind = parseInt(locFind);
+                  locFind+=parseInt(rando);
+               if (locFind > mapLocations.length) { locFind =1;}
+
+               
+            }
+            thisOne = locFind;
+            $('#location').val(locFind);
+            
+         } else {
+            
+            for (id=0; id< mapLocations.length; id++) {
+
+               if (mapLocations[id].Email == locFind) {
+                  thisOne = id;
+                 
+               }
+            }
+
+         }
+         
+      } else {
+        
+         thisOne = 1;
+      }
+      
+     
+         $('#mapbox').html("HEY!");
+
+         mapLocations[thisOne].typeUnique = "HELLLO";
+         var size = Object.keys(mapLocations[thisOne].terraType).length;
+         
+         if (size == 1) {
+                  typeUnique = "gridChosen";
+                  mapLocations[thisOne].typeUnique = 1;
+                  console.log("DEFINED");
+               } else {
+                  typeUnique = "";
+                  mapLocations[thisOne].typeUnique = size;
+               }
+
+               console.log(mapLocations[thisOne]);
+
+
+        if (mapLocations[thisOne].pledge > mapLocations[thisOne].reward) {
+           displayreward = mapLocations[thisOne].pledge + " = "+ mapLocations[thisOne].reward;
+        } else {
+         displayreward = mapLocations[thisOne].reward;
+        }
+
+         _html = "<div class='table'>";
+            _html +="<div class='title3'>"+mapLocations[thisOne].title+"</div>";
+            _html +="<div class='pledge'>"+displayreward+"</div>";
+         _html +="<div class='locID'>"+mapLocations[thisOne].locID+"</div>";
+         //_html +="<div class='title'>"+mapLocations[thisOne].title+" - "+mapLocations[thisOne]['Backer Name']+" -"+mapLocations[thisOne]['mapped']+"  </div>"; 
+         //_html +="<div class='desc'>"+mapLocations[thisOne].description+"</div>";  
+         //_html +="<div class='mainText'>"+mapLocations[thisOne].fullDescription+"</div>";  
+         _html +="<div class='mainImg'><img src='./img/sketches/"+mapLocations[thisOne].locID+".png'></div>";  
+         _html +="<div class='text'>"+syntaxHighlight(mapLocations[thisOne])+"</div>";
+         let terra= terraSet.length;
+         for (let t=0;  t< terra; t++) {
+            
+            if (mapLocations[thisOne].terraType[terraSet[t]]) {
+               
+               _html +="<div class='grid "+typeUnique+" inner"+terraSet[t]+"'><div class='gridimg'><div class='terrain "+terraSet[t]+"'></div></div></div>";  
+            } 
+         }
+         let styles= styleSet.length;
+         for (let t=0;  t< styles; t++) {
+           // console.log(mapLocations[thisOne].style, styleSet[t]);
+            if (mapLocations[thisOne].style[styleSet[t]]) {
+               _html +="<div class='grid "+styleSet[t]+"Loc'><div class='terrain "+styleSet[t]+"Icon'></div></div>";  
+            } 
+         }
+         
+         for (let t=0;  t< styles; t++) {
+            if (mapLocations[thisOne].style[styleSet[t]]) {
+               _html +="<div class='grid smallA "+styleSet[t]+"Loc'><div class='terrain "+styleSet[t]+"Icon'></div></div>";  
+            } 
+         }
+
+         for (let t=0;  t< biomeSet.length; t++) {
+            if (mapLocations[thisOne].biomes[biomeSet[t]]) {
+               _html +="<div class='temp "+biomeSet[t]+"level "+biomeSet[t]+"'>"+biomeSet[t]+"</div>";  
+            } 
+         }
+
+         if (mapLocations[thisOne].map.original) {
+            _html +="<div class='mapOne'><img scr='./img/mapIcon.jpg'></div>";
+         }
+
+         if(true) {
+            _html +="<div class='trapezoidUL'></div>";
+               _html +="<div class='trapezoidUR'></div>";
+                  _html +="<div class='trapezoidU'></div>";
+                     _html +="<div class='trapezoidLL'></div>";
+                        _html +="<div class='trapezoidL'></div>";
+                           _html +="<div class='trapezoidLR'></div>";
+            
+            
+            
+            
+            
+         }
+            
+         _html +="</div>";
+
+         
+
+
+         $('#mapbox').html(_html);
+
+
+         
+           
+         
+   }
+
+  
+
+   function rePosition(fixed, move, angle, distance = 1) {
+
+      //console.log(fixed, move);
+
+      if (fixed !== move) {
+      //   console.log("sizes", $('#id' + fixed).width(), $('#id' + move).width(), angle);
+
+      if ($('#id' + fixed).position == undefined) { console.log("not defined: "+fixed);} else {
+         console.log(fixed);
+         var fixedradius = $('#id' + fixed).width() / 2;
+         var moveradius = $('#id' + move).width() / 2;
+         
+        console.log($('#id' + fixed));
+        console.log($('#id' + fixed).position);
+        
+            var xpos = $('#id' + fixed).position().left + fixedradius;
+            var ypos = $('#id' + fixed).position().top + fixedradius;
+         
+      }
+
+
+
+        
+      //   console.log(fixedradius, moveradius, $('#id' + fixed).position());
+
+
+         var radius = fixedradius + ( moveradius * distance)|| 10;
+
+         var radians = angle * Math.PI / 180 || 0;
+         x = radius * Math.cos(radians);
+         y = radius * Math.sin(radians);
+
+        // console.log("radius", radius, "radians", radians);
+
+        // console.log(x, "x +", xpos, y, "y +", ypos);
+
+         $('#id' + move).css('left', (xpos + x - moveradius) + 'px');
+         $('#id' + move).css('top', (ypos + y - moveradius) + 'px');
+
+      }
+   }
+
+   function dimReturns(val, max, rate, percent) {
+
+      reduction = val * (val * rate);
+      high = max - reduction;
+      negate = high / (reduction + percent);
+      total = max - negate;
+
+      if (total < 10) {
+         total = 10;
+      }
+
+      return total;
+   }
+</script>
+
+
+<body>
+   <div id="instructions">
+      <p> Form Builder Data Test</p>
+      <!--<p>Greetings, This is the Make 100 Mapper, Each time you click the Make Map Button, the Engine will take the
+         existing data, render a map, and hide this box, so you can print a clean map.</p>
+      <p>IF you want the grid and map icons on, press the small # button in the top left corner</p>-->
+
+   </div>
+
+   <button onclick="filter()">Filter</button> 
+   <button id="locationbutton" onclick="showOne(true)" style="font-size: 32pt">Show the Locations</button>
+   <input onchange="showOne(true)" id="location">
+   <div id="mapbox">
+      <!--<div class="  grid">
+         <div class="terrain hills"></div>
+      </div>
+      <div class="alternate   grid">
+         <div class="terrain hills"></div>
+      </div>
+      <div class="  grid">
+         <div class="terrain hills"></div>
+      </div>-->
+   </div>
+   <script>
+      createMap();
+
+      $(document).ready(function () {
+         $.ajax({
+            type: "GET",
+            url: "./data/large.csv",
+            dataType: "text",
+            success: function (data1) {
+               console.log("loaded");
+
+               processData(data1, true);
+            },
+            error: function (error) {
+               //      console.log(error);
+            }
+         });
+
+         $.ajax({
+            type: "GET",
+            url: "./data/small.csv",
+            dataType: "text",
+            success: function (data2) {
+               processData(data2, false);
+            },
+            error: function (error) {
+               //        console.log(error);
+            }
+         });
+      });
+
+
+
+
+
+      //drawMap(theMap);
+      //makeBiomes();
+
+      //  console.log(theMap);
+   </script>
+
+   <div id="dataCheck"></div>
+
+</html>

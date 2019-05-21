@@ -103,7 +103,7 @@
          url: "./data/survey.csv",
          dataType: "text",
          success: function (data1) {
-            //    console.log("loaded");
+            console.log("loaded");
 
             data = processData(data1, true);
             startAnimFrameAnimation();
@@ -152,7 +152,7 @@
          deleteFromObject("Email address", data[i]);
          deleteFromObject("Any Thoughts to add?", data[i]);
 
-         //      console.log(data[i]["What Map Type should we create"].charAt(0));
+         console.log(data[i]["What Map Type should we create"].charAt(0));
          stats.push(parseInt(data[i]["What Map Type should we create"].charAt(0)));
 
          deleteFromObject("What Map Type should we create", data[i]);
@@ -198,21 +198,21 @@
          // console.log(width, stats, pos);
          for (row = 0; row < width.length; row++) {
 
-            //         console.log(curWidth, " > ", max);
+            console.log(curWidth, " > ", max);
             if (width[row] > max) {
                // if this max is bigger, set max
-               //           console.log(width[row]);
+               console.log(width[row]);
                max = parseInt(width[row]);
-               //          console.log(max);
+               console.log(max);
                each = Math.ceil(1200 / max);
-               //          console.log(each);
+               console.log(each);
                // if (each > 100) {
                //    each = 100;
                // }
             }
 
 
-            //       console.log(stop, "row", width[row], max, each);
+            console.log(stop, "row", width[row], max, each);
 
 
             if (curWidth[row] < (width[row] * each)) {
@@ -222,11 +222,11 @@
 
             if (curWidth[row] > (width[row] * each)) {
                distance = (width[row] * each) - curWidth[row];
-               //            console.log(distance);
+               console.log(distance);
                curWidth[row] += Math.ceil(distance / 25);
             }
 
-            //        console.log(time[row]);
+            console.log(time[row]);
             $('#time').text(time[row]);
             rect[row].style.width = curWidth[row] + "px";
             rect[row].style.fontSize = Math.floor(curWidth[row] / 12) + "px";
