@@ -13,11 +13,13 @@
    left: 45px;
    top: 0px;
 }
+
 #drawbutton {
    position: fixed;
    left: 235px;
    top: 0px;
 }
+
 #stylebutton {
    position: fixed;
    left: 315px;
@@ -29,6 +31,7 @@
    left: 500px;
    top: 0px;
 }
+
 #location {
    position: fixed;
    left: 900px;
@@ -67,8 +70,9 @@
 .terrain {
    width: 60px;
    height: 60px;
-   background-color: #ccc;
-   margin: 20px;
+   background-color: rgba(122, 122, 122, 0.25);
+   margin: 10px;
+   padding: 5px;
    z-index: 5;
 }
 
@@ -104,6 +108,7 @@
    padding: 50%;
 }
 
+/*
 .euro,
 .euro_arab,
 .euro_asia,
@@ -127,12 +132,23 @@
 .tents_nomad,
 .tents_ruins,
 .ruins,
-.euro, .asia_, .aztec_, .arab_, .tents_, .nomad_, .ruins_ {
+.euro,
+.asia_,
+.aztec_,
+.arab_,
+.tents_,
+.nomad_,
+.ruins_ {
    left: 500px;
    top: 300px;
-}
+}*/
 
-.asia_, .aztec_, .arab_, .tents_, .nomad_, .ruins_ {
+.asia_,
+.aztec_,
+.arab_,
+.tents_,
+.nomad_,
+.ruins_ {
    background-color: rgba(155, 155, 155, 0.25);
 }
 
@@ -141,12 +157,14 @@
    background-color: rgba(153, 50, 204, 0.5);
 
 }
+
 .euro_ {
    background-color: rgba(155, 55, 205, 0.25);
 
 }
 
-.euro_arab, .arab_euro {
+.euro_arab,
+.arab_euro {
 
    /* Arab
    background-color: rgba(128, 128, 0, 0.5);*/
@@ -157,7 +175,8 @@
 
 }
 
-.euro_asia, .asia_euro {
+.euro_asia,
+.asia_euro {
    /*euro
    background-color: rgba(153, 50, 204, 0.5);*/
    /* Asia 
@@ -167,7 +186,8 @@
 
 }
 
-.euro_aztec, .aztec_euro {
+.euro_aztec,
+.aztec_euro {
    /*euro
    background-color: rgba(153, 50, 204, 0.5);*/
    /* Aztec 
@@ -176,7 +196,8 @@
 
 }
 
-.euro_nomad, .nomad_euro{
+.euro_nomad,
+.nomad_euro {
    /* NOMAD
    background-color: rgba(84, 204, 54, 0.5); */
    /*euro
@@ -190,13 +211,15 @@
    background-color: rgba(220, 21, 61, 0.5);*/
    background-color: rgba(220, 21, 61, 0.5);
 }
+
 .aztec_ {
    /* Aztec 
    background-color: rgba(220, 21, 61, 0.5);*/
    background-color: rgba(225, 25, 65, 0.25);
 }
 
-.aztec_arab, .arab_aztec {
+.aztec_arab,
+.arab_aztec {
    /* Aztec 
    background-color: rgba(220, 21, 61, 0.5);*/
    /* Arab
@@ -204,7 +227,8 @@
    background-color: rgba(174, 74, 31, 0.5);
 }
 
-.aztec_asia, .asia_aztec {
+.aztec_asia,
+.asia_aztec {
    /* Aztec 
    background-color: rgba(220, 21, 61, 0.5);*/
    /* Asia 
@@ -218,6 +242,7 @@
    background-color: rgba(255, 215, 0, 0.5);
 
 }
+
 .asia_ {
    /* Asia 
    background-color: rgba(255, 215, 0, 0.5);*/
@@ -231,6 +256,7 @@
    background-color: rgba(128, 128, 0, 0.5);
 
 }
+
 .arab_ {
    /* Arab
    background-color: rgba(128, 128, 0, 0.5);*/
@@ -238,7 +264,8 @@
 
 }
 
-.arab_asia, .asia_arab {
+.arab_asia,
+.asia_arab {
    /* Arab
    background-color: rgba(128, 128, 0, 0.5);*/
    /* Asia 
@@ -253,6 +280,7 @@
    background-color: rgba(84, 204, 54, 0.5); */
    background-color: rgba(84, 204, 54, 0.5);
 }
+
 .nomad_ {
    background-color: rgba(90, 210, 60, 0.25);
 }
@@ -263,6 +291,7 @@
    background-color: rgba(218, 165, 32, 0.6);
 
 }
+
 .tents_ {
    /* TENTS
    background-color: rgba(218, 165,  32, 0.6);*/
@@ -352,10 +381,12 @@
    background-color: olive;
    background-color: rgba(128, 128, 0, 0.5);
 }
+
 .heat {
    background-color: orange;
    background-color: rgba(144, 96, 0, 0.5);
 }
+
 .death {
    background-color: olive;
    background-color: rgba(96, 48, 0, 0.5);
@@ -421,6 +452,7 @@
    background-position: 365px 275px;
 
 }
+
 .other {
    background-color: rgb(236, 137, 240);
    background-image: url('../img/Icons.png');
@@ -466,7 +498,12 @@
 }
 
 
-.trapezoidUL, .trapezoidU, .trapezoidUR, .trapezoidLL, .trapezoidL, .trapezoidLR {
+.trapezoidUL,
+.trapezoidU,
+.trapezoidUR,
+.trapezoidLL,
+.trapezoidL,
+.trapezoidLR {
    border-left: 25px solid transparent;
    border-right: 25px solid transparent;
    height: 0;
@@ -481,13 +518,13 @@
    top: 226px;
    left: -113px;
    transform: rotate(116.5deg);
-   }
+}
 
- .trapezoidU {
+.trapezoidU {
    border-bottom: 80px solid orange;
    top: 3px;
-    left: 225px;
-    transform: rotate(180deg);
+   left: 225px;
+   transform: rotate(180deg);
    z-index: 1;
 }
 
@@ -496,28 +533,28 @@
    top: 224px;
    left: 562px;
    transform: rotate(243.5deg);
-   }
+}
 
- .trapezoidLL {
+.trapezoidLL {
    border-bottom: 80px solid purple;
    top: 692px;
-    left: -115px;
-    transform: rotate(63.5deg);
+   left: -115px;
+   transform: rotate(63.5deg);
    z-index: 1;
 }
 
 .trapezoidL {
    border-bottom: 80px solid blue;
    top: 916px;
-    left: 227px;
-    transform: rotate(0deg);
-   }
+   left: 227px;
+   transform: rotate(0deg);
+}
 
- .trapezoidLR {
+.trapezoidLR {
    border-bottom: 80px solid green;
    top: 696px;
-    left: 577px;
-    transform: rotate(296.5deg);
+   left: 577px;
+   transform: rotate(296.5deg);
    z-index: 1;
 }
 
@@ -538,6 +575,7 @@
    top: -33px;
    z-index: 6;
 }
+
 .table .title2 {
    color: black;
    font-size: 18pt;
@@ -547,7 +585,10 @@
    z-index: 5;
 
 }
-.table .title3, .pledge, .locID  {
+
+.table .title3,
+.pledge,
+.locID {
    color: black;
    font-size: 30pt;
    position: absolute;
@@ -559,15 +600,31 @@
 
 .pledge {
    left: 310px;
-    top: 95px;
-}
-.locID {
-   left: 645px; 
    top: 95px;
 }
 
-.table .text {margin-top: 200px; width: 70%; margin-left: 15%; background: #eee; z-index: 8;  font-size: 28pt;}
-.table .mainText {margin-top: 600px; width: 80%; margin-left: 10%; background: #eee; z-index: 8;  font-size: 28pt;}
+.locID {
+   left: 645px;
+   top: 95px;
+}
+
+.table .text {
+   margin-top: 200px;
+   width: 70%;
+   margin-left: 15%;
+   background: #eee;
+   z-index: 8;
+   font-size: 28pt;
+}
+
+.table .mainText {
+   margin-top: 600px;
+   width: 80%;
+   margin-left: 10%;
+   background: #eee;
+   z-index: 8;
+   font-size: 28pt;
+}
 
 .table .desc {
    top: 60px;
@@ -580,34 +637,42 @@
    z-index: 7;
    font-size: 20pt;
 }
+
 .innersea {
    top: 234px;
    right: -37px;
 }
+
 .innercoastal {
    top: 158px;
    right: -37px;
 }
+
 .innerswamp {
    top: 158px;
    right: 91px;
 }
+
 .innerdesert {
    top: -30px;
    right: 27px;
 }
+
 .innerplains {
    top: 46px;
    right: 27px;
 }
-.innertaiga{
+
+.innertaiga {
    top: 83px;
    right: -37px;
 }
+
 .innerjungle {
    top: 121px;
    right: 27px;
 }
+
 .innerother {
    top: 121px;
    right: 91px;
@@ -617,10 +682,12 @@
    top: 83px;
    right: 91px;
 }
+
 .innerhills {
    top: 8px;
    right: 91px;
 }
+
 .innermountains {
    top: -30px;
    left: 580px;
@@ -632,10 +699,11 @@
    margin-left: -45px;
 }
 
-.gridChosen > .gridImg {
+.gridChosen>.gridImg {
    background-size: 130px 130px;
 }
-.gridChosen > .gridImg > .terrain {
+
+.gridChosen>.gridImg>.terrain {
    width: 90px;
    height: 90px;
 }
@@ -645,44 +713,72 @@ button {
    font-size: 16pt;
 }
 
-.euroIcon, .aztecIcon, .asiaIcon, .nomadIcon, .tentsIcon, .ruinsIcon {
+.euroIcon,
+.aztecIcon,
+.asiaIcon,
+.nomadIcon,
+.tentsIcon,
+.ruinsIcon {
    background-color: purple;
    background-image: url('../img/styles.png');
    background-size: 750px 750px;
- 
+
 }
-.euroIcon, .aztecIcon, .asiaIcon, .nomadIcon, .tentsIcon, .ruinsIcon,
-.euroLoc, .aztecLoc, .asiaLoc, .nomadLoc, .tentsLoc, .ruinsLoc {
+
+.euroIcon,
+.aztecIcon,
+.asiaIcon,
+.nomadIcon,
+.tentsIcon,
+.ruinsIcon,
+.euroLoc,
+.aztecLoc,
+.asiaLoc,
+.nomadLoc,
+.tentsLoc,
+.ruinsLoc {
    width: 180px;
    height: 120px
 }
-.euroLoc, .aztecLoc, .asiaLoc, .nomadLoc, .tentsLoc, .ruinsLoc {
+
+.euroLoc,
+.aztecLoc,
+.asiaLoc,
+.nomadLoc,
+.tentsLoc,
+.ruinsLoc {
    top: 25px;
    left: 25px;
 }
 
 .euroIcon {
-   background-position: 735px 0px; 
+   background-position: 735px 0px;
 }
- .aztecIcon{
-   background-position: 735px 446px; 
+
+.aztecIcon {
+   background-position: 735px 446px;
 }
-.arabIcon{
+
+.arabIcon {
    background-position: 735px 605px;
    width: 185px;
-   height: 140px; 
+   height: 140px;
 }
-.asiaIcon{
-   background-position: 735px 184px; 
+
+.asiaIcon {
+   background-position: 735px 184px;
 }
-.nomadIcon{
-   background-position: 735px 465px; 
+
+.nomadIcon {
+   background-position: 735px 465px;
 }
-.tentsIcon{
-   background-position: 735px 315px; 
-} 
-.ruinsIcon{
-   background-position: 119px 440px; 
+
+.tentsIcon {
+   background-position: 735px 315px;
+}
+
+.ruinsIcon {
+   background-position: 119px 440px;
 }
 
 .ruinsIcon {
@@ -691,13 +787,33 @@ button {
    background-size: 500px 350px;
    background-position: 196px 175px;
 }
+
 /* JSON Pretty Stringify */
-pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
-.string { color: green; }
-.number { color: darkorange; }
-.boolean { color: blue; }
-.null { color: magenta; }
-.key { color: red; }
+pre {
+   outline: 1px solid #ccc;
+   padding: 5px;
+   margin: 5px;
+}
+
+.string {
+   color: green;
+}
+
+.number {
+   color: darkorange;
+}
+
+.boolean {
+   color: blue;
+}
+
+.null {
+   color: magenta;
+}
+
+.key {
+   color: red;
+}
 
 .coldlevel,
 .coollevel,
@@ -714,13 +830,55 @@ pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
    left: 35px;
 }
 
-.arcticlevel{ top: 175px;}
-.coldlevel { top: 200px;}
-.coollevel{ top: 225px;}
-.midlevel{ top: 250px;}
-.warmlevel{ top: 275px;}
+.arcticlevel {
+   top: 175px;
+}
 
-.tropiclevel{ top: 300px;}
-.heatlevel{ top: 325px;}
-.deathlevel{ top: 350px;}
-.anylevel{ top: 375px;}
+.coldlevel {
+   top: 200px;
+}
+
+.coollevel {
+   top: 225px;
+}
+
+.midlevel {
+   top: 250px;
+}
+
+.warmlevel {
+   top: 275px;
+}
+
+.tropiclevel {
+   top: 300px;
+}
+
+.heatlevel {
+   top: 325px;
+}
+
+.deathlevel {
+   top: 350px;
+}
+
+.anylevel {
+   top: 375px;
+}
+
+.smallLeft,
+.smallRight {
+   width: 20px;
+   height: 20px;
+   position: absolute;
+   bottom: 10px;
+}
+
+.smallLeft {
+
+   left: 10px;
+}
+
+.smallRight {
+   right: 10px;
+}

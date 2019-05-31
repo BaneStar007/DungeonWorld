@@ -1,4 +1,7 @@
-<? $small = [
+<?php 
+
+$big = "BIG";
+$small = '[
   {
     "Backer Number": 117,
     "": "",
@@ -18,7 +21,7 @@
     "Email For Your Map To Be Sent. *Required!!": "chrishales@ymail.com",
     "2. What Is Your Location Called?": "Dungeon Watch",
     "3. What Kind Of Location Do You Want ? You Can Combine By Clicking 3 Elements, (Or More For Higher Pledges)": "surrounding Someone Elses Location | tower/guard post | Dungeon Entrance/Exit",
-    "4. Describe Your Location": "Palisade walls surrounding <Someone Else's Location> a dungeon, attempting to prevent entry.",
+    "4. Describe Your Location": "Palisade walls surrounding <Someone Else\'                              s Location> a dungeon, attempting to prevent entry.",
     "5. What Terrain Do You Want Your Location To Appear In": "Plains / Grassland | Hills/Cliffs",
     "5.B. If Other, Add Details": "No response",
     "7. Which Biomes Would Suit Your Location": "Any of the Above",
@@ -87,7 +90,7 @@
     "9. Style Of Your Location (If Applicable, Choose Up To 2)": "European (Grey stone) | Abandoned/Ruins",
     "9.B. Using The Key Ideas Of The Styles Given, You Can Add Some Flourish?": "No response",
     "9.C. If Other, Add Details": "No response",
-    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "Looking closely at the moss covered statue at the edge of this clearing might reveal a armored knight, while others clearly see a wise wizard with a spell book in this right hand; who ever carved this statue is long dead, and the elements have long since worn away the fine details that made it breathtaking to behold. Only one thing remains clear: the guardian seems to stare resolutely across the clearing to the hole in the earth, seemingly prepared for whatever may come forth. Listening at the dark void will reveal nothing of what lives below, but a foul stench will threaten to overwhelm even the hardiest of adventurers. The grove gets its name from the rumors that on a cold night a true hero can hear the statue whisper advice or perhaps foretell the end of the world, but other say this is simply wind rushing from the dungeon like a dead man's last breath. The locals speak of this place in hushed tones, though the reason to do so has also been forgotten.",
+    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "Looking closely at the moss covered statue at the edge of this clearing might reveal a armored knight, while others clearly see a wise wizard with a spell book in this right hand; who ever carved this statue is long dead, and the elements have long since worn away the fine details that made it breathtaking to behold. Only one thing remains clear: the guardian seems to stare resolutely across the clearing to the hole in the earth, seemingly prepared for whatever may come forth. Listening at the dark void will reveal nothing of what lives below, but a foul stench will threaten to overwhelm even the hardiest of adventurers. The grove gets its name from the rumors that on a cold night a true hero can hear the statue whisper advice or perhaps foretell the end of the world, but other say this is simply wind rushing from the dungeon like a dead man\'                              s last breath. The locals speak of this place in hushed tones, though the reason to do so has also been forgotten.",
     "11. Which Map Do You Want This To Appear On?": "The Original Map, Sepia and Coloured | The Re-Skinned Map | The Kingdom Death Monster / Cataclyzm Map | Future Maps (If you have increased your pledge)",
     "12. Will Your Location Be Hidden On The Player Maps?": "No, My location is hidden from players, only for GMs",
     "Anything To Add?": "No response"
@@ -428,7 +431,7 @@
     "9. Style Of Your Location (If Applicable, Choose Up To 2)": "European (Grey stone) | Abandoned/Ruins",
     "9.B. Using The Key Ideas Of The Styles Given, You Can Add Some Flourish?": "No response",
     "9.C. If Other, Add Details": "No response",
-    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "The tower must once have been very high. But now remains only one towering wall. If you put your head in your neck and look up, you can almost make out the top of the wall...but it might just be imagination. For some reason you're not able to set foot on the rubble, when you try you feel a hard push and end up about 10 feet away from the tower. You can almost touch the wall, almost. Funny enough cats can enter the premise without a problem. They actually seem to like it here. There are all sorts of cats and they seem to be able to get along, no fighting, no hissing, just sleeping, purring and eyeing those strangers who try to get too close.",
+    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "The tower must once have been very high. But now remains only one towering wall. If you put your head in your neck and look up, you can almost make out the top of the wall...but it might just be imagination. For some reason you\'                              re not able to set foot on the rubble, when you try you feel a hard push and end up about 10 feet away from the tower. You can almost touch the wall, almost. Funny enough cats can enter the premise without a problem. They actually seem to like it here. There are all sorts of cats and they seem to be able to get along, no fighting, no hissing, just sleeping, purring and eyeing those strangers who try to get too close.",
     "11. Which Map Do You Want This To Appear On?": "The Original Map, Sepia and Coloured",
     "12. Will Your Location Be Hidden On The Player Maps?": "Yes, My place is public Knowledge, anyone can find it",
     "Anything To Add?": "No response"
@@ -614,7 +617,7 @@
     "9. Style Of Your Location (If Applicable, Choose Up To 2)": "European (Grey stone) | Aztec (Orange Stone) | Abandoned/Ruins",
     "9.B. Using The Key Ideas Of The Styles Given, You Can Add Some Flourish?": "No response",
     "9.C. If Other, Add Details": "No response",
-    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "Lasciate ogne speranza, voi ch'intrate",
+    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "Lasciate ogne speranza, voi ch\'                              intrate",
     "11. Which Map Do You Want This To Appear On?": "The Original Map, Sepia and Coloured",
     "12. Will Your Location Be Hidden On The Player Maps?": "Yes, My place is public Knowledge, anyone can find it",
     "Anything To Add?": "I have no idea really Bannister, I was just happy to chip in! You can use as much artistic licence as you like!"
@@ -767,12 +770,12 @@
     "5.B. If Other, Add Details": "No response",
     "7. Which Biomes Would Suit Your Location": "Mid Range (o.c winters, 30.c summers)",
     "9. Style Of Your Location (If Applicable, Choose Up To 2)": "Nomadic (horses or wheeled)",
-    "9.B. Using The Key Ideas Of The Styles Given, You Can Add Some Flourish?": "Each stone 'Watcher' is covered with faint, weathered runes. If these could be translated, they might give an explorer a hint as to where to locate the Watcher's missing eye",
+    "9.B. Using The Key Ideas Of The Styles Given, You Can Add Some Flourish?": "Each stone \'                              Watcher\'                               is covered with faint, weathered runes. If these could be translated, they might give an explorer a hint as to where to locate the Watcher\'                              s missing eye",
     "9.C. If Other, Add Details": "No response",
-    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "(Paragraph 1) No one is sure who carved the 'Watchers' or built the stone door, and no one knows what is beneath it--though rumors tell of an ancient, fallen kingdon of cyclops sorcerors, and a great underground labyrinth leading to untold wealth. The standing stones of the Ring are dominated by the cyclopean 'eye sockets' that are carved deeply into each one. (Paragraph 2) No one has ever been able to open the great stone portal; it seems to be proof against all magic and physical efforts to open it, and the surrounding earth resists being dug into, reappearing as quickly as it is shoveled out. Legend has it that if the great gems that used to sit inside of each of the eyes were gathered and restored to their rightful places, the door will open...",
+    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "(Paragraph 1) No one is sure who carved the \'                              Watchers\'                               or built the stone door, and no one knows what is beneath it--though rumors tell of an ancient, fallen kingdon of cyclops sorcerors, and a great underground labyrinth leading to untold wealth. The standing stones of the Ring are dominated by the cyclopean \'                              eye sockets\'                               that are carved deeply into each one. (Paragraph 2) No one has ever been able to open the great stone portal; it seems to be proof against all magic and physical efforts to open it, and the surrounding earth resists being dug into, reappearing as quickly as it is shoveled out. Legend has it that if the great gems that used to sit inside of each of the eyes were gathered and restored to their rightful places, the door will open...",
     "11. Which Map Do You Want This To Appear On?": "The Original Map, Sepia and Coloured | The Re-Skinned Map | The Kingdom Death Monster / Cataclyzm Map",
     "12. Will Your Location Be Hidden On The Player Maps?": "Yes, My place is public Knowledge, anyone can find it",
-    "Anything To Add?": "Keep up the good work--I'm excited to see how this turns out!"
+    "Anything To Add?": "Keep up the good work--I\'                              m excited to see how this turns out!"
   },
   {
     "Backer Number": 178,
@@ -886,7 +889,7 @@
     "Email For Your Map To Be Sent. *Required!!": "soulspinner@me.com",
     "2. What Is Your Location Called?": "The Hermit Mage Tower",
     "3. What Kind Of Location Do You Want ? You Can Combine By Clicking 3 Elements, (Or More For Higher Pledges)": "tower/guard post | surround with trees | Dungeon Entrance/Exit",
-    "4. Describe Your Location": "A wizard's tower that is isolated due to being in such a remote and dangerous locale. When approached there is no visible trail to the tower as Mylar travels via magic and picked this spot to be left alone. Thus there needs to be no access by normal means.",
+    "4. Describe Your Location": "A wizard\'                              s tower that is isolated due to being in such a remote and dangerous locale. When approached there is no visible trail to the tower as Mylar travels via magic and picked this spot to be left alone. Thus there needs to be no access by normal means.",
     "5. What Terrain Do You Want Your Location To Appear In": "Mountains",
     "5.B. If Other, Add Details": "No response",
     "7. Which Biomes Would Suit Your Location": "Cooler Temperate Zone (minus winters, 20.c summers",
@@ -955,7 +958,7 @@
     "9. Style Of Your Location (If Applicable, Choose Up To 2)": "Native (tents) | Nomadic (horses or wheeled)",
     "9.B. Using The Key Ideas Of The Styles Given, You Can Add Some Flourish?": "No response",
     "9.C. If Other, Add Details": "No response",
-    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "[cont'd from #4] The slab is no more than 2 feet square, and the column less than a foot across and 2 feet tall, rounded at the top. Other than the holy symbol carved into the top, the slab and column both appear completely smooth. But parting the bushes and examining the leeward side of the column reveals the remains of ancient relief carvings, apparently depicting a great battle. Though the details are lost to erosion, the costumes of the combatants and the style of the carving both appear unfamiliar to the area.",
+    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "[cont\'                              d from #4] The slab is no more than 2 feet square, and the column less than a foot across and 2 feet tall, rounded at the top. Other than the holy symbol carved into the top, the slab and column both appear completely smooth. But parting the bushes and examining the leeward side of the column reveals the remains of ancient relief carvings, apparently depicting a great battle. Though the details are lost to erosion, the costumes of the combatants and the style of the carving both appear unfamiliar to the area.",
     "11. Which Map Do You Want This To Appear On?": "The Original Map, Sepia and Coloured | The Re-Skinned Map | The Kingdom Death Monster / Cataclyzm Map",
     "12. Will Your Location Be Hidden On The Player Maps?": "Yes, My place is public Knowledge, anyone can find it",
     "Anything To Add?": "No response"
@@ -1144,7 +1147,7 @@
     "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "The lord of the castle was a talented alchemist, but something goes wrong",
     "11. Which Map Do You Want This To Appear On?": "The Original Map, Sepia and Coloured | The Re-Skinned Map | The Kingdom Death Monster / Cataclyzm Map | Future Maps (If you have increased your pledge)",
     "12. Will Your Location Be Hidden On The Player Maps?": "Yes, My place is public Knowledge, anyone can find it",
-    "Anything To Add?": "i think is better if There isn't only a big floating Island, but a acipelag of little Island Where can be find the ruins"
+    "Anything To Add?": "i think is better if There isn\'                              t only a big floating Island, but a acipelag of little Island Where can be find the ruins"
   },
   {
     "Backer Number": 205,
@@ -1327,7 +1330,7 @@
     "9. Style Of Your Location (If Applicable, Choose Up To 2)": "European (Grey stone) | Abandoned/Ruins",
     "9.B. Using The Key Ideas Of The Styles Given, You Can Add Some Flourish?": "No response",
     "9.C. If Other, Add Details": "No response",
-    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "Old Greyburne Manor was abandoned after hostilities with warring bandits forced it's Baronet to leave in favour of more secure establishment. Over the last 40 years the forest has reclaimed it and the surrounding lands.",
+    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "Old Greyburne Manor was abandoned after hostilities with warring bandits forced it\'                              s Baronet to leave in favour of more secure establishment. Over the last 40 years the forest has reclaimed it and the surrounding lands.",
     "11. Which Map Do You Want This To Appear On?": "The Original Map, Sepia and Coloured",
     "12. Will Your Location Be Hidden On The Player Maps?": "No, My location is hidden from players, only for GMs",
     "Anything To Add?": "No response"
@@ -1351,7 +1354,7 @@
     "Email For Your Map To Be Sent. *Required!!": "cdoornbos@gmail.com",
     "2. What Is Your Location Called?": "Rickety Tower",
     "3. What Kind Of Location Do You Want ? You Can Combine By Clicking 3 Elements, (Or More For Higher Pledges)": "tower/guard post | surround with trees | Fields",
-    "4. Describe Your Location": "Rickety wooden tower (30' base x 30' tall) with 8 slotted windows on the top floor, no door, in the middle of an open field surrounded by forest.",
+    "4. Describe Your Location": "Rickety wooden tower (30\'                               base x 30\'                               tall) with 8 slotted windows on the top floor, no door, in the middle of an open field surrounded by forest.",
     "5. What Terrain Do You Want Your Location To Appear In": "Forest - Boreal or Temperate",
     "5.B. If Other, Add Details": "No response",
     "7. Which Biomes Would Suit Your Location": "Mid Range (o.c winters, 30.c summers)",
@@ -1418,12 +1421,12 @@
     "5.B. If Other, Add Details": "No response",
     "7. Which Biomes Would Suit Your Location": "Mid Range (o.c winters, 30.c summers) | Warmer climates (10.c winters, 40.c summers)",
     "9. Style Of Your Location (If Applicable, Choose Up To 2)": "European (Grey stone) | Abandoned/Ruins",
-    "9.B. Using The Key Ideas Of The Styles Given, You Can Add Some Flourish?": "Crosses, tombstones and mausoleums could show the 'ruins style'.",
+    "9.B. Using The Key Ideas Of The Styles Given, You Can Add Some Flourish?": "Crosses, tombstones and mausoleums could show the \'                              ruins style\'                              .",
     "9.C. If Other, Add Details": "If possible a black bird and skull(s) could be included somewhere.",
     "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "Once the site of a bloody battle between two kingdoms, now all but forgotten. Legends speak of powerful weapons and artifacts, hidden in the lower levels of the Mausoleum.",
     "11. Which Map Do You Want This To Appear On?": "The Original Map, Sepia and Coloured | The Re-Skinned Map | The Kingdom Death Monster / Cataclyzm Map | Future Maps (If you have increased your pledge)",
     "12. Will Your Location Be Hidden On The Player Maps?": "Yes, My place is public Knowledge, anyone can find it",
-    "Anything To Add?": "If I understood correctly; Having added on +$AU 4 (to my $AU 3 pledge), enabled additional hexes/squares. Feel free to increase the area of crosses/tombstones/tombs, with the Mausoleum in a somewhat 'middle' spot."
+    "Anything To Add?": "If I understood correctly; Having added on +$AU 4 (to my $AU 3 pledge), enabled additional hexes/squares. Feel free to increase the area of crosses/tombstones/tombs, with the Mausoleum in a somewhat \'                              middle\'                               spot."
   },
   {
     "Backer Number": 228,
@@ -1482,7 +1485,7 @@
     "9. Style Of Your Location (If Applicable, Choose Up To 2)": "Native (tents)",
     "9.B. Using The Key Ideas Of The Styles Given, You Can Add Some Flourish?": "Exiled blacksmith & family (joined by supporting villagers), have set up after finding rich ore deposits in the area",
     "9.C. If Other, Add Details": "Rich ore deposits in (or nearby)",
-    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "Scaremongering they called it, they wouldn't listen. The other villagers used to just ignore him though it soon turned to jokes, the villagers one day they had finally had enough and demanded he be exiled. Gunthor, the town's blacksmith, had seen them though; their eyes staring through deep forests getting closer day by day, in the end he was happy to leave. He took what the cart could carry, loading his family and tools and headed out to find a new life. Others from the village were happy to join his caravan, they too had heard enough howling and screaming in the night, others were either too foolish or too cowardly to brave the surrounding woods, they couldn't wield a weapon as Gunthor did. Though the marshes weren't the most ideal location for a new settlement it was far enough from the village and the lands were rich with iron ore, Gunthor would be able to craft new weapons and erect some simple defenses. Days quickly became months and more permenant shelters were being built, others had stopped by to offer trade or sometimes join their colony. This was their new home, away from those prying eyes and safe enough to call it home, for now.",
+    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "Scaremongering they called it, they wouldn\'                              t listen. The other villagers used to just ignore him though it soon turned to jokes, the villagers one day they had finally had enough and demanded he be exiled. Gunthor, the town\'                              s blacksmith, had seen them though; their eyes staring through deep forests getting closer day by day, in the end he was happy to leave. He took what the cart could carry, loading his family and tools and headed out to find a new life. Others from the village were happy to join his caravan, they too had heard enough howling and screaming in the night, others were either too foolish or too cowardly to brave the surrounding woods, they couldn\'                              t wield a weapon as Gunthor did. Though the marshes weren\'                              t the most ideal location for a new settlement it was far enough from the village and the lands were rich with iron ore, Gunthor would be able to craft new weapons and erect some simple defenses. Days quickly became months and more permenant shelters were being built, others had stopped by to offer trade or sometimes join their colony. This was their new home, away from those prying eyes and safe enough to call it home, for now.",
     "11. Which Map Do You Want This To Appear On?": "The Original Map, Sepia and Coloured | The Re-Skinned Map | The Kingdom Death Monster / Cataclyzm Map",
     "12. Will Your Location Be Hidden On The Player Maps?": "No, My location is hidden from players, only for GMs",
     "Anything To Add?": "No response"
@@ -1504,7 +1507,7 @@
     "__7": "",
     "__8": "",
     "Email For Your Map To Be Sent. *Required!!": "wlkoso@gmail.com",
-    "2. What Is Your Location Called?": "Dragon's nest",
+    "2. What Is Your Location Called?": "Dragon\'                              s nest",
     "3. What Kind Of Location Do You Want ? You Can Combine By Clicking 3 Elements, (Or More For Higher Pledges)": "Dungeon Entrance/Exit",
     "4. Describe Your Location": "Little mountain with only dragon tail sticking out of dark entrance",
     "5. What Terrain Do You Want Your Location To Appear In": "Mountains",
@@ -1513,7 +1516,7 @@
     "9. Style Of Your Location (If Applicable, Choose Up To 2)": "Abandoned/Ruins",
     "9.B. Using The Key Ideas Of The Styles Given, You Can Add Some Flourish?": "No response",
     "9.C. If Other, Add Details": "No response",
-    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "Dragon's cave",
+    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "Dragon\'                              s cave",
     "11. Which Map Do You Want This To Appear On?": "The Original Map, Sepia and Coloured | The Re-Skinned Map | The Kingdom Death Monster / Cataclyzm Map",
     "12. Will Your Location Be Hidden On The Player Maps?": "Yes, My place is public Knowledge, anyone can find it",
     "Anything To Add?": "thanks for reminding me :)"
@@ -1544,7 +1547,7 @@
     "9. Style Of Your Location (If Applicable, Choose Up To 2)": "No response",
     "9.B. Using The Key Ideas Of The Styles Given, You Can Add Some Flourish?": "The style depends on where on the map that it ends up because the idea is to be locally designed and to blend in with the landscape",
     "9.C. If Other, Add Details": "No response",
-    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "A small temple nestled into the surrounding landscape dedicated to an older local god. It blends into the landscape so well that its practically invisible from over 2 feet away. Whoever the god or goddess of the temple was, their name has faded along with most of the defining features on the temple. All that's left is the feeling that this was once someplace sacred and the feeling of holiness has lingered long after the disappearance of its god.",
+    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "A small temple nestled into the surrounding landscape dedicated to an older local god. It blends into the landscape so well that its practically invisible from over 2 feet away. Whoever the god or goddess of the temple was, their name has faded along with most of the defining features on the temple. All that\'                              s left is the feeling that this was once someplace sacred and the feeling of holiness has lingered long after the disappearance of its god.",
     "11. Which Map Do You Want This To Appear On?": "The Original Map, Sepia and Coloured | The Re-Skinned Map | The Kingdom Death Monster / Cataclyzm Map",
     "12. Will Your Location Be Hidden On The Player Maps?": "No, My location is hidden from players, only for GMs",
     "Anything To Add?": "No response"
@@ -1630,7 +1633,7 @@
     "Email For Your Map To Be Sent. *Required!!": "james_matcott@hotmail.com",
     "2. What Is Your Location Called?": "Gilderhill",
     "3. What Kind Of Location Do You Want ? You Can Combine By Clicking 3 Elements, (Or More For Higher Pledges)": "Village size+1 | Village size+1 | Blacksmith",
-    "4. Describe Your Location": "A village of elite craftsmen, whose centrally located blacksmith has drawn traders and travellers for decades. The blacksmith's symbol is a large golden sun emblazoned on a red anvil",
+    "4. Describe Your Location": "A village of elite craftsmen, whose centrally located blacksmith has drawn traders and travellers for decades. The blacksmith\'                              s symbol is a large golden sun emblazoned on a red anvil",
     "5. What Terrain Do You Want Your Location To Appear In": "Plains / Grassland | Coastal | Lake / Sea | Hills/Cliffs",
     "5.B. If Other, Add Details": "No response",
     "7. Which Biomes Would Suit Your Location": "Cooler Temperate Zone (minus winters, 20.c summers | Mid Range (o.c winters, 30.c summers)",
@@ -1754,14 +1757,14 @@
     "Email For Your Map To Be Sent. *Required!!": "ebrandeis@gmail.com",
     "2. What Is Your Location Called?": "The Forbidden Pit",
     "3. What Kind Of Location Do You Want ? You Can Combine By Clicking 3 Elements, (Or More For Higher Pledges)": "Tents | Hole in the ground | Fields",
-    "4. Describe Your Location": "The King's men have set up a military camp in the fields outside of town. They are preventing access to a massively deep pit that opened up in the field and preventing anyone from entering (and exiting?!). If you can infiltrate the camp, you may be able to descend into the pit and discover it's cause and perhaps more.",
+    "4. Describe Your Location": "The King\'                              s men have set up a military camp in the fields outside of town. They are preventing access to a massively deep pit that opened up in the field and preventing anyone from entering (and exiting?!). If you can infiltrate the camp, you may be able to descend into the pit and discover it\'                              s cause and perhaps more.",
     "5. What Terrain Do You Want Your Location To Appear In": "Plains / Grassland",
     "5.B. If Other, Add Details": "No response",
     "7. Which Biomes Would Suit Your Location": "Cooler Temperate Zone (minus winters, 20.c summers | Mid Range (o.c winters, 30.c summers)",
     "9. Style Of Your Location (If Applicable, Choose Up To 2)": "European (Grey stone) | Asian (White Stone)",
     "9.B. Using The Key Ideas Of The Styles Given, You Can Add Some Flourish?": "No response",
     "9.C. If Other, Add Details": "No response",
-    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "The pit was formed by a meteor strike. Unfortunately, the meteor carried alien microbes that can infect and mutate reptiles on this planet. It blasted through hundreds of feet of earth and opened a hole into a lost underground temple created by the snakemen who once ruled this land. Their bodies lie at rest within the temple, but have been infected by the alien microbes and revivified - not alive, but not dead either. The microbes have also infect numerous harmless newts, snakes, and frogs, causing them to grow in size and gain abnormal features and abilities. The temple holds great treasure and items of ancient power, but the revived snakemen are deadly guardians. Further, the infection seems to be spreading beyond the pit and the King's men are barely able to contain the monstrosities that are pouring forth.",
+    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "The pit was formed by a meteor strike. Unfortunately, the meteor carried alien microbes that can infect and mutate reptiles on this planet. It blasted through hundreds of feet of earth and opened a hole into a lost underground temple created by the snakemen who once ruled this land. Their bodies lie at rest within the temple, but have been infected by the alien microbes and revivified - not alive, but not dead either. The microbes have also infect numerous harmless newts, snakes, and frogs, causing them to grow in size and gain abnormal features and abilities. The temple holds great treasure and items of ancient power, but the revived snakemen are deadly guardians. Further, the infection seems to be spreading beyond the pit and the King\'                              s men are barely able to contain the monstrosities that are pouring forth.",
     "11. Which Map Do You Want This To Appear On?": "The Original Map, Sepia and Coloured",
     "12. Will Your Location Be Hidden On The Player Maps?": "Yes, My place is public Knowledge, anyone can find it",
     "Anything To Add?": "RE #12, Everyone knows that there is an encampment in the fields outside of town, but few know of the pit and even fewer of the danger it presents."
@@ -1916,7 +1919,7 @@
     "9. Style Of Your Location (If Applicable, Choose Up To 2)": "European (Grey stone) | Native (tents)",
     "9.B. Using The Key Ideas Of The Styles Given, You Can Add Some Flourish?": "Most buildings are made from wood, though a few of the most important buildings are stone.",
     "9.C. If Other, Add Details": "No response",
-    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "While Rykh not particularly large by civilised standards, it is so far away from any other kind of settlement that it is considered huge by everyone in the vicinity. It is a final outpost of quasi-civilisation in the middle of deep, forested wilderness. Most of the inhabitants are ogres, though there is also a large minority of humans. The town's name is commonly used idiomatically to mean \"as far away as you can possibly go\".",
+    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "While Rykh not particularly large by civilised standards, it is so far away from any other kind of settlement that it is considered huge by everyone in the vicinity. It is a final outpost of quasi-civilisation in the middle of deep, forested wilderness. Most of the inhabitants are ogres, though there is also a large minority of humans. The town\'                              s name is commonly used idiomatically to mean \"as far away as you can possibly go\".",
     "11. Which Map Do You Want This To Appear On?": "The Original Map, Sepia and Coloured | The Re-Skinned Map | The Kingdom Death Monster / Cataclyzm Map | Future Maps (If you have increased your pledge)",
     "12. Will Your Location Be Hidden On The Player Maps?": "Yes, My place is public Knowledge, anyone can find it",
     "Anything To Add?": "No response"
@@ -2012,7 +2015,7 @@
     "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "Nestled deep in the forest lies a crumbling and long neglected shrine to a long forgotten Goddess. A lone statue weathered and worn, covered in fine green moss stands in the centre of a very small clearing of sorts. The statue is that of a lady wearing flowing robes looking up to the stars. It is surrounded by cracked and barely visible flagstones, the forest long having claimed the area back. Dotted around the clearing are rectangular stones with some now faint carvings that may have served as benches for the worshipers. Who was this mystery Goddess? (The more perceptive might be able to work out that she had something to do with the stars, given the layout of the stones).",
     "11. Which Map Do You Want This To Appear On?": "The Original Map, Sepia and Coloured | The Re-Skinned Map",
     "12. Will Your Location Be Hidden On The Player Maps?": "Yes, My place is public Knowledge, anyone can find it",
-    "Anything To Add?": "Good luck! Can't wait to see how it ends up :)"
+    "Anything To Add?": "Good luck! Can\'                              t wait to see how it ends up :)"
   },
   {
     "Backer Number": 287,
@@ -2040,7 +2043,7 @@
     "9. Style Of Your Location (If Applicable, Choose Up To 2)": "No response",
     "9.B. Using The Key Ideas Of The Styles Given, You Can Add Some Flourish?": "No response",
     "9.C. If Other, Add Details": "No response",
-    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "The Isle of Bees is home to countless varieties of bees, including many that exist no where else in the world. Located at a massive swell of nature magic, the Wizards are unsure if the nature magic drew the bees or the bees are the source of the nature magic. While a visit is not for the fearful, some visitors claim to have been healed of aliments by the lakes of honey, though many have also been run through by the branch sized stinger of an unhappy bee. It is rumored that there is a small stone temple to the first human caretakers of the bees, and it is marked in rough scratches \"B's and D's Bees.\" Those allergic to bees and honey should avoid.",
+    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "The Isle of Bees is home to countless varieties of bees, including many that exist no where else in the world. Located at a massive swell of nature magic, the Wizards are unsure if the nature magic drew the bees or the bees are the source of the nature magic. While a visit is not for the fearful, some visitors claim to have been healed of aliments by the lakes of honey, though many have also been run through by the branch sized stinger of an unhappy bee. It is rumored that there is a small stone temple to the first human caretakers of the bees, and it is marked in rough scratches \"B\'                              s and D\'                              s Bees.\" Those allergic to bees and honey should avoid.",
     "11. Which Map Do You Want This To Appear On?": "The Original Map, Sepia and Coloured | The Re-Skinned Map | The Kingdom Death Monster / Cataclyzm Map",
     "12. Will Your Location Be Hidden On The Player Maps?": "Yes, My place is public Knowledge, anyone can find it",
     "Anything To Add?": "No response"
@@ -2126,17 +2129,17 @@
     "Email For Your Map To Be Sent. *Required!!": "TheDeSimone@gmail.com",
     "2. What Is Your Location Called?": "The Seven-Four-Seven",
     "3. What Kind Of Location Do You Want ? You Can Combine By Clicking 3 Elements, (Or More For Higher Pledges)": "Village size+1 | Sign / road marker | Monolith/statue/totem",
-    "4. Describe Your Location": "A small village and trading post build around a giant honeycombed structure of unknown origin (think La Sagrada Familia's towers)",
+    "4. Describe Your Location": "A small village and trading post build around a giant honeycombed structure of unknown origin (think La Sagrada Familia\'                              s towers)",
     "5. What Terrain Do You Want Your Location To Appear In": "Plains / Grassland | Taiga / Steppe | Forest - Boreal or Temperate | Forest - Jungle or Rainforest | Desert | Hills/Cliffs | Mountains",
     "5.B. If Other, Add Details": "No response",
     "7. Which Biomes Would Suit Your Location": "Any of the Above",
     "9. Style Of Your Location (If Applicable, Choose Up To 2)": "Asian (White Stone) | Abandoned/Ruins",
     "9.B. Using The Key Ideas Of The Styles Given, You Can Add Some Flourish?": "The town grew organically around the towering structure. The inner ring shows the most care. Perhaps the first people to settle there worshiped it. As the town built out, the structures become less notable until the outer ring looks like any other village. People take pilgrimages climbing the tower. Many fall to their deaths, and the ground around the tower is littered with the bones of the fallen. It is considered an honorable way to die, but gives the inner ring the appearance of a terrifying sacrificial site. The tower itself is incredibly white and far too smooth to be natural.",
     "9.C. If Other, Add Details": "No response",
-    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "The Seven-Four-Seven is a trading post and holy site, located at the intersection of three roads. The name comes from the central signpost, indicating that the nearest townships are seven, four, and seven miles away, respectively. No one knows when the great tower at the center of the Seven-Four-Seven was built, or who built it. Some say the gleaming white, honeycomb structure merely appeared one day, or is the last remains of some ancient God. But legends tell that any who manages to scale the unnaturally smooth tower will live out the rest of their days blessed with peace and prosperity. Few have succeeded. Most fall to their doom below, where their bodies are left to rot and feed the earth beneath the tower. To those who live in the Seven-Four-Seven, this is an honorable death. These bones remain undisturbed, bleached white like the tower over centuries. The Seven-Four-Seven can be a terrible sight to behold for newcomers, but the townsfolk are among the most welcoming and agreeable in the region. So long as visitors don't disturb the bones.",
+    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "The Seven-Four-Seven is a trading post and holy site, located at the intersection of three roads. The name comes from the central signpost, indicating that the nearest townships are seven, four, and seven miles away, respectively. No one knows when the great tower at the center of the Seven-Four-Seven was built, or who built it. Some say the gleaming white, honeycomb structure merely appeared one day, or is the last remains of some ancient God. But legends tell that any who manages to scale the unnaturally smooth tower will live out the rest of their days blessed with peace and prosperity. Few have succeeded. Most fall to their doom below, where their bodies are left to rot and feed the earth beneath the tower. To those who live in the Seven-Four-Seven, this is an honorable death. These bones remain undisturbed, bleached white like the tower over centuries. The Seven-Four-Seven can be a terrible sight to behold for newcomers, but the townsfolk are among the most welcoming and agreeable in the region. So long as visitors don\'                              t disturb the bones.",
     "11. Which Map Do You Want This To Appear On?": "The Original Map, Sepia and Coloured | The Re-Skinned Map | The Kingdom Death Monster / Cataclyzm Map",
     "12. Will Your Location Be Hidden On The Player Maps?": "Yes, My place is public Knowledge, anyone can find it",
-    "Anything To Add?": "This is an awesome project, and I'm incredibly excited for it to come out :) Please feel free to take my idea and change it, run with it, whatever. I'm not precious about this at all. Best, Joe."
+    "Anything To Add?": "This is an awesome project, and I\'                              m incredibly excited for it to come out :) Please feel free to take my idea and change it, run with it, whatever. I\'                              m not precious about this at all. Best, Joe."
   },
   {
     "Backer Number": 296,
@@ -2164,7 +2167,7 @@
     "9. Style Of Your Location (If Applicable, Choose Up To 2)": "No response",
     "9.B. Using The Key Ideas Of The Styles Given, You Can Add Some Flourish?": "No response",
     "9.C. If Other, Add Details": "No response",
-    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "A city know for its two main exports, Bananas and champagne. Although a strange combination everyone in town always seems to be smiling. Perhaps its the potassium or perhaps it's all the bubbly getting to their heads.",
+    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "A city know for its two main exports, Bananas and champagne. Although a strange combination everyone in town always seems to be smiling. Perhaps its the potassium or perhaps it\'                              s all the bubbly getting to their heads.",
     "11. Which Map Do You Want This To Appear On?": "The Original Map, Sepia and Coloured",
     "12. Will Your Location Be Hidden On The Player Maps?": "Yes, My place is public Knowledge, anyone can find it",
     "Anything To Add?": "Thank you for this campaign!"
@@ -2188,14 +2191,14 @@
     "Email For Your Map To Be Sent. *Required!!": "ender667@gmail.com",
     "2. What Is Your Location Called?": "S+C",
     "3. What Kind Of Location Do You Want ? You Can Combine By Clicking 3 Elements, (Or More For Higher Pledges)": "surround with trees",
-    "4. Describe Your Location": "A couple on a picnic, with a tree that has a heart carved in it with S+C inside the heart. If that's not too cheesy for you. ;-)",
+    "4. Describe Your Location": "A couple on a picnic, with a tree that has a heart carved in it with S+C inside the heart. If that\'                              s not too cheesy for you. ;-)",
     "5. What Terrain Do You Want Your Location To Appear In": "Forest - Boreal or Temperate",
     "5.B. If Other, Add Details": "No response",
     "7. Which Biomes Would Suit Your Location": "Mid Range (o.c winters, 30.c summers)",
     "9. Style Of Your Location (If Applicable, Choose Up To 2)": "European (Grey stone)",
     "9.B. Using The Key Ideas Of The Styles Given, You Can Add Some Flourish?": "No response",
     "9.C. If Other, Add Details": "No response",
-    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "Don't really need text..the heart explains it all.",
+    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "Don\'                              t really need text..the heart explains it all.",
     "11. Which Map Do You Want This To Appear On?": "The Original Map, Sepia and Coloured | The Re-Skinned Map | The Kingdom Death Monster / Cataclyzm Map | Future Maps (If you have increased your pledge)",
     "12. Will Your Location Be Hidden On The Player Maps?": "Yes, My place is public Knowledge, anyone can find it",
     "Anything To Add?": "Love this whole idea...if no one buys the KDM map, let me know...I might be able to later."
@@ -2248,7 +2251,7 @@
     "__7": "",
     "__8": "",
     "Email For Your Map To Be Sent. *Required!!": "markus.jorra@web.de",
-    "2. What Is Your Location Called?": "Yenri's farm",
+    "2. What Is Your Location Called?": "Yenri\'                              s farm",
     "3. What Kind Of Location Do You Want ? You Can Combine By Clicking 3 Elements, (Or More For Higher Pledges)": "Animals | Farms | Fields",
     "4. Describe Your Location": "A simple farm with fields and grazing sheep",
     "5. What Terrain Do You Want Your Location To Appear In": "Plains / Grassland",
@@ -2257,7 +2260,7 @@
     "9. Style Of Your Location (If Applicable, Choose Up To 2)": "European (Grey stone)",
     "9.B. Using The Key Ideas Of The Styles Given, You Can Add Some Flourish?": "No response",
     "9.C. If Other, Add Details": "No response",
-    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "Yenri's farm",
+    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "Yenri\'                              s farm",
     "11. Which Map Do You Want This To Appear On?": "The Original Map, Sepia and Coloured",
     "12. Will Your Location Be Hidden On The Player Maps?": "Yes, My place is public Knowledge, anyone can find it",
     "Anything To Add?": "No response"
@@ -2310,11 +2313,11 @@
     "__7": "",
     "__8": "",
     "Email For Your Map To Be Sent. *Required!!": "paul.ford2780@gmail.com",
-    "2. What Is Your Location Called?": "Wizard's Hiuse",
+    "2. What Is Your Location Called?": "Wizard\'                              s Hiuse",
     "3. What Kind Of Location Do You Want ? You Can Combine By Clicking 3 Elements, (Or More For Higher Pledges)": "surround with trees",
-    "4. Describe Your Location": "If possible I would like a wizard's house (2 floors) surrounded by a clearing (herb garden). In the middle of a Forrest. The herb garden is 26 plots that circle the house and have herbs in alphabetical order.",
+    "4. Describe Your Location": "If possible I would like a wizard\'                              s house (2 floors) surrounded by a clearing (herb garden). In the middle of a Forrest. The herb garden is 26 plots that circle the house and have herbs in alphabetical order.",
     "5. What Terrain Do You Want Your Location To Appear In": "Forest - Boreal or Temperate",
-    "5.B. If Other, Add Details": "I'm not sure if I'm asking for too much RE:my pledge level but please do what you can :)",
+    "5.B. If Other, Add Details": "I\'                              m not sure if I\'                              m asking for too much RE:my pledge level but please do what you can :)",
     "7. Which Biomes Would Suit Your Location": "Mid Range (o.c winters, 30.c summers)",
     "9. Style Of Your Location (If Applicable, Choose Up To 2)": "European (Grey stone)",
     "9.B. Using The Key Ideas Of The Styles Given, You Can Add Some Flourish?": "No response",
@@ -2322,7 +2325,7 @@
     "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "The wizard is famed for his short temper and exceptional potion. His herb garden that surrounds the house is laid out in alphabetical order and various charms are in place to keep plants growing that would usually not be found in such a place.",
     "11. Which Map Do You Want This To Appear On?": "The Original Map, Sepia and Coloured | The Re-Skinned Map | The Kingdom Death Monster / Cataclyzm Map",
     "12. Will Your Location Be Hidden On The Player Maps?": "Yes, My place is public Knowledge, anyone can find it",
-    "Anything To Add?": "Please contact me if there are any problems. I just want a map, being able to have input it's just a bonus."
+    "Anything To Add?": "Please contact me if there are any problems. I just want a map, being able to have input it\'                              s just a bonus."
   },
   {
     "Backer Number": 303,
@@ -2353,7 +2356,7 @@
     "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "is this too much? A small monolithic obelisk of tan/gold color with a 5 by 5 yard footprint, 8 yards high. The stone cannot be identified by any means and is completely indestructible. If the conditions are right when the trigger is found, one of the walls disappears to reveal a cubic chamber 3 yards to a side, with a 1 yard cubic platform in the center. The walls and the platform are made of a golden colored glassy substance, shot through with black lines, runes, glyphs, and sigils that are unidentifiable. The walls radiate a warm golden light. The top of the platform is etched with a complex grid, the lines of which glow with a peculiar unlight. On the grid are a few dozen blood-red rubies carved into lifelike rose blossoms. If taken from the chamber, these return to it. No one knows what it all means or does.",
     "11. Which Map Do You Want This To Appear On?": "The Original Map, Sepia and Coloured | The Re-Skinned Map | The Kingdom Death Monster / Cataclyzm Map",
     "12. Will Your Location Be Hidden On The Player Maps?": "No, My location is hidden from players, only for GMs",
-    "Anything To Add?": "I have this thing in all my games, moving the stone roses alters reality in fundamental ways. I call it a Reality Terminal and it can destroy or harshly weird-ify your game worse than a Deck of Many Things. This all is probably too much to get into for your map project. :-) BTW: This is an extremely cool KS you've done! Cheers!"
+    "Anything To Add?": "I have this thing in all my games, moving the stone roses alters reality in fundamental ways. I call it a Reality Terminal and it can destroy or harshly weird-ify your game worse than a Deck of Many Things. This all is probably too much to get into for your map project. :-) BTW: This is an extremely cool KS you\'                              ve done! Cheers!"
   },
   {
     "Backer Number": 304,
@@ -2412,7 +2415,7 @@
     "9. Style Of Your Location (If Applicable, Choose Up To 2)": "European (Grey stone) | Abandoned/Ruins",
     "9.B. Using The Key Ideas Of The Styles Given, You Can Add Some Flourish?": "No response",
     "9.C. If Other, Add Details": "No response",
-    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "Although this hero's name and deeds are lost to history, local legend says the statue weeps... but only when it rains.",
+    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "Although this hero\'                              s name and deeds are lost to history, local legend says the statue weeps... but only when it rains.",
     "11. Which Map Do You Want This To Appear On?": "The Original Map, Sepia and Coloured",
     "12. Will Your Location Be Hidden On The Player Maps?": "Yes, My place is public Knowledge, anyone can find it",
     "Anything To Add?": "No response"
@@ -2434,7 +2437,7 @@
     "__7": "",
     "__8": "",
     "Email For Your Map To Be Sent. *Required!!": "doncferris@chemist.com",
-    "2. What Is Your Location Called?": "Mae-Mae's Reach",
+    "2. What Is Your Location Called?": "Mae-Mae\'                              s Reach",
     "3. What Kind Of Location Do You Want ? You Can Combine By Clicking 3 Elements, (Or More For Higher Pledges)": "Village size+1 | tower/guard post | surround with trees",
     "4. Describe Your Location": "This small town is almost lost in the expansive forest that it resides in. This forest is wild and untamed, dangerous for those who are not trained in the arts of survival.",
     "5. What Terrain Do You Want Your Location To Appear In": "Forest - Boreal or Temperate",
@@ -2443,7 +2446,7 @@
     "9. Style Of Your Location (If Applicable, Choose Up To 2)": "European (Grey stone)",
     "9.B. Using The Key Ideas Of The Styles Given, You Can Add Some Flourish?": "some Elven aspects",
     "9.C. If Other, Add Details": "No response",
-    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "The town was originally a simple band of druids, rangers, and a few nature lovers that wanted to live in a place far removed from society and named after their leader. Mae-Mae chose a defensible location as she sensed the pending onslaught from the dark denizens of the forest. When the attack came in the dead of night, Mae-Mae was already awake and alert. The druid led her followers to battle, moving from skirmish to skirmish, wherever the fighting was most fierce and the situation most dire. Though she would surrender her life in the attempt, the battle would be won. Her final wish was for her town to remain, to defend the forest against further attack and to train those in the future. The town has slowly expanded since then. The area immediately surrounding is is kept safe, and the town welcomes those willing to listen to nature's lessons. Rangers and druids accept students, while herbalists can learn new tricks of healing. The druid's grove of the town is renowned despite the towns small size.",
+    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "The town was originally a simple band of druids, rangers, and a few nature lovers that wanted to live in a place far removed from society and named after their leader. Mae-Mae chose a defensible location as she sensed the pending onslaught from the dark denizens of the forest. When the attack came in the dead of night, Mae-Mae was already awake and alert. The druid led her followers to battle, moving from skirmish to skirmish, wherever the fighting was most fierce and the situation most dire. Though she would surrender her life in the attempt, the battle would be won. Her final wish was for her town to remain, to defend the forest against further attack and to train those in the future. The town has slowly expanded since then. The area immediately surrounding is is kept safe, and the town welcomes those willing to listen to nature\'                              s lessons. Rangers and druids accept students, while herbalists can learn new tricks of healing. The druid\'                              s grove of the town is renowned despite the towns small size.",
     "11. Which Map Do You Want This To Appear On?": "The Original Map, Sepia and Coloured | The Re-Skinned Map | The Kingdom Death Monster / Cataclyzm Map",
     "12. Will Your Location Be Hidden On The Player Maps?": "Yes, My place is public Knowledge, anyone can find it",
     "Anything To Add?": "No response"
@@ -2467,7 +2470,7 @@
     "Email For Your Map To Be Sent. *Required!!": "edmonds.ace@gmail.com",
     "2. What Is Your Location Called?": "large sinkhole",
     "3. What Kind Of Location Do You Want ? You Can Combine By Clicking 3 Elements, (Or More For Higher Pledges)": "Monolith/statue/totem | Hole in the ground",
-    "4. Describe Your Location": "a large sinkhole, 50m or so across (unless that's too big) and 7m deep, within which an eternal fog hangs. a small trickle of water falls from one or more places in the walls, the groundwater seeping through. remains of trees, dead and choked by the fog, rot on the ground, while small tangled vines struggle to survive and lichen thrive. the walls are steep but surprisingly sturdy, a product of the dense root systems of the trees above.",
+    "4. Describe Your Location": "a large sinkhole, 50m or so across (unless that\'                              s too big) and 7m deep, within which an eternal fog hangs. a small trickle of water falls from one or more places in the walls, the groundwater seeping through. remains of trees, dead and choked by the fog, rot on the ground, while small tangled vines struggle to survive and lichen thrive. the walls are steep but surprisingly sturdy, a product of the dense root systems of the trees above.",
     "5. What Terrain Do You Want Your Location To Appear In": "Forest - Boreal or Temperate | Forest - Jungle or Rainforest",
     "5.B. If Other, Add Details": "No response",
     "7. Which Biomes Would Suit Your Location": "Cooler Temperate Zone (minus winters, 20.c summers | Mid Range (o.c winters, 30.c summers) | Warmer climates (10.c winters, 40.c summers)",
@@ -2496,7 +2499,7 @@
     "__7": "",
     "__8": "",
     "Email For Your Map To Be Sent. *Required!!": "tdelventhal5@gmail.com",
-    "2. What Is Your Location Called?": "Sekhi's Warning",
+    "2. What Is Your Location Called?": "Sekhi\'                              s Warning",
     "3. What Kind Of Location Do You Want ? You Can Combine By Clicking 3 Elements, (Or More For Higher Pledges)": "Monolith/statue/totem | Hole in the ground | Ruins",
     "4. Describe Your Location": "Ruined desert city that got hit by a meteor.",
     "5. What Terrain Do You Want Your Location To Appear In": "Desert",
@@ -2504,8 +2507,8 @@
     "7. Which Biomes Would Suit Your Location": "Warmer climates (10.c winters, 40.c summers)",
     "9. Style Of Your Location (If Applicable, Choose Up To 2)": "Arabian (Yellow Stone) | Abandoned/Ruins",
     "9.B. Using The Key Ideas Of The Styles Given, You Can Add Some Flourish?": "I imagine it as maybe a single standing obelisk with ruins around it, and an impact site from the meteor.",
-    "9.C. If Other, Add Details": "The molten desert sand turned to glass at the impact, but I don't think you need to show that on the location.",
-    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "I could come up with some cool flavor, but I dunno how it'd fit in with the rest of the world's lore/culture... \"A once prospering oasis, brought to ruin by a king's arrogance. What remains of the city ruins is twisted in molten glass, with a single solitary obelisk looming over it.",
+    "9.C. If Other, Add Details": "The molten desert sand turned to glass at the impact, but I don\'                              t think you need to show that on the location.",
+    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "I could come up with some cool flavor, but I dunno how it\'                              d fit in with the rest of the world\'                              s lore/culture... \"A once prospering oasis, brought to ruin by a king\'                              s arrogance. What remains of the city ruins is twisted in molten glass, with a single solitary obelisk looming over it.",
     "11. Which Map Do You Want This To Appear On?": "The Original Map, Sepia and Coloured | The Re-Skinned Map | The Kingdom Death Monster / Cataclyzm Map",
     "12. Will Your Location Be Hidden On The Player Maps?": "No, My location is hidden from players, only for GMs",
     "Anything To Add?": "Cool project! Have a good one!"
@@ -2536,7 +2539,7 @@
     "9. Style Of Your Location (If Applicable, Choose Up To 2)": "European (Grey stone)",
     "9.B. Using The Key Ideas Of The Styles Given, You Can Add Some Flourish?": "No response",
     "9.C. If Other, Add Details": "No response",
-    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "The soil surrounding Clay allws the town's potters to create a unique pottery with a green colouring.",
+    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "The soil surrounding Clay allws the town\'                              s potters to create a unique pottery with a green colouring.",
     "11. Which Map Do You Want This To Appear On?": "The Original Map, Sepia and Coloured",
     "12. Will Your Location Be Hidden On The Player Maps?": "Yes, My place is public Knowledge, anyone can find it",
     "Anything To Add?": "No response"
@@ -2570,7 +2573,7 @@
     "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "Something like this? If you can tell me the map context I can expand upon...In some hills or uplands, off the beaten track and far from any forests, a lone aged and bare branched oak tree stands by a small cold lake. At the foot of the oak stand the ruins of an old stone circle, the few remaining standing stones bear the worn remains of only partially legible ancient runes.",
     "11. Which Map Do You Want This To Appear On?": "The Original Map, Sepia and Coloured | The Re-Skinned Map | The Kingdom Death Monster / Cataclyzm Map | Future Maps (If you have increased your pledge)",
     "12. Will Your Location Be Hidden On The Player Maps?": "Yes, My place is public Knowledge, anyone can find it",
-    "Anything To Add?": "ASk me if you need more or this doesn't make sense."
+    "Anything To Add?": "ASk me if you need more or this doesn\'                              t make sense."
   },
   {
     "Backer Number": 321,
@@ -2589,7 +2592,7 @@
     "__7": "",
     "__8": "",
     "Email For Your Map To Be Sent. *Required!!": "tklassen17@outlook.com",
-    "2. What Is Your Location Called?": "Salnek's University",
+    "2. What Is Your Location Called?": "Salnek\'                              s University",
     "3. What Kind Of Location Do You Want ? You Can Combine By Clicking 3 Elements, (Or More For Higher Pledges)": "Monolith/statue/totem | Abandonded... <insert here>",
     "4. Describe Your Location": "An abandoned school campus. A large statue of an orc reading a book in the middle of the ruins.",
     "5. What Terrain Do You Want Your Location To Appear In": "Coastal",
@@ -2598,7 +2601,7 @@
     "9. Style Of Your Location (If Applicable, Choose Up To 2)": "European (Grey stone)",
     "9.B. Using The Key Ideas Of The Styles Given, You Can Add Some Flourish?": "No response",
     "9.C. If Other, Add Details": "N/A",
-    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "Salnek's school for intelligent monsters was a complete disaster. Not only did Salnek find much opposition among the local population, he also lacked the funds to continually rebuild his campus every time a minotaur or bugbear went on a rampage. Rumor has it that many monstrosities still roam the abandoned school grounds.",
+    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "Salnek\'                              s school for intelligent monsters was a complete disaster. Not only did Salnek find much opposition among the local population, he also lacked the funds to continually rebuild his campus every time a minotaur or bugbear went on a rampage. Rumor has it that many monstrosities still roam the abandoned school grounds.",
     "11. Which Map Do You Want This To Appear On?": "The Original Map, Sepia and Coloured | The Re-Skinned Map | The Kingdom Death Monster / Cataclyzm Map",
     "12. Will Your Location Be Hidden On The Player Maps?": "Yes, My place is public Knowledge, anyone can find it",
     "Anything To Add?": "No response"
@@ -2620,16 +2623,16 @@
     "__7": "",
     "__8": "",
     "Email For Your Map To Be Sent. *Required!!": "fitimabazi@gmail.com",
-    "2. What Is Your Location Called?": "Ruins of Kell'os",
+    "2. What Is Your Location Called?": "Ruins of Kell\'                              os",
     "3. What Kind Of Location Do You Want ? You Can Combine By Clicking 3 Elements, (Or More For Higher Pledges)": "surround with trees | Temple | Ruins",
-    "4. Describe Your Location": "Once a towering and beautiful temple dedicated to god Kell'os. Now it's arches and towers stand alone, forgotten by most. Wilderness has taken over the most parts of the temple.",
+    "4. Describe Your Location": "Once a towering and beautiful temple dedicated to god Kell\'                              os. Now it\'                              s arches and towers stand alone, forgotten by most. Wilderness has taken over the most parts of the temple.",
     "5. What Terrain Do You Want Your Location To Appear In": "Forest - Boreal or Temperate",
     "5.B. If Other, Add Details": "No response",
     "7. Which Biomes Would Suit Your Location": "Cooler Temperate Zone (minus winters, 20.c summers",
     "9. Style Of Your Location (If Applicable, Choose Up To 2)": "European (Grey stone) | Abandoned/Ruins",
     "9.B. Using The Key Ideas Of The Styles Given, You Can Add Some Flourish?": "Temple is intact by most parts. Almost looking like it had been abandoned recently. Outer side of the temple is overrun by wilderness and glass windows are broken.",
     "9.C. If Other, Add Details": "No response",
-    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "Once a towering and beautiful temple dedicated to god Kell'os. Now it's arches and towers stand alone, forgotten by most.",
+    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "Once a towering and beautiful temple dedicated to god Kell\'                              os. Now it\'                              s arches and towers stand alone, forgotten by most.",
     "11. Which Map Do You Want This To Appear On?": "The Original Map, Sepia and Coloured | The Re-Skinned Map",
     "12. Will Your Location Be Hidden On The Player Maps?": "Yes, My place is public Knowledge, anyone can find it",
     "Anything To Add?": "No response"
@@ -2758,5 +2761,5 @@
     "12. Will Your Location Be Hidden On The Player Maps?": "Yes, My place is public Knowledge, anyone can find it",
     "Anything To Add?": "No response"
   }
-];
+]';
 ?>

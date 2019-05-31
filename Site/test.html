@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+   <meta http-equiv="x-ua-compatible" content="ie=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="description" content="">
+   <meta name="keywords" content="">
+   <meta name="robots" content="">
+   <style>
+      .hiddenRadio {
+         opacity: 0.5;
+         position: relative;
+         z-index: 1;
+      }
+
+      .radioON,
+      .radioOFF {
+         position: relative;
+         top: -10px;
+      }
+
+      .radioON img {
+         opacity: 0.1;
+         width: 25px;
+         height: 25px;
+         position: absolute;
+         top: 0px
+      }
+
+      .radioOFF img {
+         opacity: 0.9;
+         width: 25px;
+         height: 25px;
+         position: absolute;
+         top: 0px
+      }
+
+      .hiddenRadio:checked+label div.radioOFF {
+         opacity: 1;
+      }
+
+      label {
+         cursor: pointer;
+      }
+   </style>
+</head>
+
+<body>
+
+   star picker
+   <table>
+      <tr>
+         <td><input class="hiddenRadio" name="test1" id="test1_1" type="radio">
+            <label for="test1_1">
+               <div class="radioON"><img src="./img/starON.png"></div>
+               <div class="radioOFF"><img src="./img/starOFF.png"></div>
+            </label>
+         </td>
+         <td><input class="hiddenRadio" name="test1" id="test1_2" type="radio">
+            <label for="test1_2">
+               <div class="radioON"><img src="./img/starON.png"></div>
+               <div class="radioOFF"><img src="./img/starOFF.png"></div>
+            </label></td>
+         <td><input class="hiddenRadio" name="test1" id="test1_3" type="radio"></td>
+         <td><input class="hiddenRadio" name="test1" id="test1_4" type="radio"></td>
+         <td><input class="hiddenRadio" name="test1" id="test1_5" type="radio"></td>
+         <td><input class="hiddenRadio" name="test1" id="test1_6" type="radio"></td>
+      </tr>
+   </table>
+
+
+</body>
+
+</html>
