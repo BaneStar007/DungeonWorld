@@ -3,13 +3,28 @@
 <head>
    <meta charset="utf-8" />
    <title> Make 100 map test</title>
-   <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-   <script type="text/javascript" src="./js/setup.js?v=1.1"></script>
-   <script type="text/javascript" src="./js/lib.js?v=1.1"></script>
+  <!-- <script type="text/javascript" src="./js/setup.js?v=1.1"></script>
+   <script type="text/javascript" src="./js/lib.js?v=1.1"></script>-->
    <link href="css/index.css?v=1.1" rel="stylesheet" type="text/css" />
 
 </head>
 <script>
+function openHex(element) {
+  console.log(element);
+   var x = document.getElementById(element);
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+
+} 
+function closeHex(element) {
+   console.log(element);
+  var x = document.getElementById(element);
+ 
+   x.style.display = "none";
+ }
 
 
 </script>
@@ -19,7 +34,7 @@
 
 
 include('data/small.php');
-
+include('data/large.php');
 function drawHex($map) {
 
    
@@ -29,7 +44,7 @@ function drawHex($map) {
       $alternate = 'alternate';
    }
 
-   $hex = '<div id="bid'.$map["locID"].'" style= " top:' . (($map["locY"] * 75) + 50) . 'px ; left:' . (($map["locX"] * 65) + 40) . 'px" class = "' .$alternate.' grid" >';
+   $hex = '<div onClick="openHex(\'det'.$map["locID"].'\')" id="bid'.$map["locID"].'" style= " top:' . (($map["locY"] * 75) + 50) . 'px ; left:' . (($map["locX"] * 65) + 240) . 'px" class = "' .$alternate.' grid" >';
    $hex .= '<div id="oid' . $map["locID"] . '" class = "gridimg '.$map["style"].'" >';
 
    //      console.log($hex);
@@ -61,26 +76,58 @@ function drawHex($map) {
    $hex .= '</div>';
 
    $hex .= '</div>';
+   // Now the Hidden Details
+   $hex .= '<div style="display: none;" class="details" id="det'.$map["locID"].'">';
+
+   $hex .= '<div class="closeButton" onClick="closeHex(\'det'.$map["locID"].'\')">X</div>';
+   
+
+   $hex .= '</div>';
 
 
 echo $hex;
 }
 
 $x =0;
-$y=0;
+$y= 0;
+$xMax = 16;
 
 $smallArray = json_decode($small, true);
+$largeArray = json_decode($large, true);
+
+
   foreach ($smallArray as $key => $value) {
    $x++;
-   if ($x > 15) { $x = 0; $y++;}
+   if ($x > $xMax) { $x = 0; $y++;}
    $value['locX'] = $x;
    $value['locY'] = $y;
+   $data = Process($key, $value, 'small');
+   $value = $data[1];
+   drawHex($value);
+  
+  }
 
+  foreach ($largeArray as $key => $value) {
+   $x++;
+   if ($x > $xMax) { $x = 0; $y++;}
+   $value['locX'] = $x;
+   $value['locY'] = $y;
+   $data = Process($key, $value,'large');
+   $value = $data[1];
+   drawHex($value);
+  
+  }
+   
+function Process($key, $value, $type) {
+  
 
-   $value["AccName"] = $value["Backer Name"];
-   unset($value["Backer Name"]);
+      
    $value["locID"] = $value["Backer Number"];
    unset($value["Backer Number"]);
+   $value["AccName"] = $value["Backer Name"];
+   unset($value["Backer Name"]);
+
+  
    unset($value[""]);
    unset($value["__1"]);
    unset($value["__2"]);
@@ -90,21 +137,41 @@ $smallArray = json_decode($small, true);
    unset($value["__6"]);
    unset($value["__7"]);
    unset($value["__8"]);
+   unset($value['Survey Response']);
+
+   
+  
+
+
    if ($value['Reward Title'] == 'Just a little thing, thanks' ) {
       $value['Pledge'] = '$3';
       unset($value["Reward Title"]);
       unset($value["Reward Minimum"]);
+   } 
+   if ($value['Reward Minimum'] == 'AU$ 4.00') {
+      $value['Pledge'] = '$4';
+      unset($value["Reward Title"]);
+      unset($value["Reward Minimum"]);
    }
+
    if ($value['Pledge Amount'] != "") {
       $value['Pledged'] = $value['Pledge Amount'];
       unset($value['Pledge Amount']);
    }
 
    if ($value['Email For Your Map To Be Sent. *Required!!'] != "") {
-      $value['Email_'] = $value['Email For Your Map To Be Sent. *Required!!'];
+      $value['Email_1'] = $value['Email For Your Map To Be Sent. *Required!!'];
       unset($value['Email For Your Map To Be Sent. *Required!!']);
-      if ($value['Email'] == $value['Email_']) {
-         $value['Email__'] = $value['Email'];
+      if ($value['Email'] == $value['Email_1']) {
+         unset($value['Email_']);
+      }
+      unset($value['Email']);
+   }
+   if ($value['1. Email For Your Map To Be Sent. *Required!!'] != "") {
+      $value['Email_2'] = $value['1. Email For Your Map To Be Sent. *Required!!'];
+      unset($value['1. Email For Your Map To Be Sent. *Required!!']);
+      if ($value['Email'] == $value['Email_2']) {
+         unset($value['Email_']);
       }
       unset($value['Email']);
    }
@@ -116,6 +183,32 @@ $smallArray = json_decode($small, true);
       $value['LocationType'] = $value['3. What Kind Of Location Do You Want ? You Can Combine By Clicking 3 Elements, (Or More For Higher Pledges)'];
       unset($value['3. What Kind Of Location Do You Want ? You Can Combine By Clicking 3 Elements, (Or More For Higher Pledges)']);
    }
+   if ($value['3. What Kind Of Location Do You Want'] != "") {
+      $value['LocationType'] = $value['3. What Kind Of Location Do You Want'];
+      unset($value['3. What Kind Of Location Do You Want']);
+   }
+
+    /*
+   
+   [6. What Terrain Borders Your Location] => Plains / Grassland | Forest - Jungle or Rainforest | Coastal | Hills /Cliffs | Mountains 
+   [3.B. If Other.. Add Details] => No response 
+   [5.B. If Other, Add Details] => No response 
+   [7. Which Biomes Would Suit Your Location] => Mid Range (o.c winters, 30.c summers) 
+   [8. Describe Your Terrain, Border Terrain And Biome.] => No response 
+   [9.B. Using The Key Ideas Of The Styles Given, You Can Add Some Flourish?] => Red roofing. castle wall surrounding - big gate door 
+   [10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)] => Natal Everfort - a remote castle where deep knowledge is hidden in the walls. [13a. Your First Add On / Small Location A, You Can Combine By Clicking 3 Elements, (Or More For Higher Pledges)] => Village size+1 | Village size+1 | tower/guard post | Temple [9.C. If Other, Add Details] => 0 
+   [11. Which Map Do You Want This To Appear On?] => The Original Map, Sepia and Coloured 
+   [12. Will Your Location Be Hidden On The Player Maps?] => Yes, My place is public Knowledge, anyone can find it 
+   [13b. Describe Location A] => Natal Everfort 
+   [13c. If Other, Add Details] => No response 
+   [13d. Will Location A Be Hidden On The Player Maps?] => No response 
+   [14a. Location B? You Can Combine By Clicking 3 Elements, (Or More For Higher Pledges)] => Village size+1 | Village size+1 | Temple | Fields [14b. Describe Location A] => Natal Everfort 
+   [14c. If Other, Add Details] => No response 
+   [14d. Will Location A Be Hidden On The Player Maps?] => No response 
+   [Location C Description (If You Pledged Higher For More Locations)] => No response 
+   [Location D Description (If You Pledged Higher For More Locations)] => No response 
+   [Location E Description (If You Pledged Higher For More Locations)] => No response 
+   [Anything To Add?] => No response */
 
 
    if ($value['4. Describe Your Location'] != "") {
@@ -208,6 +301,22 @@ $smallArray = json_decode($small, true);
       
    }
 
+   
+   /*Array ( 
+     
+      
+      [locX] => 4 
+      [locY] => 0 
+      [AccName] => Aleksander Bordvik 
+      [locID] => 3 
+      [Pledged] => AU$ 4.00 
+      [title] => Natal Everfort 
+      [LocationDesc] => Natal Everfort is a Castle located in the deep forest on one side and the cliff looking over the water on the other side, with a cliff too steep to climb and a forest to dense to see the castle. 
+      [terrain1] => jungle 
+      [terrain2] => coastal 
+      [terrain3] => hills 
+      [style] => euro_asia ) 
+
    // $styleList = array("ruins" => "Abandoned/Ruins", "euro" => "European (Grey stone)", "aztec"=>"Aztec (Orange Stone)", "asia"=>"Asian (White Stone)", "arab"=>"Arabian (Yellow Stone)", "nomad"=>"Nomadic (horses or wheeled)", "other"=> "Other (Only choose if you have increased pledge)", "tent"=>"Native (tents)", "na"=>"No response");
 
 
@@ -250,7 +359,7 @@ $smallArray = json_decode($small, true);
 Array ( [5. What Terrain Do You Want Your Location To Appear In] => Plains / Grassland | Taiga / Steppe | Forest - Boreal or Temperate | Forest - Jungle or Rainforest | Swamp / Mangroves | Hills/Cliffs | Mountains [5.B. If Other, Add Details] => No response [7. Which Biomes Would Suit Your Location] => Any of the Above [9. Style Of Your Location (If Applicable, Choose Up To 2)] => Abandoned/Ruins | Native (tents) [9.B. Using The Key Ideas Of The Styles Given, You Can Add Some Flourish?] => No response [9.C. If Other, Add Details] => No response [10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)] => The central hideout for The Crimson Scars, an outlawed bandit gang led by the elusive Bayden Monteagle. These bandits show a level of intelligence above common thugs and have spies in the local towns and cities. The spies relay information concerning local merchant’s activities, so they know which scores to take, and when. They are also rumoured to have links with the local militia who they share information with in order to dampen the threats of rival outlaws. [11. Which Map Do You Want This To Appear On?] => The Original Map, Sepia and Coloured | The Re-Skinned Map | The Kingdom Death Monster / Cataclyzm Map [12. Will Your Location Be Hidden On The Player Maps?] => No, My location is hidden from players, only for GMs [Anything To Add?] => No response [AccName] => Bayden [locID] => 119 [Pledge] => $3 [Pledged] => AU$ 3.00 [Email_] => baydenknight@gmail.com [Email__] => baydenknight@gmail.com [title] => The Crimson Scars Hideout [LocationType] => Tents | surround with trees | Ruins ) , 
 
 
-"Backer Number": 117,
+   "Backer Number": 117,  
     "": "",
     "Backer Name": "Chris D. H.",
     "Email": "chrishales@ymail.com",
@@ -278,12 +387,61 @@ Array ( [5. What Terrain Do You Want Your Location To Appear In] => Plains / Gra
     "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "This outpost guards the entrance to the nearby dungeon.",
     "11. Which Map Do You Want This To Appear On?": "The Original Map, Sepia and Coloured | The Re-Skinned Map | The Kingdom Death Monster / Cataclyzm Map",
     "12. Will Your Location Be Hidden On The Player Maps?": "Yes, My place is public Knowledge, anyone can find it",
-    "Anything To Add?": "No response"*/
+    "Anything To Add?": "No response"
+    
+    "Backer Number": 1,
+    "": "",
+    "Backer Name": "Christian Lippis",
+    "Email": "cslippis@hotmail.com",
+    "__1": "",
+    "Reward Minimum": "AU$ 4.00",
+    "__2": "",
+    "Pledge Amount": "AU$ 35.00",
+    "__3": "",
+    "__4": "",
+    "__5": "",
+    "Notes": "",
+    "__6": "",
+    "__7": "",
+    "Survey Response": "2019/02/11, 09:19",
+    "1. Email For Your Map To Be Sent. *Required!!": "cslippis@hotmail.com",
+    "3. What Kind Of Location Do You Want": "Castle/Fortress/City/Tower | Dungeon/Crypt/Tomb | Other (Only choose if you have increased pledge)",
+    "5. What Terrain Do You Want Your Location To Appear In": "Plains / Grassland | Coastal | Mountains",
+    "6. What Terrain Borders Your Location": "Forest - Boreal or Temperate",
+    "4. Describe Your Location": "A coastal city/castle based near mountains so it has access to metals",
+    "9. Style Of Your Location (If Applicable, Choose Up To 2)": "European (Grey stone)",
+    "2. What Is Your Location Called?": "Selario",
+    "3.B. If Other.. Add Details": "CIty/castle",
+    "5.B. If Other, Add Details": "No response",
+    "7. Which Biomes Would Suit Your Location": "Mid Range (o.c winters, 30.c summers)",
+    "8. Describe Your Terrain, Border Terrain And Biome.": "No response",
+    "9.B. Using The Key Ideas Of The Styles Given, You Can Add Some Flourish?": "Medieval Italian/german style architecture",
+    "10. What Text Do You Want To Appear In The Document For This Location? (2 Paragraph Maximum)": "Selario is the capital city of the Illianese Empire",
+    "13a. Your First Add On / Small Location A, You Can Combine By Clicking 3 Elements, (Or More For Higher Pledges)": "Village size+1 | Village size+1 | tower/guard post | Temple | Blacksmith | Farms | Dungeon Entrance/Exit",
+    "9.C. If Other, Add Details": "The capital is very rich and many of its citizens are well off",
+    "11. Which Map Do You Want This To Appear On?": "The Original Map, Sepia and Coloured | The Re-Skinned Map | The Kingdom Death Monster / Cataclyzm Map | Future Maps (If you have increased your pledge)",
+    "12. Will Your Location Be Hidden On The Player Maps?": "Yes, My place is public Knowledge, anyone can find it",
+    "13b. Describe Location A": "bigger town located near city",
+    "13c. If Other, Add Details": "No response",
+    "13d. Will Location A Be Hidden On The Player Maps?": "No",
+    "14a. Location B? You Can Combine By Clicking 3 Elements, (Or More For Higher Pledges)": "Temple | Ruins | Dungeon Entrance/Exit",
+    "14b. Describe Location A": "Dungeon that adventurers go to seek treasure",
+    "14c. If Other, Add Details": "No response",
+    "14d. Will Location A Be Hidden On The Player Maps?": "Yes",
+    "Location C Description (If You Pledged Higher For More Locations)": "farming villages",
+    "Location D Description (If You Pledged Higher For More Locations)": "Mining towns that extract rare metals that are then used by dwarfs to create superior quality items for the empire",
+    "Location E Description (If You Pledged Higher For More Locations)": "No response",
+    "Anything To Add?": "No response"
+    
+    
+    */
 
 
     echo "<br><br />";
-   drawHex($value);
-  // print_r( $value);
+  
+   print_r( $value);
+  $data = array($key, $value);
+  return $data;
  }
 
   //echo $small;

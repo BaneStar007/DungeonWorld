@@ -81,13 +81,31 @@
    var current = 0;
    var locFind =0;
 
+   function removeDups(names) {
+         let unique = {};
+            names.forEach(function(i) {
+            if(!unique[i]) {
+               unique[i] = true;
+            }
+         });
+         return Object.keys(unique);
+      }   
+
    function filter() {
 
       
       
-      mapped = Array(10, 11, 117, 119, 12, 121, 123, 124, 136, 140, 144, 145, 168, 171, 179, 184, 295, 303, 315, 321, 324, 324, 325, 327, 331, 4, 47, 51, 59, 6, 7, 126, 116, 34,77,49,33,3,22,18,311,302,287,262,248,193,103)
+      //mapped = Array(10, 11, 117, 119, 12, 121, 123, 124, 136, 140, 144, 145, 168, 171, 179, 184, 295, 303, 315, 321, 324, 324, 325, 327, 331, 4, 47, 51, 59, 6, 7, 126, 116, 34,77,49,33,3,22,18,311,302,287,262,248,193,103,296,95,193,87,32,183,324,59,18,227,179,180,302,198,311,26,108,116,303,19,236,2,92,286,332,145,126,306,151,211,191,315,101,103,229,155,310,121,47);
+
+      mapped = Array(10 ,101 ,103 ,108 ,11 ,116 ,117 ,119 ,12 ,121 ,123 ,124 ,126 ,136 ,140 ,144 ,145 ,151 ,155 ,168 ,171 ,179 ,18 ,180 ,183 ,184 ,19 ,191 ,193 ,198 ,2 ,211 ,22 ,227 ,229 ,236 ,248 ,26 ,262 ,286 ,287 ,295 ,296 ,3 ,302 ,303 ,306 ,310 ,311 ,315 ,32 ,321 ,324 ,325 ,327 ,33 ,331 ,332 ,34 ,4 ,47 ,49 ,51 ,59 ,6 ,7 ,77 ,86 ,87 ,92 ,95);
+
       mapped.sort();
-     // console.log(mapped);
+
+      removeDups(mapped);
+
+
+ 
+      //console.log(mapped);
 
       for(mappedID=0; mappedID < mapped.length; mappedID++) {
          
@@ -95,7 +113,8 @@
          
        
          if ((mapped[mappedID] == mapLocations[mapID].locID) ) {
-            console.log("----->>Matched", mapped[mappedID], mapLocations[mapID].locID );
+            //console.log("----->>Matched", mapped[mappedID], mapLocations[mapID].locID );
+            console.log(mapped[mappedID]);
             
             //console.log(mapID, mapLocations[mapID]);
             mapLocations.splice(mapID,1);
