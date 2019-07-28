@@ -6,12 +6,12 @@ var stats = {
    mapKDM: 0,
    future: 0,
 
-   castle: 0,
-   dungeon: 0,
-   natural: 0,
-   hole: 0,
-   terrain: 0,
-   other: 0,
+   Castle: 0,
+   Dungeon: 0,
+   Natural: 0,
+   Hole: 0,
+   Terrain: 0,
+   Other: 0,
 
    borreal: 0,
    jungle: 0,
@@ -277,6 +277,12 @@ function processData(allText, FullData) {
          console.log("each--------------------->>");
       }
 
+      if (data[i] == undefined) { 
+         console.log("++++++++++++++++++++++++>>>>>WOFRONGNGNGNGN<<<");
+      } else {
+         console.log("HELOO++++++++++++++++++++++++++++++>>>>>>>>>>>>>",i, data[i]);
+      }
+
       // not needed for this process
       deleteFromObject("Survey Response", data[i]);
       deleteFromObject("Rewards Sent?", data[i]);
@@ -351,7 +357,7 @@ function processData(allText, FullData) {
          }
       }
       if (data[i].isUnDefined) {
-         // console.log("User", data[i]["Backer Name"], "unfilled survey");
+          console.log("User", data[i]["Backer Name"], "unfilled survey");
       }
 
       // console.log(data[i].isUnDefined);
@@ -518,28 +524,48 @@ function processData(allText, FullData) {
 
          }
 
-         data[i].terraType.borders = data[i]["6. What Terrain Borders Your Location"];
-         deleteFromObject("6. What Terrain Borders Your Location", data[i]);
+         //data[i].terraType.borders = data[i]["6. What Terrain Borders Your Location"];
+         //deleteFromObject("6. What Terrain Borders Your Location", data[i]);
+
+         dataStructureSet = Array("Lake / Sea", "Coastal", "Swamp / Mangroves", "Desert",
+         "Taiga / Steppe",
+         "Plains / Grassland",
+         "Forest - Boreal or Temperate", "Forest - Jungle or Rainforest", "Hills/Cliffs",
+         "Mountains", "Other (Only choose if you have increased pledge)"
+      );
+
+      data[i].borders = {};
+      // structureSet = Array( "sea", "coastal", "swamp", "desert", "taiga", "plains",
+      //    "borreal",
+      //    "jungle",
+      //    "hills", "mountains");
+
+      data[i] = sortdata(dataStructureSet, "borders", terraSet, data[i],
+         "6. What Terrain Borders Your Location")
+
+
 
          // Structure Data Function
          //7. Which Biomes Would Suit Your Location
          dataStructureSet = Array("Mid Range (o.c winters, 30.c summers)",
-            "Warmer climates (10.c winters, 40.c summers)", "Any of the Above",
+            "Warmer climates (10.c winters, 40.c summers)", 
+            "Any of the Above",
             "Cooler Temperate Zone (minus winters, 20.c summers",
             "Arctic or Arctic Fringes ( minus winters, 0-5.c summers)",
-            "Tropical (20.c winters, 45.c summers)",
-            "Arctic or Arctic Fringes ( minus winters, 0-5.c summers", "No response");
+            "Tropical (20.c winters, 45.c summers)", "No response");
 
          data[i].biomes = {};
          structureSet = Array( "mid", "warm", "any", "cool", "arctic", "tropic", "arctic",
-            "any");
+            "n/a");
 
          data[i] = sortdata(dataStructureSet, "biomes", structureSet, data[i],
             "7. Which Biomes Would Suit Your Location")
 
          //8. Terrain Descriotion
-         data[i].terraType.description = data[i]["8. Describe Your Terrain, Border Terrain And Biome."];
-         deleteFromObject("8. Describe Your Terrain, Border Terrain And Biome.", data[i]);
+         if (data[i] && data[i]["8. Describe Your Terrain, Border Terrain And Biome."] != undefined){
+            data[i].terraType.description = data[i]["8. Describe Your Terrain, Border Terrain And Biome."];
+            deleteFromObject("8. Describe Your Terrain, Border Terrain And Biome.", data[i]);
+         }
 
          //9. Style Of Your Location (If Applicable, Choose Up To 2)
          dataStructureSet = Array( 
@@ -553,16 +579,19 @@ function processData(allText, FullData) {
             "Abandoned/Ruins", 
              "No response");
 
-
+            
          data[i].style = {};
+         console.log(data[i]);
          structureSet = Array( "euro",  "arab",   "asia",  "aztec","tents", "nomad",  "ruins",   "any");
          
 
          data[i] = sortdata(dataStructureSet, "style", structureSet, data[i],
             "9. Style Of Your Location (If Applicable, Choose Up To 2)");
 
+            console.log(data[i].style);
+
          // spread out the anys?
-         if (data[i].style.any) {
+         if (data[i].style && data[i].style.any) {
             rando = Math.ceil((Math.random() * 6) + 1);
             data[i].style[structureSet[rando]] = true;
             deleteFromObject("any", data[i].style);
@@ -570,22 +599,24 @@ function processData(allText, FullData) {
 
          counter = 0;
          // count the number of choices the user has chosen 2 allowed. if Three, chalk an easter egg
-         if (Object.keys(data[i].style).length > 2) {
+         console.log(data[i].style);
+         if (data[i].style != undefined) {
+            if (Object.keys(data[i].style).length > 2) { 
 
-            if (data[i].easterEggs > (Object.keys(data[i].style).length - 2)) {
-               data[i].easterEggs -= (Object.keys(data[i].style).length - 2);
+               if (data[i].easterEggs > (Object.keys(data[i].style).length - 2)) {
+                  data[i].easterEggs -= (Object.keys(data[i].style).length - 2); 
 
-            } else {
-               data[i].overspend++;
-               data[i].overspent.push("styles " + (Object.keys(data[i].style).length - 2));
-               console.log("User:", data[i]["Backer Name"], "styles", data[i].style);
-               console.log(data[i]);
-               //rando = Math.ceil((Math.random()*6)+1);
-               //deleteFromObject(structureSet[rando], data[i].style);
+               } else {
+                  data[i].overspend++;
+                  data[i].overspent.push("styles " + (Object.keys(data[i].style).length - 2));
+                  console.log("User:", data[i]["Backer Name"], "styles", data[i].style);
+                  console.log(data[i]);
+                  //rando = Math.ceil((Math.random()*6)+1);
+                  //deleteFromObject(structureSet[rando], data[i].style);
+               }  
+
             }
-
-
-         }
+         
          // Need to determine groups. 
          for (stylz = 0; stylz < (structureSet.length - 1); stylz++) {
             for (styls = 0; styls < (structureSet.length - 1); styls++) {
@@ -616,6 +647,7 @@ function processData(allText, FullData) {
                }
             }
          } /** */
+       
 
          //9. Terrain Descriotion
          data[i].style.description = data[i][
@@ -674,7 +706,7 @@ function processData(allText, FullData) {
                i]);
 
 
-
+            } // IF the data[i].style doesn't exist..
 
 
 
@@ -719,28 +751,28 @@ function processData(allText, FullData) {
             data[i].locType = {};
             for (loop = 0; loop < tempSet.length; loop++) {
                if (tempSet[loop] == "Castle/Fortress/City/Tower") {
-                  data[i].locType.castle = true;
-                  stats.castle++;
+                  data[i].locType.Castle = true;
+                  stats.cCstle++;
                   min1 = true;
                }
                if (tempSet[loop] == "Dungeon/Crypt/Tomb") {
-                  data[i].locType.dungeon = true;
-                  stats.dungeon++;
+                  data[i].locType.Dungeon = true;
+                  stats.Dungeon++;
                   min1 = true;
                }
                if (tempSet[loop] == "Exotic Natural Object (tree/rock/other)") {
-                  data[i].locType.natural = true;
-                  stats.natural++;
+                  data[i].locType.Natural = true;
+                  stats.Natural++;
                   min1 = true;
                }
                if (tempSet[loop] == "Mine/Hole/Crack in Ground") {
-                  data[i].locType.hole = true;
-                  stats.hole++;
+                  data[i].locType.Hole = true;
+                  stats.Hole++;
                   min1 = true;
                }
                if (tempSet[loop] == "Exotic/Abnormal Terrain") {
-                  data[i].locType.terrain = true;
-                  stats.terrain++;
+                  data[i].locType.Terrain = true;
+                  stats.Terrain++;
                   min1 = true;
                }
 
@@ -991,9 +1023,10 @@ function processData(allText, FullData) {
                "3. What Kind Of Location Do You Want ? You Can Combine By Clicking 3 Elements, (Or More For Higher Pledges)"
             )
 
-            data[i].smallLocA.description = data[i]['13b. Describe Location A'];
-            deleteFromObject("13b. Describe Location A", data[i]);
-
+               if (data[i]['13b. Describe Location A']) {
+                  data[i].smallLocA.description = data[i]['13b. Describe Location A'];
+                  deleteFromObject("13b. Describe Location A", data[i]);
+               }
          }
 
       }

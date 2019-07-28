@@ -1,0 +1,1205 @@
+[
+  
+  {
+    "Backer Number": 130,
+    "Backer Name": "Carrie McEwan",
+    "Email": "katira_a1@hotmail.com",
+    "Reward Minimum": "AU$ 3.00",
+    "Pledge Amount": "AU$ 3.00",
+    "title": "Crystal Tomb",
+    "smallLocA": { 
+      "statue":true,
+      "description": "Looks like a very large inverted (narrow at the bottom wider toward top) crystal In the middle of water lake/sea by its self with nothing around it for a good distance."
+    }, 
+    "terraType": {"water":true },
+    "biomes": { "mid":true },
+    "style": { 
+      "ruins":true,
+      "description": "No response"
+    
+    }, "documentText": "A tomb of the unknown.",
+    "map": { "original": true , "reskin": true , "kdm": true , "future": true },
+    "visible": true,
+    "Anything To Add?": "I would like this to be a place that makes GM’s and players both look at it and say “What’s that? What’s there? Let’s go find out.” For GM’s to be able to use the sight to have a random dungeon in/below/around."
+  },
+  
+
+  {
+    "Backer Number": 138,
+    "Backer Name": "Gabryiela",
+    "Email": "gabryiela.baranowski@gmail.com",
+    "Reward Minimum": "AU$ 3.00",
+    "Pledge Amount": "AU$ 3.00",
+    "title": "Pottsfield",
+    "smallLocA": { 
+      "vill+1": true, 
+      "farms": true , 
+      "fields": true, 
+      "description": "A secluded town that specializes in crop growing. Every year there is a celebration for the harvest."
+    }, 
+    "terraType": { "plains": true , "forest":true , "hills":true },
+    
+    "biomes": { "cool":true , "mid":true , "warm":true },
+    "style": { 
+      "euro":true,
+      "description": "Pumpkin patch"
+    
+    }, 
+    "documentText": "This small community is a secluded little piece of land, not aware of the outside world. It is not sure if this town holds a secret about everlasting life but rumors have been floating around that this town is mainly comprised of the undead that only appear during the harvest.",
+    "map": { "original": true , "reskin": true , "kdm": true },
+    "visible": false,
+    "Anything To Add?": "No response"
+  },
+  
+  
+  {
+    "Backer Number": 149,
+    "Backer Name": "Martyn Fleetwood",
+    "Email": "martyn.fleetwood@gmail.com",
+    "Reward Minimum": "AU$ 3.00",
+    "Pledge Amount": "AU$ 3.00",
+    "title": "Citadel of Krimlaxia",
+    "smallLocA": { "vill+1": true, "statue":true , "temple":true ,
+    "description": "Monastic citadel"
+    }, "terraType": { "taiga": true , "hills":true , "mountains":true },
+    
+    "biomes": { "cool":true , "mid":true , "warm":true },
+    "style": { 
+      "euro":true,
+      "description": "Immaculately neat and well kept"
+    }, 
+    "documentText": "The monastic citadel of Krimlaxia, is a well maintained area , the devotes of the paladin Krimlax keep it neat an tidy. The buildings all have blue roofs with storm clouds and lightning on them . The corners of many buildings are decorated with paining it of ornate red beards . The statue to Krimlax in the central square towers above all other building in the citadel. It’s inhabitants are polite and welcoming, but do have a cult like mentality and will try and recruit any visitors to worship Krimlax, and will not stand for any one insulting his good name . Other Thant they are well meaning and generous group of people.",
+    "map": { "original": true , "reskin": true , "kdm": true },
+    "visible": true,
+    "Anything To Add?": "Like a shaolin monastery but for paladins of Korda."
+  },
+  {
+    "Backer Number": 150,
+    "Backer Name": "Kyle David Frost",
+    "Email": "kyledavidfrost@gmail.com",
+    "Reward Minimum": "AU$ 3.00",
+    "Pledge Amount": "AU$ 3.00",
+    "title": "Breakerguard",
+    "smallLocA": { 
+      "guard": true , 
+      "lake":true , 
+      "ruins":true ,
+      "description": "An abandoned outpost built perilously into seaside cliffs. Buildings hang inaccessibly from the stone face with the only staircase destroyed by the elements long ago."
+    }, 
+    "terraType": {"water":true  , "hills":true },
+    
+    "biomes": "Any of the Above",
+    "style": { "arab":true , "ruins":true
+    
+    
+    }, 
+    "documentText": "Nobody remembers the threat that this outpost was built to address. Only accessible by a perilous climb, the remains of its final inhabitants, their belongings and their collected knowledge remain untouched.",
+    "map": { "original": true , "reskin": true , "kdm": true },
+    "visible": false,
+    "Anything To Add?": "No response"
+  },
+  {
+    "Backer Number": 151,
+    
+    "Backer Name": "M-D",
+    "Email": "kickstarter@eduro.nl",
+    
+    "Reward Minimum": "AU$ 3.00",
+    
+    "Pledge Amount": "AU$ 3.00",
+    "title": "Goldton",
+    "smallLocA": { 
+      "sign": true, 
+      "tents": true , 
+      "guard": true,
+    "description": "Guard checkpoint on / next to a crossing towards some major city"
+    }, "terraType": { 
+      "plains": true
+    },
+    
+    "biomes": { "mid":true , "warm":true , "tropic": true },
+    "style": { "euro":true , "nomad":true
+    
+    
+    }, 
+    "documentText": "The guards at Goldton protect one on the main trading routes that lead toward <city>.",
+    "map": { "original": true , "reskin": true , "kdm": true },
+    "visible": true,
+    "Anything To Add?": "Cool idea <3!"
+  },
+  {
+    "Backer Number": 154,
+    
+    "Backer Name": "Qualified backer",
+    "Email": "Kickstart@SuperBacker.Net",
+    
+    "Reward Minimum": "AU$ 3.00",
+    
+    "Pledge Amount": "AU$ 15.00",
+    "title": "Eyes of steel (As in I-beams, but an unknowing cartographer spells it eye)",
+    "smallLocA": { "other":true,
+    "description": "Railway tracks, wherever they will fit in :)"
+
+    }, "terraType": { "plains": true , "desert":true , "coast":true },
+    
+    "biomes": "Any of the Above",
+    "style": { "other": true,
+    "description": "Stretching through desolate areas of land a wandering traveller is likely to cross these. If lost, they will guide you to a town, no guarantee if the town will be friendly or not."
+    
+    }, "documentText": "Eyes of steel",
+    "map": { "original": true , "reskin": true , "kdm": true , "future": true },
+    "visible": false,
+    "Anything To Add?": "Thank you for doing this community project, I very much look forward to the result :)"
+  },
+  
+  {
+    "Backer Number": 157,
+    
+    "Backer Name": "Luke Oswald",
+    "Email": "luke@warriorslax.com",
+    
+    "Reward Minimum": "AU$ 3.00",
+    
+    "Pledge Amount": "AU$ 5.00",
+     "title": "Oswaldia",
+    "smallLocA": { "statue":true , "ruins":true , "abandoned...":true,
+    "description": "A place that has been deserted for a long time ... and looks scary"
+    }, "terraType": {"swamp":true , "hills":true , "mountains":true },
+    
+    "biomes": "Any of the Above",
+    "style": { "euro":true , "aztec": true , "ruins":true
+    
+    
+    }, "documentText": "Lasciate ogne speranza, voi ch'intrate",
+    "map": { "original": true },
+    "visible": true,
+    "Anything To Add?": "I have no idea really Bannister, I was just happy to chip in! You can use as much artistic licence as you like!"
+  },
+  
+  {
+    "Backer Number": 161,
+    
+    "Backer Name": "Riley Mark Lane",
+    "Email": "lane547@live.com.au",
+    
+    "Reward Minimum": "AU$ 3.00",
+    
+    "Pledge Amount": "AU$ 3.00",
+    
+        
+    "title": "Unnamed monolith",
+    "smallLocA": { "statue":true,
+    "description": "Broken in half, worn by time"
+    }, "terraType": {"jungle":true },
+    
+    "documentText": "An ancient monolith, worn by time. It is unknown why it was placed here.",
+    "map": { "original": true , "reskin": true },
+    "visible": true,
+    "Anything To Add?": "No response"
+  },
+  
+  {
+    "Backer Number": 173,
+    
+    "Backer Name": "Joshua Mattern",
+    "Email": "jmattern74@comcast.net",
+    
+    "Reward Minimum": "AU$ 3.00",
+    
+    "Pledge Amount": "AU$ 3.00",
+    
+    
+    
+    
+    
+    
+    
+    
+    "title": "Ring of the Watchers",
+    "smallLocA": { "statue":true , "lake":true , "dungeon": true,
+    "description": "On a scrubby plain of tall grass and near a placid, deep lake, a ring of 5 standing stones rudely carved to resemble cyclopes stands watch over a massive stone door embedded into the earth"
+    }, "terraType": { "plains": true },
+    
+    "biomes": { "mid":true },
+    "style": { "nomad":true,
+    "description": "Each stone 'Watcher' is covered with faint, weathered runes. If these could be translated, they might give an explorer a hint as to where to locate the Watcher's missing eye"
+    
+    }, "documentText": "(Paragraph 1) No one is sure who carved the 'Watchers' or built the stone door, and no one knows what is beneath it--though rumors tell of an ancient, fallen kingdon of cyclops sorcerors, and a great underground labyrinth leading to untold wealth. The standing stones of the Ring are dominated by the cyclopean 'eye sockets' that are carved deeply into each one. (Paragraph 2) No one has ever been able to open the great stone portal; it seems to be proof against all magic and physical efforts to open it, and the surrounding earth resists being dug into, reappearing as quickly as it is shoveled out. Legend has it that if the great gems that used to sit inside of each of the eyes were gathered and restored to their rightful places, the door will open...",
+    "map": { "original": true , "reskin": true , "kdm": true },
+    "visible": true,
+    "Anything To Add?": "Keep up the good work--I'm excited to see how this turns out!"
+  },
+  {
+    "Backer Number": 178,
+    
+    "Backer Name": "Stuart Knapp",
+    "Email": "stuartknapp54@gmail.com",
+    
+    "Reward Minimum": "AU$ 3.00",
+    
+    "Pledge Amount": "AU$ 3.00",
+    "title": "Fragments of the Damned",
+    "smallLocA": { "surround_trees": true , "temple":true , "ruins":true ,
+    "description": "Ancient ruined city surrounding an overgrown temple that is aged, but still standing."
+    }, "terraType": { "forest":true , "jungle":true },
+    
+    "biomes": { "mid":true , "warm":true , "tropic": true },
+    "style": { "aztec": true , "ruins":true,
+    "description": "Abandoned Aztec style pyramid temple overgrown with vines/moss (maybe some columns around the entrance). Surrounded by a ruined city (crumbled stone walls. very few, if any, structures still standing)"
+    
+    }, "documentText": "Nobody know what happened to the original inhabitants of this ruined city. Nobody even know who they may have been. Of those brave enough to investigate, very, very few ever return.",
+    "map": { "original": true , "reskin": true , "kdm": true },
+    "visible": false,
+    "Anything To Add?": "No response"
+  },
+  
+  
+  {
+    "Backer Number": 182,
+    "Backer Name": "Gerald",
+    "Email": "soulspinner@me.com",
+    
+    "Reward Minimum": "AU$ 3.00",
+    "Pledge Amount": "AU$ 7.00",
+    "title": "The Hermit Mage Tower",
+    "smallLocA": { 
+      "guard": true , 
+      "surround_trees": true , 
+      "dungeon": true,
+      "description": "A wizard's tower that is isolated due to being in such a remote and dangerous locale. When approached there is no visible trail to the tower as Mylar travels via magic and picked this spot to be left alone. Thus there needs to be no access by normal means."
+    }, 
+    "terraType": { "mountains":true },
+    
+    "biomes": { "cool":true },
+    "style": { 
+      "euro":true,
+      "description": "a simple round tower with crenelated top surrounding the very top floor so Mylar can walk out of his library and look out over creation and smoke his pipe"
+    
+    }, "documentText": "The tower is the home for Mylar the Hermit Mage. Mylar prefers to live alone with his companion \"Sam\". Mylar was a famous adventurer at one time. He retired when his company of explorers defeated an ancient red dragon. Some say they broke up in angst, some say they found wealth beyond imagination. What Mylar studies is unknown, he seems benign to some and to others he is whispered to do many foul things. His companion Sam is said to be a little goblin or a large blue monster (think Ogre Magi) or a multitude of other creatures. As with anything unknown the stories that are passed around are legion and just as varied. Some say the tower is the an entrance to a hidden warren of dwarves ruins filled with gold and other riches from the ground. Others say there is a hidden dungeon where an evil cult once flourished until Mylar deafened them with his powerful magics. in near by towns and villages, Mylar is seen as a tall, skeletal man who shows up to purchase supplies from time to time, He never uses his name and plays off that he is a herder of sheep in the mountains. Mylar loves to read and travels to larger cities to seek out and purchase tomes of all sorts. Thus there is also rumored to be a large library in his abode. Mylar is a very high level wizard that truly just wants to be alone. He is overly tall at seven and one half feet and so thin to look skeletal. He will try to dissuade anyone that shows up at his doorstep up to defending his home with deadly force. His companion is also fiercely loyal and will use all his abilities as an Ogre Magi to defend Mylar. The tower and abandoned mine under the tower are laced with magical and non magical traps in case someone does make it into the tower. Mylar will be relentless in his defense and if defeated will not rest until he has recovered his home and possessions . The tower is in good repair , while the vegetation surrounding it is over grown more to lack of interest than anything. Mylar prefers the fresh crisp air from his tower top to the shadows of the ground. I hope this all is coherent and please edit as you see fit.",
+    "map": { "original": true , "reskin": true , "kdm": true , "future": true },
+    "visible": false,
+    "Anything To Add?": "This is such a sweet campaign. Thank You!"
+  },
+  
+  {
+    "Backer Number": 185,
+    
+    "Backer Name": "Lindsay Newton-Smith",
+    "Email": "lindsay.newtonsmith@gmail.com",
+    
+    "Reward Minimum": "AU$ 3.00",
+    
+    "Pledge Amount": "AU$ 3.00",
+    
+    
+    
+    
+    
+    
+    
+    
+    "title": "Ruins to Frangiir",
+    "smallLocA": { "statue":true , "temple":true , "ruins":true ,
+    "description": "Old religious temple which was well know but now fallen to dosrepair"
+    }, "terraType": {"taiga":true},
+    
+    "biomes": { "cool":true },
+    "style": { "ruins":true , "tents":true ,
+    "description": "At the centre of the temple there was a statue to their god but the head has been removed"
+    
+    }, "documentText": "This temple was to the minor god Frangiir, until it was destroyed. Some acolytes still visit from time to time while others say that the god sometimes makes an appearance in the guise of an old man or child just to let adventurers know who he was in the endeavor to not be forgotten in the realm of man",
+    "map": { "original": true , "reskin": true },
+    "visible": true,
+    "Anything To Add?": "There is a mass grave nearby from 50 years ago from when the temple was first attacked."
+  },
+  {
+    "Backer Number": 189,
+    
+    "Backer Name": "Curtis",
+    "Email": "politicfish@gmail.com",
+    
+    "Reward Minimum": "AU$ 3.00",
+    
+    "Pledge Amount": "AU$ 21.00",
+     "title": "The Primevil Forest",
+    "smallLocA": { "statue":true , "lake":true , "surround_trees": true , "animals":true  , "ruins":true , "dungeon": true,
+    "description": "My concept for this was a huge, old-growth forest blocking the growth of a largish city."
+    }, "terraType": { "forest":true },
+    
+    "biomes":{ "mid":true },
+    "style": { "tents":true }, 
+    "documentText": "A huge ancient forest which few dare enter and from which fewer return. While some have tried and failed to settle it, the only group that has been able to survive long-term are a reclusive Druid clan banished from civilization.",
+    "map": { "original": true , "reskin": true },
+    "visible": true,
+    "Anything To Add?": "No response"
+  },
+  
+  {
+    "Backer Number": 192,
+    
+    "Backer Name": "W David MacKenzie",
+    "Email": "david@firstempires.com",
+    
+    "Reward Minimum": "AU$ 3.00",
+    
+    "Pledge Amount": "AU$ 3.00",
+     "title": "Savvan",
+    "smallLocA": { "lake":true , "temple":true , "ruins":true ,
+    "description": "This forgotten temple to a defeated god is carved into the frigid cliff face beside a frozen waterfall."
+    }, "terraType": {"hills":true , "mountains":true },
+    
+    "biomes": "Arctic or Arctic Fringes ( minus winters, 0-5.c summers",
+    "style": { "aztec": true , "ruins":true,
+    "description": "The temple and the terrain is desolate and harsh"
+    
+    }, "documentText": "This forgotten temple to a defeated god is carved into the frigid cliff face beside a frozen waterfall.",
+    "map": { "original": true },
+    "visible": true,
+    "Anything To Add?": "No response"
+  },
+  
+  {
+    "Backer Number": 205,
+    
+    "Backer Name": "Megan Garver",
+    "Email": "megan.garver@gmail.com",
+    
+    "Reward Minimum": "AU$ 3.00",
+    
+    "Pledge Amount": "AU$ 3.00",
+    
+    
+    
+    
+    
+    
+    
+    
+    "title": "Nykkenbrunnr",
+    "smallLocA": { "statue":true , Hole in the ground , "ruins":true },
+    "description": "A delapidated well with the likeness of an ancient water god carved into the stone.",
+    }, "terraType": { "forest":true , "water":true }, ,
+    
+    "biomes": "Arctic or Arctic Fringes ( minus winters, 0-5.c summers , "cool":true , "mid":true,
+    "style": { "euro":true , "ruins":true,
+    
+    
+    }, "documentText": "A well that appears to be an abandoned shrine to some ancient god.",
+    "map": { "original": true , "reskin": true , "kdm": true },
+    "visible": true,
+    "Anything To Add?": "No response"
+  },
+  {
+    "Backer Number": 208,
+    
+    "Backer Name": "Marwin Gabrecht",
+    "Email": "M.Gabrecht@gmx.net",
+    
+    "Reward Minimum": "AU$ 3.00",
+    
+    "Pledge Amount": "AU$ 3.00",
+    
+    
+    
+    
+    
+    
+    
+    
+    "title": "Talfing",
+    "smallLocA": { "vill+1": true, "lake":true , "temple":true , "ruins":true , "dungeon": true,
+    "description": "A little town hidden in the woods or mountains. A place to hide and live. It has all you need to live, like water and food.",
+    }, "terraType": {"jungle":true , "water":true  , "mountains":true },
+    
+    "biomes": { "mid":true , "warm":true },
+    "style": { "arab":true , "aztec": true,
+    
+    
+    }, "documentText": "A little town hidden in the woods or mountains. A good place to hide and live.",
+    "map": { "original": true , "kdm": true },
+    "visible": true,
+    "Anything To Add?": "No response"
+  },
+  {
+    "Backer Number": 209,
+    
+    "Backer Name": "Holystone",
+    "Email": "wateryuk@naver.com",
+    
+    "Reward Minimum": "AU$ 3.00",
+    
+    "Pledge Amount": "AU$ 3.00",
+    
+    
+    
+    
+    
+    
+    
+    
+    "title": "Anon",
+    "smallLocA": { "vill+1": true, "statue":true , Hole in the ground , "lake":true , Blacksmith , "ruins":true , "dungeon": true,
+    "description": "medieval, a little snowy",
+    }, "terraType": { "plains": true , "taiga":true , "mountains":true },
+    
+    "biomes": { "cool":true },
+    "style": { "euro":true,
+    
+    
+    }, "documentText": "Anon, Heart of \"Kingdom Astrict\".",
+    "map": { "original": true },
+    "visible": true,
+    "Anything To Add?": "No response"
+  },
+  
+  {
+    "Backer Number": 214,
+    
+    "Backer Name": "Trinity Knot Studio",
+    "Email": "info@trinityknotstudio.com",
+    
+    "Reward Minimum": "AU$ 3.00",
+    
+    "Pledge Amount": "AU$ 3.00",
+    
+    
+    
+    
+    
+    
+    
+    
+    "title": "The "temple":true of the Bitter Gods",
+    "smallLocA": { ""temple":true },
+    "description": ""temple":true of the Bitter Gods",
+    }, "terraType": {"swamp":true",
+    
+    "biomes": "mid":true,
+    "style": { ""ruins":true,
+    
+    
+    }, "documentText": ""temple":true of the Bitter Gods - Once worshipped widely these gods are casualties of a war of untold scale and are now a shadow of their former selves",
+    "map": { "original": true },
+    "visible": false,
+    "Anything To Add?": "No response"
+  },
+  {
+    "Backer Number": 215,
+    
+    "Backer Name": "Heath \"The Antipodean d20\" Farnden",
+    "Email": "club44@optusnet.com.au",
+    
+    "Reward Minimum": "AU$ 3.00",
+    
+    "Pledge Amount": "AU$ 3.00",
+    
+    
+    
+    
+    
+    
+    
+    
+    "title": "Old Greyburne Manor",
+    "smallLocA": { "guard": true , "ruins":true , "dungeon": true,
+    "description": "Old forgotten Manor/Estate that the forest has reclaimed",
+    }, "terraType": { "forest":true , "hills":true }
+    
+    "biomes": ""warm":true },
+    "style": { "euro":true , "ruins":true,
+    
+    
+    }, "documentText": "Old Greyburne Manor was abandoned after hostilities with warring bandits forced it's Baronet to leave in favour of more secure establishment. Over the last 40 years the forest has reclaimed it and the surrounding lands.",
+    "map": { "original": true },
+    "visible": false,
+    "Anything To Add?": "No response"
+  },
+  {
+    "Backer Number": 217,
+    
+    "Backer Name": "Christopher Doornbos",
+    "Email": "cdoornbos@gmail.com",
+    
+    "Reward Minimum": "AU$ 3.00",
+    
+    "Pledge Amount": "AU$ 3.00",
+    
+    
+    
+    
+    
+    
+    
+    
+    "title": "Rickety Tower",
+    "smallLocA": { "guard": true , "surround_trees": true , { "fields": true ": true },
+    "description": "Rickety wooden tower (30' base x 30' tall) with 8 slotted windows on the top floor, no door, in the middle of an open field surrounded by forest.",
+    }, "terraType": { "forest":true },
+    
+    "biomes": "mid":true,
+    "style": { "No response",
+    
+    
+    }, "documentText": "Rickety Tower (a wooden tower with no door, 8 arrow slots on the top floor, in the middle of a field, inhabited by Kobolds, casts a long shadow to the edge of the surrounding forest when the sun is low on the horizon)",
+    "map": { "original": true , "reskin": true },
+    "visible": false,
+    "Anything To Add?": "Thanks!"
+  },
+  {
+    "Backer Number": 219,
+    
+    "Backer Name": "Rachel Caton",
+    "Email": "mullberry@live.co.uk",
+    
+    "Reward Minimum": "AU$ 3.00",
+    
+    "Pledge Amount": "AU$ 3.00",
+    
+    
+    
+    
+    
+    
+    
+    
+    "title": "Caton Folly",
+    "smallLocA": { ""ruins":true },
+    "description": "On a forested hill overlooking the sea in the shape of a pandas face with an outer wall and crumbled towers and archways. One almost intact roofed structure of three thirds to the bottom of the shape",
+    }, "terraType": {"water":true  , "hills":true }
+    
+    "biomes": { "cool":true , "warm":true },
+    "style": { "euro":true , "aztec": true , "ruins":true,
+    
+    
+    }, "documentText": "Design much puzzled over by local population. Thought to be a homage to the long forgotten god Monty and his people the Hoomans.",
+    "map": { "original": true , "reskin": true , "kdm": true },
+    "visible": true,
+    "Anything To Add?": "No response"
+  },
+  
+  {
+    "Backer Number": 228,
+    
+    "Backer Name": "Dom Valenti",
+    "Email": "domvalenti@gmail.com",
+    
+    "Reward Minimum": "AU$ 3.00",
+    
+    "Pledge Amount": "AU$ 3.00",
+    
+    
+    
+    
+    
+    
+    
+    
+    "title": "Invaders",
+    "smallLocA": { "surrounds":true,
+    "description": "Undead zone",
+    }, "terraType": { "plains": true },
+    
+    "biomes": "Any of the Above",
+    "style": { ""ruins":true , "tents":true },
+    "description": "An army of undead about to invade",
+    
+    }, "documentText": "Undead zone. Unsafe",
+    "map": { "original": true , "reskin": true , "kdm": true },
+    "visible": true,
+    "Anything To Add?": "No response"
+  },
+  
+  {
+    "Backer Number": 232,
+    
+    "Backer Name": "Ondrej Wolf",
+    "Email": "wlkoso@gmail.com",
+    
+    "Reward Minimum": "AU$ 3.00",
+    
+    "Pledge Amount": "AU$ 3.00",
+    
+    
+    
+    
+    
+    
+    
+    
+    "title": "Dragon's nest",
+    "smallLocA": { ""dungeon": true,
+    "description": "Little mountain with only dragon tail sticking out of dark entrance",
+    }, "terraType": { "mountains":true },
+    "5.B. If Other, Add Details": "dragon tail size could be unnaturaly much bigger representing just a huddle of stones looking like gragon tail. It should have trinagle/arrow-like end",
+    "biomes": "Any of the Above",
+    "style": { ""ruins":true,
+    
+    
+    }, "documentText": "Dragon's cave",
+    "map": { "original": true , "reskin": true , "kdm": true },
+    "visible": true,
+    "Anything To Add?": "thanks for reminding me :)"
+  },
+  {
+    "Backer Number": 233,
+    
+    "Backer Name": "Maggie",
+    "Email": "mgilligan42@gmail.com",
+    
+    "Reward Minimum": "AU$ 3.00",
+    
+    "Pledge Amount": "AU$ 3.00",
+    
+    
+    
+    
+    
+    
+    
+    
+    "title": "A Forgotten "temple":true },
+    "smallLocA": { "statue":true , "temple":true , "ruins":true },
+    "description": "Its a small temple nestled into the surrounding landscape dedicated to an older local nature god. It blends into the landscape so well that its practically invisible from over 2 feet away. Whoever the god or goddess of the temple was, their name has faded along with most of the defining features on the temple. All thats left is the feeling that this was once someplace sacred and the feeling of holiness has lingered long after the death of its god.",
+    }, "terraType": { "plains": true , "taiga":true , "forest":true , "jungle":true , "water":true  , "hills":true , "mountains":true },
+    "5.B. If Other, Add Details": "The temple is supposed to be anonymous so it can really fit into any landscape so long as it is small, camouflaged, and a part of the landscape",
+    "biomes": "Any of the Above",
+    "style": { "No response",
+    "description": "The style depends on where on the map that it ends up because the idea is to be locally designed and to blend in with the landscape",
+    
+    }, "documentText": "A small temple nestled into the surrounding landscape dedicated to an older local god. It blends into the landscape so well that its practically invisible from over 2 feet away. Whoever the god or goddess of the temple was, their name has faded along with most of the defining features on the temple. All that's left is the feeling that this was once someplace sacred and the feeling of holiness has lingered long after the disappearance of its god.",
+    "map": { "original": true , "reskin": true , "kdm": true },
+    "visible": false,
+    "Anything To Add?": "No response"
+  },
+  {
+    "Backer Number": 234,
+    
+    "Backer Name": "Nathan",
+    "Email": "nab3737@gmail.com",
+    
+    "Reward Minimum": "AU$ 3.00",
+    
+    "Pledge Amount": "AU$ 3.00",
+    
+    
+    
+    
+    
+    
+    
+    
+    "title": "Hollow of Sarrow",
+    "smallLocA": { "abandoned...":true,
+    "description": "Giant tree hollow, the entrnce of which is obsurec by moss and debris. The area around it is calm and quiet with an unsettling feeling dread in the air.",
+    }, "terraType": { "forest":true },
+    
+    "biomes": { "cool":true , "mid":true , "warm":true },
+    "style": { ""ruins":true,
+    
+    "9.C. If Other, Add Details": "NA",
+    }, "documentText": "Giant tree hollow which was the home of a druid or ranger that protected the forest around. The druid/ranger commited suicide and his/her remains still hang inside slowly rotting away. A dread shade of the druid or ranger exist here now, waiting for others to come and share in its sarrow.",
+    "map": { "original": true , "reskin": true , "kdm": true , "future": true },
+    "visible": false,
+    "Anything To Add?": "No response"
+  },
+  
+  {
+    "Backer Number": 239,
+    
+    "Backer Name": "James Matcott",
+    "Email": "james_matcott@hotmail.com",
+    
+    "Reward Minimum": "AU$ 3.00",
+    
+    "Pledge Amount": "AU$ 5.00",
+    
+    
+    
+    
+    
+    
+    
+    
+    "title": "Gilderhill",
+    "smallLocA": { "vill+1": true, "vill+1": true, Blacksmith",
+    "description": "A village of elite craftsmen, whose centrally located blacksmith has drawn traders and travellers for decades. The blacksmith's symbol is a large golden sun emblazoned on a red anvil",
+    }, "terraType": { "plains": true , "coast":true , "water":true  , "hills":true }
+    
+    "biomes": { "cool":true , "mid":true,
+    "style": { "euro":true,
+    
+    
+    }, "documentText": "Gilderhill has long been revered as the town whose blacksmith forges the finest sabres and shortswords in the land. Their perfectly balanced blades, and gilded hilts, result in truly exquisite swords.",
+    "map": { "original": true , "reskin": true },
+    "visible": true,
+    "Anything To Add?": "No response"
+  },
+  {
+    "Backer Number": 247,
+    
+    "Backer Name": "Gemma Wallace",
+    "Email": "gemma_w1988@live.co.uk",
+    
+    "Reward Minimum": "AU$ 3.00",
+    
+    "Pledge Amount": "AU$ 3.00",
+    
+    
+    
+    
+    
+    
+    
+    
+    "title": "Ardun",
+    "smallLocA": { "statue":true , "temple":true },
+    "description": "Ardun is a temple/statue (depending on which location is chosen by you) that is placed in a grassy field surrounded by forrests and/or mountains, if the statue option is taken it would represent that of a white Dragon Born Paladin holding his shield and sword. If the temple is chosen then it would be made from natural white stone with green vines and white flowers wrapped around the pillars of the entry way",
+    }, "terraType": { "plains": true , "coast":true , "hills":true }
+    
+    "biomes": { "mid":true , "warm":true },
+    "style": { "euro":true , Asian (White Stone)",
+    
+    
+    }, "documentText": "The Shrine of Ardun serves as a reminder to those who follow him that everyone has a choice and it is those choices that defines who you are and how this world will remember you.",
+    "map": { "original": true , "reskin": true },
+    "visible": true,
+    "Anything To Add?": "No response"
+  },
+  
+  {
+    "Backer Number": 253,
+    
+    "Backer Name": "Scott de Longville",
+    "Email": "scott.delongville@kbr.com",
+    
+    "Reward Minimum": "AU$ 3.00",
+    
+    "Pledge Amount": "AU$ 3.00",
+    
+    
+    
+    
+    
+    
+    
+    
+    "title": "",
+    "smallLocA": { "",
+    "description": "",
+    }, "terraType": {",
+    "5.B. If Other, Add Details": "",
+    "biomes": "",
+    "style": { "",
+    "description": "",
+    "9.C. If Other, Add Details": "",
+    }, "documentText": "",
+    "map": "",
+    "visible": "",
+    "Anything To Add?": ""
+  },
+  {
+    "Backer Number": 261,
+    
+    "Backer Name": "Invictus - Gardener of Valoria",
+    "Email": "ebrandeis@gmail.com",
+    
+    "Reward Minimum": "AU$ 3.00",
+    
+    "Pledge Amount": "AU$ 3.00",
+    
+    
+    
+    
+    
+    
+    
+    
+    "title": "The Forbidden Pit",
+    "smallLocA": { "tents": true , Hole in the ground , { "fields": true ": true },
+    "description": "The King's men have set up a military camp in the "fields": true  outside of town. They are preventing access to a massively deep pit that opened up in the field and preventing anyone from entering (and exiting?!). If you can infiltrate the camp, you may be able to descend into the pit and discover it's cause and perhaps more.",
+    }, "terraType": { "plains": true },
+    
+    "biomes": { "cool":true , "mid":true,
+    "style": { "euro":true , Asian (White Stone)",
+    
+    
+    }, "documentText": "The pit was formed by a meteor strike. Unfortunately, the meteor carried alien microbes that can infect and mutate reptiles on this planet. It blasted through hundreds of feet of earth and opened a hole into a lost underground temple created by the snakemen who once ruled this land. Their bodies lie at rest within the temple, but have been infected by the alien microbes and revivified - not alive, but not dead either. The microbes have also infect numerous harmless newts, snakes, and frogs, causing them to grow in size and gain abnormal features and abilities. The temple holds great treasure and items of ancient power, but the revived snakemen are deadly guardians. Further, the infection seems to be spreading beyond the pit and the King's men are barely able to contain the monstrosities that are pouring forth.",
+    "map": { "original": true },
+    "visible": true,
+    "Anything To Add?": "RE #12, Everyone knows that there is an encampment in the "fields": true  outside of town, but few know of the pit and even fewer of the danger it presents."
+  },
+  
+  {
+    "Backer Number": 266,
+    
+    "Backer Name": "Tony Hoffmann",
+    "Email": "sicphyer@gmx.de",
+    
+    "Reward Minimum": "AU$ 3.00",
+    
+    "Pledge Amount": "AU$ 3.00",
+    
+    
+    
+    
+    
+    
+    
+    
+    "title": "",
+    "smallLocA": { "",
+    "description": "",
+    }, "terraType": {",
+    "5.B. If Other, Add Details": "",
+    "biomes": "",
+    "style": { "",
+    "description": "",
+    "9.C. If Other, Add Details": "",
+    }, "documentText": "",
+    "map": "",
+    "visible": "",
+    "Anything To Add?": ""
+  },
+  {
+    "Backer Number": 271,
+    
+    "Backer Name": "Lane Voigtlaender",
+    "Email": "lanevoigtlaender@yahoo.com",
+    
+    "Reward Minimum": "AU$ 3.00",
+    
+    "Pledge Amount": "AU$ 3.00",
+    
+    
+    
+    
+    
+    
+    
+    
+    "title": "",
+    "smallLocA": { "",
+    "description": "",
+    }, "terraType": {",
+    "5.B. If Other, Add Details": "",
+    "biomes": "",
+    "style": { "",
+    "description": "",
+    "9.C. If Other, Add Details": "",
+    }, "documentText": "",
+    "map": "",
+    "visible": "",
+    "Anything To Add?": ""
+  },
+  
+  {
+    "Backer Number": 282,
+    
+    "Backer Name": "Ryan Palfreyman",
+    "Email": "RyanPalfreyman@gmail.com",
+    
+    "Reward Minimum": "AU$ 3.00",
+    
+    "Pledge Amount": "AU$ 5.00",
+    
+    
+    
+    
+    
+    
+    
+    
+    "title": "Rykh",
+    "smallLocA": { "vill+1": true, "vill+1": true, "surround_trees": true },
+    "description": "While Rykh not particularly large by civilised standards, it is so far away from any other kind of settlement that it is considered huge by everyone in the vicinity. It is a final outpost of quasi-civilisation in the middle of deep, forested wilderness. Most of the inhabitants are ogres, though there is also a large minority of humans.",
+    }, "terraType": { "forest":true },
+    
+    "biomes": { "cool":true },
+    "style": { "euro":true , "tents":true },
+    "description": "Most buildings are made from wood, though a few of the most important buildings are stone.",
+    
+    }, "documentText": "While Rykh not particularly large by civilised standards, it is so far away from any other kind of settlement that it is considered huge by everyone in the vicinity. It is a final outpost of quasi-civilisation in the middle of deep, forested wilderness. Most of the inhabitants are ogres, though there is also a large minority of humans. The town's name is commonly used idiomatically to mean \"as far away as you can possibly go\".",
+    "map": { "original": true , "reskin": true , "kdm": true , "future": true },
+    "visible": true,
+    "Anything To Add?": "No response"
+  },
+  {
+    "Backer Number": 283,
+    
+    "Backer Name": "John Bowlin",
+    "Email": "knight37m@gmail.com",
+    
+    "Reward Minimum": "AU$ 3.00",
+    
+    "Pledge Amount": "AU$ 3.00",
+    
+    
+    
+    
+    
+    
+    
+    
+    "title": "Paix du Lac",
+    "smallLocA": { "vill+1": true, "vill+1": true, "lake":true , "animals":true ",
+    "description": "Peaceful lakeside fishing village of around 2000 folk during the winters but jumping to 3000 - 3500 during the tourist season in the summers.",
+    }, "terraType": { "plains": true , "water":true }, ,
+    
+    "biomes": { "mid":true , "warm":true },
+    "style": { "euro":true,
+    "description": "Feels like the French Riviera in style.",
+    
+    }, "documentText": "Paix du Lac is a peaceful little fishing village that sits quietly on the shores of a major lake where a river feeds into the lake. The villagers are mostly very laid back and amiable to strangers. Known for its summer festivals and a hot spot for vacationing nobles, Paix du Lac has a frequent influx of vistors and a busy trading district. The wealthy of the town sit on their outdoor balcony overlooking the lake, taking in the amazing sunsets and fantastic scenery. While it is rumored that the town harbors smuggling operations, crime is not uncommonly prolific within the town.",
+    "map": { "original": true },
+    "visible": true,
+    "Anything To Add?": "Question 12 is contradictory... but this town is public knowledge."
+  },
+
+  
+  
+  {
+    "Backer Number": 288,
+    
+    "Backer Name": "Lori Steinerd",
+    "Email": "loristeinerd@yahoo.com",
+    
+    "Reward Minimum": "AU$ 3.00",
+    
+    "Pledge Amount": "AU$ 3.00",
+    
+    
+    
+    
+    
+    
+    
+    
+    "title": "Crystal cave",
+    "smallLocA": { "Hole in the ground",
+    "description": "A small cave opening with crystals or amethyst inside. Small enough for a human to enter",
+    }, "terraType": { "plains": true , "taiga":true , "mountains":true },
+    
+    "biomes": { "cool":true },
+    "style": { ""ruins":true,
+    "description": "Multiple colored crystals",
+    
+    }, "documentText": "Small Crystal Cave",
+    "map": { "original": true },
+    "visible": true,
+    "Anything To Add?": "No response"
+  },
+  {
+    "Backer Number": 291,
+    
+    "Backer Name": "BJ Chamberlain",
+    "Email": "funniestguyintheworld@gmail.com",
+    
+    "Reward Minimum": "AU$ 3.00",
+    
+    "Pledge Amount": "AU$ 3.00",
+    
+    
+    
+    
+    
+    
+    
+    
+    "title": "random",
+    "smallLocA": { "No response",
+    "description": "random",
+    }, "terraType": { "plains": true },
+    "5.B. If Other, Add Details": "random",
+    "biomes": "No response",
+    "style": { "No response",
+    
+    
+    }, "documentText": "random",
+    "map": { "original": true },
+    "visible": true,
+    "Anything To Add?": "No response"
+  },
+  
+  {
+    "Backer Number": 297,
+    
+    "Backer Name": "Flux",
+    "Email": "ender667@gmail.com",
+    
+    "Reward Minimum": "AU$ 3.00",
+    
+    "Pledge Amount": "AU$ 5.00",
+    
+    
+    
+    
+    
+    
+    
+    
+    "title": "S+C",
+    "smallLocA": { ""surround_trees": true },
+    "description": "A couple on a picnic, with a tree that has a heart carved in it with S+C inside the heart. If that's not too cheesy for you. ;-)",
+    }, "terraType": { "forest":true },
+    
+    "biomes": "mid":true,
+    "style": { "euro":true,
+    
+    
+    }, "documentText": "Don't really need text..the heart explains it all.",
+    "map": { "original": true , "reskin": true , "kdm": true , "future": true },
+    "visible": true,
+    "Anything To Add?": "Love this whole idea...if no one buys the KDM map, let me know...I might be able to later."
+  },
+  {
+    "Backer Number": 298,
+    
+    "Backer Name": "Ralf Muhlberger",
+    "Email": "ralfm@muhlberger.com",
+    
+    "Reward Minimum": "AU$ 3.00",
+    
+    "Pledge Amount": "AU$ 3.00",
+    
+    
+    
+    
+    
+    
+    
+    
+    "title": "The Library",
+    "smallLocA": { ""temple":true },
+    "description": "A temple to knowledge.",
+    }, "terraType": { "plains": true , "forest":true , "mountains":true },
+    
+    "biomes": "Any of the Above",
+    "style": { "euro":true , "ruins":true,
+    "description": "The building has a sense of seclusion. There are many places to sit and not be disturbed, and the place itself has that feel from society.",
+    
+    }, "documentText": "The Library",
+    "map": { "original": true },
+    "visible": true,
+    "Anything To Add?": "No response"
+  },
+  {
+    "Backer Number": 299,
+    
+    "Backer Name": "Markus",
+    "Email": "markus.jorra@web.de",
+    
+    "Reward Minimum": "AU$ 3.00",
+    
+    "Pledge Amount": "AU$ 3.00",
+    
+    "title": "Yenri's farm",
+    "smallLocA": { ""animals":true  , "farms": true , { "fields": true ": true },
+    "description": "A simple farm with "fields": true  and grazing sheep",
+    }, "terraType": { "plains": true },
+    
+    "biomes": { "cool":true },
+    "style": { "euro":true,
+    
+    
+    }, "documentText": "Yenri's farm",
+    "map": { "original": true },
+    "visible": true,
+    "Anything To Add?": "No response"
+  },
+  {
+    "Backer Number": 301,
+
+    "Backer Name": "William Huber",
+    "Email": "lazarus1020@yahoo.com",
+
+    "Reward Minimum": "AU$ 3.00",
+
+    "Pledge Amount": "AU$ 3.00",
+    
+    "title": "Castle Istengal",
+    "smallLocA": { "abandoned...":true,
+    "description": "The ruins of a once great castle",
+    }, "terraType": {"swamp":true , "coast":true },
+    
+    "biomes": { "mid":true , "warm":true , "tropic": true },
+    "style": { "euro":true , "ruins":true,
+    
+    
+    }, "documentText": "Once a majestic castle that brought peace and prosperity to the surrounding land. One night thunderous battle sounds were heard within the castle. Villagers went up to check but none returned. Since that night not a single living being has come from within castle.",
+    "map": { "original": true , "reskin": true , "kdm": true },
+    "visible": true,
+    "Anything To Add?": "No response"
+  },
+  
+  
+  {
+    "Backer Number": 308,
+    
+    "Backer Name": "Donald Ferris",
+    "Email": "doncferris@chemist.com",
+    
+    "Reward Minimum": "AU$ 3.00",
+    
+    "Pledge Amount": "AU$ 3.00",
+    
+    
+    
+    
+    
+    
+    
+    
+    "title": "Mae-Mae's Reach",
+    "smallLocA": { 
+      "vill+1": true, 
+      "guard": true , 
+      "surround_trees": true,
+      "description": "This small town is almost lost in the expansive forest that it resides in. This forest is wild and untamed, dangerous for those who are not trained in the arts of survival.",
+    }, 
+    "terraType": { "forest":true},
+    
+    "biomes": { "mid":true },
+    "style": { "euro":true,
+      "description": "some Elven aspects",
+    
+    }, 
+    "documentText": "The town was originally a simple band of druids, rangers, and a few nature lovers that wanted to live in a place far removed from society and named after their leader. Mae-Mae chose a defensible location as she sensed the pending onslaught from the dark denizens of the forest. When the attack came in the dead of night, Mae-Mae was already awake and alert. The druid led her followers to battle, moving from skirmish to skirmish, wherever the fighting was most fierce and the situation most dire. Though she would surrender her life in the attempt, the battle would be won. Her final wish was for her town to remain, to defend the forest against further attack and to train those in the future. The town has slowly expanded since then. The area immediately surrounding is is kept safe, and the town welcomes those willing to listen to nature's lessons. Rangers and druids accept students, while herbalists can learn new tricks of healing. The druid's grove of the town is renowned despite the towns small size.",
+    "map": { "original": true , "reskin": true , "kdm": true },
+    "visible": true,
+    "Anything To Add?": "No response"
+  },
+  
+  {
+    "Backer Number": 313,
+    
+    "Backer Name": "Adam Jenkins",
+    "Email": "adam.jenkins@unisa.edu.au",
+    
+    "Reward Minimum": "AU$ 3.00",
+    
+    "Pledge Amount": "AU$ 3.00",
+    
+    
+    
+    
+    
+    
+    
+    
+    "title": "Clay",
+    "smallLocA": { "vill+1": true,
+    "description": "A small village with a history of making pottery due to the surrounding soil."
+    }, 
+    "terraType": { "hills":true },
+    
+    "biomes": "No response",
+    "style": { "euro":true,
+    
+    
+    }, "documentText": "The soil surrounding Clay allws the town's potters to create a unique pottery with a green colouring.",
+    "map": { "original": true },
+    "visible": true,
+    "Anything To Add?": "No response"
+  }
+ 
+]

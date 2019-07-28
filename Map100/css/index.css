@@ -53,6 +53,15 @@
    z-index: 3;
 }
 
+.gridLarge {
+   width: 200px;
+   height: 200px;
+   float: left;
+   margin-left: -26px;
+   position: absolute;
+   z-index: 8;
+}
+
 .gridImg {
    background: url('../img/hex3.png');
    background-size: 100px 100px;
@@ -60,7 +69,190 @@
    position: absolute;
    z-index: 5;
 }
+.gridImgLarge {
+   background: url('../img/hex3.png');
+   background-size: 200px 200px;
+   width: 200px;
+   height: 200px;
+   position: absolute;
+   z-index: 6;
+}
 
+
+.trapezoidUL,
+.trapezoidU,
+.trapezoidUR,
+.trapezoidLL,
+.trapezoidL,
+.trapezoidLR {
+   border-left: 45px solid transparent;
+   border-right: 45px solid transparent;
+   height: 0;
+   width: 346px;
+   position: absolute;
+   z-index: 3 ;
+   opacity : 0.75;
+   background-color: transparent !important;
+}
+.trapezoidUp, .trapezoidDown {
+   border-left: 215px solid transparent;
+   border-right: 215px solid transparent;
+   height: 0;
+   width: 430px;
+   position: absolute;
+   top: 15px;
+   left: 20px;
+   z-index: 1;
+}
+.trapezoidDown {
+   transform: rotate(180deg);
+   top: 390px;
+}
+
+.trapezoidUL {
+   border-bottom: 80px solid red;
+   top: 180px;
+   left: -60px;
+   transform: rotate(120deg);
+}
+
+.trapezoidU {
+   border-bottom: 80px solid orange;
+   top: 10px;
+   left: 230px;
+   transform: rotate(180deg);
+  
+}
+
+.trapezoidUR {
+   border-bottom: 80px solid yellow;
+   top: 180px;
+   right: -60px;
+   transform: rotate(240deg);
+}
+
+.trapezoidLL {
+   border-bottom: 80px solid purple;
+   bottom: 180px;
+   left: -60px;
+   transform: rotate(60deg);
+   
+}
+
+.trapezoidL {
+   border-bottom: 80px solid blue;
+   bottom: 10px;
+   left: 232px;
+   transform: rotate(0deg);
+}
+
+.trapezoidLR {
+   border-bottom: 80px solid green;
+   bottom: 182px;
+   right: -60px;
+   transform: rotate(300deg);
+   
+}
+
+.table {
+   background: url('../img/hex2.jpg');
+   background-size: 900px 780px;
+   width: 900px;
+   height: 780px;
+   position: absolute;
+   z-index: 1;
+   
+}
+
+.table .title {
+   color: rgba(240, 245, 245, 0.9);
+   font-size: 18pt;
+   position: absolute;
+   left: 126px;
+   top: -33px;
+   z-index: 6;
+}
+
+.table .title2 {
+   color: black;
+   font-size: 18pt;
+   position: absolute;
+   left: 125px;
+   top: -4px;
+   z-index: 5;
+
+}
+
+.table .title3,
+.pledge,
+.locID, .smallLoc, .mainLoc {
+   color: black;
+   font-size: 30pt;
+   position: absolute;
+   left: 300px;
+   top: 95px;
+   z-index: 5;
+   background-color: white;
+   border-radius: 15%;
+   border: 1px solid black;
+}
+.mainLoc0, .mainLoc1, .mainLoc2, .mainLoc3, .mainLoc4, .mainLoc5 {
+   width: 250px;
+display: inline-flex;
+}
+.mainLoc0 {
+   top: 150px;
+   left: 250px;
+}
+.mainLoc1 {
+   top: 150px;
+   left: 550px;
+}
+.mainLoc2 {
+   top: 225px;
+   left: 250px;
+}
+.mainLoc3 {
+   top: 225px;
+   left: 550px;
+}
+.mainLoc4 {
+   top: 300px;
+   left: 250px;
+}
+.mainLoc5 {
+   top: 300px;
+   left: 550px;
+}
+.smallLocA {
+   left: 215px;
+   top: 350px;
+   
+}
+.smallLocB {
+   left: 550px;
+   top: 350px;
+}
+.smallLocA0, .smallLocB0 {
+   top: 375px; 
+}
+.smallLocA1, .smallLocB1 {
+   top: 425px; 
+}
+.smallLocA2, .smallLocB2 {
+   top: 475px; 
+}
+
+
+.pledge {
+   left: 245px;
+   top: 30px;
+}
+
+.locID {
+   left: 600px;
+   top: 30px;
+}
 
 
 .alternate {
@@ -73,6 +265,14 @@
    background-color: rgba(122, 122, 122, 0.25);
    margin: 10px;
    padding: 5px;
+   z-index: 5;
+}
+.loctype {
+   width: 60px;
+   height: 60px;
+   background-color: rgba(122, 122, 122, 0.25);
+   margin: 0px;
+   padding: 0px;
    z-index: 5;
 }
 
@@ -394,11 +594,17 @@
 
 .mountains,
 .peaks {
-   background-color: brown;
    background-image: url('../img/Icons.png');
    background-size: 400px 500px;
    background-position: 225px 450px;
    /* X and Y */
+}
+.tr_mountains {
+   border-bottom: 375px solid brown;
+}
+.col_mountains {
+   background-color: brown;
+   border-bottom-color: brown;
 }
 
 .peaks {
@@ -406,80 +612,155 @@
 }
 
 .hills {
-   background-color: tan;
+
    background-image: url('../img/Icons.png');
    background-size: 400px 400px;
    background-position: 115px 372px;
    /* X and Y */
 }
+.tr_hills {
+   border-bottom: 375px solid tan;
+}
+.col_hills {
+   background-color: tan;
+   border-bottom-color: tan;
+}
 
 .plains {
-   background-color: lightgreen;
    background-image: url('../img/Icons.png');
    background-size: 390px 400px;
    background-position: 320px 280px;
 }
+.tr_plains {
+   border-bottom: 375px solid lightgreen;
+}
+.col_plains {
+   background-color: lightgreen;
+   border-bottom-color: lightgreen;
+}
 
 .sea {
+   
+}
+.tr_sea {
+   border-bottom: 375px solid MediumTurquoise;
+}
+.col_sea {
    background-color: MediumTurquoise;
+   border-bottom-color: MediumTurquoise;
 }
 
 
 .borreal {
-   background-color: ForestGreen;
+   
    background-image: url('../img/Icons.png');
-   background-size: 420px 350px;
+   background-size: 375px 350px;
    background-position: 183px 264px;
 
 }
+.tr_borreal {
+   border-bottom: 375px solid ForestGreen;
+}
+.col_borreal {
+   background-color: ForestGreen;
+   border-bottom-color: ForestGreen;
+}
 
 .jungle {
-   background-color: MediumSeaGreen;
+  
    background-image: url('../img/Icons.png');
-   background-size: 420px 350px;
+   background-size: 375px 350px;
    background-position: 125px 264px;
 
+}
+.tr_jungle {
+   border-bottom: 375px solid MediumSeaGreen;
+}
+.col_jungle {
+   background-color: MediumSeaGreen;
+   border-bottom-color: MediumSeaGreen;
 }
 
 .coastal {
    background-color: Aquamarine;
 }
+.tr_coastal {
+   border-bottom: 375px solid Aquamarine;
+}
+.col_coastal {
+   background-color: Aquamarine;
+   border-bottom-color: Aquamarine;
+}
 
 .desert {
-   background-color: PaleGoldenrod;
+   
    background-image: url('../img/Icons.png');
    background-size: 450px 400px;
    background-position: 365px 275px;
 
 }
+.tr_desert {
+   border-bottom: 375px solid PaleGoldenrod;
+}
+.col_desert {
+   background-color: PaleGoldenrod;
+   border-bottom-color: PaleGoldenrod;
+}
 
 .other {
-   background-color: rgb(236, 137, 240);
+   
    background-image: url('../img/Icons.png');
    background-size: 450px 400px;
    background-position: 365px 275px;
 
+}
+.tr_other {
+   border-bottom: 375px solid rgb(236, 137, 240);
+}
+.col_other {
+   background-color: rgb(236, 137, 240);
+   border-bottom-color: rgb(236, 137, 240);
 }
 
 .lake {
    background-color: LightSkyBlue;
 }
-
+.tr_lake {
+   border-bottom: 375px solid LightSkyBlue;
+}
+.col_lake {
+   background-color: LightSkyBlue;
+   border-bottom-color:LightSkyBlue;
+}
 
 .taiga {
-   background-color: DarkSlateGray;
+   
    background-image: url('../img/Icons.png');
    background-size: 400px 350px;
    background-position: 294px 252px;
 
 }
+.tr_taiga {
+   border-bottom: 375px solid DarkSlateGray;
+}
+.col_taiga {
+   background-color: DarkSlateGray;
+   border-bottom-color:DarkSlateGray;
+}
 
 .swamp {
-   background-color: Olive;
+  
    background-image: url('../img/Icons.png');
    background-size: 400px 350px;
    background-position: 275px 161px;
 
+}
+.tr_swamp {
+   border-bottom: 375px solid Olive;
+}
+.col_swamp {
+   background-color: Olive;
+   border-bottom-color:Olive;
 }
 
 .terraType {
@@ -497,124 +778,14 @@
    background-position: 196px 175px;
 }
 
-
-.trapezoidUL,
-.trapezoidU,
-.trapezoidUR,
-.trapezoidLL,
-.trapezoidL,
-.trapezoidLR {
-   border-left: 25px solid transparent;
-   border-right: 25px solid transparent;
-   height: 0;
-   width: 500px;
-   position: absolute;
-   z-index: 1;
-
-}
-
-.trapezoidUL {
-   border-bottom: 80px solid red;
-   top: 226px;
-   left: -113px;
-   transform: rotate(116.5deg);
-}
-
-.trapezoidU {
-   border-bottom: 80px solid orange;
-   top: 3px;
-   left: 225px;
-   transform: rotate(180deg);
-   z-index: 1;
-}
-
-.trapezoidUR {
-   border-bottom: 80px solid yellow;
-   top: 224px;
-   left: 562px;
-   transform: rotate(243.5deg);
-}
-
-.trapezoidLL {
-   border-bottom: 80px solid purple;
-   top: 692px;
-   left: -115px;
-   transform: rotate(63.5deg);
-   z-index: 1;
-}
-
-.trapezoidL {
-   border-bottom: 80px solid blue;
-   top: 916px;
-   left: 227px;
-   transform: rotate(0deg);
-}
-
-.trapezoidLR {
-   border-bottom: 80px solid green;
-   top: 696px;
-   left: 577px;
-   transform: rotate(296.5deg);
-   z-index: 1;
-}
-
-.table {
-   background: url('../img/hex2.jpg');
-   background-size: 1000px 1000px;
-   width: 1000px;
-   height: 1000px;
-   position: absolute;
-   z-index: 3;
-}
-
-.table .title {
-   color: rgba(240, 245, 245, 0.9);
-   font-size: 18pt;
-   position: absolute;
-   left: 126px;
-   top: -33px;
-   z-index: 6;
-}
-
-.table .title2 {
-   color: black;
-   font-size: 18pt;
-   position: absolute;
-   left: 125px;
-   top: -4px;
-   z-index: 5;
-
-}
-
-.table .title3,
-.pledge,
-.locID {
-   color: black;
-   font-size: 30pt;
-   position: absolute;
-   left: 300px;
-   top: 150px;
-   z-index: 5;
-
-}
-
-.pledge {
-   left: 310px;
-   top: 95px;
-}
-
-.locID {
-   left: 645px;
-   top: 95px;
-}
-
-.table .text {
-   margin-top: 200px;
-   width: 70%;
-   margin-left: 15%;
+.text {
+   margin-top: 800px;
+   width: 900px;
+   
    background: #eee;
    z-index: 8;
-   font-size: 28pt;
+   font-size: 27pt;
+   position: absolute;
 }
 
 .table .mainText {
@@ -636,6 +807,12 @@
    width: 55%;
    z-index: 7;
    font-size: 20pt;
+}
+
+.singleTerrain {
+      top: 290px;
+      left: 37px;
+      z-index: 10;
 }
 
 .innersea {
@@ -747,8 +924,9 @@ button {
 .nomadLoc,
 .tentsLoc,
 .ruinsLoc {
-   top: 25px;
-   left: 25px;
+   top: 300px;
+   left: 740px;
+   border: black 1px solid;
 }
 
 .euroIcon {
@@ -828,6 +1006,7 @@ pre {
    height: 25px;
    position: absolute;
    left: 35px;
+   z-index: 10;
 }
 
 .arcticlevel {

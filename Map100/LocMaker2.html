@@ -496,10 +496,12 @@ var EasterSet = Array( "mvil", "svil", "dungeon", "ruin", "label", "sign", "stat
 
          $.ajax({
             type: "GET",
-            url: "./data/small.csv",
+            url: "./data/csvjson3.json",
             dataType: "text",
             success: function (data2) {
-               processData(data2, false);
+               data2 = JSON.parse(data2);
+               console.log("small", data2.length);
+               mapLocations.push.apply(mapLocations, data2);
             },
             error: function (error) {
                //        console.log(error);
@@ -508,12 +510,12 @@ var EasterSet = Array( "mvil", "svil", "dungeon", "ruin", "label", "sign", "stat
 
          $.ajax({
             type: "GET",
-            url: "./data/large.csv",
+            url: "./data/csvjson4.json",
             dataType: "text",
             success: function (data1) {
-               console.log("loaded");
-
-               processData(data1, true);
+               data1 = JSON.parse(data1);
+               console.log("large", data1.length);
+               mapLocations.push.apply(mapLocations, data1);
             },
             error: function (error) {
                //      console.log(error);
