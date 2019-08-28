@@ -242,6 +242,18 @@ display: inline-flex;
 .smallLocA2, .smallLocB2 {
    top: 475px; 
 }
+.smallLocA3, .smallLocB3 {
+   top: 525px; 
+}
+.smallLocA4, .smallLocB4 {
+   top: 575px; 
+}
+.smallLocA5, .smallLocB5 {
+   top: 625px; 
+}
+.smallLocA6, .smallLocB6 {
+   top: 675px; 
+}
 
 
 .pledge {

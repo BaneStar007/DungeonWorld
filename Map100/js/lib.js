@@ -347,6 +347,8 @@ function sortdata(dataStructure, style, structureSet, dataSet, dataTitle, show =
    
    if (show) console.log("defined:"+style );
 
+   if (structureSet == undefined) { console.log("Structure Set Undefined");}
+
    notMissing = false;
    if (dataSet[dataTitle] != undefined) {
       temp = dataSet[dataTitle];

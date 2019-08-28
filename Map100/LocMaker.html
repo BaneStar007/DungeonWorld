@@ -50,7 +50,7 @@ var EasterSet = Array( "mvil", "svil", "dungeon", "ruin", "label", "sign", "stat
          // Easter is outdated
          theMap[existingLocations[i].x][existingLocations[i].y].easter = existingLocations[i].easter;
 
-         console.log(theMap[existingLocations[i].x][existingLocations[i].y].id, "Taken");
+         
 
          // take out this location from the terrain Locations
 
@@ -63,7 +63,7 @@ var EasterSet = Array( "mvil", "svil", "dungeon", "ruin", "label", "sign", "stat
 
       checkMapForErrors();
 
-      console.log(mapLocations[0]);
+      
       //$('#dataCheck').text(JSON.stringify(mapLocations[0]));
 
       // Redo the map checks
@@ -103,19 +103,25 @@ var EasterSet = Array( "mvil", "svil", "dungeon", "ruin", "label", "sign", "stat
       
       //mapped = Array(10, 11, 117, 119, 12, 121, 123, 124, 136, 140, 144, 145, 168, 171, 179, 184, 295, 303, 315, 321, 324, 324, 325, 327, 331, 4, 47, 51, 59, 6, 7, 126, 116, 34,77,49,33,3,22,18,311,302,287,262,248,193,103,296,95,193,87,32,183,324,59,18,227,179,180,302,198,311,26,108,116,303,19,236,2,92,286,332,145,126,306,151,211,191,315,101,103,229,155,310,121,47);
 
-      mapped = Array(10 ,21, 101 ,103 ,108 ,11 ,116 ,117 ,119 ,12 ,121, 29,123 ,124 ,126 ,136 ,140 ,144 ,145, 52 ,151 ,155 ,168 ,171 ,179 ,18 ,180 ,183 ,184 ,19 ,191 ,193 ,198 ,2 ,211 ,22 ,227 ,229 ,236 ,248 ,26 ,262 ,286 ,287 ,295 ,296 ,3 ,302 ,303 ,306 ,310 ,311 ,315 ,32 ,321 ,324 ,325 ,327 ,33 ,331 ,332 ,34 ,4 ,47 ,49 ,51 ,59 ,6 ,7 ,77 ,86 ,87 ,92 ,95, 58, 81, 70, 61, 68, 69, 75, 83, 91, 96, 102, 110, 1, 39, 41, 79, 34, 86,56,62,74,88,98,107,17,5,23,28,36105,89);
-
-      mapped.sort();
+      //mapped = Array(1, 2, 3, 4, 5, 6, 7, 10, 11, 12, 14,18,21, 29,32,34,38,40 ,47 ,49 ,51,  52, 57 ,59,77 ,86 ,87 ,92,93 ,95, 58, 81, 70, 61, 68, 69, 75, 83, 91, 96,39, 41, 79, 34, 86,56,62, 17,23,28,36,89,35, 43, 48, 54, 60, 24, 71,55,37,31,30,46,42,73,76,78,94,64,36,85,99, 74,88,98,107,130, 101 ,103 ,108 ,104,105, 102, 110 , 111,116 ,117 ,119 ,121,123 ,124 ,126 ,136 ,140 ,144 ,145,109,120,251,128,138,150,161,185,192, 151 ,155 ,168 ,171 ,179  ,180 ,183 ,184 ,19 ,191 ,193 ,198 ,211 ,22 ,227 ,229 ,236 ,248 ,26 ,262 ,286 ,287 ,295 ,296 ,302 ,303 ,306 ,310 ,311 ,315 ,321 ,324 ,325 ,327 ,33 ,331 ,332, 189, 178, 208, 215, 232,239,283,291,308,40,57,38,93,130,157,154);
+      //mapped = Array(1,2,3,4,5,6,7,10,11,12,14,17,18,19,20,21,22,23,24,26,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,46,47,48,49,51,52,53,54,55,56,57,58,59,60,61,62,64,68,69,70,71,73,74,75,76,77,78,79,81,83,85,86,87,88,89,91,92,93,94,95,96,97,98,99,101,102,103,104,105,107,108,109,110,111,116,117,119,120,121,123,124,126,128,130,136,138,140,144,145,149,150,151,154,155,157,161,168,171,173,178,179,180,182,183,184,185,189,191,192,193,198,205,208,209,211,214,215,217,219,227,228,229,232,233,234,236,239,247,248,251,261,262,282,283,286,287,288,291,295,296,297,302,303,306,308,310,311,315,321,324,325,327,331,332,44,84,299,298,301,313,25)     
+     mapped = [];
+      
 
       removeDups(mapped);
+      mapped.sort(function(a, b){return a-b});
+
+      console.log("Total done", mapped.length);
+      console.log("totalLocs", mapLocations.length);
 
 
- 
+      HTML_MAP = "";
       //console.log(mapped);
 
       for(mappedID=0; mappedID < mapped.length; mappedID++) {
 
          failID =0;
+         HTML_MAP +=mapped[mappedID]+",";
          
       for (mapID=0; mapID < mapLocations.length; mapID++) {
          
@@ -124,29 +130,28 @@ var EasterSet = Array( "mvil", "svil", "dungeon", "ruin", "label", "sign", "stat
                if ((mapped[mappedID] == mapLocations[mapID].locID) ) {
 
                   if ( mapLocations[mapID].isUnDefined) {
-                     console.log("----->>UNDEFINED", mapped[mappedID], mapLocations[mapID].locID );
+                     //console.log("----->>UNDEFINED", mapped[mappedID], mapLocations[mapID].locID );
                      //    mapLocations.splice(mapID,1);
+                    
                   } else {
 
-                  //console.log("----->>Matched", mapped[mappedID], mapLocations[mapID].locID );
+                  ////console.log("----->>Matched", mapped[mappedID], mapLocations[mapID].locID );
                   
-                  //console.log(mapID, mapLocations[mapID]);
+                  ////console.log(mapID, mapLocations[mapID]);
                   mapLocations.splice(mapID,1);
                   // Last, skip the rest
                   
                   failID = mapID;
                   mapID = 10000;
                   
-                  //console.log(mapLocations[mapID]);
+                  ////console.log(mapLocations[mapID]);
                }
-            } // no Match
+            } else {
+               console.log(mapped[mappedID])
+            }
          }
-
-         if (mapID >= 10000 && failID != 0) {
-                  // didn't get mapped
-                 // console.log("----->>UNMAPPED", mapped[mappedID], mapLocations[failID].locID );
-               }
       }
+      document.getElementById('theNumbers').innerHTML = HTML_MAP;
    }
 
    function showOne(trigger = false) {
@@ -160,10 +165,10 @@ var EasterSet = Array( "mvil", "svil", "dungeon", "ruin", "label", "sign", "stat
       // if someone has typed into the box, and it matches an email.. use that.
 
       locFind =  $('#location').val();
-      //   console.log(locFind == "");
+      
          if (locFind == "") {
             rando = Math.round(Math.random()*(mapLocations.length));
-                  console.log(rando);
+                  
                   
                   locFind=parseInt(rando);
                   $('#location').val(locFind);
@@ -176,8 +181,8 @@ var EasterSet = Array( "mvil", "svil", "dungeon", "ruin", "label", "sign", "stat
          if (isInt(locFind)) { 
             if (trigger) {
                
-               rando = Math.round(Math.random()*3)+1;
-        //          console.log(rando);
+               rando = 1; //Math.round(Math.random()*3)+1;
+        
                   locFind = parseInt(locFind);
                   locFind+=parseInt(rando);
                if (locFind > mapLocations.length) { locFind =1;}
@@ -207,6 +212,8 @@ var EasterSet = Array( "mvil", "svil", "dungeon", "ruin", "label", "sign", "stat
      
          $('#mapbox').html("HEY!");
 
+         console.log(thisOne);
+
          mapLocations[thisOne].typeUnique = "HELLLO";
          if(mapLocations[thisOne] && mapLocations[thisOne].terraType) {
          size = Object.keys(mapLocations[thisOne].terraType).length;
@@ -217,13 +224,13 @@ var EasterSet = Array( "mvil", "svil", "dungeon", "ruin", "label", "sign", "stat
          if (size == 1) {
                   typeUnique = "gridChosen";
                   mapLocations[thisOne].typeUnique = 1;
-                  console.log("DEFINED");
+                 
                } else {
                   typeUnique = "";
                   mapLocations[thisOne].typeUnique = size;
                }
 
-               console.log(mapLocations[thisOne]);
+               
 
 
         if (mapLocations[thisOne].pledge > mapLocations[thisOne].reward) {
@@ -267,15 +274,18 @@ var EasterSet = Array( "mvil", "svil", "dungeon", "ruin", "label", "sign", "stat
       }
             // end of Terrain
 
-
+      // only type $4 will have style
+      if (mapLocations[thisOne].style != undefined) {
          let styles= styleSet.length;
          for (let t=0;  t< styles; t++) {
-           // console.log(mapLocations[thisOne].style, styleSet[t]);
+           
             if (mapLocations[thisOne].style[styleSet[t]]) {
                _html +="<div class='grid "+styleSet[t]+"Loc'><div class=' "+styleSet[t]+"Icon'>"+styleSet[t]+"</div></div>";  
             }  
          }
+      }
          /* set mainloc to 0;
+      
          
    Castle: 0,
    Dungeon: 0,
@@ -284,6 +294,7 @@ var EasterSet = Array( "mvil", "svil", "dungeon", "ruin", "label", "sign", "stat
    Terrain: 0,
    Other: 0,
    */
+  if (mapLocations[thisOne].locType) {
          var mainLoc =0;
          if (mapLocations[thisOne].locType.Castle) {
             _html +="<div class='MainLoc MainLoc"+mainLoc+"'><div class='loctype CastleIcon'></div>Castle</div>";
@@ -309,23 +320,34 @@ var EasterSet = Array( "mvil", "svil", "dungeon", "ruin", "label", "sign", "stat
             _html +="<div class='MainLoc MainLoc"+mainLoc+"'><div class='loctype CastleIcon'></div>Other</div>";
             mainLoc++  
          }
+      } // locTypes for group $4
+      
+
+
+      
          smallLocs =0;
          let EasterL = EasterSet.length;
+         if (mapLocations[thisOne].smallLocA != undefined) {
          for (let t=0;  t< EasterL; t++) {
             if (mapLocations[thisOne].smallLocA[EasterSet[t]]) {
-              // console.log(EasterSet[t]);
-               _html +="<div class='smallLoc smallLocA smallLocA"+smallLocs+"  '><div class='easter "+EasterSet[t]+"Icon'></div>"+EasterSet[t]+"</div>";  
+              
+               _html +="<div class='smallLoc smallLocA smallLocA"+smallLocs+"  '><div class='easter "+EasterSet[t]+"eIcon'></div>"+EasterSet[t]+"</div>";  
                smallLocs++;
             } 
          }
+      } else { 
+         console.log("MUST BE A DUD", mapLocations[thisOne].isUnDefined);
+      }
          smallLocs =0;
          
+         if (mapLocations[thisOne].smallLocB != undefined) {
          for (let t=0;  t< EasterL; t++) {
             if (mapLocations[thisOne].smallLocB[EasterSet[t]]) {
-               _html +="<div class='smallLoc smallLocB smallLocB"+smallLocs+"  '><div class='easter "+EasterSet[t]+"Icon'></div>"+EasterSet[t]+"</div>";  
+               _html +="<div class='smallLoc smallLocB smallLocB"+smallLocs+"  '><div class='easter "+EasterSet[t]+"eIcon'></div>"+EasterSet[t]+"</div>";  
                smallLocs++;
             } 
          }
+      }
 
          for (let t=0;  t< biomeSet.length; t++) {
             if (mapLocations[thisOne].biomes[biomeSet[t]]) {
@@ -337,19 +359,21 @@ var EasterSet = Array( "mvil", "svil", "dungeon", "ruin", "label", "sign", "stat
             _html +="<div class='mapOne'><img scr='./img/mapIcon.jpg'></div>";
          }
 
+         trapezoids = []; 
+         if (mapLocations[thisOne].borders != undefined) {
          // counter = 0;
-          trapezoids = []; 
+          
           counter =0;  
-          //console.log(terraSet);
+          
          for (let t=0;  t< terra; t++) {
-           // console.log(terraSet[t]);
-           // console.log(mapLocations[thisOne].borders[terraSet[t]]);
+           
             if (mapLocations[thisOne].borders[terraSet[t]]) {
                trapezoids[counter] = terraSet[t];
                counter++;
-           //    console.log(trapezoids);
+           
             }
          }
+      }
 
          if (trapezoids[0] != undefined) {
 
@@ -378,15 +402,16 @@ var EasterSet = Array( "mvil", "svil", "dungeon", "ruin", "label", "sign", "stat
             _html +="<div class='trapezoidLR col_"+trapezoids[2]+"'></div>";
 
            
-            for (let t=0;  t< terra; t++) {
+            
+         }
+         
+         for (let t=0;  t< terra; t++) {
                if (mapLocations[thisOne].terraType[terraSet[t]]) {
                   background = terraSet[t];
                   t=1000;
 
                }
             }
-         }
-         
             _html +="<div class='trapezoidUp tr_"+background+"'></div>";
             _html +="<div class='trapezoidDown tr_"+background+"'></div>";   
             
@@ -409,29 +434,26 @@ var EasterSet = Array( "mvil", "svil", "dungeon", "ruin", "label", "sign", "stat
 
    function rePosition(fixed, move, angle, distance = 1) {
 
-      //console.log(fixed, move);
+     
 
       if (fixed !== move) {
-      //   console.log("sizes", $('#id' + fixed).width(), $('#id' + move).width(), angle);
+      
 
-      if ($('#id' + fixed).position == undefined) { console.log("not defined: "+fixed);} else {
-         console.log(fixed);
+      if ($('#id' + fixed).position == undefined) { 
+         console.error("not defined: "+fixed);
+       } else {
+        
          var fixedradius = $('#id' + fixed).width() / 2;
          var moveradius = $('#id' + move).width() / 2;
          
-        console.log($('#id' + fixed));
-        console.log($('#id' + fixed).position);
+
         
             var xpos = $('#id' + fixed).position().left + fixedradius;
             var ypos = $('#id' + fixed).position().top + fixedradius;
          
       }
 
-
-
-        
-      //   console.log(fixedradius, moveradius, $('#id' + fixed).position());
-
+   
 
          var radius = fixedradius + ( moveradius * distance)|| 10;
 
@@ -439,9 +461,7 @@ var EasterSet = Array( "mvil", "svil", "dungeon", "ruin", "label", "sign", "stat
          x = radius * Math.cos(radians);
          y = radius * Math.sin(radians);
 
-        // console.log("radius", radius, "radians", radians);
-
-        // console.log(x, "x +", xpos, y, "y +", ypos);
+ 
 
          $('#id' + move).css('left', (xpos + x - moveradius) + 'px');
          $('#id' + move).css('top', (ypos + y - moveradius) + 'px');
@@ -477,6 +497,7 @@ var EasterSet = Array( "mvil", "svil", "dungeon", "ruin", "label", "sign", "stat
    <button onclick="filter()">Filter</button> 
    <button id="locationbutton" onclick="showOne(true)" style="font-size: 32pt">Show the Locations</button>
    <input onchange="showOne(true)" id="location">
+   <div id="theNumbers"></div>
    <div id="mapbox">
       <!--<div class="  grid">
          <div class="terrain hills"></div>
@@ -496,19 +517,19 @@ var EasterSet = Array( "mvil", "svil", "dungeon", "ruin", "label", "sign", "stat
 
          $.ajax({
             type: "GET",
-            url: "./data/small.csv",
+            url: "./data/small_new.json",
             dataType: "text",
             success: function (data2) {
                processData(data2, false);
             },
             error: function (error) {
-               //        console.log(error);
+               console.error(error);
             }
          });
 
          $.ajax({
             type: "GET",
-            url: "./data/large.csv",
+            url: "./data/large_new.json",
             dataType: "text",
             success: function (data1) {
                console.log("loaded");
@@ -516,7 +537,7 @@ var EasterSet = Array( "mvil", "svil", "dungeon", "ruin", "label", "sign", "stat
                processData(data1, true);
             },
             error: function (error) {
-               //      console.log(error);
+               console.log(error);
             }
          });
       });
@@ -528,7 +549,7 @@ var EasterSet = Array( "mvil", "svil", "dungeon", "ruin", "label", "sign", "stat
       //drawMap(theMap);
       //makeBiomes();
 
-      //  console.log(theMap);
+      // console.log(theMap);
    </script>
 
    <div id="dataCheck"></div>

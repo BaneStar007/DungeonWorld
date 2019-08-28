@@ -260,7 +260,7 @@ function processData(allText, FullData) {
    debug = false;
 
    if (debug) {
-      console.log("=============process=");
+      
    }
    var data = JSON.parse(allText);
    var temp = null;
@@ -274,13 +274,14 @@ function processData(allText, FullData) {
       data[i].overspent = [];
       data[i].isUnDefined = false;
       if (debug) {
-         console.log("each--------------------->>");
+         
       }
 
       if (data[i] == undefined) { 
-         console.log("++++++++++++++++++++++++>>>>>WOFRONGNGNGNGN<<<");
-      } else {
-         console.log("HELOO++++++++++++++++++++++++++++++>>>>>>>>>>>>>",i, data[i]);
+         
+      } 
+      if (!FullData) {
+         
       }
 
       // not needed for this process
@@ -334,56 +335,56 @@ function processData(allText, FullData) {
       if (FullData) {
          // Check if the form has been filled in - large maps
          if (data[i]["1. Email For Your Map To Be Sent. *Required!!"] == undefined) {
-            //console.log("empty");
+            
             data[i].isUnDefined = true;
-            //console.log("undefined", data[i]["1. Email For Your Map To Be Sent. *Required!!"]);
+            
          }
          if (data[i]["1. Email For Your Map To Be Sent. *Required!!"] == "") {
-            //console.log("empty");
+            
             data[i].isUnDefined = true;
-            // console.log("blank", data[i]["1. Email For Your Map To Be Sent. *Required!!"]);
+            // 
          }
       } else {
          // same for small maps
          if (data[i]["Email For Your Map To Be Sent. *Required!!"] == "") {
-            //console.log("empty");
+            
             data[i].isUnDefined = true;
-            // console.log("small",data[i]);
+            // 
          }
          if (data[i]["Email For Your Map To Be Sent. *Required!!"] == undefined) {
-            //console.log("empty");
+            
             data[i].isUnDefined = true;
-            // console.log("small",data[i]);
+            // 
          }
       }
       if (data[i].isUnDefined) {
-          console.log("User", data[i]["Backer Name"], "unfilled survey");
+          
       }
 
-      // console.log(data[i].isUnDefined);
+      // 
 
       if (!data[i].isUnDefined) {
 
-         console.log("Lets G");
+         
 
 
          data[i].title = data[i]["2. What Is Your Location Called?"];
          deleteFromObject("2. What Is Your Location Called?", data[i]);
 
          if (debug) {
-            console.log(data[i]["Backer Name"], data[i].title, data[i].pledge, data[i].easterEggs);
+            console.warn(data[i]["Backer Name"], data[i].title, data[i].pledge, data[i].easterEggs);
          }
 
          if (data[i]["11. Which Map Do You Want This To Appear On?"] == undefined) {
-            console.log(data[i]["11. Which Map Do You Want This To Appear On?"]);
-            console.log(data[i]);
+            console.error("map missing", data[i]["11. Which Map Do You Want This To Appear On?"]);
+            
          }
          // Process Which Map
          temp = data[i]["11. Which Map Do You Want This To Appear On?"];
 
          tempSet = temp.split(" | ");
 
-         // console.log(tempSet);
+         // 
 
 
          for (loop = 0; loop < tempSet.length; loop++) {
@@ -420,10 +421,8 @@ function processData(allText, FullData) {
 
 
             if (!done) {
-               console.log(data[i]["Backer Name"]);
-               console.log(data[i]);
-               console.log(tempSet[loop]);
-               console.log(tempSet);
+               console.error(data[i]["Backer Name"]);
+               console.error(data[i]);
                throw new Error("my error message");
             }
 
@@ -483,7 +482,7 @@ function processData(allText, FullData) {
 
 
             }
-            //-------->>>>   console.log(data[i]["5.B. If Other, Add Details"], data[i]["Backer Name"]);
+            //-------->>>>   
          }
 
          // Structure Data Function
@@ -497,12 +496,14 @@ function processData(allText, FullData) {
 
          data[i].terraType = {};
          // structureSet = Array( "sea", "coastal", "swamp", "desert", "taiga", "plains",
-         //    "borreal",
-         //    "jungle",
-         //    "hills", "mountains");
+         //   "borreal",
+         //   "jungle",
+         //   "hills", "mountains");
 
          data[i] = sortdata(dataStructureSet, "terraType", terraSet, data[i],
-            "5. What Terrain Do You Want Your Location To Appear In")
+            "5. What Terrain Do You Want Your Location To Appear In");
+
+            
 
 
          // 5.B. If Other, Add Details
@@ -519,29 +520,11 @@ function processData(allText, FullData) {
             } else {
                data[i].overspend++;
                data[i].overspent.push("5B");
-               //          console.log(data[i]["5.B. If Other, Add Details"], data[i]["Backer Name"]); <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
             }
 
          }
 
-         //data[i].terraType.borders = data[i]["6. What Terrain Borders Your Location"];
-         //deleteFromObject("6. What Terrain Borders Your Location", data[i]);
-
-         dataStructureSet = Array("Lake / Sea", "Coastal", "Swamp / Mangroves", "Desert",
-         "Taiga / Steppe",
-         "Plains / Grassland",
-         "Forest - Boreal or Temperate", "Forest - Jungle or Rainforest", "Hills/Cliffs",
-         "Mountains", "Other (Only choose if you have increased pledge)"
-      );
-
-      data[i].borders = {};
-      // structureSet = Array( "sea", "coastal", "swamp", "desert", "taiga", "plains",
-      //    "borreal",
-      //    "jungle",
-      //    "hills", "mountains");
-
-      data[i] = sortdata(dataStructureSet, "borders", terraSet, data[i],
-         "6. What Terrain Borders Your Location")
+         
 
 
 
@@ -551,7 +534,7 @@ function processData(allText, FullData) {
             "Warmer climates (10.c winters, 40.c summers)", 
             "Any of the Above",
             "Cooler Temperate Zone (minus winters, 20.c summers",
-            "Arctic or Arctic Fringes ( minus winters, 0-5.c summers)",
+            "Arctic or Arctic Fringes ( minus winters, 0-5.c summers",
             "Tropical (20.c winters, 45.c summers)", "No response");
 
          data[i].biomes = {};
@@ -559,7 +542,9 @@ function processData(allText, FullData) {
             "n/a");
 
          data[i] = sortdata(dataStructureSet, "biomes", structureSet, data[i],
-            "7. Which Biomes Would Suit Your Location")
+            "7. Which Biomes Would Suit Your Location");
+
+            
 
          //8. Terrain Descriotion
          if (data[i] && data[i]["8. Describe Your Terrain, Border Terrain And Biome."] != undefined){
@@ -581,14 +566,14 @@ function processData(allText, FullData) {
 
             
          data[i].style = {};
-         console.log(data[i]);
+         
          structureSet = Array( "euro",  "arab",   "asia",  "aztec","tents", "nomad",  "ruins",   "any");
          
 
          data[i] = sortdata(dataStructureSet, "style", structureSet, data[i],
             "9. Style Of Your Location (If Applicable, Choose Up To 2)");
 
-            console.log(data[i].style);
+            
 
          // spread out the anys?
          if (data[i].style && data[i].style.any) {
@@ -599,7 +584,7 @@ function processData(allText, FullData) {
 
          counter = 0;
          // count the number of choices the user has chosen 2 allowed. if Three, chalk an easter egg
-         console.log(data[i].style);
+         
          if (data[i].style != undefined) {
             if (Object.keys(data[i].style).length > 2) { 
 
@@ -609,8 +594,8 @@ function processData(allText, FullData) {
                } else {
                   data[i].overspend++;
                   data[i].overspent.push("styles " + (Object.keys(data[i].style).length - 2));
-                  console.log("User:", data[i]["Backer Name"], "styles", data[i].style);
-                  console.log(data[i]);
+                  console.error("User:", data[i]["Backer Name"], "styles", data[i].style);
+                  console.error(data[i].style);
                   //rando = Math.ceil((Math.random()*6)+1);
                   //deleteFromObject(structureSet[rando], data[i].style);
                }  
@@ -631,18 +616,18 @@ function processData(allText, FullData) {
                      if (stats[structureSet[stylz] + "_" + structureSet[styls]] == undefined) {
                         stats[structureSet[stylz] + "_" + structureSet[styls]] = 0;
                      }
-                     //              console.log(structureSet[stylz] + ":", data[i].style[structureSet[stylz]], structureSet[styls] + ":", data[i].style[structureSet[styls]])
-                     //            console.log(stats[structureSet[stylz] + "_" + structureSet[styls]]);
+                     //console.log(structureSet[stylz] + ":", data[i].style[structureSet[stylz]], structureSet[styls] + ":", data[i].style[structureSet[styls]])
+                               
                      stats[structureSet[stylz] + "_" + structureSet[styls]]++;
                      stats[structureSet[stylz]]--;
                      stats[structureSet[stylz]+"_"]++;
                      stats[structureSet[styls]]--;
                      stats[structureSet[styls]+'_']++;
                      data[i].style[structureSet[stylz] + "_" + structureSet[styls]] = true;
-                     //          console.log(data[i].style);
+                             
                      //data[i].style[structureSet[stylz]] = false;
                      //data[i].style[structureSet[styls]] = false;
-                     //        console.log(data[i].style);
+                           
                   }
                }
             }
@@ -692,7 +677,7 @@ function processData(allText, FullData) {
             data[i].style.otherdetails = data[i]["9.C. If Other, Add Details"];
             // don't 'charge' for this
             //data[i].easterEggs--;
-            //console.log("9.c.", data[i]["9.C. If Other, Add Details"]);
+            
             deleteFromObject("9.C. If Other, Add Details", data[i]);
          }
 
@@ -793,9 +778,9 @@ function processData(allText, FullData) {
                      data[i].overspend++;
                      data[i].overspent.push("3B");
 
-                     //console.log(data[i].title, data[i].easterEggs);
-                     //console.log(data[i]["3.B. If Other.. Add Details"], data[i]["Backer Name"]);
-                     //console.log(data[i]);
+                     
+                     
+                     
                   }
 
                   min1 = true;
@@ -803,14 +788,34 @@ function processData(allText, FullData) {
 
                // Catch if didn't before.
                if (!min1) {
-                  console.log("Catch", tempSet[loop]);
-                  console.log("------>>>", data[i]["Backer Name"], data[i].title, data[i].pledge, data[i]
+                  console.error("Catch", tempSet[loop]);
+                  console.error("------>>>", data[i]["Backer Name"], data[i].title, data[i].pledge, data[i]
                      .easterEggs);
 
                }
 
             } // end of tempSet for Locations
             deleteFromObject("3. What Kind Of Location Do You Want", data[i]);
+
+
+            
+
+         dataStructureSet = Array("Lake / Sea", "Coastal", "Swamp / Mangroves", "Desert",
+         "Taiga / Steppe",
+         "Plains / Grassland",
+         "Forest - Boreal or Temperate", "Forest - Jungle or Rainforest", "Hills/Cliffs",
+         "Mountains", "Other (Only choose if you have increased pledge)"
+      );
+
+      data[i].borders = {};
+
+      
+      //console.log(terraSet);
+
+      data[i] = sortdata(dataStructureSet, "borders", terraSet, data[i],
+         "6. What Terrain Borders Your Location");
+
+         
 
             // Location Visibility
             temp = data[i]["12. Will Your Location Be Hidden On The Player Maps?"];
@@ -837,13 +842,13 @@ function processData(allText, FullData) {
             data[i].smallLocA = {};
             // structureSet = Array( "mvil", "svil", "dungeon", "ruin", "label", "sign",
                
-            //    "statue",
-            //    "hole",
-            //    "temple", "trees", "animals", "surround", "farm", "waterfall", "tents", "ruins", "tower",
-            //    "smith",
-            //    "fields",
-            //    "surround", "abandoned", "abandoned",
-            //    "nada"); EasterSet
+            //   "statue",
+            //   "hole",
+            //   "temple", "trees", "animals", "surround", "farm", "waterfall", "tents", "ruins", "tower",
+            //   "smith",
+            //   "fields",
+            //   "surround", "abandoned", "abandoned",
+            //   "nada"); EasterSet
 
 
 
@@ -886,7 +891,7 @@ function processData(allText, FullData) {
 
             data[i].smallLocB = {};
 
-            data[i] = sortdata(dataStructureSet, "smallLocB", structureSet, data[i],
+            data[i] = sortdata(dataStructureSet, "smallLocB", EasterSet, data[i],
                "14a. Location B? You Can Combine By Clicking 3 Elements, (Or More For Higher Pledges)"
             )
 
@@ -931,7 +936,7 @@ function processData(allText, FullData) {
                      "Location C Description (If You Pledged Higher For More Locations)"
                   ];
                   data[i].easterEggs--;
-                  //console.log("minus 1 easter egg for details", data[i]['Backer Name']);
+                  
                   deleteFromObject("Location C Description (If You Pledged Higher For More Locations)",
                      data[i]);
                } else {
@@ -984,6 +989,8 @@ function processData(allText, FullData) {
 
 
          } else {
+
+            //console.log(data[i]);
 
             // Location Visibility
             temp = data[i]["12. Will Your Location Be Hidden On The Player Maps?"];
@@ -1045,6 +1052,6 @@ function processData(allText, FullData) {
 
 
    mapLocations.push.apply(mapLocations, data);
-   console.log("Stst", stats);
+   
 
 }
