@@ -1,0 +1,78 @@
+<html>
+   <script>
+      if ('serviceWorker' in navigator) {
+         navigator.serviceWorker.register('scripts/sw.js')
+         .catch(err => console.error("there is a problem", err));
+      }
+   </script>
+
+<head>
+   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+   <meta http-equiv="Pragma" content="no-cache" />
+   <meta http-equiv="Expires" content="0" />
+ <script src="./angular.1.6.1.js"></script>
+ 
+ 
+ <link rel="stylesheet" type="text/css" href="css/print.css" />
+ <link rel="stylesheet" type="text/css" href="css/navbar.css" />
+ <link rel="stylesheet" type="text/css" href="css/style.css" />
+ <link rel="stylesheet" type="text/css" href="./components/pageNumber.component.css" />
+ 
+ <link href="https://fonts.googleapis.com/css?family=Caesar+Dressing|IM+Fell+English+SC|Moul|Freehand" rel="stylesheet">
+
+</head>
+
+<body ng-app="printTest" ng-controller="printTest">
+   <h1> Coyn World: Dwarven Clock</h1><i ng-click="reveal = !reveal" class="infoButton">Info</i>
+
+      <div style="position: fixed; top: 150px; left: 200px ">
+      Earth time in Dwarven: <input type="number" ng-model="clocks.first">
+      <page-number class="pageEdge" number="clocks.first" data="page" config="clockconfig"></page-number>
+      </div>
+
+      <div style="position: fixed; top: 400px; left: 250px ">
+      Middlehelm time: <input type="number"  ng-model="clocks.second">
+      <page-number class="pageEdge" number="clocks.second"  data="page" config="clockconfig2"></page-number>
+      </div>
+
+      
+      <div ng-if="reveal">
+         Dwarven Clocks in the Coyn World have 10 hours per day, known as shifts, which are almost 2.4 hours in Earth time,
+         most dwarves rise at 2 and are in bed by 8, with breakfast at 3, lunch at 5 and dinner at 7, all very clean, clear and methodical,
+         The Next smaller value are Periods, at approximately 14.4 Earth minutes, Many dwarves take a break at the 5th period of a shift and on the end of the shift,
+         The minutes or minutia are also in 10, equating approximately to 86.4 Earth seconds, and a Dwarven pause, or second, takes 8 earth seconds.. 
+         which is why the phrase "give me a second" means a more realistic term for a dwarf than a human. 
+      </div>
+      
+   </body>
+   <script>
+         'use strict'; 
+         var app = angular.module('printTest', []);
+        
+          app.controller('printTest', function ($scope, $http, $interval) {
+
+            $scope.clocks = { first: 12, second: 34, third: 0, forth: 2};
+            $scope.clockconfig = { size: 100, type: 1};
+            $scope.clockconfig2 = { size: 100, type: 2};
+
+            stop = $interval(function() {
+
+                $scope.clocks.first++;
+                $scope.clocks.second++;
+                $scope.clocks.third++;
+                $scope.clocks.forth++ 
+                if ($scope.clocks.first > 1000) {$scope.clocks.first =0;}
+                if ($scope.clocks.second > 1000) {$scope.clocks.second =0;}
+                if ($scope.clocks.third > 1000) {$scope.clocks.third =0;}
+                if ($scope.clocks.forth > 1000) {$scope.clocks.forth =0;} 
+            }, 750);
+
+
+            
+         
+      });
+    
+   </script>
+   <script src="./components/pageNumber.component.js"></script>
+   <script src="./directives/pageNumber.directive.js"></script>
+   </html>

@@ -308,15 +308,15 @@ function processData(allText, FullData) {
       // Easter Egg Locations
 
       // Pledge
-      temp = data[i]["Pledge Amount"].split("$ ");
-      data[i].pledge = parseInt(temp[1]);
-      deleteFromObject("Pledge Amount", data[i]);
+      // temp = data[i]["Pledge Amount"].split("$ ");
+      // data[i].pledge = parseInt(temp[1]);
+      // deleteFromObject("Pledge Amount", data[i]);
+      data[i].pledge = "X"
 
-
-      // Extras
-      temp = data[i]["Reward Minimum"].split("$ ");
-      data[i].reward = parseInt(temp[1]);
-      data[i].easterEggs = data[i].pledge - parseInt(temp[1]);
+      // // Extras
+      // temp = data[i]["Reward Minimum"].split("$ ");
+      // data[i].reward = parseInt(temp[1]);
+      // data[i].easterEggs = data[i].pledge - parseInt(temp[1]);
 
       deleteFromObject("Reward Minimum", data[i]);
 
@@ -336,24 +336,24 @@ function processData(allText, FullData) {
          // Check if the form has been filled in - large maps
          if (data[i]["1. Email For Your Map To Be Sent. *Required!!"] == undefined) {
             
-            data[i].isUnDefined = true;
+           // data[i].isUnDefined = true;
             
          }
          if (data[i]["1. Email For Your Map To Be Sent. *Required!!"] == "") {
             
-            data[i].isUnDefined = true;
+          //  data[i].isUnDefined = true;
             // 
          }
       } else {
          // same for small maps
          if (data[i]["Email For Your Map To Be Sent. *Required!!"] == "") {
             
-            data[i].isUnDefined = true;
+          //  data[i].isUnDefined = true;
             // 
          }
          if (data[i]["Email For Your Map To Be Sent. *Required!!"] == undefined) {
             
-            data[i].isUnDefined = true;
+         //   data[i].isUnDefined = true;
             // 
          }
       }

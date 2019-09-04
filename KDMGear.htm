@@ -1,0 +1,77 @@
+<html>
+
+<head>
+   <script type="text/javascript">
+      var timerStart = Date.now();
+   </script>
+   <meta charset="utf-8" />
+   <title> Gear Test System, Demonstrating AngularJS Skills</title>
+   <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+   <form action="test.php" method="post">
+      <table>
+         <tr>
+            <td>
+               Hello {{bob}}
+
+               <p>Name : <input type="text" ng-model="name"></p>
+  <h1>Hello {{name}}</h1>
+            </td>
+         </tr>
+         <tr>
+            <td>
+
+               <div class="g-recaptcha" data-callback="checkMe" data-sitekey="6LeahaEUAAAAAMleZdvXZUIqu8uZhEwnyfuKJ9JV">
+               </div>
+               <br />
+            </td>
+            <td>
+               <input type="submit" value="Submit">
+            </td>
+         </tr>
+      </table>
+   </form>
+   <script>
+      var app = angular.module('myApp', []);
+         app.controller('myCtrl', function($scope) {
+         $scope.firstName= "John";
+         $scope.lastName= "Doe";
+
+         function checkHim() {
+            $scope.bob = "Him";
+         }
+         });
+
+         function checkMe() {
+            $scope.bob = "You";
+            checkHim();
+         }
+   </script>
+</body>
+<html>
+
+<!-- < head>
+         < title> reCAPTCHA demo: Explicit render after an onload callback < /title> < script type="text/javascript">
+               var onloadCallback = function () {
+               grecaptcha.render('html_element', {
+               'sitekey': '6LeahaEUAAAAAMleZdvXZUIqu8uZhEwnyfuKJ9JV'
+               });
+               };
+               </script>
+               </head>
+
+               <body>
+                  <form action="?" method="POST">
+                     <div id="html_element"></div>
+                     <br>
+                     <input type="submit" value="Submit">
+                  </form>
+                  <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async
+                     defer>
+                  </script>
+               </body>
+
+</html> -->

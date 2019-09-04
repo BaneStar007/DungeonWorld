@@ -1,0 +1,8 @@
+<div class="textPage" >
+      <h1>TEXT: {{$ctrl.config.chapters[page.chapter]}} </h1>
+      <div class="columnText" ng-repeat="textblok in $ctrl.data.page.text">
+        <h3 class="titlePage">{{textblok.subtitle}}</h3>
+        <p> {{textblok.text}}</p>
+        <img src="/rules/img/Warrior_Final.png" class="background">
+      </div>
+    </div>

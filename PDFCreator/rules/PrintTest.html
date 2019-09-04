@@ -1,0 +1,239 @@
+<html>
+
+<head>
+  <script src="./angular.1.6.1.js">
+  <script src="components/title.page.js">
+ 
+
+  </script>
+  <style type="text/css">
+    <!-- @page {
+      size: 210mm 295mm;
+      /* width height */
+      margin: 1mm;
+    }
+
+    .chapterbreak {
+      page-break-before: right
+    }
+
+    .pagebreak:nth-child(even) {
+      page-break-before: left
+    }
+
+    .pagebreak:nth-child(odd) {
+      page-break-before: right
+    }
+
+    .page1break {
+      page-break-after: avoid
+    }
+
+    .pageDefine {
+      page-break-inside: avoid
+    }
+
+    @media print {
+      #page-one,
+      .footer,
+      .page-break {
+        display: block;
+        color: red;
+        font-family: Arial;
+        font-size: 16px;
+        text-transform: uppercase;
+        position: absolute;
+        bottom: 0px;
+        padding: 5px;
+        margin: 5px;
+      }
+      .page-break {
+        page-break-before: always;
+      }
+      .printHide {
+        display: none;
+      }
+    }
+
+    -->
+  </style>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  
+  <link href="https://fonts.googleapis.com/css?family=Caesar+Dressing|IM+Fell+English+SC|Moul|Freehand" rel="stylesheet">
+
+</head>
+
+<body ng-app="printTest" ng-controller="printTest">
+
+  
+
+
+    <div class="pageSpan printHide">
+      <h1> Dungeon World test Print </h1>
+      <h2> This is a Test of the Page Break System</h2>
+      <p>As there are several Elements to Test, we'll be adding some dynamic variables too.</p>
+      <p>In Later Versions, NPCs can be added, and Hopefully the input section will not be printed</p>
+      <span>NPC Name #1<input ng-model="pages.data[1].npc.title" ></span> <br />
+      <span>NPC Name #2<input ng-model="pages.data[2].npc.title" ></span> <br />
+      <span>NPC Name #3<input ng-model="pages.data[3].npc.title" ></span> <br />
+
+      <input type="checkbox" ng-model="chapterShow[1]"> Show Chapter One <br />
+      <input type="checkbox" ng-click="printViewChange()"> Hide all Non-Printable Parts {{printView}}<br />
+      <input type="checkbox" ng-model="ViewCode"> View Code instead of Pages<br />
+      <div class="textArea" ng-if="ViewCode">{{pages | json}}</div>
+
+    </div>
+
+
+
+    <!-- Page Break, start of code -->
+    <div ng-repeat="page in pages.data track by $index" class="outerDefine">
+      <div class="printHide printHider"><input ng-model="page.hide" type="checkbox" /> {{$index}}</div>
+
+      <!-- ACTUAL PAGE TO BE DEFINED -->
+      <div class="pagebreak pageDefine" ng-if="chapterShow[page.chapter]" ng-hide="page.hide">
+<p class="top">www.secretwebpage.com</p>
+<p class="bottom">www.notasecretwebpage.com</p>
+        <div ng-if="page.pageType.name!=='title'" class="pageEdge" ng-class="{ 'peLeft': ($index % 2 == 1), 'peRight' : ($index % 2 == 0)}">
+          <div class="pageNumber">{{($index % 2 == 0)}}</div>
+        </div>
+        
+
+        <!-- Title Page -->
+        <title-page class="titlePage innerPageDefine" ng-if="page.pageType.name=='title'" data="page">
+          What would be in here?
+        </title-page>
+
+
+
+        <!-- NPC Page -->
+        <div class="npcPage" ng-if="page.pageType.name=='NPC'">NPC Page {{page}}
+
+          <h1 class="npcPage"> {{page.npc.title}} </h1>
+
+          <!-- NPC Backgrounds -->
+          <div class="npc_background_style" ng-class="npc_background_style">
+            <div class="colour_panel_under" ng-class="page.npc.colour">
+            </div>
+            <div class="npc_image" ng-class="page.npc.bkimage" style="background-image: url(/Printable/img/{{page.npc.image}})">
+            </div>
+            <div class="colour_panel_over" ng-class="page.npc.colour">
+            </div>
+          </div>
+
+          <!-- npc foreground -->
+          <div class="npc_foreground">
+            <div class="titleBox">
+              <div class="title">{{page.npc.title}}</div>
+              <div class="subtitle">{{page.npc.subtitle}}</div>
+              <div class="quote">{{page.npc.quote}}</div>
+            </div>
+            <div class="statBox">
+            </div>
+          </div>
+        </div>
+
+        <!-- Text Page -->
+        <div class="textPage" ng-if="page.pageType.name=='text'">
+          <h1>TEXT: {{chapters[page.chapter]}} </h1>
+          <div class="columnText" ng-repeat="textblok in page.text">
+            <h3 class="titlePage">{{textblok.subtitle}}</h3>
+            <p> {{textblok.text}}</p>
+            <img src="/Printable/img/Warrior_Final.png" class="background">
+          </div>
+        </div>
+
+        <div class="footer">CLASSIFIED</div>
+      </div>
+
+
+      <!-- INPUT PAGE TO BE DEFINED -->
+      <div class="printHide  inputDefine" ng-if="printView" ng-hide="page.hide">
+        <div class="dominant">
+          <select class="dominant" ng-model="page.pageType" ng-options="option.name for option in optionData.availableOptions track by option.id">
+            </select>
+
+          <!-- Title Page -->
+          <div ng-if="page.pageType.name=='title'" class="dominant">
+            TITLE PAGE:<br />
+            Chapter Title <input class="titleInput dominant" ng-model="chapters[page.chapter]"><br />
+            subTitle <input class="titleInput dominant" ng-model="page.subtitle"><br />
+            Image Link <input class="titleInput dominant" ng-model="page.image"><br />
+          </div>
+
+          <!-- NPC Page -->
+          <div ng-if="page.pageType.name=='NPC'" class="dominant">
+           <label>image: </label><input class="titleInput" ng-model="page.npc.image">
+            <label>title: </label><input class="titleInput" ng-model="page.npc.title"><br/>
+            <label>subtitle: </label><input class="subtitleInput" ng-model="page.npc.subtitle"><br/>
+            <label>Quote: </label><input class="quoteInput" ng-model="page.npc.quote"><br/>
+            <div class="container">
+            <div class="chats">
+              <div ng-repeat="chat in page.npc.chats  track by $index">
+                <label>{{chats[$index]}}</label>: <input class="statInput" ng-model="chat">
+              </div>
+            </div>
+            <div class="stats">  
+              <div ng-repeat="pstat in page.npc.pstats  track by $index" >
+                <label>{{data.primaryStats[$index]}}</label>: <input class="statInput" ng-model="pstat">
+              </div>
+            </div>  
+            <div class="stats">  
+              <div ng-repeat="sstat in page.npc.sstats  track by $index" >
+                <label>{{data.primaryStats[$index]}}</label>: <input class="statInput" ng-model="sstat">
+              </div>
+            </div>
+             <div class="stats">  
+              <div ng-repeat="skill in page.npc.skills  track by $index" >
+                <label>{{data.primaryStats[$index]}}</label>: <input class="statInput" ng-model="skill">
+              </div>
+            </div>
+            data
+            </div>  
+
+          </div>
+
+          
+
+          <!-- Text Page -->
+          <div ng-if="page.pageType.name=='text'" class="dominant">
+            This is a Text Edit Field
+          </div>
+        </div>
+      </div>
+    </div>
+
+</body>
+
+<script>
+  var printTest = angular.module('printTest', []);
+
+  printTest.controller('printTest', function ($scope, $http) {
+    $scope.printView = true;
+    $scope.closeBox = true;
+
+    $scope.optionData = {
+      'availableOptions': [{ "name": "title", 'id': '1' },
+      { "name": "NPC", 'id': '2' },
+      { 'name': 'text', 'id': '3' }]
+    };
+    $scope.chapterShow = [true, true, true, true, true]
+
+    $http.get("page.json")
+      .then(function (response) {
+        $scope.data = response.data;
+        $scope.pages = response.data;
+        $scope.chapters = response.data.chapters;
+        $scope.chats = response.data.chats;
+        
+      });
+      
+
+    $scope.printViewChange = function () {
+      $scope.printView = !$scope.printView;
+    }
+  });
+
+</script>
+
+</html>

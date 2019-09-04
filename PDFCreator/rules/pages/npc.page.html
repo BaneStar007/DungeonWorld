@@ -1,0 +1,25 @@
+<div class="npcPage" ng-if="page.pageType.name=='NPC'">NPC Page {{$ctrl.page}}
+        
+                  <h1 class="npcPage"> {{$ctrl.page.npc.title}} </h1>
+        
+                  <!-- NPC Backgrounds -->
+                  <div class="npc_background_style" ng-class="npc_background_style">
+                    <div class="colour_panel_under" ng-class="$ctrl.page.npc.colour">
+                    </div>
+                    <div class="npc_image" ng-class="$ctrl.page.npc.bkimage" style="background-image: url(/rules/img/{{$ctrl.page.npc.image}})">
+                    </div>
+                    <div class="colour_panel_over" ng-class="$ctrl.page.npc.colour">
+                    </div>
+                  </div>
+        
+                  <!-- npc foreground -->
+                  <div class="npc_foreground">
+                    <div class="titleBox">
+                      <div class="title">{{$ctrl.page.npc.title}}</div>
+                      <div class="subtitle">{{$ctrl.page.npc.subtitle}}</div>
+                      <div class="quote">{{$ctrl.page.npc.quote}}</div>
+                    </div>
+                    <div class="statBox">
+                    </div>
+                  </div>
+                </div>

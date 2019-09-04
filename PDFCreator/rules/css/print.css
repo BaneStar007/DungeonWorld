@@ -1,0 +1,44 @@
+/* @page { */
+   
+.chapterbreak {
+   page-break-before: right
+ }
+
+ .pagebreak:nth-child(even) {
+   page-break-before: left
+ }
+
+ .pagebreak:nth-child(odd) {
+   page-break-before: right
+ }
+
+ .page1break {
+   page-break-after: avoid
+ }
+
+ .pageDefine {
+   page-break-inside: avoid
+ }
+
+ @media print {
+   #page-one,
+   .footer,
+   .page-break {
+     display: block;
+     color: red;
+     font-family: Arial;
+     font-size: 16px;
+     text-transform: uppercase;
+     position: absolute;
+     bottom: 0px;
+     padding: 5px;
+     margin: 5px;
+   }
+   .page-break {
+     page-break-before: always;
+   }
+   .printHide {
+     display: none;
+   }
+ /* }
+ */

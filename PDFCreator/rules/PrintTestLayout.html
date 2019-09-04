@@ -1,0 +1,129 @@
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js">
+    <script src="./angular.1.6.1.js">
+    
+    
+    </script>
+    <style type="text/css">
+    <!-- 
+    @page {
+        size: 210mm 280mm;  /* width height */
+        @top-center { content: "Chapter" counter(chapter) ;
+        
+            }
+    .chapterbreak { page-break-before : right }
+    .pagebreak { page-break-before : right }
+    .pagebreak { page-break-after : avoid }
+    .paged { page-break-inside : avoid }
+   
+    -->
+   </style>
+   <style> 
+    .paged {
+      border: 1px solid grey;
+      width: 205mm;
+      height:    275mm;
+      margin: auto;
+      float: left;
+    }
+       /* Meant as a guideline for where the page breaks, Will attempt to add page numbers, backgrounds etc */
+    .columnedPageTwo {
+      border: 1px solid grey;
+      -webkit-column-count: 2; /* Chrome, Safari, Opera */
+      -moz-column-count: 2; /* Firefox */
+      column-count: 2;
+      -webkit-column-break-inside: avoid;
+          page-break-inside: avoid;
+               break-inside: avoid;
+               text-align: justify;
+      }
+      /* Prevent Blocks of text running over pages */
+      .textBlock {
+      -webkit-column-break-inside: avoid;
+          page-break-inside: avoid;
+               break-inside: avoid;}
+     
+     .element{
+  shape-outside: url(/Printable/img/3D-Orc.png);
+  shape-image-threshold: 0.5;
+  float: left;
+}
+.elementum {
+  shape-inside: url(/Printable/img/3D-Orc.png);
+  shape-image-threshold: 0.5;
+  float: left;
+}
+
+  .img { position: auto;     float: right;
+  }
+  .imgLeft { left: 50px;}
+  .imgRight { right: 50px;}
+  .imgTop { top: 50px;}
+  .imgBottom { bottom: 50px;}
+  .textArea { padding: 20px; height: 80%; width: 80%; margin: 10%}
+  /* Legit Css from here down */
+  h1.titlePage{
+    font-family: 
+  }
+
+      </style>
+  </head>
+  <body ng-app="printTest">
+  
+  <div  ng-controller="printTest">
+   
+    
+    <!-- Page Break, start of code -->
+    <div ng-repeat="page in pages track by $index" class="paged"> 
+    
+      
+      <div class="title" ng-if="page.pageType =='title'">
+        <h1>Page Title Tester</h1>   {{$index}}
+      </div>
+      <div class="npc" ng-if="page.pageType == 'npc'">
+        <h1>NPC Tester </h1>         {{$index}}
+      </div>
+      <div class=" title2" ng-if="page.pageType == 'text'">
+        <h1>Page Tester 3</h1>                 {{$index}}
+      </div>
+    </div>
+  </div>
+  </body>
+  
+  <script>
+      var printTest = angular.module('printTest', []);
+    
+    printTest.controller('printTest', function($scope) {
+      $scope.chapters = ['preChapter', 'Introduction', 'Character Creation', 'Core Rules',
+                          'Warriors & Combat', 'Mystics & Powers', 'Artisans & Crafting', 'Skills',
+                          'Foes', 'Gamesmastering', 'Gladiators and Goblins'] ;
+      $scope.chapterShow = [true,true,true,true,true]
+      
+      $scope.pages = [{
+                      'chapter': 1,
+                      'pageType': 'title',
+                      'subtitle': 'Test of title page'},
+                      {
+                      'chapter': 1,
+                      'pageType' : 'npc',
+                      'npc' : {
+                          'title': 'Merric',
+                          'subtitle': 'Male Halfling Rogue (theif) / Level 3 / Good',
+                          'quote': 'Armour and death have something in common. They are both for the slow',
+                          'chats' : [13, 14, 16, 7, 11,14,13,18,17,19,12,15,28,13,10,15,9,18,21,17,15],
+                          'stats': [] }
+                      },{
+                      'chapter': 1,
+                      'pageType': 'text',
+                      'subtitle': 'Test After',
+                      'textBlock': 'This is some text to test' }];
+      
+      
+                     $scope.npc1  = "Keira";
+                     $scope.npc2 = "Steven";
+                     $scope.npc3 = "Your Characters Name"
+    });
+    
+  </script>
+</html>

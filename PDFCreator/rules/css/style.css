@@ -1,0 +1,351 @@
+/* --==-=-=-=-=-=-=- PRE-SETUP =-==-==-=-=-=-=-=- */
+@font-face {
+  font-family: 'Elvish';
+  font-style: strong;
+  font-weight: 700;
+  src: url('../fonts/elvish.ttf');
+}
+html, body, h1, h2, h3, h4, div, span {
+  margin: 0;
+  padding: 0;
+  position: relative;
+} 
+
+h1, h2, h3, title {
+  font-family: 'IM Fell English SC', serif;
+  text-align: center;
+  
+}
+h1 {
+  font-size: 48px;
+}
+h2 {
+  font-size: 36px;
+}
+
+h3 {
+  font-size: 24px;
+}
+.titlePage img {
+  margin: 10%;
+  width: 80%;
+  padding: 10px;
+}
+.page_background {
+  width: 100%;
+  height: 100%;
+
+  font-family: 'Elvish', cursive;
+}
+.background-text {
+   position: absolute;
+font-family: 'Caesar Dressing', cursive;
+
+}
+.pageHiders {
+  position: absolute;
+  left: 5px;
+}
+
+    /* Background Image set with Transparency */ 
+  .outerDefine {
+  position: relative;
+  width: 100%;
+  margin-left: 5px;
+  }  
+    
+  .pageDefine::before {
+    background-repeat: none;
+    background-position: 50%;
+    background-size: 290mm 330mm;
+    opacity: 0.2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image: url('./img/paper_b.jpg');
+     overflow: hidden;
+    content: "";
+    z-index: 2;
+    }
+    .pageDefine p {
+       font-family: 'Caesar Dressing', cursive;
+      font-family: 'Elvish', cursive;
+      font-size: 70px;
+      opacity: 0.3;
+      position: absolute;
+      margin: 0px;
+      text-align: center;
+     width: 100%;
+    }
+    .pageDefine p.top {
+      top: -72px;
+    }
+    .pageDefine p.top:before {
+      content: "www.secretwebpage.com";
+    }
+  .pageDefine p.bottom {
+      bottom: -72px;   
+    }
+    .pageDefine p.bottom:after {
+      content: "www.secretwebpage.com"
+    }  
+  .pageDefine, .inputDefine {
+      border: 1px solid grey;
+      width: 210mm;
+      height: 297mm;
+      margin: auto;
+      float: left;
+      position: relative;
+      z-index: 3;
+      padding: 1px;
+      overflow: hidden;
+     }
+  
+  /* Inner section of page to allow for page Definitions */   
+  .pageSpan {
+    border: 1px solid black;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+  }
+  /* Legit Css from here down */
+ 
+     
+      
+       /* Meant as a guideline for where the page breaks, Will attempt to add page numbers, backgrounds etc */
+    .columnedPageTwo {
+      border: 1px solid grey;
+      -webkit-column-count: 2; /* Chrome, Safari, Opera */
+      -moz-column-count: 2; /* Firefox */
+      column-count: 2;
+      -webkit-column-break-inside: avoid;
+          page-break-inside: avoid;
+               break-inside: avoid;
+               text-align: justify;
+      }
+      /* Prevent Blocks of text running over pages */
+      .textBlock {
+      -webkit-column-break-inside: avoid;
+          page-break-inside: avoid;
+               break-inside: avoid;}
+     
+     .element{
+  shape-outside: url(/Printable/img/Hunter_Final.png);
+  shape-image-threshold: 0.5;
+  float: left;
+}
+.elementum {
+  shape-inside: url(/Printable/img/Hunter_Final.png);
+  shape-image-threshold: 0.5;
+  float: left;
+}
+
+  .img { position: auto;     float: right;
+  }
+  .imgLeft { left: 50px;}
+  .imgRight { right: 50px;}
+  .imgTop { top: 50px;}
+  .imgBottom { bottom: 50px;}
+  
+  
+  .textArea { 
+    position: absolute;
+    background: white;
+    right: 50px;
+    top: 50px;
+    padding: 10px; 
+    width: 50%; 
+    margin: 5%;
+    z-index: 6;
+    border: 1px solid grey;}
+  
+
+/*  --------------============= PAGE STUFF ============----------- */
+
+  .pageEdge {
+    width: 110px;
+    height: 100%;
+    z-index: 25;
+    position: absolute;
+  }
+
+  .peLeft {
+      background-image: -webkit-gradient(linear, left top, right top, from(rgba(50,50,50,0.7)), to(rgba(80,80,80,0)) );
+      top: 0px;
+      left: 0px;
+  }
+  .peRight {
+      background-image: -webkit-gradient(linear, right top, left top, from(rgba(50,50,50,0.7)), to(rgba(80,80,80,0)) );
+      top: 0px;
+      right: 0px;
+  }
+
+  .pageNumber{
+    width: 100px;
+    height: 100px;
+    
+   
+    bottom: 0px;
+    position: absolute;
+  }
+  
+  /* -----------============== TITLE ==========------*/
+  h1.titlePage {
+
+  }
+  h3.titlePage {
+
+  }
+
+  /* -----------==============NPC ==========------*/
+
+.npc_background_style{
+    width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 2;
+}
+
+  .colour_panel_under {
+z-index: 3;
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(50,50,50,0.7)), to(rgba(80,80,80,0)), color-stop(.5,#333333));
+        
+    background-size: 100%;
+
+  }
+ .colour_panel_over {
+z-index: 5;
+    width: 70%;
+    height: 50%;
+
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(150,50,50,0.8)), to(rgba(180,80,80,0)));
+    background-size: 100%;
+
+  } 
+  .npc_image {
+    z-index: 4;
+    width: 50%;
+    height: 50%;
+
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background-size: 100%
+
+  }
+  .npc_image_large {
+    background-position-x: 40%;
+    background-position-y: 10%;
+    background-size: 210%;
+  }
+
+  .npc_foreground {
+    z-index: 6;
+      width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  
+  }
+  .npc_foreground .titleBox {
+    padding: 20px;
+
+  }
+  .npc_foreground .title {
+    -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: black;
+   text-shadow:
+       3px 3px 0 #000,
+     -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
+   size: 26px;
+   color: white;
+   font-size: 50px;
+  }
+  .npc_foreground .subtitle {
+    text-transform: uppercase;
+  }
+  .npc_foreground .quote {
+    width: 60%;
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(50,50,50,0.9)), to(rgba(80,80,80,0)), color-stop(.8,rgba(50,50,50,0.9)));
+    background-size: 100%;
+    color: white;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    padding: 3px;
+    margin: 3px;
+  }
+
+
+
+  
+  
+  /* --------------============ On Screen Editors =================------------ */
+  .dominant {
+    z-index: 20 !important;
+    padding: 5px;
+    border: 2px solid grey;
+    margin: 5px;
+  }
+
+  .inputFields {
+  position: relative;
+  right: 25px;
+  top: 25px;
+  border: 1px solid #bbb;
+  width: calc(100% - 220mm);
+  float: right;
+  }
+  .jsonFields {
+  position: absolute;
+  right: 25px;
+  top: 325px;
+  border: 1px solid #bbb;
+  width: calc(100% - 220mm);
+               
+  }
+  .printHider {
+    z-index: 25;
+  }
+  .subtitleInput, .quoteInput {
+    width: 70%;
+
+  } 
+  .chats {
+    float: left;
+  }
+  .stats {
+   
+    float: left;
+  }
+  .dominant label{
+    width: 132px;
+    display: inline-block;
+  }
+  .dominant .statInput{
+    width: 45px;
+    display: inline-block;
+  }
+
+  .testThingForThis {
+
+  }

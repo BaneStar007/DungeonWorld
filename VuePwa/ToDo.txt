@@ -1,0 +1,13 @@
+1. install Node
+2. Vue Tutorial
+3. PHP backend, retrieve all
+4. Do I SQL the data? since I already have it in CSV form, isn't it redundant? 
+5. PHP Backend, retrieve One by ID, or One by Email
+6. Vue Front-end, Vue the data
+7. Vue a single on click
+8. Display a single?
+9. Display a batch, wround the single?
+10. Display the whole map, 
+11. Click on a single to go to the batch
+12. Click on a batch single to go to the full details?
+13. Encounter Chart for Single

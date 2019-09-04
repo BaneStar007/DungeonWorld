@@ -348,7 +348,7 @@ var EasterSet = Array( "mvil", "svil", "dungeon", "ruin", "label", "sign", "stat
             } 
          }
       }
-
+      console.log(mapLocations[thisOne]);
          for (let t=0;  t< biomeSet.length; t++) {
             if (mapLocations[thisOne].biomes[biomeSet[t]]) {
                _html +="<div class='temp "+biomeSet[t]+"level "+biomeSet[t]+"'>"+biomeSet[t]+"</div>";  
@@ -515,17 +515,7 @@ var EasterSet = Array( "mvil", "svil", "dungeon", "ruin", "label", "sign", "stat
       $(document).ready(function () {
          
 
-         $.ajax({
-            type: "GET",
-            url: "./data/small_new.json",
-            dataType: "text",
-            success: function (data2) {
-               processData(data2, false);
-            },
-            error: function (error) {
-               console.error(error);
-            }
-         });
+         
 
          $.ajax({
             type: "GET",
@@ -538,6 +528,17 @@ var EasterSet = Array( "mvil", "svil", "dungeon", "ruin", "label", "sign", "stat
             },
             error: function (error) {
                console.log(error);
+            }
+         });
+         $.ajax({
+            type: "GET",
+            url: "./data/small_new.json",
+            dataType: "text",
+            success: function (data2) {
+               processData(data2, false);
+            },
+            error: function (error) {
+               console.error(error);
             }
          });
       });

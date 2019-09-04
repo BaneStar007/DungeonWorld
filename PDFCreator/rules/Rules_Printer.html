@@ -1,0 +1,379 @@
+<html>
+
+    
+
+
+
+<head>
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+
+    <meta http-equiv="Pragma" content="no-cache" />
+
+    <meta http-equiv="Expires" content="0" />
+
+  <script src="./angular.1.6.1.js"></script>
+
+  <script src="main.js"></script>
+
+  <script src="./pages/title.page.js"></script>
+
+  <script src="./pages/npc.page.js"></script>
+
+  <script src="./pages/text.page.js"></script>
+
+  <script src="./pages/item.page.js"></script>
+
+
+  <script src="./pages/title.edit.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="css/print.css" />
+
+  <link rel="stylesheet" type="text/css" href="css/navbar.css" />
+
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+
+
+  <link rel="stylesheet" type="text/css" href="./components/pageNumber.component.css" />
+
+  
+
+  <link href="https://fonts.googleapis.com/css?family=Caesar+Dressing|IM+Fell+English+SC|Moul|Freehand" rel="stylesheet">
+
+
+
+</head>
+
+
+
+<body ng-app="Rules" ng-controller="Printer">
+
+
+
+    <ul class="navbar printHide"> 
+
+        <li class="title" title="This is for the Dungeonworld:DD12 Game"> DD12 Rules Printer
+
+        </li>
+
+        <li class="info" ng-click="showInfo = !showInfo">Info
+
+        </li>
+
+        <li class="info" ng-click="showNPC = !showNPC">NPCs
+
+        </li>
+
+        <li class="info" ng-click="showChoice = !showChoice">Choices
+
+        </li>
+
+        <li class="info" ng-click="addPage()">Add Page
+
+          </li>
+
+    </ul>
+
+
+
+
+
+     
+
+      <div class="textArea" ng-if="ViewCode">{{pages | json}}</div>
+
+
+
+   
+
+
+
+    <br /><br /><br /><br /><br />
+
+
+
+    <!-- Page Break, start of code -->
+
+    <div ng-repeat="page in pages.data track by $index" class="outerDefine" ng-if="!viewCode">
+
+      <div class="printHide printHider pageHiders" style="top: calc({{$index}} * 16px)" class=""><input ng-model="page.show" type="checkbox"  /> {{$index}}</div>
+
+
+
+      <!-- ACTUAL PAGE TO BE DEFINED -->
+
+      <div class="pagebreak pageDefine" ng-if="chapterShow[page.chapter]" ng-show="page.show">
+
+        <p class="top"></p><p class="bottom"></p>
+
+
+
+        <!-- Page Components -->
+
+        <page-number class="pageEdge" number="$index" ng-if="page.pageType.name!=='title'" data="page" config="clockconfig"></page-number>
+
+        
+
+           
+
+        <!-- Page Types -->
+
+        <title-page class="titlePage innerPageDefine" ng-if="page.pageType.name=='title'" data="page" config="chapters[page.chapter]"></title-page>
+
+
+
+        <npc-page class="npcPage" ng-if="page.pageType.name=='NPC'" data="page" config="chapters[page.chapter]"></npc-page>
+
+
+
+        <text-page class="textPage" ng-if="page.pageType.name=='text'" data="page" config="chapters[page.chapter]"></text-page>
+
+{{page}}
+
+        <item-page class="itemPage" ng-if="page.pageType.name=='item'" data="page" config="chapters[page.chapter]"></item-page>
+
+        
+
+        <div class="footer">CLASSIFIED</div>
+
+      </div>
+
+
+
+
+
+      <!-- INPUT PAGE TO BE DEFINED -->
+
+      <div class="printHide  inputDefine" ng-if="printView" ng-show="page.show">
+
+        <div class="dominant">
+
+          <select class="dominant" ng-model="page.pageType" ng-options="option.name for option in optionData.availableOptions track by option.id">
+
+            </select>
+
+
+
+          <!-- Title Page -->
+
+          <div ng-if="page.pageType.name=='title'" class="dominant">
+
+            TITLE PAGE:<br />
+
+            Chapter Title <input class="titleInput dominant" ng-model="chapters[page.chapter]"><br />
+
+            subTitle <input class="titleInput dominant" ng-model="page.subtitle"><br />
+
+            Image Link <input class="titleInput dominant" ng-model="page.image"><br />
+
+          </div>
+
+
+
+          <!-- NPC Page -->
+
+          <div ng-if="page.pageType.name=='NPC'" class="dominant">
+
+           <label>image: </label><input class="titleInput" ng-model="page.npc.image">
+
+            <label>title: </label><input class="titleInput" ng-model="page.npc.title"><br/>
+
+            <label>subtitle: </label><input class="subtitleInput" ng-model="page.npc.subtitle"><br/>
+
+            <label>Quote: </label><input class="quoteInput" ng-model="page.npc.quote"><br/>
+
+            <div class="container">
+
+            <div class="chats">
+
+              <div ng-repeat="chat in page.npc.chats  track by $index">
+
+                <label>{{chats[$index]}}</label>: <input class="statInput" ng-model="chat">
+
+              </div>
+
+            </div>
+
+            <div class="stats">  
+
+              <div ng-repeat="pstat in page.npc.pstats  track by $index" >
+
+                <label>{{data.primaryStats[$index]}}</label>: <input class="statInput" ng-model="pstat">
+
+              </div>
+
+            </div>  
+
+            <div class="stats">  
+
+              <div ng-repeat="sstat in page.npc.sstats  track by $index" >
+
+                <label>{{data.primaryStats[$index]}}</label>: <input class="statInput" ng-model="sstat">
+
+              </div>
+
+            </div>
+
+             <div class="stats">  
+
+              <div ng-repeat="skill in page.npc.skills  track by $index" >
+
+                <label>{{data.primaryStats[$index]}}</label>: <input class="statInput" ng-model="skill">
+
+              </div>
+
+            </div>
+
+            data
+
+            </div>  
+
+
+
+          </div>
+
+
+
+          
+
+
+
+          <!-- Text Page -->
+
+          <div ng-if="page.pageType.name=='text'" class="dominant">
+
+            This is a Text Edit Field
+
+          </div>
+
+
+          <!-- Text Page -->
+
+          <div ng-if="page.pageType.name=='item'" class="dominant">
+
+              This is an Item Edit Field
+
+              <div ng-repeat="item in page.items track by $index" ></div>
+
+              <label>Item Name</label>
+               <input class="titleInput dominant" ng-model="item.title"><br />
+
+            <label>Item Number</label>
+               <input class="titleInput dominant" ng-model="item.number"><br />
+
+            <label>Image Link</label>
+             <input class="titleInput dominant" ng-model="item.image"><br />
+
+             
+             <label>Text Block</label>
+             <input class="titleInput dominant" ng-model="item.text"><br />
+
+          </div>
+
+            </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- Modals -->
+
+    <div class="modalShadow" ng-show="showInfo">
+
+      <div class="modal-content">
+
+        <div class="navbar"><h1>Information</h1> <span class="close" ng-click="showInfo = !showInfo">&times;</span></div>
+
+        <p><b class="firstChar">W</b>elcome to the Dungeonworld : Dungeon Delvers Twelve Rules Printing System</p>
+
+        <p>This is a work in progress, and is designed to be able to print up a single chapter of the rules, as a test run of the prinatble rules system.</p>
+
+        <h3>Why?</h3>
+
+        <p>Several Reasons: Indesign costs money, lots of money, more than I can afford. So instead I've programmed exactly what I need for this<br /> I can run a script on hundreds of potential NPCS and get results, instantaneously, I can put all backgrounds into a spreadsheet and spit out hundreds if not millions of Backgrounds, races, lifestyles, all from a few clicks. The eventual goal is to make this public (I mean yes, it is already, but it will be the full rules, not just a chapter) You'll be able to click which chapters you want to run, PDF print yourself a copy, go to your local print shop and get a $25-$50 soft or hard-cover print of the rules for your very own.</p>
+
+        <p>Also, you'll be able to name the NPCS given in the examples, choose their stats, and the rules will update to reflect those changes, well maybe.. if you create a warrior with strength 24, and the rules talk about failing, then it'll choose a character that doesn't have a strength 24.. maybe</p>
+
+      </div>
+
+    </div>
+
+    <div class="modalShadow" ng-show="showNPC">
+
+      <div class="modal-content">
+
+        <div class="navbar"><h1>NPC Information</h1> <span class="close" ng-click="showNPC = !showNPC">&times;</span></div>
+
+        <p><b class="firstChar">T</b>o allow players to have a more unique document, NPC names can be added</p>
+
+        <p>Players and even Gamesmasters, like to see some personalisation in their documents. What better way to reward backers, by including their favourite NPCS throught the document. <br /> To make this work however, either the NPC text should be ultra dynamic, or the NPCs should be declared to fit the correct spot:</p>
+
+        <h3>Specifics</h3>
+
+
+
+        <span>Warrior NPC Name #1<input ng-model="pages.data[1].npc.title" > Good Strength? <input type="radio" value="1" ng-model="pages.data[1].npc.strength" ><input type="radio" value="2"  ng-model="pages.data[1].npc.strength" ></span> <br />
+
+        <span>Mystic NPC Name #2<input ng-model="pages.data[2].npc.title" > Good Psychic? <input type="radio" value="1" ng-model="pages.data[2].npc.psychic" ><input type="radio" value="2" ng-model="pages.data[2].npc.psychic" ></span> <br />
+
+        <span>Artisan NPC Name #3<input ng-model="pages.data[3].npc.title" >Good Dexterity? <input type="radio" value="1" ng-model="pages.data[3].npc.dexterity" ><input type="radio" value="2" ng-model="pages.data[3].npc.dexterity" ></span> <br />
+
+
+
+      </div>
+
+    </div>
+
+    <div class="modalShadow" ng-show="showChoice">
+
+      <div class="modal-content">
+
+        <div class="navbar"><h1>View Choices</h1> <span class="close" ng-click="showChoice = !showChoice">&times;</span></div>
+
+        <p><b class="firstChar">C</b>hoose factors of what your looking at</p>
+
+        <p>Better text to follow:</p>
+
+        <h3>Specifics</h3>
+
+
+
+        <input type="checkbox" ng-model="chapterShow[1]"> Show Chapter One <br />
+
+        <input type="checkbox" ng-click="printViewChange()"> Hide all Non-Printable Parts <br />
+
+        <input type="checkbox" ng-model="ViewCode"> View Code instead of Pages<br />
+
+      </div>
+
+    </div>
+
+
+
+</body>
+
+
+<script src="./components/pageNumber.component.js"></script>
+
+<style type="text/css">
+
+  <!-- 
+
+   @page {
+
+   size: 210mm 295mm;
+
+   /* width height */
+
+   margin: 1mm;
+
+ }    --> 
+
+</style>
+
+</html>

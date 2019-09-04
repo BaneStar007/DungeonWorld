@@ -1,0 +1,55 @@
+
+{{$ctrl.page}}
+<div class="itemPage" ng-if="page.pageType.name=='item'">Item Page {{$ctrl.page}}
+
+        
+
+                  <h1 class="itemPage"> {{$ctrl.page.item.title}} </h1>
+
+        
+
+                  <!-- item Backgrounds -->
+
+                  <div class="item_background_style" ng-class="item_background_style">
+
+                    <div class="colour_panel_under" ng-class="$ctrl.page.item.colour">
+
+                    </div>
+
+                    <div class="item_image" ng-class="$ctrl.page.item.bkimage" style="background-image: url(/rules/img/{{$ctrl.page.item.image}})">
+
+                    </div>
+
+                    <div class="colour_panel_over" ng-class="$ctrl.page.item.colour">
+
+                    </div>
+
+                  </div>
+
+        
+
+                  <!-- item foreground -->
+
+                  {{page}}
+
+                  <div class="item_foreground">
+
+                    <div class="titleBox">
+
+                      <div class="title">{{$ctrl.page.item.number}}</div>
+
+                      <div class="subtitle">{{$ctrl.page.item.title}}</div>
+
+                      <div class="quote">{{$ctrl.page.item.text}}</div>
+
+                    </div>
+
+                    <div class="statBox">
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+                

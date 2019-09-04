@@ -1,0 +1,33 @@
+
+<div id="container" ng-clas1s="{ 'peLeft': ($ctrl.number % 2 == 1), 'peRight' : ($ctrl.number % 2 == 0)}">
+      <div class="pageNumber">{{$ctrl.number}}</div>
+ <!-- <div class="cog1" style="{{$ctrl.cogs[0].str}}"></div>
+      <div class="cog2"style="{{$ctrl.cogs[1].str}}"></div>
+      <div class="cog3" style="{{$ctrl.cogs[2].str}}"></div>
+      <div class="cog4"style="{{$ctrl.cogs[3].str}}"></div>
+      <div class="cog5" style="{{$ctrl.cogs[4].str}}">
+            <div class="cog6"style="{{$ctrl.cogs[5].str}}"></div>
+      </div>
+-->
+      <div class="clockface" style="{{$ctrl.clockface.str}}">
+            <div ng-repeat="ticks in $ctrl.ticks" class="chock" style="{{ticks.str}} ">
+                  <img src="./img/jasper.jpg" style="width: 16px;">
+            </div>
+      </div>
+
+      <div class="clockface2" style="{{$ctrl.clockface2.str}}">
+      
+      <div class="hand hand1" style="{{$ctrl.hand1.str}}">
+            <img src="./img/hand1.png" style="width: {{$ctrl.config.size}}px; ">
+      </div>
+      <div class="hand hand2" style="{{$ctrl.hand2.str}}">
+            <img src="./img/hand2.png" style="width: {{$ctrl.config.size}}px; left: 10px;">
+      </div>
+      <div class="hand hand3" style="{{$ctrl.hand3.str}}">
+            <img src="./img/hand3.png" style="width: {{$ctrl.config.size}}px; left: 10px;">
+      </div>
+      <div class="hand hand4" style="{{$ctrl.hand4.str}}">
+            <img src="./img/hand4.png" style="width: {{$ctrl.config.size}}px;">
+      </div>
+</div>
+    </div>

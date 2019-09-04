@@ -1,0 +1,63 @@
+{
+  "chapters": ["preChapter", "Introduction", "Character Creation", "Core Rules",
+                          "Warriors & Combat", "Mystics & Powers", "Artisans & Crafting", "Skills",
+                          "Foes", "Gamesmastering", "Gladiators and Goblins"],
+   "chats": ["Short Vision", "Long Vision", "Night Vision", "Magic Vision",
+             "Strength", "Courage", "Constitution", "Reflexes", "Dexterity", "Intelligence",
+             "Wisdom", "Psychic", "Willpower", "Charisma", "Looks", "Luck" ],
+    "primaryStats": ["Attack", "Defence", "Ranged",
+              "Stealth", "Perception", "Courage",
+              "Constitution", "Reflexes", "Dexterity",
+              "Psychic", "Willpower", "Charisma"],
+    "secondaryStats": ["Attack", "Defence", "Ranged",
+              "Stealth", "Perception", "Courage",
+              "Constitution", "Reflexes", "Dexterity",
+              "Psychic", "Willpower", "Charisma"],          
+  "data": [{
+           "chapter" : 1,
+           "pageType": { "name": "title", "id": "1" },
+           "subtitle": "Test of title page",
+           "image": "characters.jpg",
+           "show": true
+           },{
+           "chapter"  : 1,
+           "show": true,
+           "pageType" : { "name": "NPC", "id": "2" },
+           "npc" :   {
+                  "image": "npc1.jpg",
+                  "title": "Merric",
+                  "subtitle": "Female Human Rogue (theif) / Level 3 / Good",
+                  "quote": "Armour and death have something in common. They are both for the slow",
+                  "chats": [13, 14, 16, 7, 11,14,13,18,17,19,12,15,28,13,10,15],
+                  "pstats": [15, 15, 15],
+                  "sstats": [15, 18, 15] , 
+                   "skills": [15, 21, 15]  
+                     }
+            },{
+           "chapter"  : 1,
+           "show": true,
+           "pageType" : { "name": "NPC", "id": "2" },
+           "npc" :   {
+                  "image": "Warrior_Final.png",
+                  "bkimage": "npc_image_large",
+                  "title": "McBain the Brain",
+                  "subtitle": "Male Human Warrior (Knight) / Level 7 / Good",
+                  "quote": "Well I like my armour Pfft!",
+                  "chats": [13, 14, 16, 7, 11,14,13,18,17,19,12,15,28,13,10,15],
+                  "pstats": [15, 15, 15],
+                  "sstats": [15, 15, 15] , 
+                   "skills": [15, 15, 15]  
+                     }
+            },{
+            "chapter" : 1,
+            "show": true,
+            "pageType": {"name": "text", "id": "3" },
+            "text"    : [{"subtitle": "Section Title 1",
+                          "text": "This is a block of text that should be here in this  Note 100% sure that the + in the javascript will work but testing"},
+                         {"subtitle": "Section Title 2",
+                          "text": "This is a block of text that should be here in this  Note 100% sure that the + in the javascript will work but testing"},
+                         {"subtitle": "Section Title 3",
+                          "text": "TThis is a block of text that should be here in this  Note 100% sure that the + in the javascript will work but testingg"}]  
+            }
+            ]
+}
