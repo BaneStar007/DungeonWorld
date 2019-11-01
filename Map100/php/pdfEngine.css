@@ -1,0 +1,93 @@
+.pdfEngine {
+   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   font-size: 14pt;
+   width: calc(100% - 2px);
+   margin: 12px 2px;
+}
+
+.box {
+   line-height: 14pt;
+   
+   border: 1px solid brown;
+   background: navajowhite;
+   float: left;
+}
+.mainBox {
+   padding: 2px;
+   margin: 2px;
+}
+
+.itemLabel {
+   float: left;
+   min-width: 150px;
+}
+.itemData {
+   float: left;
+   font-weight: 600;
+}
+.itemBox10, .itemBox20, .itemBox30, .itemBox40, .itemBox50, .itemBox60, .itemBox70, .itemBox80, .itemBox90, .itemBox100 {
+   border-radius: 2px;
+   float: left;
+   padding: 2px;
+   margin: 2px;
+}
+.itemBox10 {
+   width: calc(10% - 6px);
+}
+.itemBox20 {
+   width: calc(20% - 6px);
+}
+.itemBox30 {
+   width: calc(30% - 6px);
+}
+.itemBox40 {
+   width: calc(40% - 6px);
+}
+.itemBox50 {
+   width: calc(50% - 6px);
+}
+.itemBox60 {
+   width: calc(60% - 6px);
+}
+.itemBox70 {
+   width: calc(70% - 6px);
+}
+.itemBox80 {
+   width: calc(80% - 6px);
+}
+.itemBox90 {
+   width: calc(90% - 6px);
+}
+.itemBox100 {
+   width: calc(100% - 6px);
+}
+
+.itemData img {
+   object-fit: none;
+   object-position: 0 0;
+   width: 55px;
+   height: 55px;
+ }
+
+ .itemData img.icon_castle {
+    object-position: -800px -165px;
+ }
+ .itemData img.icon_dungeon {
+   object-position: -1330px -185px;
+}
+.itemData img.icon_unknown {
+   object-position: -470px -560px;
+}
+.itemData img.icon_terrain {
+   object-position: -150px -1090px;
+   
+}
+.itemData img.icon_hole {
+   object-position: -1330px -55px;
+   
+}
+.itemData img.icon_object {
+   object-position: -1070px -55px;
+   
+}
+

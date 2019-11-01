@@ -169,7 +169,7 @@ var EasterSet = Array( "mvil", "svil", "dungeon", "ruin", "label", "sign", "stat
          if (locFind == "") {
             rando = Math.round(Math.random()*(mapLocations.length));
                   
-                  
+                 
                   locFind=parseInt(rando);
                   $('#location').val(locFind);
          }
@@ -177,36 +177,37 @@ var EasterSet = Array( "mvil", "svil", "dungeon", "ruin", "label", "sign", "stat
       if ($('#location').val()) {
          
          
-
          if (isInt(locFind)) { 
-            if (trigger) {
-               
-               rando = 1; //Math.round(Math.random()*3)+1;
-        
-                  locFind = parseInt(locFind);
-                  locFind+=parseInt(rando);
+           
+              // If loc Exists, and is the same as before, add one
+              if (locFind == current) {
+               locFind = parseInt(locFind)+1;
                if (locFind > mapLocations.length) { locFind =1;}
+               thisOne = locFind;
+              } else {
+               for (id=0; id< mapLocations.length; id++) {
 
-               
-            }
-            thisOne = locFind;
+                  if (mapLocations[id].locID == locFind) {
+                     thisOne = id;
+  
+                  }
+               }
+
+              }
+        
+            
             $('#location').val(locFind);
             
          } else {
             
-            for (id=0; id< mapLocations.length; id++) {
-
-               if (mapLocations[id].Email == locFind) {
-                  thisOne = id;
-                 
-               }
-            }
+            
 
          }
          
       } else {
         
          thisOne = 1;
+         console.log("thisONE = 1");
       }
          var size =0;
      
