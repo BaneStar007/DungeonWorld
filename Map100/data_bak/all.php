@@ -40,7 +40,8 @@ $all = '[
     "__1": ",\"dungeon entrance",
     "__2": "farming village",
     "__3": ",\"dwarven minig town",
-    "Notes__1": "not many details in the descriptions of the secondary locations"
+    "Notes__1": "not many details in the descriptions of the secondary locations",
+    
   },
   {
     "Backer Number": 4,

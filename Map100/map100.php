@@ -1,3 +1,5 @@
+
+
 <html>
 
 <head>
@@ -7,7 +9,8 @@
    <script type="text/javascript" src="./js/lib.js?v=1.1"></script>-->
    <link href="css/index.css?v=1.1" rel="stylesheet" type="text/css" />
    <link href="php/pdfEngine.css?v=1.1" rel="stylesheet" type="text/css" />
-
+   <link href="css/index.css?v=1.1" rel="stylesheet" type="text/css" />
+   <link href="https://fonts.googleapis.com/css?family=Yeon+Sung&display=swap" rel="stylesheet">
 </head>
 <script>
 function openHex(element) {
@@ -30,7 +33,26 @@ function closeHex(element) {
 
 </script>
 <body>
-<?php
+<a href="map100.php?sort=1">
+    <button>Sort by Aztec</button>
+</a>
+<a href="map100.php?map=true">
+    <button>The Map</button>
+</a>
+<a href="map100.php?map=false">
+    <button>The PDF</button>
+</a>
+
+<?php 
+$sort = 0;
+$map = 0;
+$sort = $GET["sort"];
+$map = $GET["map"];
+$sort = htmlspecialchars($sort);
+$map = htmlspecialchars($map);
+
+echo "<br />";
+
 
 error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
 ini_set("display_errors", 1);
@@ -51,7 +73,7 @@ include('data/all.php'); // ALL is broken.. somehow?
 
   // phpinfo();
 
- function run($all) {
+ function run($all, $sort) {
 
     
 $x =2;
@@ -61,11 +83,18 @@ $MapData = Array();
 
 $allArray = json_decode($all, true);
 
+ if ($sort) {
+   echo "all good";
+//   usort($allArray, function ($a, $b) {
+//     return $a['StyleType'] <=> $b['StyleType'];
+// });
+ }
+
 echo count($allArray);
   foreach ($allArray as $key => $value) {
      
-   $x++;
-   if ($x > $xMax) { $x = 2; $y++;}
+   $x+=3;
+   if ($x > $xMax) { $x = 2; $y+=4;}
    if (isset($value['locX'])) {
     if($value['locX'] == '') {
       $value['locX'] = $x;
@@ -82,7 +111,7 @@ echo count($allArray);
    }
    
    $data = process($key, $value);
-   
+   echo "<br />Dtata:".$x.'='.$y;
    
    pdfPanel($data);
    // Process will now return several Hexes of Data
@@ -92,8 +121,14 @@ echo count($allArray);
    
  } // end of RUN
 
-  run($all);
 
+ if ($map == true) {
+
+ } else {
+  run($all, $sort);
+
+ }
+  
 ?>
 </body>
 </html>

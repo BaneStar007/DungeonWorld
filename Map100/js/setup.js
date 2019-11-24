@@ -594,8 +594,8 @@ function processData(allText, FullData) {
                } else {
                   data[i].overspend++;
                   data[i].overspent.push("styles " + (Object.keys(data[i].style).length - 2));
-                  console.error("User:", data[i]["Backer Name"], "styles", data[i].style);
-                  console.error(data[i].style);
+                  console.error("User Data Fail:", data[i]["Backer Name"], "styles", data[i].style);
+                  console.error(data[i]);
                   //rando = Math.ceil((Math.random()*6)+1);
                   //deleteFromObject(structureSet[rando], data[i].style);
                }  
